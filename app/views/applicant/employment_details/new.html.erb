@@ -1,0 +1,17 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <%= form_with(model: @employment_detail, local: true) do |f| %>
+
+      <%= f.govuk_error_summary %>
+
+      <h1 class="govuk-heading-l">
+        Employment details
+      </h1>
+
+      <%= f.govuk_text_field :school_name, label: { text: "School name", size: "m" }, hint: { text: "Please provide the name of your employing English state-funded secondary school" } %>
+      <%= f.govuk_text_field :school_address, label: { text: "School address", size: "m" }, hint: { text: "What is the address of the school?" } %>
+      
+      <%= f.govuk_submit "Submit application" %>
+    <% end %>
+  </div>
+</div>

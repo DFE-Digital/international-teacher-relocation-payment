@@ -30,4 +30,20 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activemodel:
+    errors:
+      models:
+        applicant/personal_detail:
+          attributes:
+            first_names:
+              blank: Enter your given name(s)
+            last_names:
+              blank: Enter your family name(s)
+              email:
+                blank: Enter your email address
+        applicant/employment_detail:
+          attributes:
+            school_name:
+              blank: Enter your school's name
+            school_address:
+              blank: Enter your school's address
