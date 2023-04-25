@@ -1,0 +1,42 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - ./lib/rubocop/cop/govuk/govuk_button_to.rb
+  - ./lib/rubocop/cop/govuk/govuk_link_to.rb
+  - ./lib/rubocop/cop/govuk/govuk_submit.rb
+  - ./lib/rubocop/cop/register/register_form_with.rb
+
+inherit_from:
+  - ./config/rubocop/layout.yml
+  - ./config/rubocop/lint.yml
+  - ./config/rubocop/metrics.yml
+  - ./config/rubocop/naming.yml
+  - ./config/rubocop/rails.yml
+  - ./config/rubocop/style.yml
+  - ./config/rubocop/rspec.yml
+  - .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+  Exclude:
+    - "bin/*"
+    - "db/schema.rb"
+    - "node_modules/**/*"
+
+Style/MethodCallWithArgsParentheses:
+  AllowParenthesesInMultilineCall: true
+  AllowParenthesesInStringInterpolation: true
+  AllowParenthesesInChaining: true
+  Enabled: true
+  Exclude:
+    - "spec/**/*"
+    - "db/migrate/*"
+    - "config/routes/*"
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: consistent
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
