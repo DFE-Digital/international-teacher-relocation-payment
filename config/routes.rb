@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :application_types, only: %i[new create]
     resources :school_eligibilities, only: %i[new create]
     resources :contract_eligibilities, only: %i[new create]
+    resources :contract_start_dates, only: %i[new create]
     resources :personal_details, only: %i[new create]
     resources :employment_details, only: %i[new create]
   end

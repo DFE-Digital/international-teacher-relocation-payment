@@ -1,0 +1,16 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <%= form_with(model: @contract_start_date, local: true) do |f| %>
+
+      <%= f.govuk_error_summary %>
+
+      <h1 class="govuk-heading-l">
+        Contract start date
+      </h1>
+      
+      <%= f.govuk_date_field :contract_start_date, legend: { text: "Please enter the start date of your contract", size: "s" } %>
+
+      <%= f.govuk_submit %>
+    <% end %>
+  </div>
+</div>
