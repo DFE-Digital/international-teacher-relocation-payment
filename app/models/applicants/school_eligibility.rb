@@ -3,13 +3,12 @@ module Applicants
     include ActiveModel::Model
     attr_accessor :state_funded_secondary_school
 
-    SCHOOL_OPTIONS = %w[true false]
+    SCHOOL_OPTIONS = %w[yes no]
 
-    validates :state_funded_secondary_school, presence: true,
-              inclusion: { in: SCHOOL_OPTIONS }
+    validates :state_funded_secondary_school, presence: true, inclusion: { in: SCHOOL_OPTIONS }
 
     def eligible?
-      ActiveModel::Type::Boolean.new.cast(state_funded_secondary_school)
+      state_funded_secondary_school == "yes"
     end
   end
 end

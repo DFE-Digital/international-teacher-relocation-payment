@@ -33,6 +33,14 @@ en:
   activemodel:
     errors:
       models:
+        applicants/contract_eligibility:
+          attributes:
+            one_year_contract:
+              blank: Choose an option
+        applicants/contract_start_date:
+          attributes:
+            contract_start_date:
+              blank: Enter your contract start date
         applicants/personal_detail:
           attributes:
             given_name:

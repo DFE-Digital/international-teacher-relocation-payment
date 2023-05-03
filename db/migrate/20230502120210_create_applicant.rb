@@ -15,7 +15,7 @@ class CreateApplicant < ActiveRecord::Migration[7.0]
       t.text :school_name
       # t.text :school_address
       # t.text :contact_details
-      # t.text :contract_type
+      # t.text :one_year_contract
       t.text :subject
       t.text :visa_type
       t.date :date_of_entry

@@ -3,9 +3,9 @@
     <%= form_with(model: @contract_eligibility, local: true) do |f| %>
       <%= f.govuk_error_summary %>
 
-      <%= f.govuk_radio_buttons_fieldset(:contract_type, legend: { text: "What type of contract are you currently employed on?", tag: "h1", size: "l" }) do %>
-        <% Applicants::ContractEligibility::CONTRACT_TYPE_OPTIONS.each_with_index do |value, i| %>
-          <%= f.govuk_radio_button :contract_type, value, label: { text: value.humanize }, link_errors: i.zero? %>
+      <%= f.govuk_radio_buttons_fieldset(:one_year_contract, legend: { text: "Are you employed on a contract lasting at least one academic year?", tag: "h1", size: "l" }) do %>
+        <% Applicants::ContractEligibility::ONE_YEAR_CONTRACT_OPTIONS.each_with_index do |value, i| %>
+          <%= f.govuk_radio_button :one_year_contract, value, label: { text: value.humanize }, link_errors: i.zero? %>
         <% end %>
       <% end %>
       

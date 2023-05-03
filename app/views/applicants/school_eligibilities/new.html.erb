@@ -4,8 +4,9 @@
       <%= f.govuk_error_summary %>
 
       <%= f.govuk_radio_buttons_fieldset(:state_funded_secondary_school, legend: { text: "Are you currently employed by an English state-funded secondary school?", tag: "h1", size: "l" }) do %>
-        <%= f.govuk_radio_button :state_funded_secondary_school, :true, label: { text: "Yes" }, link_errors: true %>
-        <%= f.govuk_radio_button :state_funded_secondary_school, :false, label: { text: "No" } %>
+        <% Applicants::SchoolEligibility::SCHOOL_OPTIONS.each_with_index do |value, i| %>
+          <%= f.govuk_radio_button :state_funded_secondary_school, value, label: { text: value.humanize }, link_errors: i.zero? %>
+        <% end %>
       <% end %>
 
       <%= f.govuk_submit %>

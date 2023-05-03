@@ -1,14 +1,14 @@
 module Applicants
   class ContractEligibility
     include ActiveModel::Model
-    attr_accessor :contract_type
+    attr_accessor :one_year_contract
 
-    CONTRACT_TYPE_OPTIONS = %w[permanent fixed_term other]
+    ONE_YEAR_CONTRACT_OPTIONS = %w[yes no]
 
-    validates :contract_type, presence: true, inclusion: { in: CONTRACT_TYPE_OPTIONS }
+    validates :one_year_contract, presence: true, inclusion: { in: ONE_YEAR_CONTRACT_OPTIONS }
 
     def eligible?
-      contract_type != "other"
+      one_year_contract == "yes"
     end
   end
 end
