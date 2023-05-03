@@ -13,7 +13,7 @@ module Applicants
             'fifty_percent' => @teaching_time_eligibility.fifty_percent,
           }
 
-          redirect_to new_applicants_personal_detail_path
+          redirect_to new_applicants_visa_eligibility_path
         else
           redirect_to ineligible_path
         end

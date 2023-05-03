@@ -49,6 +49,10 @@ en:
           attributes:
             subject:
               blank: Please choose a subject
+        applicants/entry_date:
+          attributes:
+            entry_date:
+              blank: Enter your entry date
         applicants/personal_detail:
           attributes:
             given_name:

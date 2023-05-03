@@ -1,0 +1,12 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <%= form_with(model: @entry_date, local: true) do |f| %>
+
+      <%= f.govuk_error_summary %>
+      
+      <%= f.govuk_date_field :entry_date, legend: { text: "Please enter the date that you relocated to England to begin your employment", tag: "h1", size: "l" } %>
+
+      <%= f.govuk_submit %>
+    <% end %>
+  </div>
+</div>

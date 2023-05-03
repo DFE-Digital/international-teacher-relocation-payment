@@ -30,7 +30,6 @@ module Applicants
       params.require(:applicants_contract_start_date).permit(
         *DATE_CONVERSION.keys,
       ).transform_keys { |key| DATE_CONVERSION[key] }
-
     end
   end
 end
