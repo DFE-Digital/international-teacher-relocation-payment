@@ -18,7 +18,7 @@ module Applicants
           "contract_start_date" => @contract_start_date.contract_start_date,
         }
 
-        redirect_to new_applicants_personal_detail_path
+        redirect_to new_applicants_subject_eligibility_path
       else
         render :new
       end
