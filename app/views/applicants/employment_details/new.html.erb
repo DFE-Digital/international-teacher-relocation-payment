@@ -9,7 +9,8 @@
       </h1>
 
       <%= f.govuk_text_field :school_name, label: { text: "School name", size: "m" }, hint: { text: "Please provide the name of your employing English state-funded secondary school" } %>
-      
+      <%= f.govuk_text_field :school_headteacher_name, label: { text: "Headteacher name", size: "m" }, hint: { text: "Please provide the name of the Head teacher or Principal of the school." } %>
+
       <%= f.govuk_submit "Submit application" %>
     <% end %>
   </div>

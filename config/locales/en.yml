@@ -73,3 +73,6 @@ en:
           attributes:
             school_name:
               blank: Enter your school's name
+            school_headteacher_name:
+              blank: Enter the headteacher's name
+              

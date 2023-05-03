@@ -19,7 +19,10 @@ module Applicants
     private
 
     def employment_detail_params
-      params.require(:applicants_employment_detail).permit(:school_name)
+      params.require(:applicants_employment_detail).permit(
+        :school_name,
+        :school_headteacher_name,
+      )
     end
 
     def applicant_params
