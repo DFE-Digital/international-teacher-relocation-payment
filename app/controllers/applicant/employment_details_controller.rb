@@ -17,7 +17,7 @@ module Applicant
         # Applicant.create!(applicant_params)
         # session.delete('')
 
-        binding.pry
+        redirect_to submitted_path
       else
         render :new
       end

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "pages#start"
 
+  get "/submitted", to: "pages#submitted"
+  get "/ineligible", to: "pages#ineligible"
+
   namespace :applicant do
     resources :school_eligibilities, only: %i[new create]
     resources :contract_eligibilities, only: %i[new create]

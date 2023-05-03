@@ -4,9 +4,10 @@
       <%= f.govuk_error_summary %>
 
       <%= f.govuk_radio_buttons_fieldset(:contract_type, legend: { text: "What type of contract are you currently employed on?", tag: "h1", size: "l" }) do %>
-        <%= f.govuk_radio_button :contract_type, :permanent, label: { text: "Permanent" }, link_errors: true %>
-        <%= f.govuk_radio_button :contract_type, :fixed_term, label: { text: "Fixed term" } %>
-        <%= f.govuk_radio_button :contract_type, :other, label: { text: "Other" } %>
+
+        <% Applicant::ContractEligibility::CONTRACT_TYPE_OPTIONS.each do |value| %>
+          <%= f.govuk_radio_button :contract_type, value, label: { text: value.humanize } %>
+        <% end %>
       <% end %>
       
       <%= f.govuk_submit %>

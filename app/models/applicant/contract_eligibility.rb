@@ -3,6 +3,12 @@ module Applicant
     include ActiveModel::Model
     attr_accessor :contract_type
 
-    validates :contract_type, inclusion: { in: %w[permanent fixed_term other] }
+    CONTRACT_TYPE_OPTIONS = %w[permanent fixed_term other]
+
+    validates :contract_type, inclusion: { in: CONTRACT_TYPE_OPTIONS }
+
+    def eligible?
+      contract_type != "other"
+    end
   end
 end

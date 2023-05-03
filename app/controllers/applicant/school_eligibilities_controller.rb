@@ -8,12 +8,16 @@ module Applicant
       @school_eligibility = SchoolEligibility.new(school_eligibility_params)
 
       if @school_eligibility.valid?
-        # Temporarily store the values in the session rather than the database.
-        session[:school_eligibility] = {
-          'state_funded_secondary_school' => @school_eligibility.state_funded_secondary_school,
-        }
+        if @school_eligibility.eligible?
+          # Temporarily store the values in the session rather than the database.
+          session[:school_eligibility] = {
+            'state_funded_secondary_school' => @school_eligibility.state_funded_secondary_school,
+          }
 
-        redirect_to new_applicant_contract_eligibility_path
+          redirect_to new_applicant_contract_eligibility_path
+        else
+          redirect_to ineligible_path
+        end
       else
         render :new
       end

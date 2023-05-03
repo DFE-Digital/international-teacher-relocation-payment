@@ -8,12 +8,15 @@ module Applicant
       @contract_eligibility = ContractEligibility.new(contract_eligibility_params)
 
       if @contract_eligibility.valid?
-        # Temporarily store the values in the session rather than the database.
-        session[:contract_eligibility] = {
-          'contract_type' => @contract_eligibility.contract_type,
-        }
+        if @contract_eligibility.eligible?
+          session[:contract_eligibility] = {
+            'contract_type' => @contract_eligibility.contract_type,
+          }
 
-        redirect_to new_applicant_personal_detail_path
+          redirect_to new_applicant_personal_detail_path
+        else
+          redirect_to ineligible_path
+        end
       else
         render :new
       end
