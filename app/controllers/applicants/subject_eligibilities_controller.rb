@@ -13,7 +13,7 @@ module Applicants
             'subject' => @subject_eligibility.subject,
           }
 
-          redirect_to new_applicants_personal_detail_path
+          redirect_to new_applicants_teaching_time_eligibility_path
         else
           redirect_to ineligible_path
         end
