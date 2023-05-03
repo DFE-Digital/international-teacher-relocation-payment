@@ -2,14 +2,14 @@
 
 require "rails_helper"
 
-module Applicant
+module Applicants
   describe ContractEligibility, type: :model do
     let(:params) { {} }
     subject { described_class.new(params) }
 
     describe "validations" do
       it { is_expected.to validate_inclusion_of(:contract_type)
-        .in_array(Applicant::ContractEligibility::CONTRACT_TYPE_OPTIONS) }
+        .in_array(Applicants::ContractEligibility::CONTRACT_TYPE_OPTIONS) }
     end
 
     describe "#eligible?" do

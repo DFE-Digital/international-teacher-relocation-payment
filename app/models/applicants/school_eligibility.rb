@@ -1,4 +1,4 @@
-module Applicant
+module Applicants
   class SchoolEligibility
     include ActiveModel::Model
     attr_accessor :state_funded_secondary_school

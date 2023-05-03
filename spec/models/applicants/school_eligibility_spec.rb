@@ -2,14 +2,14 @@
 
 require "rails_helper"
 
-module Applicant
+module Applicants
   describe SchoolEligibility, type: :model do
     let(:params) { {} }
     subject { described_class.new(params) }
 
     describe "validations" do
       it { is_expected.to validate_inclusion_of(:state_funded_secondary_school)
-        .in_array(Applicant::SchoolEligibility::SCHOOL_OPTIONS) }
+        .in_array(Applicants::SchoolEligibility::SCHOOL_OPTIONS) }
     end
 
     describe "#eligible?" do

@@ -1,4 +1,4 @@
-module Applicant
+module Applicants
   class ContractEligibilitiesController < ApplicationController
     def new
       @contract_eligibility = ContractEligibility.new
@@ -13,7 +13,7 @@ module Applicant
             'contract_type' => @contract_eligibility.contract_type,
           }
 
-          redirect_to new_applicant_personal_detail_path
+          redirect_to new_applicants_personal_detail_path
         else
           redirect_to ineligible_path
         end
@@ -25,7 +25,7 @@ module Applicant
     private
 
     def contract_eligibility_params
-      params.require(:applicant_contract_eligibility).permit(
+      params.require(:applicants_contract_eligibility).permit(
         :contract_type,
       )
     end

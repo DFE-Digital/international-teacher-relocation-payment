@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/submitted", to: "pages#submitted"
   get "/ineligible", to: "pages#ineligible"
 
-  namespace :applicant do
+  namespace :applicants do
     resources :school_eligibilities, only: %i[new create]
     resources :contract_eligibilities, only: %i[new create]
     resources :personal_details, only: %i[new create]

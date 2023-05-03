@@ -1,0 +1,18 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <%= form_with(model: @personal_detail, local: true) do |f| %>
+
+      <%= f.govuk_error_summary %>
+
+      <h1 class="govuk-heading-l">
+        Personal details
+      </h1>
+
+      <%= f.govuk_text_field :given_name, label: { text: "Given name", size: "m" }, hint: { text: "Please enter your given name(s) – as it appears on your passport" } %>
+      <%= f.govuk_text_field :family_name, label: { text: "Family name", size: "m" }, hint: { text: "Please enter your family name(s) – as it appears on your passport" } %>
+      <%= f.govuk_text_field :email_address, label: { text: "Email address", size: "m" } %>
+      
+      <%= f.govuk_submit %>
+    <% end %>
+  </div>
+</div>

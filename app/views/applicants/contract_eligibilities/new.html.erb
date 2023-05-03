@@ -5,7 +5,7 @@
 
       <%= f.govuk_radio_buttons_fieldset(:contract_type, legend: { text: "What type of contract are you currently employed on?", tag: "h1", size: "l" }) do %>
 
-        <% Applicant::ContractEligibility::CONTRACT_TYPE_OPTIONS.each do |value| %>
+        <% Applicants::ContractEligibility::CONTRACT_TYPE_OPTIONS.each do |value| %>
           <%= f.govuk_radio_button :contract_type, value, label: { text: value.humanize } %>
         <% end %>
       <% end %>

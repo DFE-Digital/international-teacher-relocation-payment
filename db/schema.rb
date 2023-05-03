@@ -15,9 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_120210) do
   enable_extension "plpgsql"
 
   create_table "applicants", force: :cascade do |t|
-    t.text "first_names"
-    t.text "last_names"
-    t.text "email"
+    t.text "given_name"
+    t.text "family_name"
+    t.text "email_address"
     t.text "phone_number"
     t.date "date_of_birth"
     t.text "nationality"
@@ -26,7 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_120210) do
     t.text "national_insurance_number"
     t.text "passport_number"
     t.text "school_name"
-    t.text "contract_type"
     t.text "subject"
     t.text "visa_type"
     t.date "date_of_entry"

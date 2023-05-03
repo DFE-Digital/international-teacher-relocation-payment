@@ -1,4 +1,4 @@
-module Applicant
+module Applicants
   class SchoolEligibilitiesController < ApplicationController
     def new
       @school_eligibility = SchoolEligibility.new
@@ -14,7 +14,7 @@ module Applicant
             'state_funded_secondary_school' => @school_eligibility.state_funded_secondary_school,
           }
 
-          redirect_to new_applicant_contract_eligibility_path
+          redirect_to new_applicants_contract_eligibility_path
         else
           redirect_to ineligible_path
         end
@@ -26,7 +26,7 @@ module Applicant
     private
 
     def school_eligibility_params
-      params.require(:applicant_school_eligibility).permit(
+      params.require(:applicants_school_eligibility).permit(
         :state_funded_secondary_school,
       )
     end

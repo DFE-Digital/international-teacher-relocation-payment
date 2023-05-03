@@ -1,9 +1,9 @@
 class CreateApplicant < ActiveRecord::Migration[7.0]
   def change
     create_table :applicants do |t|
-      t.text :first_names
-      t.text :last_names
-      t.text :email
+      t.text :given_name
+      t.text :family_name
+      t.text :email_address
       t.text :phone_number
       t.date :date_of_birth
       # t.text :address
@@ -15,7 +15,7 @@ class CreateApplicant < ActiveRecord::Migration[7.0]
       t.text :school_name
       # t.text :school_address
       # t.text :contact_details
-      t.text :contract_type
+      # t.text :contract_type
       t.text :subject
       t.text :visa_type
       t.date :date_of_entry

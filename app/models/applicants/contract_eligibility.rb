@@ -1,4 +1,4 @@
-module Applicant
+module Applicants
   class ContractEligibility
     include ActiveModel::Model
     attr_accessor :contract_type
