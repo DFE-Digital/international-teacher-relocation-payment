@@ -5,7 +5,8 @@ module Applicants
 
     SCHOOL_OPTIONS = %w[true false]
 
-    validates :state_funded_secondary_school, inclusion: { in: SCHOOL_OPTIONS }
+    validates :state_funded_secondary_school, presence: true,
+              inclusion: { in: SCHOOL_OPTIONS }
 
     def eligible?
       ActiveModel::Type::Boolean.new.cast(state_funded_secondary_school)

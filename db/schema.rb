@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_120210) do
     t.text "phone_number"
     t.date "date_of_birth"
     t.text "nationality"
-    t.text "gender"
+    t.text "sex"
     t.text "marital_status"
     t.text "national_insurance_number"
     t.text "passport_number"
@@ -32,5 +32,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_120210) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 end

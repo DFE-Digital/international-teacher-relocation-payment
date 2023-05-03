@@ -8,7 +8,7 @@ class CreateApplicant < ActiveRecord::Migration[7.0]
       t.date :date_of_birth
       # t.text :address
       t.text :nationality
-      t.text :gender
+      t.text :sex
       t.text :marital_status
       t.text :national_insurance_number
       t.text :passport_number

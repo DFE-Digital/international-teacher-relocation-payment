@@ -5,7 +5,7 @@ module Applicants
 
     CONTRACT_TYPE_OPTIONS = %w[permanent fixed_term other]
 
-    validates :contract_type, inclusion: { in: CONTRACT_TYPE_OPTIONS }
+    validates :contract_type, presence: true, inclusion: { in: CONTRACT_TYPE_OPTIONS }
 
     def eligible?
       contract_type != "other"

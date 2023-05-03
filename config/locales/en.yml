@@ -41,6 +41,14 @@ en:
               blank: Enter your family name(s)
             email_address:
               blank: Enter your email address
+            phone_number:
+              blank: Enter your phone number
+            date_of_birth:
+              blank: Enter your date of birth
+            sex:
+              blank: Enter your sex
+            passport_number:
+              blank: Enter your passport number
         applicants/employment_detail:
           attributes:
             school_name:

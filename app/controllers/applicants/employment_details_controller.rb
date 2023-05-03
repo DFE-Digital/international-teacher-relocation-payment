@@ -27,6 +27,10 @@ module Applicants
         given_name: session["personal_detail"]["given_name"],
         family_name: session["personal_detail"]["family_name"],
         email_address: session["personal_detail"]["email_address"],
+        phone_number: session["personal_detail"]["phone_number"],
+        date_of_birth: session["personal_detail"]["date_of_birth"],
+        sex: session["personal_detail"]["sex"],
+        passport_number: session["personal_detail"]["passport_number"]
       )
     end
   end

@@ -8,6 +8,8 @@ module Applicants
     subject { described_class.new(params) }
 
     describe "validations" do
+      it { is_expected.to validate_presence_of(:contract_type) }
+
       it { is_expected.to validate_inclusion_of(:contract_type)
         .in_array(Applicants::ContractEligibility::CONTRACT_TYPE_OPTIONS) }
     end
