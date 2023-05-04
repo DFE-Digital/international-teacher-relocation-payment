@@ -9,12 +9,12 @@ Rails.application.routes.draw do
 
   namespace :applicants do
     resources :application_types, only: %i[new create]
-    resources :school_eligibilities, only: %i[new create]
-    resources :contract_eligibilities, only: %i[new create]
+    resources :school_details, only: %i[new create]
+    resources :contract_details, only: %i[new create]
     resources :contract_start_dates, only: %i[new create]
-    resources :subject_eligibilities, only: %i[new create]
-    resources :teaching_time_eligibilities, only: %i[new create]
-    resources :visa_eligibilities, only: %i[new create]
+    resources :subjects, only: %i[new create]
+    resources :teaching_details, only: %i[new create]
+    resources :visas, only: %i[new create]
     resources :entry_dates, only: %i[new create]
     resources :personal_details, only: %i[new create]
     resources :employment_details, only: %i[new create]

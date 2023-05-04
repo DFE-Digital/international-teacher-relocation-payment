@@ -1,13 +1,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    <%= form_with(model: @teaching_time_eligibility, local: true) do |f| %>
+    <%= form_with(model: @teaching_detail, local: true) do |f| %>
       <%= f.govuk_error_summary %>
 
       <%= f.govuk_radio_buttons_fieldset(
         :fifty_percent,
         legend: { text: "Are you teaching this subject for 50% or more of your teaching timetable?", tag: "h1", size: "l" },        
         hint: { text: "Help text can go here. DfE will check with the school" }) do %>
-        <% Applicants::TeachingTimeEligibility::OPTIONS.each_with_index do |value, i| %>
+        <% Applicants::TeachingDetail::OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :fifty_percent, value, label: { text: value.humanize }, link_errors: i.zero? %>
         <% end %>
       <% end %>

@@ -1,12 +1,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    <%= form_with(model: @visa_eligibility, local: true) do |f| %>
+    <%= form_with(model: @visa, local: true) do |f| %>
 
       <%= f.govuk_error_summary %>
 
       <%= f.govuk_select(
         :visa_type,
-        Applicants::VisaEligibility::VISA_OPTIONS,
+        Applicants::Visa::VISA_OPTIONS,
         label: { text: "Please select the visa type that you have relocated to England on from the options below", tag: "h1", size: "l" }) %>
   
       <%= f.govuk_submit %>

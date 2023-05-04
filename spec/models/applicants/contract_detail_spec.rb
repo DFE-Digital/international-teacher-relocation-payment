@@ -3,7 +3,7 @@
 require "rails_helper"
 
 module Applicants
-  describe ContractEligibility, type: :model do
+  describe ContractDetail, type: :model do
     let(:params) { {} }
     subject { described_class.new(params) }
 
@@ -11,7 +11,7 @@ module Applicants
       it { is_expected.to validate_presence_of(:one_year_contract) }
 
       it { is_expected.to validate_inclusion_of(:one_year_contract)
-        .in_array(Applicants::ContractEligibility::ONE_YEAR_CONTRACT_OPTIONS) }
+        .in_array(Applicants::ContractDetail::ONE_YEAR_CONTRACT_OPTIONS) }
     end
 
     describe "#eligible?" do

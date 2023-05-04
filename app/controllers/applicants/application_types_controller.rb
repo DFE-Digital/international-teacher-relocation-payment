@@ -14,7 +14,7 @@ module Applicants
           }
 
           if @application_type.application_type == "teacher"
-            redirect_to new_applicants_school_eligibility_path
+            redirect_to new_applicants_school_detail_path
           end
         else
           redirect_to ineligible_path

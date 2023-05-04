@@ -1,5 +1,5 @@
 module Applicants
-  class TeachingTimeEligibility
+  class TeachingDetail
     include ActiveModel::Model
     attr_accessor :fifty_percent
 

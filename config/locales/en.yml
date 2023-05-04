@@ -32,12 +32,12 @@
 en:
   activemodel:
     attributes:
-      applicants/subject_eligibility:
+      applicants/subject:
         subject:
           languages: Languages (excluding English)
     errors:
       models:
-        applicants/contract_eligibility:
+        applicants/contract_detail:
           attributes:
             one_year_contract:
               blank: Choose an option
@@ -45,7 +45,7 @@ en:
           attributes:
             contract_start_date:
               blank: Enter your contract start date
-        applicants/subject_eligibility:
+        applicants/subject:
           attributes:
             subject:
               blank: Please choose a subject

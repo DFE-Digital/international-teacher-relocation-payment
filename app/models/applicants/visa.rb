@@ -1,5 +1,5 @@
 module Applicants
-  class VisaEligibility
+  class Visa
     include ActiveModel::Model
     attr_accessor :visa_type
 

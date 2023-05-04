@@ -1,5 +1,5 @@
 module Applicants
-  class SubjectEligibility
+  class Subject
     include ActiveModel::Model
     attr_accessor :subject
 

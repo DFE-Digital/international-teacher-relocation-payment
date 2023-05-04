@@ -1,5 +1,5 @@
 module Applicants
-  class SchoolEligibility
+  class SchoolDetail
     include ActiveModel::Model
     attr_accessor :state_funded_secondary_school
 
