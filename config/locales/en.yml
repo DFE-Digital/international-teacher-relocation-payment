@@ -31,6 +31,10 @@
 
 en:
   applicants:
+    entry_dates:
+      title:
+        teacher: Enter the date you moved to England to start your teaching job
+        salaried_trainee: Enter the date you moved to England to start your teacher training course
     subjects:
       title:
         teacher: What subject are you employed to teach at your school?

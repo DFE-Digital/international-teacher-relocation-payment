@@ -6,7 +6,7 @@
       <%= f.govuk_radio_buttons_fieldset(
         :fifty_percent,
         legend: { text: t("applicants.teaching_details.title.#{application_type}"), tag: "h1", size: "l" },
-        hint: { text: "If you're not sure check with your school." }) do %>
+        hint: { text: "Check with your school if you're not sure." }) do %>
         <% Applicants::TeachingDetail::OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :fifty_percent, value, label: { text: value.humanize }, link_errors: i.zero? %>
         <% end %>

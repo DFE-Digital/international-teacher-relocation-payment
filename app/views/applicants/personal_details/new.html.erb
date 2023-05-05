@@ -5,22 +5,22 @@
       <%= f.govuk_error_summary %>
 
       <h1 class="govuk-heading-l">
-        Personal details
+        Personal information
       </h1>
 
-      <%= f.govuk_text_field :given_name, label: { text: "Given name", size: "s" }, hint: { text: "Please enter your given name(s) – as it appears on your passport" } %>
-      <%= f.govuk_text_field :family_name, label: { text: "Family name", size: "s" }, hint: { text: "Please enter your family name(s) – as it appears on your passport" } %>
-      <%= f.govuk_text_field :email_address, label: { text: "Email address", size: "s" } %>
-      <%= f.govuk_text_field :phone_number, label: { text: "Phone number", size: "s" } %>
-      <%= f.govuk_date_field :date_of_birth, date_of_birth: true, legend: { text: "Date of birth", size: "s" } %>
+      <%= f.govuk_text_field :given_name, label: { text: "Enter your given name, as it appears on your passport", size: "s" } %>
+      <%= f.govuk_text_field :family_name, label: { text: "Enter your family name, as it appears on your passport", size: "s" } %>
+      <%= f.govuk_text_field :email_address, label: { text: "Enter your current email address", size: "s" }, hint: { text: "We will use this to contact you so please make sure you have entered it correctly." } %>
+      <%= f.govuk_text_field :phone_number, label: { text: "Enter your current phone number", size: "s" }, hint: { text: "We will use this to contact you so please make sure you have entered it correctly." } %>
+      <%= f.govuk_date_field :date_of_birth, date_of_birth: true, legend: { text: "Enter your date of birth, as it appears on your passport", size: "s" } %>
 
-      <%= f.govuk_radio_buttons_fieldset(:sex, legend: { text: "Sex", size: "s" }) do %>
+      <%= f.govuk_radio_buttons_fieldset(:sex, legend: { text: "Select your sex", size: "s" }) do %>
         <% Applicants::PersonalDetail::SEX_OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :sex, value, label: { text: value.humanize }, link_errors: i.zero? %>
         <% end %>
       <% end %>
 
-      <%= f.govuk_text_field :passport_number, label: { text: "Passport number  ", size: "s" }, hint: { text: "Please enter your passport number – as it appears on your passport" } %>
+      <%= f.govuk_text_field :passport_number, label: { text: "Enter your passport number, as it appears on your passport", size: "s" } %>
 
       <%= f.govuk_submit %>
     <% end %>

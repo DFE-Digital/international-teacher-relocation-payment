@@ -3,11 +3,10 @@
     <%= form_with(model: @salaried_course_detail, local: true) do |f| %>
       <%= f.govuk_error_summary %>
 
-      <%= f.govuk_radio_buttons_fieldset(:eligible_course, legend: { text: "Place on a salaried course", tag: "h1", size: "l" }) do %>
+      <%= f.govuk_radio_buttons_fieldset(:eligible_course, legend: { text: "Are you currently employed in a school as a trainee teacher, on a teacher
+          training course in England which meets the following conditions?", tag: "h1", size: "l" }) do %>
 
         <p class="govuk-body">
-          Are you currently employed in a school as a trainee teacher, on a teacher
-          training course in England which meets the following conditions?
           The course must:
         </p>
 
