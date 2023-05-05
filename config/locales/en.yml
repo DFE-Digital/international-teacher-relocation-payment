@@ -43,6 +43,9 @@ en:
       title:
         teacher: Do you teach this subject for at least 50% of your teaching timetable?
         salaried_trainee: Does this subject make up at least 50% of your course?
+      hint:
+        teacher: Check with your school if you're not sure
+        salaried_trainee: Check with your training provider if you're not sure.
   activemodel:
     errors:
       models:
@@ -84,6 +87,8 @@ en:
               blank: Enter your sex
             passport_number:
               blank: Enter your passport number
+            nationality:
+              blank: Choose your nationality
         applicants/school_detail:
           attributes:
             state_funded_secondary_school:

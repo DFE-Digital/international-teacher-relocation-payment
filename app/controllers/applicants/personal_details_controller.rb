@@ -40,6 +40,7 @@ module Applicants
         :phone_number,
         :sex,
         :passport_number,
+        :nationality,
         *DOB_CONVERSION.keys,
       ).transform_keys do |key|
         DOB_CONVERSION.keys.include?(key) ? DOB_CONVERSION[key] : key

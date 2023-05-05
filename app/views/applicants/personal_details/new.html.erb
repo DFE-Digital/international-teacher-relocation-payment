@@ -14,6 +14,8 @@
       <%= f.govuk_text_field :phone_number, label: { text: "Enter your current phone number", size: "s" }, hint: { text: "We will use this to contact you so please make sure you have entered it correctly." } %>
       <%= f.govuk_date_field :date_of_birth, date_of_birth: true, legend: { text: "Enter your date of birth, as it appears on your passport", size: "s" } %>
 
+      <%= f.govuk_select(:nationality, nationality_options, label: { text: "Nationality", size: "s" }) %>
+
       <%= f.govuk_radio_buttons_fieldset(:sex, legend: { text: "Select your sex", size: "s" }) do %>
         <% Applicants::PersonalDetail::SEX_OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :sex, value, label: { text: value.humanize }, link_errors: i.zero? %>
