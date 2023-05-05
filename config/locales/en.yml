@@ -89,6 +89,10 @@ en:
               blank: Enter your passport number
             nationality:
               blank: Choose your nationality
+        applicants/salaried_course_detail:
+          attributes:
+            eligible_course:
+              blank: Choose the option that applies to you
         applicants/school_detail:
           attributes:
             state_funded_secondary_school:

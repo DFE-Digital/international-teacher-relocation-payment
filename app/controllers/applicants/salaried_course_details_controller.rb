@@ -25,7 +25,7 @@ module Applicants
     private
 
     def salaried_course_detail_params
-      params.require(:applicants_salaried_course_detail).permit(:eligible_course)
+      params.fetch(:applicants_salaried_course_detail, {}).permit(:eligible_course)
     end
   end
 end
