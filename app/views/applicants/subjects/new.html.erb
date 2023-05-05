@@ -3,7 +3,9 @@
     <%= form_with(model: @subject, local: true) do |f| %>
       <%= f.govuk_error_summary %>
 
-      <%= f.govuk_radio_buttons_fieldset(:subject, legend: { text: "What subject are you contracted to teach at your employing school?", tag: "h1", size: "l" }) do %>
+      <%= f.govuk_radio_buttons_fieldset(
+        :subject,
+        legend: { text: t("applicants.subjects.title.#{application_type}"), tag: "h1", size: "l" })do %>
         <% Applicants::Subject::SUBJECT_OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :subject, value, label: { text: t("activemodel.attributes.applicants/subject.subject.#{value}") }, link_errors: i.zero? %>
         <% end %>

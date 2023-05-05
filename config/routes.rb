@@ -18,5 +18,6 @@ Rails.application.routes.draw do
     resources :entry_dates, only: %i[new create]
     resources :personal_details, only: %i[new create]
     resources :employment_details, only: %i[new create]
+    resources :salaried_course_details, only: %i[new create]
   end
 end

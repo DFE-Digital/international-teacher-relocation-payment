@@ -9,12 +9,12 @@ module Applicants
 
       if @application_type.valid?
         if @application_type.eligible?
-          session[:application_type] = {
-            'application_type' => @application_type.application_type,
-          }
+          session[:application_type] = @application_type.application_type
 
           if @application_type.application_type == "teacher"
             redirect_to new_applicants_school_detail_path
+          elsif @application_type.application_type == "salaried_trainee"
+            redirect_to new_applicants_salaried_course_detail_path
           end
         else
           redirect_to ineligible_path
@@ -27,9 +27,7 @@ module Applicants
     private
 
     def application_type_params
-      params.require(:applicants_application_type).permit(
-        :application_type,
-      )
+      params.require(:applicants_application_type).permit(:application_type)
     end
   end
 end

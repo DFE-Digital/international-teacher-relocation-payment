@@ -26,9 +26,7 @@ module Applicants
     private
 
     def school_detail_params
-      params.require(:applicants_school_detail).permit(
-        :state_funded_secondary_school,
-      )
+      params.require(:applicants_school_detail).permit(:state_funded_secondary_school)
     end
   end
 end

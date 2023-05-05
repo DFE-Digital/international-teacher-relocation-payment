@@ -30,6 +30,15 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  applicants:
+    subjects:
+      title:
+        teacher: What subject are you employed to teach at your school?
+        salaried_trainee: What subject are you training to teach?
+    teaching_details:
+      title:
+        teacher: Do you teach this subject for at least 50% of your teaching timetable?
+        salaried_trainee: Does this subject make up at least 50% of your course?
   activemodel:
     attributes:
       applicants/subject:
