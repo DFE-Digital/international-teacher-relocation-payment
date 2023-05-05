@@ -25,7 +25,7 @@ module Applicants
     private
 
     def contract_detail_params
-      params.require(:applicants_contract_detail).permit(:one_year)
+      params.fetch(:applicants_contract_detail, {}).permit(:one_year)
     end
   end
 end

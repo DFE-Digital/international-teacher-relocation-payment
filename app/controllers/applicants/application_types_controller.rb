@@ -27,7 +27,7 @@ module Applicants
     private
 
     def application_type_params
-      params.require(:applicants_application_type).permit(:application_type)
+      params.fetch(:applicants_application_type, {}).permit(:application_type)
     end
   end
 end

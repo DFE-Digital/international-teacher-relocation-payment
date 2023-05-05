@@ -23,7 +23,7 @@ module Applicants
     private
 
     def subject_params
-      params.require(:applicants_subject).permit(:subject)
+      params.fetch(:applicants_subject, {}).permit(:subject)
     end
   end
 end

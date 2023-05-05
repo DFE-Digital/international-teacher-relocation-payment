@@ -3,7 +3,7 @@ module Applicants
     include ActiveModel::Model
     attr_accessor :visa_type
 
-    VISA_OPTIONS = %w[visa_1 visa_1 visa_3 other]
+    VISA_OPTIONS = %w[visa_1 visa_2 visa_3 other]
 
     validates :visa_type, presence: true, inclusion: { in: VISA_OPTIONS }
 

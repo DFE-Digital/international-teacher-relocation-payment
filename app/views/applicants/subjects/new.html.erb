@@ -7,7 +7,7 @@
         :subject,
         legend: { text: t("applicants.subjects.title.#{application_type}"), tag: "h1", size: "l" })do %>
         <% Applicants::Subject::SUBJECT_OPTIONS.each_with_index do |value, i| %>
-          <%= f.govuk_radio_button :subject, value, label: { text: t("activemodel.attributes.applicants/subject.subject.#{value}") }, link_errors: i.zero? %>
+          <%= f.govuk_radio_button :subject, value, label: { text: value.humanize }, link_errors: i.zero? %>
         <% end %>
       <% end %>
       

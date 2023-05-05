@@ -40,24 +40,26 @@ en:
         teacher: Do you teach this subject for at least 50% of your teaching timetable?
         salaried_trainee: Does this subject make up at least 50% of your course?
   activemodel:
-    attributes:
-      applicants/subject:
-        subject:
-          languages: Languages (excluding English)
     errors:
       models:
+        applicants/application_type:
+          attributes:
+            application_type:
+              blank: Select the option that applies to you
         applicants/contract_detail:
           attributes:
-            one_year_contract:
-              blank: Choose an option
+            one_year:
+              blank: Choose the option that applies to you
         applicants/contract_start_date:
           attributes:
             contract_start_date:
               blank: Enter your contract start date
-        applicants/subject:
+        applicants/employment_detail:
           attributes:
-            subject:
-              blank: Please choose a subject
+            school_name:
+              blank: Enter your school's name
+            school_headteacher_name:
+              blank: Enter the headteacher's name
         applicants/entry_date:
           attributes:
             entry_date:
@@ -78,10 +80,19 @@ en:
               blank: Enter your sex
             passport_number:
               blank: Enter your passport number
-        applicants/employment_detail:
+        applicants/school_detail:
           attributes:
-            school_name:
-              blank: Enter your school's name
-            school_headteacher_name:
-              blank: Enter the headteacher's name
-              
+            state_funded_secondary_school:
+              blank: Choose the option that applies to you
+        applicants/subject:
+          attributes:
+            subject:
+              blank: Choose a subject
+        applicants/teaching_detail:
+          attributes:
+            fifty_percent:
+              blank: Choose the option that applies to you
+        applicants/visa:
+          attributes:
+            visa_type:
+              blank: Choose your visa type

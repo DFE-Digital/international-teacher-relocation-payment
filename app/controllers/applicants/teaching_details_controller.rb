@@ -23,7 +23,7 @@ module Applicants
     private
 
     def teaching_detail_params
-      params.require(:applicants_teaching_detail).permit(:fifty_percent)
+      params.fetch(:applicants_teaching_detail, {}).permit(:fifty_percent)
     end
   end
 end

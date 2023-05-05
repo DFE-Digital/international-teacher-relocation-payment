@@ -6,7 +6,7 @@
       <%= f.govuk_radio_buttons_fieldset(
         :one_year,
         legend: { text: "Are you employed on a contract lasting at least one academic year?", tag: "h1", size: "l" },
-        hint: { text: "Help text can go here. Description of the criteria" }) do %>
+        hint: {text: "An academic year is 3 full school terms. So, if the contract for your teaching job started in September 2023 (the beginning of the autumn term), it would need to continue until July 2024 (covering the spring and summer terms)." }) do %>
         <% Applicants::ContractDetail::ONE_YEAR_OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :one_year, value, label: { text: value.humanize }, link_errors: i.zero? %>
         <% end %>
