@@ -1,5 +1,7 @@
 module Applicants
   class SchoolDetailsController < ApplicationController
+    before_action :check_teacher!
+
     def new
       @school_detail = SchoolDetail.new
     end
@@ -9,10 +11,7 @@ module Applicants
 
       if @school_detail.valid?
         if @school_detail.eligible?
-          # Temporarily store the values in the session rather than the database.
-          session[:school_detail] = {
-            'state_funded_secondary_school' => @school_detail.state_funded_secondary_school,
-          }
+          session[:state_funded_secondary_school] = @school_detail.state_funded_secondary_school
 
           redirect_to new_applicants_contract_detail_path
         else

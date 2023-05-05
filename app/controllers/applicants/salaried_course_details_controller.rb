@@ -1,5 +1,7 @@
 module Applicants
   class SalariedCourseDetailsController < ApplicationController
+    before_action :check_trainee!
+
     def new
       @salaried_course_detail = SalariedCourseDetail.new
     end
@@ -9,9 +11,7 @@ module Applicants
 
       if @salaried_course_detail.valid?
         if @salaried_course_detail.eligible?
-          session[:salaried_course_detail] = {
-            'eligible_course' => @salaried_course_detail.eligible_course,
-          }
+          session[:eligible_salaried_course] = @salaried_course_detail.eligible_course
 
           redirect_to new_applicants_subject_path
         else

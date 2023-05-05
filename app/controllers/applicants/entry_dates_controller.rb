@@ -14,9 +14,7 @@ module Applicants
       @entry_date = EntryDate.new(entry_date_params)
 
       if @entry_date.valid?
-        session[:entry_date] = {
-          "entry_date" => @entry_date.entry_date,
-        }
+        session[:entry_date] = @entry_date.entry_date
 
         redirect_to new_applicants_personal_detail_path
       else

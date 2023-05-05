@@ -6,4 +6,16 @@ class ApplicationController < ActionController::Base
   def application_type
     session["application_type"]
   end
+
+  def check_teacher!
+    if application_type != "teacher"
+      redirect_to new_applicants_application_type_path
+    end
+  end
+
+  def check_trainee!
+    if application_type != "salaried_trainee"
+      redirect_to new_applicants_application_type_path
+    end
+  end
 end

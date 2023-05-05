@@ -9,9 +9,7 @@ module Applicants
 
       if @visa.valid?
         if @visa.eligible?
-          session[:visa] = {
-            'visa_type' => @visa.visa_type,
-          }
+          session[:visa_type] = @visa.visa_type
 
           redirect_to new_applicants_entry_date_path
         else

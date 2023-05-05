@@ -1,5 +1,7 @@
 module Applicants
   class ContractDetailsController < ApplicationController
+    before_action :check_teacher!
+
     def new
       @contract_detail = ContractDetail.new
     end
@@ -9,9 +11,7 @@ module Applicants
 
       if @contract_detail.valid?
         if @contract_detail.eligible?
-          session[:contract_detail] = {
-            'one_year' => @contract_detail.one_year,
-          }
+          session[:one_year_contract] = @contract_detail.one_year
 
           redirect_to new_applicants_contract_start_date_path
         else

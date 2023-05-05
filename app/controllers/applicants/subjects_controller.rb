@@ -9,9 +9,7 @@ module Applicants
 
       if @subject.valid?
         if @subject.eligible?
-          session[:subject] = {
-            'subject' => @subject.subject,
-          }
+          session[:subject] = @subject.subject
 
           redirect_to new_applicants_teaching_detail_path
         else

@@ -9,9 +9,7 @@ module Applicants
 
       if @teaching_detail.valid?
         if @teaching_detail.eligible?
-          session[:teaching_detail] = {
-            'fifty_percent' => @teaching_detail.fifty_percent,
-          }
+          session[:fifty_percent] = @teaching_detail.fifty_percent
 
           redirect_to new_applicants_visa_path
         else
