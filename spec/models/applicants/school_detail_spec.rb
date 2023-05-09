@@ -18,12 +18,12 @@ module Applicants
       subject { described_class.new(params).eligible? }
 
       context "when state_funded_secondary_school is false" do
-        let(:params) { { state_funded_secondary_school: "false" } }
+        let(:params) { { state_funded_secondary_school: "no" } }
         it { is_expected.to be_falsey }
       end
 
       context "when state_funded_secondary_school is true" do
-        let(:params) { { state_funded_secondary_school: "true" } }
+        let(:params) { { state_funded_secondary_school: "yes" } }
         it { is_expected.to be_truthy }
       end
     end

@@ -71,6 +71,8 @@ group :development, :test do
   # Testing framework
   gem "rspec-rails"
   gem "dotenv-rails"
+
+  gem 'capybara'
 end
 
 group :development do

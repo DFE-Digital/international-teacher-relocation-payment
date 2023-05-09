@@ -8,22 +8,22 @@ module Applicants
     subject { described_class.new(params) }
 
     describe "validations" do
-      it { is_expected.to validate_presence_of(:one_year_contract) }
+      it { is_expected.to validate_presence_of(:one_year) }
 
-      it { is_expected.to validate_inclusion_of(:one_year_contract)
-        .in_array(Applicants::ContractDetail::ONE_YEAR_CONTRACT_OPTIONS) }
+      it { is_expected.to validate_inclusion_of(:one_year)
+        .in_array(Applicants::ContractDetail::ONE_YEAR_OPTIONS) }
     end
 
     describe "#eligible?" do
       subject { described_class.new(params).eligible? }
 
-      context "when one_year_contract is permanent" do
-        let(:params) { { one_year_contract: "yes" } }
+      context "when one_year is Yes" do
+        let(:params) { { one_year: "yes" } }
         it { is_expected.to be_truthy }
       end
 
-      context "when one_year_contract is fixed_term" do
-        let(:params) { { one_year_contract: "no" } }
+      context "when one_year is No" do
+        let(:params) { { one_year: "no" } }
         it { is_expected.to be_falsey }
       end
     end

@@ -14,6 +14,7 @@ module Applicants
       it { is_expected.to validate_presence_of(:phone_number) }
       it { is_expected.to validate_presence_of(:sex) }
       it { is_expected.to validate_presence_of(:passport_number) }
+      it { is_expected.to validate_presence_of(:nationality) }
 
       it { is_expected.to validate_inclusion_of(:sex)
         .in_array(Applicants::PersonalDetail::SEX_OPTIONS) }
