@@ -33,7 +33,11 @@ module Applicants
         phone_number: session["personal_detail"]["phone_number"],
         date_of_birth: session["personal_detail"]["date_of_birth"],
         sex: session["personal_detail"]["sex"],
-        passport_number: session["personal_detail"]["passport_number"]
+        nationality: session["personal_detail"]["nationality"],
+        passport_number: session["personal_detail"]["passport_number"],
+        subject: session["subject"],
+        visa_type: session["visa_type"],
+        date_of_entry: session["entry_date"],
       )
     end
   end

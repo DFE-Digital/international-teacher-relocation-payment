@@ -22,6 +22,7 @@ module Applicants
           "date_of_birth" => @personal_detail.date_of_birth,
           "sex" => @personal_detail.sex,
           "passport_number" => @personal_detail.passport_number,
+          "nationality" => @personal_detail.nationality,
         }
 
         redirect_to new_applicants_employment_detail_path

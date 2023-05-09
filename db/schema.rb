@@ -20,11 +20,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_120210) do
     t.text "email_address"
     t.text "phone_number"
     t.date "date_of_birth"
+    t.text "nationality"
     t.text "sex"
     t.text "passport_number"
     t.text "school_name"
-    t.text "school_headteacher_name"
     t.text "subject"
+    t.text "school_headteacher_name"
     t.text "visa_type"
     t.date "date_of_entry"
     t.datetime "created_at", null: false
