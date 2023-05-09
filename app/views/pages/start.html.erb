@@ -1,34 +1,128 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    <h1 class="govuk-heading-xl">Get an International Relocation Payment</h1>
+    <h1 class="govuk-heading-xl">Apply for the international relocation payment</h1>
   </div>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     <p class="govuk-body">
-      This is a landing page telling you a little bit about the service.
+      The
+      <%= govuk_link_to "international relocation payment (IRP)", "https://www.gov.uk/government/publications/international-relocation-payments/international-relocation-payments", { target: "_blank" } %>
+      is a single payment of £10,000, funded by the UK government, which is
+      available to eligible non-UK trainees and teachers of languages and
+      physics.
     </p>
 
     <p class="govuk-body">
-      This is some information about the eligibility criteria, required documentation,
-      school timetable, DPIA and data sharing procedures:
+      To apply for the international relocation payment, please complete this
+      form. You will need to get your documents and information ready before you
+      start, as you will not be able to save your entries and return to the form
+      at a later date. It should take approximately 15 minutes to complete.
     </p>
 
-    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+    <h2 class="govuk-heading-l">Before you start, check your eligibility</h2>
+
+    <p class="govuk-body">
+      Non-uk teachers must be:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
       <li>
-        Criteria 1
+        employed in an English secondary school
       </li>
       <li>
-        Criteria 2
+        teaching an eligible subject
       </li>
       <li>
-        Criteria 3
+        in the UK using an eligible visa
       </li>
     </ul>
 
     <p class="govuk-body">
-      <%= govuk_link_to("Get started", new_applicants_application_type_path, { class: "govuk-button" })%>
+      Non-UK trainee teachers must be:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        training on a salaried training course leading to qualified teacher
+        status and accredited by the UK government
+      </li>
+      <li>
+        training to teach an eligible subject
+      </li>
+      <li>
+        in the UK using an eligible visa
+      </li>
+    </ul>
+
+    <p class="govuk-body">
+      For more, visit our guidance on
+      <%= govuk_link_to "the international relocation payment for teachers", "https://getintoteaching.education.gov.uk/non-uk-teachers/teach-in-england-if-you-trained-overseas#get-an-international-relocation-payment-irp-worth-10000", { target: "_blank" } %>.
+    </p>
+
+    <p class="govuk-body">
+      If you are training to teach on a fee-paying training course, you do not
+      have to apply to receive the international relocation payment.
+      <%= govuk_link_to "The international relocation payment for trainees", "https://getintoteaching.education.gov.uk/non-uk-teachers/fees-and-funding-for-non-uk-trainees#get-an-international-relocation-payment-irp-worth-10000", { target: "_blank" } %>
+      gives further information.
+    </p>
+
+    <h2 class="govuk-heading-l">Documents and information to get ready</h2>
+
+    <p class="govuk-body">
+      You will need:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        if you are a teacher, details of your employment contract, including
+        teaching subject, start date and end date
+      </li>
+      <li>
+        if you are a trainee, details of your teacher training course, including
+        teaching subject and start date
+      </li>
+      <li>
+        your visa type and when you entered the UK
+      </li>
+      <li>
+        your passport
+      </li>
+      <li>
+        your address in England
+      </li>
+      <li>
+        contact details for the school where you are employed as a teacher or
+        trainee
+      </li>
+    </ul>
+
+    <p class="govuk-body">
+      If you are teaching or training to teach physics or languages in
+      combination with another subject, you may want to contact your employing
+      school to check at least 50% of your teaching time is spent teaching
+      physics or languages. For more details about this requirement, visit:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <%= govuk_link_to "the international relocation payment for teachers", "https://getintoteaching.education.gov.uk/non-uk-teachers/teach-in-england-if-you-trained-overseas#get-an-international-relocation-payment-irp-worth-10000", { target: "_blank" } %>
+      </li>
+      <li>
+        <%= govuk_link_to "the international relocation payment for trainees", "https://getintoteaching.education.gov.uk/non-uk-teachers/fees-and-funding-for-non-uk-trainees#get-an-international-relocation-payment-irp-worth-10000", { target: "_blank" } %>
+      </li>
+    </ul>
+
+    <p class="govuk-body">
+      <%= govuk_link_to("Start", new_applicants_application_type_path, { class: "govuk-button" })%>
+    </p>
+
+    <h2 class="govuk-heading-m">Contact us</h2>
+
+    <p class="govuk-body">
+      For help, please email us at
+      <%= govuk_link_to("teach.inengland@education.gov.uk", "mailto:teach.inengland@education.gov.uk")%>.
     </p>
   </div>
 </div>
