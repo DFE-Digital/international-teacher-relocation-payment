@@ -20,4 +20,6 @@ Rails.application.routes.draw do
     resources :employment_details, only: %i[new create]
     resources :salaried_course_details, only: %i[new create]
   end
+
+  resources :applicants, only: %i[index show]
 end

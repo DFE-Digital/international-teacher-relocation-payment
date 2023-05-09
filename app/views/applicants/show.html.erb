@@ -1,0 +1,130 @@
+<%= content_for(:breadcrumbs) do %>
+  <%= render GovukComponent::BackLinkComponent.new(
+    text: t(:back),
+    href: applicants_path,
+  ) %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class ="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-l">
+      <%= @applicant.full_name %>
+    </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class ="govuk-grid-column-full">
+
+    <h2 class="govuk-heading-m">Personal details</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Given name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.given_name %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Family name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.family_name %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.email_address %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.phone_number %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.date_of_birth.to_fs(:govuk) %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Nationality
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.nationality %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Passport number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.passport_number %>
+        </dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">School details</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          School name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.school_name %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Subject
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.subject %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          School headteacher name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.school_headteacher_name %>
+        </dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">Visa details</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Visa type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.visa_type %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of entry
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.date_of_entry.to_fs(:govuk) %>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
