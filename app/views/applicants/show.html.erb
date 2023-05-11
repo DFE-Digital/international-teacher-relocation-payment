@@ -1,6 +1,6 @@
 <%= content_for(:breadcrumbs) do %>
   <%= render GovukComponent::BackLinkComponent.new(
-    text: t(:back),
+    text: "Back to all applications",
     href: applicants_path,
   ) %>
 <% end %>
@@ -10,6 +10,64 @@
     <h1 class="govuk-heading-l">
       <%= @applicant.full_name %>
     </h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class ="govuk-grid-column-full">
+    <p class="govuk-body">
+      <%= govuk_link_to "Update progress", edit_applicant_path(@applicant), class: "govuk-link" %>
+    </p>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Application received
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.created_at.to_fs(:govuk_date_and_time) %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Initial checks completed
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.initial_checks_completed_at&.to_fs(:govuk_date_and_time) %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Visa investigation required
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.visa_investigation_required %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Home office checks completed
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.home_office_checks_completed_at&.to_fs(:govuk) %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          School investigation required
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.school_investigation_required %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          School checks completed
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.school_checks_completed_at&.to_fs(:govuk) %>
+        </dd>
+      </div>
+    </dl>
   </div>
 </div>
 

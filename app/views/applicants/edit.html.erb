@@ -1,0 +1,41 @@
+<%= content_for(:breadcrumbs) do %>
+  <%= render GovukComponent::BackLinkComponent.new(
+    text: "Back to application",
+    href: applicant_path(@applicant),
+  ) %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <%= form_with model: @applicant, local: true do |f| %>
+
+      <%= f.govuk_error_summary %>
+
+      <span class="govuk-caption-l"><%= @applicant.full_name %></span>
+      <h1 class="govuk-heading-l">Update progress</h1>
+
+      <%= f.govuk_date_field :initial_checks_completed_at, legend: { text: "Initial checks completed", size: "s" } %>
+
+      <h2 class="govuk-heading-m">Visa verification</h2>
+
+      <%= f.govuk_radio_buttons_fieldset(:visa_investigation_required, legend: { text: "Visa investigation required?", size: "s" }) do %>
+        <%= f.govuk_radio_button :visa_investigation_required, true, label: { text: "Yes" } %>
+        <%= f.govuk_radio_button :visa_investigation_required, false, label: { text: "No" } %>
+        <%= f.govuk_radio_button :visa_investigation_required, {}, label: { text: "Unknown" } %>
+      <% end %>
+
+      <%= f.govuk_date_field :home_office_checks_completed_at, legend: { text: "Home office checks completed", size: "s" } %>
+
+      <h2 class="govuk-heading-m">School verification</h2>
+
+      <%= f.govuk_radio_buttons_fieldset(:school_investigation_required, legend: { text: "School investigation required?", size: "s" }) do %>
+        <%= f.govuk_radio_button :school_investigation_required, true, label: { text: "Yes" } %>
+        <%= f.govuk_radio_button :school_investigation_required, false, label: { text: "No" } %>
+        <%= f.govuk_radio_button :school_investigation_required, {}, label: { text: "Unknown" } %>
+      <% end %>
+      <%= f.govuk_date_field :school_checks_completed_at, legend: { text: "School checks completed", size: "s" } %>
+
+      <%= f.govuk_submit("Update") %>
+    <% end %>
+  </div>
+</div>

@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     resources :salaried_course_details, only: %i[new create]
   end
 
-  resources :applicants, only: %i[index show]
+  resources :applicants, only: %i[index show edit update]
 end
