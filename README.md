@@ -1,24 +1,46 @@
-# README
+# Get an International Relocation Payment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A service to collect details from teachers and trainees applying for the
+International Relocation Payment.
 
-Things you may want to cover:
+## Development
 
-* Ruby version
+### Install build dependencies
 
-* System dependencies
+The required versions of build tools is defined in
+[.tool-versions](.tool-versions). These can be automatically installed with
+[asdf-vm](https://asdf-vm.com/), see their [installation
+instructions](https://asdf-vm.com/#/core-manage-asdf).
 
-* Configuration
+Once installed, run:
 
-* Database creation
+```bash
+asdf plugin add ruby
+asdf plugin add nodejs
+asdf plugin add yarn
+asdf install
+```
 
-* Database initialization
+When the versions are updated on the `main` branch run `asdf install` again to update your
+installation. Use `asdf plugin update --all` to update plugins and get access to
+newer versions of tools.
 
-* How to run the test suite
+## Setting up the app in development
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Run `bundle install` to install the gem dependencies
+2. Run `yarn` to install node dependencies
+3. Run `bin/rails db:setup` to set up the database development and test schemas
+4. Run `bundle exec rails server` to launch the app on <http://localhost:3000>
+5. Run `./bin/webpack-dev-server` in a separate shell for faster compilation of assets
 
-* Deployment instructions
+## Running specs
 
-* ...
+Run the full test suite with:
+
+```bash
+bundle exec rake
+```
+
+### Hosting
+
+TODO
