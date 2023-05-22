@@ -21,5 +21,8 @@ Rails.application.routes.draw do
     resources :salaried_course_details, only: %i[new create]
   end
 
-  resources :applicants, only: %i[index show edit update]
+  # TODO: route constraint, only signed-in admins should be able to access
+  scope module: :system_admin, path: "system-admin" do
+    resources :applicants, only: %i[index show edit update]
+  end
 end
