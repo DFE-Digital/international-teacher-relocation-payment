@@ -50,6 +50,8 @@ gem "httparty", "~> 0.21"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+gem 'rails_admin', '~> 3.0'
+
 group :test do
   gem 'shoulda-matchers', '~> 5.0'
 end

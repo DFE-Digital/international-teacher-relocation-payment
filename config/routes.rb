@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/system-admin', as: 'rails_admin'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   # TODO: route constraint, only signed-in admins should be able to access
-  scope module: :system_admin, path: "system-admin" do
-    resources :applicants, only: %i[index show edit update]
-  end
+  # scope module: :system_admin, path: "system-admin" do
+  #   resources :applicants, only: %i[index show edit update]
+  # end
 end
