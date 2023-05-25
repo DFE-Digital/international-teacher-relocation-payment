@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Applicants
   class EmploymentDetailsController < ApplicationController
     def new
@@ -9,6 +11,7 @@ module Applicants
 
       if @employment_detail.valid?
         Applicant.create!(applicant_params)
+        # TODO: Clean up data we've added to the session
         # session.delete('')
         redirect_to submitted_path
       else

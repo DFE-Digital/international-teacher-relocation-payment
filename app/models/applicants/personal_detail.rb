@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Applicants
   class PersonalDetail
     include ActiveModel::Model
@@ -5,6 +7,7 @@ module Applicants
     attr_accessor :given_name, :family_name, :email_address, :phone_number,
                   :day, :month, :year, :sex, :passport_number, :nationality
 
+    # TODO: Check whether we should be allowing an option of "Prefer not to say"
     SEX_OPTIONS = %w[female male other]
 
     validates :given_name, presence: true

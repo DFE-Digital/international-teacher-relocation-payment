@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddProgressFieldsToApplicant < ActiveRecord::Migration[7.0]
   def change
     add_column :applicants, :initial_checks_completed_at, :date

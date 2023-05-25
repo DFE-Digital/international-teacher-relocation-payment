@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Applicants
   class PersonalDetailsController < ApplicationController
     DOB_CONVERSION = {

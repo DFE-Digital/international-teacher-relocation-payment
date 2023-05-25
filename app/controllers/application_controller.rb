@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
 
+  # TODO: Consider renaming to application_route to match language of question
   helper_method :application_type
 
   def application_type

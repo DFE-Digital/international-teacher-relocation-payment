@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO: Policy to allow only signed in admins to access anything in this module.
 module SystemAdmin
   class ApplicantsController < ApplicationController

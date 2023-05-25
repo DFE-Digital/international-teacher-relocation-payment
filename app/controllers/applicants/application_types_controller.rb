@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 module Applicants
+  # TODO: Consider renaming model/controller etc to application_route to match
+  # new question language
   class ApplicationTypesController < ApplicationController
     def new
       @application_type = ApplicationType.new

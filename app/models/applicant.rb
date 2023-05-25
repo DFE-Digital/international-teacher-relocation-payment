@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 class Applicant < ApplicationRecord
+  # TODO: Add validations here so that a final check is made on the validity of
+  # the whole application.
 
   def full_name
     "#{given_name} #{family_name}"

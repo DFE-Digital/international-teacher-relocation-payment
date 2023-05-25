@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Applicants
   class ContractStartDatesController < ApplicationController
     before_action :check_teacher!

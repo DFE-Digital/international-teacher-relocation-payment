@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PersonalDetailHelper
   def nationality_options
     nationalities = NATIONALITIES.dup

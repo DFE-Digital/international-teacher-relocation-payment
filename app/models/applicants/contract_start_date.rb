@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Applicants
   class ContractStartDate
     include ActiveModel::Model

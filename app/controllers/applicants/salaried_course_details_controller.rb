@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Applicants
   class SalariedCourseDetailsController < ApplicationController
     before_action :check_trainee!
