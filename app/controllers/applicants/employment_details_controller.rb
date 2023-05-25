@@ -24,6 +24,7 @@ module Applicants
     def employment_detail_params
       params.require(:applicants_employment_detail).permit(
         :school_name,
+        :school_postcode,
         :school_headteacher_name,
       )
     end
