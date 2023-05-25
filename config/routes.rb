@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/ineligible", to: "pages#ineligible"
 
   namespace :applicants do
-    resources :application_types, only: %i[new create]
+    resources :application_routes, only: %i[new create]
     resources :school_details, only: %i[new create]
     resources :contract_details, only: %i[new create]
     resources :contract_start_dates, only: %i[new create]

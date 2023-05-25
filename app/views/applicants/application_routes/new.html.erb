@@ -1,0 +1,29 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <%= form_with(model: @application_route, local: true) do |f| %>
+      <%= f.govuk_error_summary %>
+
+      <%= f.govuk_radio_buttons_fieldset(:application_route, legend: { text: "Select one of the following options", tag: "h1", size: "l" }) do %>
+        <%= f.govuk_radio_button(
+          :application_route,
+          :salaried_trainee,
+          label: { text: t("applicants.application_routes.radio_button.salaried_trainee") },
+          hint: { text: t("applicants.application_routes.hint.salaried_trainee") },
+          link_errors: true,
+        )%>
+        <%= f.govuk_radio_button(
+          :application_route,
+          :teacher,
+          label: { text: t("applicants.application_routes.radio_button.teacher") },
+        )%>
+        <%= f.govuk_radio_button(
+          :application_route,
+          :other,
+          label: { text: "Other" },
+        )%>
+      <% end %>
+      
+      <%= f.govuk_submit %>
+    <% end %>
+  </div>
+</div>

@@ -30,6 +30,7 @@ module Applicants
 
     def applicant_params
       employment_detail_params.merge(
+        application_route: session["application_route"],
         given_name: session["personal_detail"]["given_name"],
         family_name: session["personal_detail"]["family_name"],
         email_address: session["personal_detail"]["email_address"],

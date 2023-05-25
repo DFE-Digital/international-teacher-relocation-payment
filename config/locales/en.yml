@@ -31,6 +31,12 @@
 
 en:
   applicants:
+    application_routes:
+      radio_button:
+        teacher: I am enrolled on a salaried teacher training course in England.
+        salaried_trainee: I am employed as a teacher in a school in England
+      hint:
+        salaried_trainee: ‘Salaried’ means a course where you a paid a wage to work whilst you train.
     entry_dates:
       title:
         teacher: Enter the date you moved to England to start your teaching job
@@ -49,9 +55,9 @@ en:
   activemodel:
     errors:
       models:
-        applicants/application_type:
+        applicants/application_route:
           attributes:
-            application_type:
+            application_route:
               blank: Select the option that applies to you
         applicants/contract_detail:
           attributes:
