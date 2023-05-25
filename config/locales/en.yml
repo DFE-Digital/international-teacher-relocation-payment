@@ -49,9 +49,9 @@ en:
   activemodel:
     errors:
       models:
-        applicants/application_type:
+        applicants/application_route:
           attributes:
-            application_type:
+            application_route:
               blank: Select the option that applies to you
         applicants/contract_detail:
           attributes:

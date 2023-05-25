@@ -6,7 +6,7 @@ feature "completing the form" do
   context "with no eligibility failures" do
     scenario "submits an application" do
       when_i_start_the_form
-      and_i_complete_application_type_question
+      and_i_complete_application_route_question
       and_i_complete_the_state_school_question
       and_i_complete_the_contract_details_question
       and_i_enter_my_contract_start_date
@@ -24,7 +24,7 @@ feature "completing the form" do
       click_link("Start")
     end
 
-    def and_i_complete_application_type_question
+    def and_i_complete_application_route_question
       choose("Teacher")
       click_button("Continue")
     end

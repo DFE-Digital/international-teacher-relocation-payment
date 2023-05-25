@@ -4,7 +4,7 @@
 
       <%= f.govuk_error_summary %>
       
-      <%= f.govuk_date_field :entry_date, legend: { text: t("applicants.entry_dates.title.#{application_type}"), tag: "h1", size: "l" } %>
+      <%= f.govuk_date_field :entry_date, legend: { text: t("applicants.entry_dates.title.#{application_route}"), tag: "h1", size: "l" } %>
 
       <%= f.govuk_submit %>
     <% end %>
