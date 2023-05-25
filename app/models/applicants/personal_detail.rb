@@ -19,6 +19,10 @@ module Applicants
     validates :passport_number, presence: true
     validates :nationality, presence: true, inclusion: { in: NATIONALITIES }
 
+    validate do |record|
+      EmailFormatValidator.new(record).validate
+    end
+
     def date_of_birth
       date_from_hash
     end
