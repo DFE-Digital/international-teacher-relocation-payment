@@ -9,7 +9,8 @@
       </h1>
 
       <%= f.govuk_text_field :school_name, label: { text: "Enter the name of the school where you are employed as a trainee teacher", size: "s" } %>
-      <%= f.govuk_text_field :school_headteacher_name, label: { text: "Please provide the name of the Head teacher or Principal of the school", size: "s" } %>
+      <%= f.govuk_text_field :school_postcode, label: { text: "Enter the postcode of the school", size: "s" } %>
+      <%= f.govuk_text_field :school_headteacher_name, label: { text: "Enter the name of the Head teacher or Principal of the school", size: "s" } %>
 
       <%= f.govuk_submit "Submit application" %>
     <% end %>
