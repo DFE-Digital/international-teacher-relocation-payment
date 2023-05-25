@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_10_163019) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_25_152425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_163019) do
     t.date "home_office_checks_completed_at"
     t.boolean "school_investigation_required"
     t.date "school_checks_completed_at"
+    t.string "application_route"
   end
 
 end
