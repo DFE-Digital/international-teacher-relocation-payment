@@ -33,8 +33,8 @@ en:
   applicants:
     application_routes:
       radio_button:
-        teacher: I am enrolled on a salaried teacher training course in England.
-        salaried_trainee: I am employed as a teacher in a school in England
+        teacher: I am employed as a teacher in a school in England
+        salaried_trainee: I am enrolled on a salaried teacher training course in England
       hint:
         salaried_trainee: ‘Salaried’ means a course where you a paid a wage to work whilst you train.
     entry_dates:

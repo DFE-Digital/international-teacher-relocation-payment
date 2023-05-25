@@ -16,7 +16,7 @@ feature "completing the form" do
       and_i_enter_my_entry_date
       and_i_enter_my_personal_details
       and_i_enter_my_employment_details
-      expect(page).to have_text("hank you for completing the international relocation payment application form")
+      expect(page).to have_text("Thank you for completing the international relocation payment application form")
     end
     
     def when_i_start_the_form
@@ -25,7 +25,7 @@ feature "completing the form" do
     end
 
     def and_i_complete_application_route_question
-      choose("Teacher")
+      choose("I am employed as a teacher in a school in England")
       click_button("Continue")
     end
 
