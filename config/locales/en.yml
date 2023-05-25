@@ -118,3 +118,6 @@ en:
           attributes:
             visa_type:
               blank: Choose your visa type
+      validators:
+        postcode:
+          invalid: Enter a valid postcode (for example, BN1 1AA)
