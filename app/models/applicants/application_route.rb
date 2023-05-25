@@ -5,7 +5,7 @@ module Applicants
     include ActiveModel::Model
     attr_accessor :application_route
 
-    APPLICATION_ROUTE_OPTIONS = %w[teacher salaried_trainee other]
+    APPLICATION_ROUTE_OPTIONS = %w[salaried_trainee teacher other]
 
     validates :application_route, presence: true, inclusion: { in: APPLICATION_ROUTE_OPTIONS }
 
