@@ -3,6 +3,8 @@
 # TODO: Policy to allow only signed in admins to access anything in this module.
 module SystemAdmin
   class ApplicantsController < ApplicationController
+    http_basic_authenticate_with name: ENV.fetch('ADMIN_USERNAME'), password: ENV.fetch('ADMIN_PASSWORD')
+
     before_action :find_applicant, only: %i[show edit update]
     
     def index
