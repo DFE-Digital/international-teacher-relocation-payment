@@ -6,7 +6,7 @@ module Applicants
     attr_accessor :state_funded_secondary_school
 
     # TODO: Consider saving this as a boolean but formatted Yes/No in UI and CSV
-    SCHOOL_OPTIONS = %w[yes no]
+    SCHOOL_OPTIONS = %w[yes no].freeze
 
     validates :state_funded_secondary_school, presence: true, inclusion: { in: SCHOOL_OPTIONS }
 
