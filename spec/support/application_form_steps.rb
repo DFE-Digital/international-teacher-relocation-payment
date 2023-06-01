@@ -1,4 +1,6 @@
-RSpec.shared_context "with application form steps" do
+# frozen_string_literal: true
+
+RSpec.shared_context "with common application form steps" do
   def when_i_start_the_form
     visit(root_path)
 

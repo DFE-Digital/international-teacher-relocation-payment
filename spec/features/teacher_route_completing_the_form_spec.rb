@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "teacher route: completing the form" do
-  include_context "with application form steps"
+  include_context "with common application form steps"
 
   context "with no eligibility failures" do
     it "submits an application" do
