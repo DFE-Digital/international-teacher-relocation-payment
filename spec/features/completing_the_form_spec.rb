@@ -25,7 +25,7 @@ feature "completing the form" do
     end
 
     def and_i_complete_application_route_question
-      choose("Teacher")
+      choose(option: "teacher")
       click_button("Continue")
     end
 

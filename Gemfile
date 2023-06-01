@@ -52,6 +52,7 @@ gem "httparty", "~> 0.21"
 
 group :test do
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
@@ -62,7 +63,6 @@ group :development, :test do
   gem "rubocop-rspec"
 
   # Debugging
-  gem "debug"
   gem "pry-byebug"
 
   # Better use of test helpers such as save_and_open_page/screenshot
@@ -73,6 +73,9 @@ group :development, :test do
   gem "dotenv-rails"
 
   gem 'capybara'
+
+  gem 'brakeman'
+  gem 'bundler-audit'
 end
 
 group :development do
