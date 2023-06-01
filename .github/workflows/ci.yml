@@ -36,6 +36,8 @@ jobs:
         run: bin/rails db:schema:load
       - name: Set up database schema
         run: bin/rails db:seed
+      - name: Copy env file
+        run: cp .env.example .env
       - name: Run tests
         run: bin/rspec
 
