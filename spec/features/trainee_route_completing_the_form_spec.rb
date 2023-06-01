@@ -2,16 +2,14 @@
 
 require "rails_helper"
 
-describe "teacher route: completing the form" do
+describe "trainee route: completing the form" do
   include_context "with application form steps"
 
   context "with no eligibility failures" do
     it "submits an application" do
       when_i_start_the_form
-      and_i_complete_application_route_question_with(option: "teacher")
-      and_i_complete_the_state_school_question
-      and_i_complete_the_contract_details_question
-      and_i_enter_my_contract_start_date
+      and_i_complete_application_route_question_with(option: "salaried_trainee")
+      and_i_complete_the_trainee_employment_conditions
       and_i_select_my_subject
       and_i_confirm_my_subject_percentage
       and_i_select_my_visa_type
@@ -20,6 +18,14 @@ describe "teacher route: completing the form" do
       and_i_enter_my_employment_details
 
       expect(page).to have_text("Thank you for completing the international relocation payment application form")
+    end
+
+    def and_i_complete_the_trainee_employment_conditions
+      choose_yes
+    end
+
+    def and_i_complete_the_trainee_contract_details_question
+      choose_yes
     end
   end
 end

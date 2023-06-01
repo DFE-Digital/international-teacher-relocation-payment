@@ -5,8 +5,10 @@ RSpec.shared_context "with application form steps" do
     click_link("Start")
   end
 
-  def and_i_complete_application_route_question
-    choose(option: "teacher")
+  def and_i_complete_application_route_question_with(option:)
+    raise "Unexpected option: #{option}" unless %w[salaried_trainee teacher].include?(option)
+
+    choose(option:)
 
     click_button("Continue")
   end
