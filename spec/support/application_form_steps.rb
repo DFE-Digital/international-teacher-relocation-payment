@@ -13,22 +13,6 @@ RSpec.shared_context "with application form steps" do
     click_button("Continue")
   end
 
-  def and_i_complete_the_state_school_question
-    choose_yes
-  end
-
-  def and_i_complete_the_contract_details_question
-    choose_yes
-  end
-
-  def and_i_enter_my_contract_start_date
-    fill_in("Day", with: 12)
-    fill_in("Month", with: 12)
-    fill_in("Year", with: 2020)
-
-    click_button("Continue")
-  end
-
   def and_i_select_my_subject
     choose("Physics")
 
