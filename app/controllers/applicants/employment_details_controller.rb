@@ -13,13 +13,13 @@ module Applicants
         Applicant.create!(applicant_params)
         # TODO: Clean up data we've added to the session
         # session.delete('')
-        redirect_to submitted_path
+        redirect_to(submitted_path)
       else
-        render :new
+        render(:new)
       end
     end
 
-    private
+  private
 
     def employment_detail_params
       params.require(:applicants_employment_detail).permit(

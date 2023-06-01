@@ -20,13 +20,13 @@ module Applicants
       if @contract_start_date.valid?
         session[:contract_start_date] = @contract_start_date.contract_start_date
 
-        redirect_to new_applicants_subject_path
+        redirect_to(new_applicants_subject_path)
       else
-        render :new
+        render(:new)
       end
     end
 
-    private
+  private
 
     def contract_start_date_params
       params.require(:applicants_contract_start_date).permit(

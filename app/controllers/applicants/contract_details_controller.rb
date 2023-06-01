@@ -15,16 +15,16 @@ module Applicants
         if @contract_detail.eligible?
           session[:one_year_contract] = @contract_detail.one_year
 
-          redirect_to new_applicants_contract_start_date_path
+          redirect_to(new_applicants_contract_start_date_path)
         else
-          redirect_to ineligible_path
+          redirect_to(ineligible_path)
         end
       else
-        render :new
+        render(:new)
       end
     end
 
-    private
+  private
 
     def contract_detail_params
       params.fetch(:applicants_contract_detail, {}).permit(:one_year)

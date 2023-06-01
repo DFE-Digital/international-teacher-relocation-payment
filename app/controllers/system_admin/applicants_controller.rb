@@ -6,7 +6,7 @@ module SystemAdmin
     http_basic_authenticate_with name: ENV.fetch('ADMIN_USERNAME'), password: ENV.fetch('ADMIN_PASSWORD')
 
     before_action :find_applicant, only: %i[show edit update]
-    
+
     def index
       @applicants = Applicant.all.order(created_at: :desc)
 
@@ -43,7 +43,7 @@ module SystemAdmin
     end
 
     def find_applicant
-      @applicant ||= Applicant.find(params[:id])
+      @applicant = Applicant.find(params[:id])
     end
   end
 end
