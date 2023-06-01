@@ -41,6 +41,19 @@ Run the full test suite with:
 bundle exec rake
 ```
 
+## Architectural Decision Record
+
+See the [docs/adr](docs/adr) directory for a list of the Architectural Decision
+Record (ADR). We use [adr-tools](https://github.com/npryce/adr-tools) to manage
+our ADRs, see the link for how to install (hint: `brew install adr-tools` or use
+ASDF).
+
+To create a new ADR, run:
+
+```bash
+adr new "Title of ADR"
+```
+
 ### Hosting
 
 TODO
