@@ -10,14 +10,14 @@ class ApplicationController < ActionController::Base
   end
 
   def check_teacher!
-    if application_route != "teacher"
-      redirect_to new_applicants_application_route_path
-    end
+    return unless application_route != "teacher"
+
+    redirect_to(new_applicants_application_route_path)
   end
 
   def check_trainee!
-    if application_route != "salaried_trainee"
-      redirect_to new_applicants_application_route_path
-    end
+    return unless application_route != "salaried_trainee"
+
+    redirect_to(new_applicants_application_route_path)
   end
 end

@@ -1,91 +1,60 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.3"
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4"
-
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
-
-# Use postgresql as the database for Active Record
+gem "bootsnap", require: false
+gem "foreman"
+gem "jbuilder"
 gem "pg", "~> 1.1"
-
-# Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
-
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem "rails", "~> 7.0.4"
+gem "sprockets-rails"
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "webpacker"
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
-
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
-
-# Manage multiple processes i.e. web server and webpack
-gem "foreman"
-
+###############
+# GOVUK GEMS ##
+###############
 # Used to build our forms and style them using govuk-frontend class names
 gem "govuk-components", "3.0.3"
 gem "govuk_design_system_formbuilder"
-
 # UK postcode parsing and validation for Ruby
 gem "uk_postcode"
+###############
 
 gem "config", "~> 4.1"
-
 gem "httparty", "~> 0.21"
 
-# Use Sass to process CSS
-# gem "sassc-rails"
-
 group :test do
-  gem 'shoulda-matchers', '~> 5.0'
-  gem 'simplecov', require: false
+  gem "shoulda-matchers," "~> 5.0"
+  gem "simplecov", require: false
 end
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-
+  gem "rubocop-govuk", require: false
+  gem "rubocop-performance", require: false
   gem "rubocop-rails"
   gem "rubocop-rspec"
 
   # Debugging
   gem "pry-byebug"
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+
 
   # Better use of test helpers such as save_and_open_page/screenshot
   gem "launchy"
-
+  gem "pry-byebug"
   # Testing framework
-  gem "rspec-rails"
+  gem "capybara"
   gem "dotenv-rails"
-
-  gem 'capybara'
-
-  gem 'brakeman'
-  gem 'bundler-audit'
+  gem "brakeman"
+  gem "bundler-audit"
+  gem "rspec-rails"
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
 end
-

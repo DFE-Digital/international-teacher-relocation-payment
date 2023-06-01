@@ -2,9 +2,9 @@
 
 require "rails_helper"
 
-feature "completing the form" do
+describe "completing the form" do
   context "with no eligibility failures" do
-    scenario "submits an application" do
+    it "submits an application" do
       when_i_start_the_form
       and_i_complete_application_route_question
       and_i_complete_the_state_school_question
@@ -18,7 +18,7 @@ feature "completing the form" do
       and_i_enter_my_employment_details
       expect(page).to have_text("hank you for completing the international relocation payment application form")
     end
-    
+
     def when_i_start_the_form
       visit(root_path)
       click_link("Start")

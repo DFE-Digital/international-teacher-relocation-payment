@@ -3,15 +3,18 @@
 require "rails_helper"
 
 module Applicants
-  describe Visa, type: :model do
+  describe Visa do
     let(:params) { {} }
-    subject { described_class.new(params) }
+
+    subject(:model) { described_class.new(params) }
 
     describe "validations" do
       it { is_expected.to validate_presence_of(:visa_type) }
 
-      it { is_expected.to validate_inclusion_of(:visa_type)
-        .in_array(Applicants::Visa::VISA_OPTIONS) }
+      it {
+        expect(model).to validate_inclusion_of(:visa_type)
+          .in_array(Applicants::Visa::VISA_OPTIONS)
+      }
     end
 
     describe "#eligible?" do
@@ -19,6 +22,7 @@ module Applicants
 
       context "when visa is other" do
         let(:params) { { visa_type: "other" } }
+
         it { is_expected.to be_falsey }
       end
     end

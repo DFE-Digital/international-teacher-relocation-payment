@@ -15,16 +15,16 @@ module Applicants
         if @salaried_course_detail.eligible?
           session[:eligible_salaried_course] = @salaried_course_detail.eligible_course
 
-          redirect_to new_applicants_subject_path
+          redirect_to(new_applicants_subject_path)
         else
-          redirect_to ineligible_path
+          redirect_to(ineligible_path)
         end
       else
-        render :new
+        render(:new)
       end
     end
 
-    private
+  private
 
     def salaried_course_detail_params
       params.fetch(:applicants_salaried_course_detail, {}).permit(:eligible_course)
