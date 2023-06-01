@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "completing the form" do
+describe "teacher route: completing the form" do
   context "with no eligibility failures" do
     it "submits an application" do
       when_i_start_the_form
