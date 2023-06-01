@@ -6,7 +6,7 @@ module Applicants
     attr_accessor :fifty_percent
 
     # TODO: Consider saving this as a boolean but formatted Yes/No in UI and CSV
-    OPTIONS = %w[yes no]
+    OPTIONS = %w[yes no].freeze
 
     validates :fifty_percent, presence: true, inclusion: { in: OPTIONS }
 

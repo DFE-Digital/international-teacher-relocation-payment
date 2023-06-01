@@ -3,8 +3,9 @@
 require "rails_helper"
 
 module Applicants
-  describe EmploymentDetail, type: :model do
+  describe EmploymentDetail do
     let(:params) { {} }
+
     subject { described_class.new(params) }
 
     describe "validations" do

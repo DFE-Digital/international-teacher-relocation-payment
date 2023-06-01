@@ -27,13 +27,13 @@ module Applicants
           "nationality" => @personal_detail.nationality,
         }
 
-        redirect_to new_applicants_employment_detail_path
+        redirect_to(new_applicants_employment_detail_path)
       else
-        render :new
+        render(:new)
       end
     end
 
-    private
+  private
 
     def personal_detail_params
       params.require(:applicants_personal_detail).permit(
@@ -46,7 +46,7 @@ module Applicants
         :nationality,
         *DOB_CONVERSION.keys,
       ).transform_keys do |key|
-        DOB_CONVERSION.keys.include?(key) ? DOB_CONVERSION[key] : key
+        DOB_CONVERSION.key?(key) ? DOB_CONVERSION[key] : key
       end
     end
   end

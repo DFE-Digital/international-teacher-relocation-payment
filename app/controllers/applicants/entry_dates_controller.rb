@@ -19,16 +19,16 @@ module Applicants
         if @entry_date.eligible?(session)
           session[:entry_date] = @entry_date.entry_date
 
-          redirect_to new_applicants_personal_detail_path
+          redirect_to(new_applicants_personal_detail_path)
         else
-          redirect_to ineligible_path
+          redirect_to(ineligible_path)
         end
       else
-        render :new
+        render(:new)
       end
     end
 
-    private
+  private
 
     def entry_date_params
       params.require(:applicants_entry_date).permit(

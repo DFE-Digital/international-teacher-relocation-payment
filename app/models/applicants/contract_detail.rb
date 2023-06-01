@@ -6,7 +6,7 @@ module Applicants
     attr_accessor :one_year
 
     # TODO: Consider saving this as a boolean but formatted Yes/No in UI and CSV
-    ONE_YEAR_OPTIONS = %w[yes no]
+    ONE_YEAR_OPTIONS = %w[yes no].freeze
 
     validates :one_year, presence: true, inclusion: { in: ONE_YEAR_OPTIONS }
 

@@ -10,7 +10,7 @@ class Applicant < ApplicationRecord
 
   def self.to_csv
     CSV.generate(headers: true) do |csv|
-      csv << self.attribute_names
+      csv << attribute_names
 
       all.find_each do |applicant|
         csv << applicant.attributes.values
