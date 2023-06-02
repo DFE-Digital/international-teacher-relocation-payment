@@ -40,18 +40,17 @@ group :development, :test do
   gem "rubocop-rspec"
 
   # Debugging
-  gem "pry-byebug"
   gem "debug", platforms: %i[mri mingw x64_mingw]
-
+  gem "pry-byebug"
 
   # Better use of test helpers such as save_and_open_page/screenshot
   gem "launchy"
   gem "pry-byebug"
   # Testing framework
-  gem "capybara"
-  gem "dotenv-rails"
   gem "brakeman"
   gem "bundler-audit"
+  gem "capybara"
+  gem "dotenv-rails"
   gem "rspec-rails"
 end
 
