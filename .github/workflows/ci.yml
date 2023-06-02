@@ -28,16 +28,33 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: yarn
+
       - name: Set up database schema
         run: bin/rails db:schema:load
+
       - name: Set up database schema
         run: bin/rails db:seed
+
       - name: Copy env file
         run: cp .env.example .env
+
+      - name: Install yarn packages
+        run: yarn install --check-files
+
+      - name: Compile assets
+        run: bin/rails assets:precompile
+
       - name: Run tests
         run: bin/rspec
 
@@ -46,14 +63,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
         with:
           bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install yarn packages
+        run: yarn install --check-files
+
       # Add or replace any other lints here
       - name: Security audit dependencies
         run: bin/bundler-audit --update
+
       - name: Security audit application code
         run: bin/brakeman -q -w2
+
       - name: Lint Ruby files
         run: bin/rubocop --parallel
