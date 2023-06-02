@@ -32,6 +32,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.14.0'
+      - name: Setup yarn
+        run: npm install -g yarn
+      - name: Install Node packages
+        run: yarn install
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
