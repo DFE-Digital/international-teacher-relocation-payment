@@ -45,7 +45,7 @@ group :development, :test do
 
   # Better use of test helpers such as save_and_open_page/screenshot
   gem "launchy"
-  gem "pry-byebug"
+
   # Testing framework
   gem "brakeman"
   gem "bundler-audit"
