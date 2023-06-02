@@ -11,6 +11,7 @@ gem "jbuilder"
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.3"
 gem "rails", "~> 7.0.4"
+gem "sassc-rails"
 gem "sprockets-rails"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "webpacker"
@@ -34,6 +35,7 @@ group :test do
 end
 
 group :development, :test do
+  gem "factory_bot_rails"
   gem "rubocop-govuk", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails"
@@ -55,5 +57,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "annotate"
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "web-console"
 end
