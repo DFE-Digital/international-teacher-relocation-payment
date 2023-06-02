@@ -20,7 +20,7 @@
   "devDependencies": {
     "jest": "^29.5.0",
     "standard": "^17.1.0",
-    "webpack-dev-server": "^3"
+    "webpack-dev-server": "^4"
   },
   "standard": {
     "env": [
