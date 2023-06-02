@@ -45,4 +45,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_02_121235) do
     t.string "application_route"
   end
 
+  add_foreign_key "applicant_progresses", "applicants"
 end

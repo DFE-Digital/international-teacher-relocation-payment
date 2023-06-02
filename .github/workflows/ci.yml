@@ -50,7 +50,7 @@ jobs:
         run: cp .env.example .env
 
       - name: Install yarn packages
-        run: yarn install --check-files
+        run: yarn install --check-files --ignore-engines
 
       - name: Compile assets
         run: bin/rails assets:precompile
@@ -76,7 +76,7 @@ jobs:
           cache: yarn
 
       - name: Install yarn packages
-        run: yarn install --check-files
+        run: yarn install --check-files --ignore-engines
 
       # Add or replace any other lints here
       - name: Security audit dependencies
