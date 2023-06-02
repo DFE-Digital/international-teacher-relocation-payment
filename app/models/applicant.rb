@@ -4,6 +4,8 @@ class Applicant < ApplicationRecord
   # TODO: Add validations here so that a final check is made on the validity of
   # the whole application.
 
+  has_one :applicant_progress, dependent: :destroy
+
   def full_name
     "#{given_name} #{family_name}"
   end

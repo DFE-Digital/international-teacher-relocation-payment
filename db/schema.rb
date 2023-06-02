@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_25_152425) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_02_115745) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applicant_progresses", force: :cascade do |t|
+    t.bigint "applicant_id", null: false
+    t.date "initial_checks_completed_at"
+    t.boolean "visa_investigation_required"
+    t.date "home_office_checks_completed_at"
+    t.boolean "school_investigation_required"
+    t.date "school_checks_completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["applicant_id"], name: "index_applicant_progresses_on_applicant_id"
+  end
 
   create_table "applicants", force: :cascade do |t|
     t.text "given_name"
