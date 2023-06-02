@@ -29,22 +29,29 @@ gem "config", "~> 4.1"
 gem "httparty", "~> 0.21"
 
 group :test do
-  gem "shoulda-matchers", "~> 5.0"
+  gem "shoulda-matchers," "~> 5.0"
+  gem "simplecov", require: false
 end
 
 group :development, :test do
-  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "rubocop-govuk", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails"
   gem "rubocop-rspec"
 
   # Debugging
+  gem "pry-byebug"
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+
+
+  # Better use of test helpers such as save_and_open_page/screenshot
   gem "launchy"
   gem "pry-byebug"
   # Testing framework
   gem "capybara"
   gem "dotenv-rails"
+  gem "brakeman"
+  gem "bundler-audit"
   gem "rspec-rails"
 end
 
