@@ -11,5 +11,9 @@ module Applicants
     def contract_start_date
       date_from_hash
     end
+
+    validate do |record|
+      DayMonthYearDateValidator.new.validate(record)
+    end
   end
 end
