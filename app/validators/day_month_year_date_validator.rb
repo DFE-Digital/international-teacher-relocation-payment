@@ -16,7 +16,7 @@ private
 
     return false unless day.present? && month.present? && year.present?
 
-    Date.valid_date?(year, month, day)
+    Date.valid_date?(year.to_i, month.to_i, day.to_i)
   rescue ArgumentError
     false
   end
