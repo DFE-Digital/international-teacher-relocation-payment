@@ -12,14 +12,12 @@ RSpec.describe DayMonthYearDateValidator do
     end
   end
 
-  subject(:validatable) { Validatable.new }
+  let(:valid_attributes) { { day: 15, month: 6, year: 2023 } }
+  subject(:validatable) { Validatable.new(valid_attributes) }
 
   describe "#validate" do
     context "when the date is valid" do
       it "passes validation" do
-        validatable.day = 15
-        validatable.month = 6
-        validatable.year = 2023
         validatable.valid?
 
         expect(validatable).to be_valid
@@ -30,7 +28,6 @@ RSpec.describe DayMonthYearDateValidator do
       it "fails validation" do
         validatable.day = 31
         validatable.month = 2 # Invalid month
-        validatable.year = 2023
         validatable.valid?
 
         expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
@@ -38,12 +35,6 @@ RSpec.describe DayMonthYearDateValidator do
     end
 
     context "when missing fields" do
-      before do
-        validatable.day = 15
-        validatable.month = 6
-        validatable.year = 2023
-      end
-
       it "fails validation when missing day" do
         validatable.day = nil
         validatable.valid?
