@@ -4,12 +4,6 @@ module Applicants
   class ContractStartDatesController < ApplicationController
     before_action :check_teacher!
 
-    DATE_CONVERSION = {
-      "contract_start_date(3i)" => "day",
-      "contract_start_date(2i)" => "month",
-      "contract_start_date(1i)" => "year",
-    }.freeze
-
     def new
       @contract_start_date = ContractStartDate.new
     end
@@ -33,5 +27,12 @@ module Applicants
         *DATE_CONVERSION.keys,
       ).transform_keys { |key| DATE_CONVERSION[key] }
     end
+
+    DATE_CONVERSION = {
+      "contract_start_date(3i)" => "day",
+      "contract_start_date(2i)" => "month",
+      "contract_start_date(1i)" => "year",
+    }.freeze
+    private_constant :DATE_CONVERSION
   end
 end
