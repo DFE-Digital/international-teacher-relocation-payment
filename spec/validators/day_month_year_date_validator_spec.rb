@@ -44,25 +44,22 @@ RSpec.describe DayMonthYearDateValidator do
     end
 
     context "when missing fields" do
-      it "fails validation when missing day" do
+      it "does not perform validation if day `nil`" do
         validatable.day = nil
-        validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
+        expect(validatable).to be_valid
       end
 
-      it "fails validation when missing month" do
+      it "does not perform validation if month `nil`" do
         validatable.month = nil
-        validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
+        expect(validatable).to be_valid
       end
 
-      it "fails validation when missing year" do
+      it "does not perform validation if year `nil`" do
         validatable.year = nil
-        validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
+        expect(validatable).to be_valid
       end
     end
   end
