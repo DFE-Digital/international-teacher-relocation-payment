@@ -3,15 +3,15 @@
 require "rails_helper"
 
 describe EmailFormatValidator do
-  subject { Applicants::PersonalDetail.new }
+  subject(:applicant) { Applicants::PersonalDetail.new }
 
-  before { subject.email_address = email }
+  before { applicant.email_address = email }
 
   context "with a valid email" do
     let(:email) { "valid@example.com" }
 
     it "does not add an error" do
-      expect(subject.errors[:email_address]).to be_blank
+      expect(applicant.errors[:email_address]).to be_blank
     end
   end
 
@@ -20,8 +20,9 @@ describe EmailFormatValidator do
 
     shared_examples_for error_test do
       it "adds an error" do
-        expect(subject).not_to be_valid
-        expect(subject.errors[:email_address]).not_to be_blank
+        applicant.valid?
+
+        expect(applicant.errors[:email_address]).not_to be_blank
       end
     end
 
