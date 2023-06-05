@@ -3,17 +3,18 @@
 module Applicants
   class ContractStartDate
     include ActiveModel::Model
-    include DateHelpers
     attr_accessor :day, :month, :year
+
+    validate do |record|
+      DayMonthYearDateValidator.new.validate(record)
+    end
 
     validates :contract_start_date, presence: true
 
     def contract_start_date
-      date_from_hash
-    end
-
-    validate do |record|
-      DayMonthYearDateValidator.new.validate(record)
+      Date.new(year.to_i, month.to_i, day.to_i)
+    rescue StandardError
+      nil
     end
   end
 end
