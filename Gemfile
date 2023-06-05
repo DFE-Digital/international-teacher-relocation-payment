@@ -19,7 +19,7 @@ gem "webpacker"
 # GOVUK GEMS ##
 ###############
 # Used to build our forms and style them using govuk-frontend class names
-gem "govuk-components", "3.0.3"
+gem "govuk-components", "4.0.0"
 gem "govuk_design_system_formbuilder"
 # UK postcode parsing and validation for Ruby
 gem "uk_postcode"

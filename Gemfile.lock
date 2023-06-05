@@ -140,10 +140,10 @@ GEM
     foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    govuk-components (3.0.3)
-      activemodel (>= 6.1)
-      railties (>= 6.1)
-      view_component (~> 2.49.1)
+    govuk-components (4.0.0)
+      html-attributes-utils (~> 1.0.0, >= 1.0.0)
+      pagy (~> 6.0)
+      view_component (~> 3.0.0)
     govuk_design_system_formbuilder (4.0.0)
       actionview (>= 6.1)
       activemodel (>= 6.1)
@@ -154,7 +154,7 @@ GEM
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
-    i18n (1.13.0)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
     irb (1.6.4)
@@ -194,6 +194,7 @@ GEM
     nokogiri (1.15.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
+    pagy (6.0.4)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
@@ -318,8 +319,9 @@ GEM
       concurrent-ruby (~> 1.0)
     uk_postcode (2.1.8)
     unicode-display_width (2.4.2)
-    view_component (2.49.1)
-      activesupport (>= 5.0.0, < 8.0)
+    view_component (3.0.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -350,7 +352,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   foreman
-  govuk-components (= 3.0.3)
+  govuk-components (= 4.0.0)
   govuk_design_system_formbuilder
   httparty (~> 0.21)
   jbuilder
