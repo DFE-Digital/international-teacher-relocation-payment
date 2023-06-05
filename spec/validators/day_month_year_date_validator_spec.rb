@@ -26,8 +26,16 @@ RSpec.describe DayMonthYearDateValidator do
     end
 
     context "when the date is invalid" do
-      it "fails validation" do
+      it "fails validation with non-existing dates" do
         validatable.day = "31"
+        validatable.month = "2" # Invalid month
+        validatable.valid?
+
+        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
+      end
+
+      it "fails validation with negative numbers" do
+        validatable.day = -1
         validatable.month = "2" # Invalid month
         validatable.valid?
 

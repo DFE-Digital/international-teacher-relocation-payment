@@ -10,13 +10,14 @@ class DayMonthYearDateValidator
 private
 
   def valid?
-    day = @record.day
-    month = @record.month
-    year = @record.year
+    day = @record.day.to_i
+    month = @record.month.to_i
+    year = @record.year.to_i
 
     return false unless day.present? && month.present? && year.present?
+    return false unless [day, month, year].all?(&:positive?)
 
-    Date.valid_date?(year.to_i, month.to_i, day.to_i)
+    Date.valid_date?(year, month, day)
   rescue ArgumentError
     false
   end
