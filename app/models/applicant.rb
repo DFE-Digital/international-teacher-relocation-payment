@@ -34,7 +34,7 @@ class Applicant < ApplicationRecord
     :home_office_checks_completed_at,
     :school_investigation_required,
     :school_checks_completed_at,
-    :application_route, to: :applicant_progress
+    to: :applicant_progress
 
   def full_name
     "#{given_name} #{family_name}"
