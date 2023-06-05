@@ -26,7 +26,7 @@ FactoryBot.define do
   factory :applicant do
     application_route { %w[salaried_trainee teacher].sample }
     date_of_birth { rand(18..90).years.ago.to_date }
-    date_of_entry { Date.today }
+    date_of_entry { Time.zone.today }
     email_address { Faker::Internet.email }
     family_name { Faker::Name.last_name  }
     given_name { Faker::Name.first_name  }
