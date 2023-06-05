@@ -35,6 +35,14 @@ Style/HashSyntax:
 Style/Documentation:
   Enabled: false
 
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/LeakyConstantDeclaration:
+  Exclude:
+    - 'spec/**/*'
+
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'
