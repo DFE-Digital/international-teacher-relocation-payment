@@ -33,7 +33,7 @@ RSpec.describe DayMonthYearDateValidator do
         validatable.year = 2023
         validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("is not a valid date")
+        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
       end
     end
 
@@ -48,21 +48,21 @@ RSpec.describe DayMonthYearDateValidator do
         validatable.day = nil
         validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("is not a valid date")
+        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
       end
 
       it "fails validation when missing month" do
         validatable.month = nil
         validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("is not a valid date")
+        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
       end
 
       it "fails validation when missing year" do
         validatable.year = nil
         validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("is not a valid date")
+        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
       end
     end
   end

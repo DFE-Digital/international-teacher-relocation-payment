@@ -4,7 +4,7 @@ class DayMonthYearDateValidator
   def validate(record, attribute = "day_month_year_date")
     @record = record
 
-    record.errors.add(attribute, "is not a valid date") unless valid?
+    record.errors.add(attribute, "Enter a valid date") unless valid?
   end
 
 private
