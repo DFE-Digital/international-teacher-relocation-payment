@@ -15,7 +15,7 @@
 </div>
 
 <div class="govuk-grid-row">
-    <div class ="govuk-grid-column-full">
+  <div class ="govuk-grid-column-full">
     <p class="govuk-body">
       <%= govuk_link_to "Update progress", edit_applicant_path(@applicant), class: "govuk-link" %>
     </p>
@@ -33,7 +33,7 @@
           Initial checks completed
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.initial_checks_completed_at&.to_fs(:govuk) %>
+          <%= @applicant.applicant_progress.initial_checks_completed_at&.to_fs(:govuk) %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -41,7 +41,7 @@
           Visa investigation required
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.visa_investigation_required %>
+          <%= @applicant.applicant_progress.visa_investigation_required %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -49,7 +49,7 @@
           Home office checks completed
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.home_office_checks_completed_at&.to_fs(:govuk) %>
+          <%= @applicant.applicant_progress.home_office_checks_completed_at&.to_fs(:govuk) %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -57,7 +57,7 @@
           School investigation required
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.school_investigation_required %>
+          <%= @applicant.applicant_progress.school_investigation_required %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -65,7 +65,7 @@
           School checks completed
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.school_checks_completed_at&.to_fs(:govuk) %>
+          <%= @applicant.applicant_progress.school_checks_completed_at&.to_fs(:govuk) %>
         </dd>
       </div>
     </dl>

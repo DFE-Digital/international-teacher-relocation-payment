@@ -31,6 +31,12 @@ module GetAnInternationalRelocationPayment
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
+    config.time_zone = "London"
+    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+    config.i18n.enforce_available_locales = false
+    config.i18n.default_locale = :"en-GB"
+    config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.yml")]
+    config.i18n.fallbacks = true
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.

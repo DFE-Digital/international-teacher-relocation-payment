@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: applicant_progresses
@@ -22,6 +20,13 @@
 #
 #  fk_rails_...  (applicant_id => applicants.id)
 #
-class ApplicantProgress < ApplicationRecord
-  belongs_to :applicant
+FactoryBot.define do
+  factory :applicant_progress do
+    initial_checks_completed_at { rand(21..30).days.ago.to_date }
+    visa_investigation_required { [false, true].sample }
+    home_office_checks_completed_at { rand(11..20).days.ago.to_date }
+    school_checks_completed_at { rand(1..10).days.ago.to_date }
+    school_investigation_required { [false, true].sample }
+    applicant
+  end
 end

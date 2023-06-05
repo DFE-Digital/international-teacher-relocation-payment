@@ -41,6 +41,8 @@ group :development, :test do
   gem "rubocop-rails"
   gem "rubocop-rspec"
 
+  gem "faker"
+
   # Debugging
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "pry-byebug"
