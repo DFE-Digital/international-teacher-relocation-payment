@@ -3,13 +3,24 @@
 module Applicants
   class EntryDate
     include ActiveModel::Model
-    include DateHelpers
     attr_accessor :day, :month, :year
 
     validates :entry_date, presence: true
 
+    validate do |record|
+      DayMonthYearDateValidator.new.validate(record)
+    end
+
     def entry_date
-      date_from_hash
+      Date.new(year.to_i, month.to_i, day.to_i)
+    rescue StandardError
+      InvalidDate.new(day:, month:, year:)
+    end
+
+    InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
+      def blank?
+        members.all? { |date_field| public_send(date_field).blank? }
+      end
     end
 
     # If the applicant is a teacher who entered the country more than three
