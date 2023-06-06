@@ -33,3 +33,8 @@ yarn-debug.log*
 coverage/
 !.env.example
 .env*
+
+.terraform
+terraform/vendor
+terraform.tfstate*
+bin/terrafile
