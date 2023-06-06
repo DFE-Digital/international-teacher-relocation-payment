@@ -1,4 +1,4 @@
-# spec/validators/day_month_year_date_validator_spec.rb
+# spec/validators/an_attribute_validator_spec.rb
 
 require "rails_helper"
 
@@ -8,7 +8,7 @@ RSpec.describe DayMonthYearDateValidator do
     attr_accessor :day, :month, :year
 
     validate do |record|
-      DayMonthYearDateValidator.new.validate(record)
+      DayMonthYearDateValidator.new.validate(record, :an_attribute)
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe DayMonthYearDateValidator do
         validatable.month = "2" # Invalid month
         validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
+        expect(validatable.errors[:an_attribute]).to include("Enter a valid date")
       end
 
       it "fails validation with negative numbers" do
@@ -39,7 +39,7 @@ RSpec.describe DayMonthYearDateValidator do
         validatable.month = "2" # Invalid month
         validatable.valid?
 
-        expect(validatable.errors[:day_month_year_date]).to include("Enter a valid date")
+        expect(validatable.errors[:an_attribute]).to include("Enter a valid date")
       end
     end
 
