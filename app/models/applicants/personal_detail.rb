@@ -21,10 +21,19 @@ module Applicants
 
     validate do |record|
       EmailFormatValidator.new(record).validate
+      DayMonthYearDateValidator.new.validate(record, :date_of_birth)
     end
 
     def date_of_birth
-      date_from_hash
+      Date.new(year.to_i, month.to_i, day.to_i)
+    rescue StandardError
+      InvalidDate.new(day:, month:, year:)
+    end
+  end
+
+  InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
+    def blank?
+      members.all? { |date_field| public_send(date_field).blank? }
     end
   end
 end

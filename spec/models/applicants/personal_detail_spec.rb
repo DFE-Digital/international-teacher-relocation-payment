@@ -21,6 +21,26 @@ module Applicants
         expect(model).to validate_inclusion_of(:sex)
           .in_array(Applicants::PersonalDetail::SEX_OPTIONS)
       }
+
+      describe "date_of_birth" do
+        context "when date_of_birth is invalid" do
+          let(:params) { { day: "31", month: "02", year: "2000" } }
+
+          it "is invalid" do
+            expect(model).not_to be_valid
+          end
+        end
+
+        context "when date_of_birth is valid" do
+          let(:params) { { day: "01", month: "01", year: "2000" } }
+
+          it "is valid" do
+            model.valid?
+
+            expect(model.errors["date_of_birth"]).to be_blank
+          end
+        end
+      end
     end
   end
 end
