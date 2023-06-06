@@ -43,6 +43,13 @@ module Applicants
           value = described_class.new(params)
           expect(value).not_to be_valid
         end
+
+        it "validates presence of the year" do
+          params = { day: "2", month: "2", year: "" }
+
+          value = described_class.new(params)
+          expect(value).not_to be_valid
+        end
       end
     end
   end

@@ -12,6 +12,8 @@ module Applicants
     end
 
     def entry_date
+      return InvalidDate.new(day:, month:, year:) if year.blank?
+
       Date.new(year.to_i, month.to_i, day.to_i)
     rescue StandardError
       InvalidDate.new(day:, month:, year:)
