@@ -6,8 +6,9 @@
 
       <%= f.govuk_radio_buttons_fieldset(
         :eligible_course,
+        hint: { text: "Check with your training provider if you're not sure. You will still be eligible for the international relocation payment if your course leads to PGCE + QTS or PGDE + QTS." },
         legend: { text: "Are you currently employed in a school as a trainee teacher, on a teacher training course in England which meets the following conditions?", tag: "h1", size: "l" }
-        ) do %>
+      ) do %>
 
         <p class="govuk-body">
           The course must:
@@ -18,12 +19,6 @@
           <li>lead to QTS</li>
           <li>be accredited by the UK government</li>
         </ul>
-
-        <p class="govuk-body">
-          Check with your training provider if you're not sure. You will still
-          be eligible for the international relocation payment if your course
-          leads to PGCE + QTS or PGDE + QTS.
-        </p>
 
         <% Applicants::SalariedCourseDetail::ELIGIBLE_COURSE_OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :eligible_course, value, label: { text: value.humanize }, link_errors: i.zero? %>
