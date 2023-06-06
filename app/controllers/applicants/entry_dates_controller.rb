@@ -2,12 +2,6 @@
 
 module Applicants
   class EntryDatesController < ApplicationController
-    DATE_CONVERSION = {
-      "entry_date(3i)" => "day",
-      "entry_date(2i)" => "month",
-      "entry_date(1i)" => "year",
-    }.freeze
-
     def new
       @entry_date = EntryDate.new
     end
@@ -35,5 +29,12 @@ module Applicants
         *DATE_CONVERSION.keys,
       ).transform_keys { |key| DATE_CONVERSION[key] }
     end
+
+    DATE_CONVERSION = {
+      "entry_date(3i)" => "day",
+      "entry_date(2i)" => "month",
+      "entry_date(1i)" => "year",
+    }.freeze
+    private_constant :DATE_CONVERSION
   end
 end
