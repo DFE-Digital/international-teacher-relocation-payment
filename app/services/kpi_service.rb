@@ -24,22 +24,26 @@ class KpiService
   end
 
   def nationality_breakdown
-    Applicant.nationality_breakdown.first(3)
+    NationalityBreakdownQuery.new.call.first(3)
   end
 
   def gender_breakdown
-    Applicant.gender_breakdown
+    GenderBreakdownQuery.new.call
   end
 
   def age_breakdown
-    Applicant.age_group_breakdown.sort_by { |k, _v| k }.to_h
+    AgeGroupBreakdownQuery.new.call
   end
 
   def visa_breakdown
-    Applicant.visa_breakdown
+    VisaBreakdownQuery.new.call
   end
 
   def route_breakdown
-    Applicant.route_breakdown
+    RouteBreakdownQuery.new.call
+  end
+
+  def subject_breakdown
+    SubjectBreakdownQuery.new.call
   end
 end

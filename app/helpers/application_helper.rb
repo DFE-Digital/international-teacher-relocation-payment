@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def duration_in_words(duration)
-    distance_of_time_in_words(Time.now, Time.now + duration)
+    distance_of_time_in_words(Time.current, Time.current + duration)
   end
 end

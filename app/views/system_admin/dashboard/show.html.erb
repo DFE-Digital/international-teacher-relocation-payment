@@ -76,4 +76,15 @@
       <% end %>
     </table>
   </div>
-</div>
+  <div class="kpi-widget">
+    <h3 class="title">Subject
+      <table class="kpi-table">
+        <% @kpi_service.subject_breakdown.each do |k,v|%>
+          <tr>
+            <td><%= k %></td>
+            <td><%= v %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>

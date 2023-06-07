@@ -1,6 +1,6 @@
 module SystemAdmin
   class DashboardController < ApplicationController
-    def kpis
+    def show
       @kpi_service = KpiService.new
     end
   end
