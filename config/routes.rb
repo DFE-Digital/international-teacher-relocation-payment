@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   # TODO: route constraint, only signed-in admins should be able to access
   scope module: :system_admin, path: "system-admin" do
     resources :applicants, only: %i[index show edit update]
-    get "/dashboard", to: "dashboard#kpis"
+    get "/dashboard", to: "dashboard#show"
   end
 end
