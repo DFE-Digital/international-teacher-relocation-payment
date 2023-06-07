@@ -39,4 +39,16 @@ FactoryBot.define do
     subject { %w[physics languages general_science].sample }
     visa_type { %w[visa_1 visa_2 visa_3].sample }
   end
+
+  trait :salaried_trainee do
+    application_route { "salaried_trainee" }
+  end
+
+  trait :teacher do
+    application_route { "teacher" }
+  end
+
+  trait :recently do
+    created_at { rand(30..90).days.ago.to_date }
+  end
 end
