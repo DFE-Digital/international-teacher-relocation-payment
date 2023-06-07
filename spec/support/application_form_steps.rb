@@ -26,7 +26,7 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_select_my_visa_type
-    select("visa_1")
+    select("Family visa")
 
     click_button("Continue")
   end

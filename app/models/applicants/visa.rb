@@ -5,7 +5,19 @@ module Applicants
     include ActiveModel::Model
     attr_accessor :visa_type
 
-    VISA_OPTIONS = %w[visa_1 visa_2 visa_3 other].freeze
+    VISA_OPTIONS = [
+      "Afghan Relocations and Assistance Policy",
+      "Afhgan citizens resettlement scheme",
+      "British National (Overseas) visa",
+      "Family visa",
+      "High Potential Individual visa",
+      "India Young Professionals Scheme visa",
+      "Skilled worker visa",
+      "UK Ancestry visa",
+      "Ukraine Family Scheme visa",
+      "Ukraine Sponsorship Scheme",
+      "Youth Mobility Scheme",
+    ].freeze
 
     validates :visa_type, presence: true, inclusion: { in: VISA_OPTIONS }
 
