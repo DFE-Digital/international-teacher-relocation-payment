@@ -17,6 +17,7 @@ module Applicants
     validates :phone_number, presence: true
     validates :date_of_birth, presence: true
     validate :date_of_birth_not_in_future
+    validate :age_less_than_maximum
     validates :sex, presence: true, inclusion: { in: SEX_OPTIONS }
     validates :passport_number, presence: true
     validates :nationality, presence: true, inclusion: { in: NATIONALITIES }
@@ -41,6 +42,12 @@ module Applicants
       return unless date_of_birth.present? && date_of_birth > Date.zone.today
 
       errors.add(:date_of_birth, "cannot be in the future")
+    end
+
+    def age_less_than_maximum
+      return unless date_of_birth.present? && (Date.zone.today - date_of_birth) >= 80.years
+
+      errors.add(:date_of_birth, "should indicate an age less than 80 years")
     end
   end
 
