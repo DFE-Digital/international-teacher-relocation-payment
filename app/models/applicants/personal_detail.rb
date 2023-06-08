@@ -17,6 +17,7 @@ module Applicants
     validates :phone_number, presence: true
     validates :date_of_birth, presence: true
     validate :date_of_birth_not_in_future
+    validate :age_less_than_maximum
     validates :sex, presence: true, inclusion: { in: SEX_OPTIONS }
     validates :passport_number, presence: true
     validates :nationality, presence: true, inclusion: { in: NATIONALITIES }
@@ -38,11 +39,20 @@ module Applicants
   private
 
     def date_of_birth_not_in_future
-      return unless date_of_birth.present? && date_of_birth > Date.zone.today
+      return unless date_of_birth.present? && date_of_birth > Date.current
 
       errors.add(:date_of_birth, "cannot be in the future")
     end
+
+    def age_less_than_maximum
+      return unless date_of_birth.present? && (Date.current.year - date_of_birth.year) >= MAX_AGE
+
+      errors.add(:date_of_birth, "age should be below #{MAX_AGE} years")
+    end
   end
+
+  MAX_AGE = 80
+  private_constant :MAX_AGE
 
   InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
     def blank?

@@ -44,6 +44,14 @@ module Applicants
           end
         end
 
+        context "when age is over 80 years old" do
+          let(:params) { { day: "01", month: "01", year: 81.years.ago.year } }
+
+          it "is invalid" do
+            expect(model).not_to be_valid
+          end
+        end
+
         context "when date_of_birth is valid" do
           let(:params) { { day: "01", month: "01", year: "2000" } }
 
