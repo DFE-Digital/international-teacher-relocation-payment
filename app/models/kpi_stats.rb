@@ -1,4 +1,4 @@
-class KpiService
+class KpiStats
   def initialize
     @applications = Applicant.all
   end
