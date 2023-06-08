@@ -14,6 +14,14 @@
       <%= f.govuk_text_field :phone_number, label: { text: "Enter your current phone number", size: "s" }, hint: { text: "We will use this to contact you so please make sure you have entered it correctly." } %>
       <%= f.govuk_date_field :date_of_birth, date_of_birth: true, legend: { text: "Enter your date of birth, as it appears on your passport", size: "s" } %>
 
+      <%= f.govuk_fieldset legend: { text: 'Enter your address' } do %>
+        <%= f.govuk_text_field :address_line_1, label: { text: 'Address line 1'} %>
+        <%= f.govuk_text_field :address_line_2, label: { text: 'Address line 2 (Optional)'} %>
+        <%= f.govuk_text_field :city, label: { text: 'Town or city'} %>
+        <%= f.govuk_text_field :county, label: { text: 'County (optional)'} %>
+        <%= f.govuk_text_field :postcode %>
+      <% end %>
+
       <%= f.govuk_select(:nationality, nationality_options, label: { text: "Nationality", size: "s" }) %>
 
       <%= f.govuk_radio_buttons_fieldset(:sex, legend: { text: "Select your sex", size: "s" }) do %>
