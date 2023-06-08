@@ -16,10 +16,15 @@ module Applicants
       it { is_expected.to validate_presence_of(:sex) }
       it { is_expected.to validate_presence_of(:passport_number) }
       it { is_expected.to validate_presence_of(:nationality) }
+      it { is_expected.to validate_presence_of(:address_line_1) }
+      it { is_expected.not_to validate_presence_of(:address_line_2) }
+      it { is_expected.to validate_presence_of(:city) }
+      it { is_expected.not_to validate_presence_of(:county) }
+      it { is_expected.to validate_presence_of(:postcode) }
 
       it {
         expect(model).to validate_inclusion_of(:sex)
-          .in_array(Applicants::PersonalDetail::SEX_OPTIONS)
+                           .in_array(Applicants::PersonalDetail::SEX_OPTIONS)
       }
 
       describe "date_of_birth" do
