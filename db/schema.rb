@@ -42,8 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_044515) do
     t.date "date_of_entry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "school_postcode"
     t.string "application_route"
+    t.string "school_postcode"
     t.string "address_line_1"
     t.string "address_line_2"
     t.string "city"
