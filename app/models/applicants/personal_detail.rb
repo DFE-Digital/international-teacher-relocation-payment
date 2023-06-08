@@ -16,6 +16,7 @@ module Applicants
     validates :email_address, presence: true
     validates :phone_number, presence: true
     validates :date_of_birth, presence: true
+    validate :date_of_birth_not_in_future
     validates :sex, presence: true, inclusion: { in: SEX_OPTIONS }
     validates :passport_number, presence: true
     validates :nationality, presence: true, inclusion: { in: NATIONALITIES }
@@ -33,11 +34,23 @@ module Applicants
     rescue StandardError
       InvalidDate.new(day:, month:, year:)
     end
+
+  private
+
+    def date_of_birth_not_in_future
+      return unless date_of_birth.present? && date_of_birth > Date.zone.today
+
+      errors.add(:date_of_birth, "cannot be in the future")
+    end
   end
 
   InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
     def blank?
       members.all? { |date_field| public_send(date_field).blank? }
+    end
+
+    def present?
+      false
     end
   end
 end

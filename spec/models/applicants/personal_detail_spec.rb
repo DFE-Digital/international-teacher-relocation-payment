@@ -36,6 +36,14 @@ module Applicants
           end
         end
 
+        context "when date_of_birth is the future" do
+          let(:params) { { day: "01", month: "01", year: "3000" } }
+
+          it "is invalid" do
+            expect(model).not_to be_valid
+          end
+        end
+
         context "when date_of_birth is valid" do
           let(:params) { { day: "01", month: "01", year: "2000" } }
 
