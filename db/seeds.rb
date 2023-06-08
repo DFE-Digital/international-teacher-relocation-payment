@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Rails.logger.debug("Deleting all applicants and applicant progresses...")
-Applicant.destroy_all
-ApplicantProgress.destroy_all
+Applicant.destroy_all if Rails.env.development?
 
 %i[with_salaried_trainee with_teacher].each do |route|
   Rails.logger.debug { "Creating #{route} applicants..." }
