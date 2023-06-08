@@ -1,7 +1,7 @@
 module SystemAdmin
   class DashboardController < ApplicationController
     def show
-      @kpi_service = KpiService.new
+      @kpi_stats = KpiStats.new
     end
   end
 end
