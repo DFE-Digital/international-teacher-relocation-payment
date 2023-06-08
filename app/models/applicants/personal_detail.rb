@@ -5,7 +5,8 @@ module Applicants
     include ActiveModel::Model
     include DateHelpers
     attr_accessor :given_name, :family_name, :email_address, :phone_number,
-                  :day, :month, :year, :sex, :passport_number, :nationality
+                  :day, :month, :year, :sex, :passport_number, :nationality, :address_line_1,
+                  :address_line_2, :city, :county, :postcode
 
     # TODO: Check whether we should be allowing an option of "Prefer not to say"
     SEX_OPTIONS = %w[female male other].freeze
@@ -18,6 +19,9 @@ module Applicants
     validates :sex, presence: true, inclusion: { in: SEX_OPTIONS }
     validates :passport_number, presence: true
     validates :nationality, presence: true, inclusion: { in: NATIONALITIES }
+    validates :address_line_1, presence: true
+    validates :city, presence: true
+    validates :postcode, presence: true
 
     validate do |record|
       EmailFormatValidator.new(record).validate
