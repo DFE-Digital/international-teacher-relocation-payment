@@ -15,11 +15,11 @@
       <%= f.govuk_date_field :date_of_birth, date_of_birth: true, legend: { text: "Enter your date of birth, as it appears on your passport", size: "s" } %>
 
       <%= f.govuk_fieldset legend: { text: 'Enter your address', size: 's' } do %>
-        <%= f.govuk_text_field :address_line_1, legend: { text: 'Address line 1', size: "s"} %>
-        <%= f.govuk_text_field :address_line_2, legend: { text: 'Address line 2 (Optional)', size: "s"} %>
-        <%= f.govuk_text_field :city, legend: { text: 'Town or city', size: "s"} %>
-        <%= f.govuk_text_field :county, legend: { text: 'County (optional)', size: "s"} %>
-        <%= f.govuk_text_field :postcode, legend: { size: "s"} %>
+        <%= f.govuk_text_field :address_line_1, label: { text: 'Address line 1', size: "s"} %>
+        <%= f.govuk_text_field :address_line_2, label: { text: 'Address line 2 (Optional)', size: "s"} %>
+        <%= f.govuk_text_field :city, label: { text: 'Town or city', size: "s"} %>
+        <%= f.govuk_text_field :county, label: { text: 'County (optional)', size: "s"} %>
+        <%= f.govuk_text_field :postcode, label: { size: "s"} %>
       <% end %>
 
       <%= f.govuk_select(:nationality, nationality_options, label: { text: "Nationality", size: "s" }) %>
