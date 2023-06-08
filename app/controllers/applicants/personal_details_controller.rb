@@ -25,6 +25,11 @@ module Applicants
           "sex" => @personal_detail.sex,
           "passport_number" => @personal_detail.passport_number,
           "nationality" => @personal_detail.nationality,
+          "address_line_1" => @personal_detail.address_line_1,
+          "address_line_2" => @personal_detail.address_line_2,
+          "city" => @personal_detail.city,
+          "county" => @personal_detail.county,
+          "postcode" => @personal_detail.postcode,
         }
 
         redirect_to(new_applicants_employment_detail_path)
@@ -44,6 +49,11 @@ module Applicants
         :sex,
         :passport_number,
         :nationality,
+        :address_line_1,
+        :address_line_2,
+        :city,
+        :county,
+        :postcode,
         *DOB_CONVERSION.keys,
       ).transform_keys do |key|
         DOB_CONVERSION.key?(key) ? DOB_CONVERSION[key] : key
