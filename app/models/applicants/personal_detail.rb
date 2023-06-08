@@ -39,17 +39,20 @@ module Applicants
   private
 
     def date_of_birth_not_in_future
-      return unless date_of_birth.present? && date_of_birth > Date.zone.today
+      return unless date_of_birth.present? && date_of_birth > Date.current
 
       errors.add(:date_of_birth, "cannot be in the future")
     end
 
     def age_less_than_maximum
-      return unless date_of_birth.present? && (Date.zone.today - date_of_birth) >= 80.years
+      return unless date_of_birth.present? && (Date.current - date_of_birth) >= MAX_AGE
 
-      errors.add(:date_of_birth, "should indicate an age less than 80 years")
+      errors.add(:date_of_birth, "should indicate an age less than #{MAX_AGE} years")
     end
   end
+
+  MAX_AGE = 80.years
+  private_constant :MAX_AGE
 
   InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
     def blank?
