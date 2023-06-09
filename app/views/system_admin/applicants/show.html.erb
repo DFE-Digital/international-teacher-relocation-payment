@@ -1,7 +1,10 @@
 <%= content_for(:breadcrumbs) do %>
-  <%= render GovukComponent::BackLinkComponent.new(
-    text: "Back to all applications",
-    href: applicants_path,
+  <%= govuk_breadcrumbs(
+  breadcrumbs: [
+    govuk_breadcrumb_link_to("Dashboard", dashboard_path),
+    govuk_breadcrumb_link_to("Applicants", applicants_path),
+    govuk_breadcrumb_link_to(@applicant.full_name, applicant_path(@applicant))
+  ]
   ) %>
 <% end %>
 
@@ -20,6 +23,14 @@
       <%= govuk_link_to "Update progress", edit_applicant_path(@applicant), class: "govuk-link" %>
     </p>
     <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.status.capitalize.humanize %>
+        </dd>
+      </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Application received
@@ -66,6 +77,30 @@
         </dt>
         <dd class="govuk-summary-list__value">
           <%= @applicant.applicant_progress.school_checks_completed_at&.to_fs(:govuk) %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Approval completed
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.applicant_progress.approval_completed_at&.to_fs(:govuk) %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Payment Completed
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.applicant_progress.payment_completed_at&.to_fs(:govuk) %>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Rejection Completed
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <%= @applicant.applicant_progress.rejection_completed_at&.to_fs(:govuk) %>
         </dd>
       </div>
     </dl>
