@@ -8,8 +8,7 @@ module Applicants
                   :day, :month, :year, :sex, :passport_number, :nationality, :address_line_1,
                   :address_line_2, :city, :county, :postcode
 
-    # TODO: Check whether we should be allowing an option of "Prefer not to say"
-    SEX_OPTIONS = %w[female male other].freeze
+    SEX_OPTIONS = %w[female male].freeze
 
     validates :given_name, presence: true
     validates :family_name, presence: true
