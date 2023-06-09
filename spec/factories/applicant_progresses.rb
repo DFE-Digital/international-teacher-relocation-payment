@@ -27,36 +27,68 @@
 FactoryBot.define do
   factory :applicant_progress do
     applicant
+    status { :accepted }
   end
 
   trait :with_initial_checks_completed do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
+    initial_checks_completed_at { rand(60..90).days.ago.to_date }
   end
 
   trait :with_visa_investigation_required do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
+    initial_checks_completed_at { rand(60..90).days.ago.to_date }
     visa_investigation_required { true }
   end
 
   trait :with_home_office_checks_completed do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
+    initial_checks_completed_at { rand(60..90).days.ago.to_date }
     visa_investigation_required { true }
-    home_office_checks_completed_at { rand(11..20).days.ago.to_date }
+    home_office_checks_completed_at { rand(50..60).days.ago.to_date }
   end
 
   trait :with_school_investigation_required do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
+    initial_checks_completed_at { rand(60..90).days.ago.to_date }
     visa_investigation_required { true }
-    home_office_checks_completed_at { rand(11..20).days.ago.to_date }
+    home_office_checks_completed_at { rand(50..60).days.ago.to_date }
     school_investigation_required { true }
   end
 
   trait :with_school_checks_completed do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
+    initial_checks_completed_at { rand(60..90).days.ago.to_date }
     visa_investigation_required { true }
-    home_office_checks_completed_at { rand(11..20).days.ago.to_date }
+    home_office_checks_completed_at { rand(50..60).days.ago.to_date }
     school_investigation_required { true }
-    school_checks_completed_at { rand(1..10).days.ago.to_date }
+    school_checks_completed_at { rand(40..50).days.ago.to_date }
+  end
+
+  trait :with_approval_completed do
+    initial_checks_completed_at { rand(60..90).days.ago.to_date }
+    visa_investigation_required { true }
+    home_office_checks_completed_at { rand(50..60).days.ago.to_date }
+    school_investigation_required { true }
+    school_checks_completed_at { rand(40..50).days.ago.to_date }
+    approval_completed_at { rand(30..40).days.ago.to_date }
+    status { :approved }
+  end
+
+  trait :with_payment_completed do
+    initial_checks_completed_at { rand(60..90).days.ago.to_date }
+    visa_investigation_required { true }
+    home_office_checks_completed_at { rand(50..60).days.ago.to_date }
+    school_investigation_required { true }
+    school_checks_completed_at { rand(40..50).days.ago.to_date }
+    approval_completed_at { rand(30..40).days.ago.to_date }
+    payment_completed_at { rand(10..20).days.ago.to_date }
+    status { :paid }
+  end
+
+  trait :with_rejection_completed do
+    initial_checks_completed_at { rand(60..90).days.ago.to_date }
+    visa_investigation_required { true }
+    home_office_checks_completed_at { rand(50..60).days.ago.to_date }
+    school_investigation_required { true }
+    school_checks_completed_at { rand(40..50).days.ago.to_date }
+    rejection_completed_at { rand(30..40).days.ago.to_date }
+    status { :rejected }
   end
 
   trait :with_teacher do
