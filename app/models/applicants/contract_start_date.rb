@@ -21,6 +21,10 @@ module Applicants
       def blank?
         members.any? { |date_field| public_send(date_field).blank? }
       end
+
+      def present?
+        false
+      end
     end
   end
 end
