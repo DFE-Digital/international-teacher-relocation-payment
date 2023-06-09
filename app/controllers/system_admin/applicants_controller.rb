@@ -6,9 +6,9 @@ module SystemAdmin
     before_action :find_applicant, only: %i[show edit update]
     include Pagy::Backend
 
-
     def index
-      @pagy, @applicants = pagy(Applicant.all.order(created_at: :desc))
+      @q = Applicant.ransack(params[:q])
+      @pagy, @applicants = pagy(@q.result)
 
       respond_to do |format|
         format.html

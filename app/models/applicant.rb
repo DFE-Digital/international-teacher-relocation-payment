@@ -46,6 +46,14 @@ class Applicant < ApplicationRecord
     :status,
     to: :applicant_progress
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[email_address family_name given_name passport_number]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[applicant_progress]
+  end
+
   def full_name
     "#{given_name} #{family_name}"
   end

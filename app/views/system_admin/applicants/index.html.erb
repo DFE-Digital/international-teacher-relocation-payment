@@ -11,6 +11,11 @@
       <%= govuk_link_to("Export applications", applicants_path(format: :csv), { class: "govuk-button" })%>
     </p>
 
+    <%= form_with(url: applicants_path, method: :get) do |f| %>
+      <%= f.govuk_text_field 'q[given_name_or_family_name_or_email_address_or_passport_number_cont]', label: { text: 'Search Applicant' }, hint: { text: 'Search by name, email or passport number' } %>
+      <%= f.govuk_submit 'Search', secondary: true %>
+    <% end %>
+
     <table class="govuk-table" summary="Application list">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
