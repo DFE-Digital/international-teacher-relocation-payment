@@ -36,6 +36,9 @@ module SystemAdmin
         :home_office_checks_completed_at,
         :school_investigation_required,
         :school_checks_completed_at,
+        :approval_completed_at,
+        :payment_completed_at,
+        :rejection_completed_at,
       )
     end
 
