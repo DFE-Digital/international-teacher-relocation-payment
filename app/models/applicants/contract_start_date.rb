@@ -19,7 +19,7 @@ module Applicants
 
     InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
       def blank?
-        members.all? { |date_field| public_send(date_field).blank? }
+        members.any? { |date_field| public_send(date_field).blank? }
       end
     end
   end
