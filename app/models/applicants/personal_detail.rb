@@ -3,7 +3,6 @@
 module Applicants
   class PersonalDetail
     include ActiveModel::Model
-    include DateHelpers
     attr_accessor :given_name, :family_name, :email_address, :phone_number,
                   :day, :month, :year, :sex, :passport_number, :nationality, :address_line_1,
                   :address_line_2, :city, :county, :postcode
