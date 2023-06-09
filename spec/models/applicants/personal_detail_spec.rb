@@ -27,6 +27,22 @@ module Applicants
                            .in_array(Applicants::PersonalDetail::SEX_OPTIONS)
       }
 
+      describe "postcode validation" do
+        it "accepts valid postcodes" do
+          model.postcode = "SW1A 1AA"
+          model.valid?
+
+          expect(model.errors[:postcode]).to be_empty
+        end
+
+        it "rejects invalid postcodes" do
+          model.postcode = "Invalid postcode"
+          model.valid?
+
+          expect(model.errors[:postcode]).to include("Enter a valid postcode (for example, BN1 1AA)")
+        end
+      end
+
       describe "date_of_birth" do
         context "when date_of_birth is invalid" do
           let(:params) { { day: "31", month: "02", year: "2000" } }

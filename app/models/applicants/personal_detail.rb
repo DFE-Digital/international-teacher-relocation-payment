@@ -23,7 +23,7 @@ module Applicants
     validates :nationality, presence: true, inclusion: { in: NATIONALITIES }
     validates :address_line_1, presence: true
     validates :city, presence: true
-    validates :postcode, presence: true
+    validates :postcode, presence: true, postcode: true
 
     validate do |record|
       EmailFormatValidator.new(record).validate
