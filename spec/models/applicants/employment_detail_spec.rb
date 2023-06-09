@@ -6,6 +6,8 @@ module Applicants
   describe EmploymentDetail do
     let(:params) { {} }
 
+    include_examples "a valid UK postcode", described_class, :school_postcode
+
     subject { described_class.new(params) }
 
     describe "validations" do
