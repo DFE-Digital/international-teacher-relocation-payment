@@ -1,0 +1,72 @@
+<h1>Breakdowns</h1>
+<div class="dashboard">
+  <div class="kpi-widget">
+    <h3 class="title">Gender</h3>
+    <table class="kpi-table">
+      <% @kpi_stats.gender_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k.capitalize.humanize %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="kpi-widget">
+    <h3 class="title">Route</h3>
+    <table class="kpi-table">
+      <% @kpi_stats.route_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k.capitalize.humanize %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="kpi-widget">
+    <h3 class="title">Subject</h3>
+    <table class="kpi-table">
+      <% @kpi_stats.subject_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k.capitalize.humanize %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<hr />
+<div class="dashboard">
+  <div class="kpi-widget">
+    <h3 class="title">Age</h3>
+    <table class="kpi-table">
+      <% @kpi_stats.age_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="kpi-widget">
+    <h3 class="title">Visa</h3>
+    <table class="kpi-table">
+      <% @kpi_stats.visa_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k.capitalize.humanize %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="kpi-widget">
+    <h3 class="title">Nationality</h3>
+    <table class="kpi-table">
+      <% @kpi_stats.nationality_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

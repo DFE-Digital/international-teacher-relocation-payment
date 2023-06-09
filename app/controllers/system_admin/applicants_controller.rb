@@ -2,6 +2,7 @@
 
 module SystemAdmin
   class ApplicantsController < AdminController
+    default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
     before_action :find_applicant, only: %i[show edit update]
 
     def index
