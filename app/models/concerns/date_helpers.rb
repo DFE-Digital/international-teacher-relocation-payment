@@ -1,16 +1,6 @@
 # frozen_string_literal: true
 
 module DateHelpers
-  InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
-    def blank?
-      members.any? { |date_field| public_send(date_field).blank? }
-    end
-
-    def present?
-      false
-    end
-  end
-
   def date_from_hash
     date_hash = { year:, month:, day: }
     date_args = date_hash.values.map(&:to_i)
