@@ -33,8 +33,8 @@ RSpec.shared_context "with common application form steps" do
 
   def and_i_enter_my_entry_date
     fill_in("Day", with: 12)
-    fill_in("Month", with: 9)
-    fill_in("Year", with: 2020)
+    fill_in("Month", with: 6)
+    fill_in("Year", with: 2023)
 
     click_button("Continue")
   end

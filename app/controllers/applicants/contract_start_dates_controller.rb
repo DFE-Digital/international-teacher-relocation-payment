@@ -12,9 +12,13 @@ module Applicants
       @contract_start_date = ContractStartDate.new(contract_start_date_params)
 
       if @contract_start_date.valid?
-        session[:contract_start_date] = @contract_start_date.contract_start_date
+        if Policies::ContractStartDate.eligible?(@contract_start_date.contract_start_date)
+          session[:contract_start_date] = @contract_start_date.contract_start_date
 
-        redirect_to(new_applicants_subject_path)
+          redirect_to(new_applicants_subject_path)
+        else
+          redirect_to(ineligible_path)
+        end
       else
         render(:new)
       end
