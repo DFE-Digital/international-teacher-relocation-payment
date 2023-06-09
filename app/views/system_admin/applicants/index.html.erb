@@ -7,48 +7,51 @@
 <div class="govuk-grid-row">
   <div class ="govuk-grid-column-full">
 
-  <p class="govuk-body">
-    <%= govuk_link_to("Export applications", applicants_path(format: :csv), { class: "govuk-button" })%>
-  </p>
+    <p class="govuk-body">
+      <%= govuk_link_to("Export applications", applicants_path(format: :csv), { class: "govuk-button" })%>
+    </p>
 
-  <table class="govuk-table" summary="Application list">
-    <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Application received</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Application type</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Name</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Email</th>
-      </tr>
-    </thead>
-
-    <tbody class="govuk-table__body">
-      <% @applicants&.each do |applicant| %>
-        <tr class="govuk-table__row user-row">
-          <td class="govuk-table__cell">
-            <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-              <%= applicant.created_at.to_fs(:govuk_date_and_time) %>
-            </span>
-          </td>
-
-          <td class="govuk-table__cell">
-            <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-              <%= applicant.application_route&.humanize || "-" %>
-            </span>
-          </td>
-
-          <td class="govuk-table__cell">
-            <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-              <%= govuk_link_to(applicant.full_name, applicant_path(applicant)) %>
-            </span>
-          </td>
-
-          <td class="govuk-table__cell">
-            <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-              <%= applicant.email_address %>
-            </span>
-          </td>
+    <table class="govuk-table" summary="Application list">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Application received</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Application type</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Name</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Email</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <% @applicants&.each do |applicant| %>
+          <tr class="govuk-table__row user-row">
+            <td class="govuk-table__cell">
+              <span class="govuk-!-display-block govuk-!-margin-bottom-1">
+                <%= applicant.created_at.to_fs(:govuk_date_and_time) %>
+              </span>
+            </td>
+
+            <td class="govuk-table__cell">
+              <span class="govuk-!-display-block govuk-!-margin-bottom-1">
+                <%= applicant.application_route&.humanize || "-" %>
+              </span>
+            </td>
+
+            <td class="govuk-table__cell">
+              <span class="govuk-!-display-block govuk-!-margin-bottom-1">
+                <%= govuk_link_to(applicant.full_name, applicant_path(applicant)) %>
+              </span>
+            </td>
+
+            <td class="govuk-table__cell">
+              <span class="govuk-!-display-block govuk-!-margin-bottom-1">
+                <%= applicant.email_address %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= govuk_pagination(pagy: @pagy) %>
+
+  </div>

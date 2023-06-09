@@ -4,9 +4,11 @@ module SystemAdmin
   class ApplicantsController < AdminController
     default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
     before_action :find_applicant, only: %i[show edit update]
+    include Pagy::Backend
+
 
     def index
-      @applicants = Applicant.all.order(created_at: :desc)
+      @pagy, @applicants = pagy(Applicant.all.order(created_at: :desc))
 
       respond_to do |format|
         format.html
