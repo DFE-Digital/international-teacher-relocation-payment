@@ -1,6 +1,7 @@
 class KpiStats
   def initialize
     @applications = Applicant.all
+    @progresses = @applications.map(&:applicant_progress)
   end
 
   def total_applications
@@ -8,23 +9,31 @@ class KpiStats
   end
 
   def total_approvals
-    20
+    @progresses.count(&:approved?)
   end
 
   def total_rejections
-    30
+    @progresses.count(&:rejected?)
   end
 
-  def time_to_payment
-    3.days
+  def total_paid
+    @progresses.count(&:paid?)
   end
 
   def time_to_approval
-    9.days
+    TimeToApprovalQuery.new.call
+  end
+
+  def time_to_payment
+    TimeToPaidQuery.new.call
+  end
+
+  def time_to_rejection
+    TimeToRejectionQuery.new.call
   end
 
   def nationality_breakdown
-    NationalityBreakdownQuery.new.call.first(3)
+    NationalityBreakdownQuery.new.call.first(10)
   end
 
   def gender_breakdown
