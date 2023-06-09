@@ -43,7 +43,7 @@ FactoryBot.define do
     school_name { Faker::Educator.secondary_school }
     sex { %w[female male other].sample }
     subject { %w[physics languages general_science].sample }
-    visa_type { %w[visa_1 visa_2 visa_3].sample }
+    visa_type { Applicants::Visa::VISA_OPTIONS.sample }
   end
 
   trait :salaried_trainee do

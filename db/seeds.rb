@@ -10,4 +10,7 @@ Applicant.destroy_all if Rails.env.development?
   FactoryBot.create_list(:applicant_progress, 5, :with_home_office_checks_completed, route)
   FactoryBot.create_list(:applicant_progress, 5, :with_school_investigation_required, route)
   FactoryBot.create_list(:applicant_progress, 5, :with_school_checks_completed, route)
+  FactoryBot.create_list(:applicant_progress, 5, :with_approval_completed, route)
+  FactoryBot.create_list(:applicant_progress, 5, :with_payment_completed, route)
+  FactoryBot.create_list(:applicant_progress, 5, :with_rejection_completed, route)
 end
