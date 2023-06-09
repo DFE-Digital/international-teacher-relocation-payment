@@ -18,6 +18,7 @@ AllCops:
     - 'bin/*'
     - 'db/schema.rb'
     - 'node_modules/**/*'
+    - 'lib/tasks/auto_annotate_models.rake'
 
 Style/MethodCallWithArgsParentheses:
   AllowParenthesesInMultilineCall: true

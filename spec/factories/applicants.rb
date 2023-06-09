@@ -3,22 +3,28 @@
 # Table name: applicants
 #
 #  id                      :bigint           not null, primary key
-#  application_route       :string
-#  date_of_birth           :date
-#  date_of_entry           :date
-#  email_address           :text
-#  family_name             :text
 #  given_name              :text
-#  nationality             :text
-#  passport_number         :text
+#  family_name             :text
+#  email_address           :text
 #  phone_number            :text
-#  school_headteacher_name :text
-#  school_name             :text
+#  date_of_birth           :date
+#  nationality             :text
 #  sex                     :text
+#  passport_number         :text
+#  school_name             :text
 #  subject                 :text
+#  school_headteacher_name :text
 #  visa_type               :text
+#  date_of_entry           :date
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#  application_route       :string
+#  school_postcode         :string
+#  address_line_1          :string
+#  address_line_2          :string
+#  city                    :string
+#  county                  :string
+#  postcode                :string
 #
 Faker::Config.locale = "en-GB"
 
