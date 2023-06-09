@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
-InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
+class InvalidDate
+  include ActiveModel::Model
+
+  attr_accessor :day, :month, :year
+
   def blank?
-    members.any? { |date_field| public_send(date_field).blank? }
+    [day, month, year].any?(&:blank?)
   end
 
   def present?
