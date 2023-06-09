@@ -1,0 +1,15 @@
+<h1>Average Times</h1>
+<div class="dashboard">
+  <div class="kpi-widget small-value">
+    <h3 class="title">Time to Approval</h3>
+    <p class="value"><%= duration_in_words(@kpi_stats.time_to_approval) %></p>
+  </div>
+  <div class="kpi-widget small-value">
+    <h3 class="title">Time to Payment</h3>
+    <p class="value"><%= duration_in_words(@kpi_stats.time_to_payment) %></p>
+  </div>
+  <div class="kpi-widget small-value">
+    <h3 class="title">Time to Rejection</h3>
+    <p class="value"><%= duration_in_words(@kpi_stats.time_to_rejection) %></p>
+  </div>
+</div>

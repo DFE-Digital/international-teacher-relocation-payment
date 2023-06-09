@@ -52,6 +52,10 @@ Rails/BulkChangeTable:
   Exclude:
     - 'db/migrate/**/*.rb'
 
+Rails/ApplicationController:
+  Exclude:
+    - 'app/controllers/admin_controller.rb'
+
 Lint/EmptyWhen:
   Exclude:
     - 'db/seeds.rb'
