@@ -31,6 +31,9 @@ class Applicant < ApplicationRecord
   belongs_to :school, dependent: :destroy
   accepts_nested_attributes_for :school
 
+  has_one :address, as: :addressable, dependent: :destroy
+  accepts_nested_attributes_for :address
+
   delegate \
     :initial_checks_completed_at,
     :visa_investigation_required,
