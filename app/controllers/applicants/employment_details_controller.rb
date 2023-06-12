@@ -48,6 +48,13 @@ module Applicants
           postcode: employment_detail_params["school_postcode"],
           headteacher_name: employment_detail_params["school_headteacher_name"],
         },
+        address_attributes: {
+          address_line_1: session["address_line_1"],
+          address_line_2: session["address_line_2"],
+          city: session["city"],
+          county: session["county"],
+          postcode: session["postcode"],
+        },
       }
     end
   end
