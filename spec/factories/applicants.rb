@@ -38,6 +38,10 @@ FactoryBot.define do
     visa_type { %w[visa_1 visa_2 visa_3].sample }
 
     association :school, factory: :school, strategy: :build
+
+    after(:build) do |applicant|
+      build(:address, addressable: applicant)
+    end
   end
 
   trait :salaried_trainee do
