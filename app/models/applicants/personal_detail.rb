@@ -13,6 +13,7 @@ module Applicants
     validates :family_name, presence: true
     validates :email_address, presence: true
     validates :phone_number, presence: true
+    validates :phone_number, phone: { possible: true, allow_blank: true, types: %i[voip mobile] }
     validates :date_of_birth, presence: true
     validate :date_of_birth_not_in_future
     validate :age_less_than_maximum
