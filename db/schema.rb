@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_100346) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_110623) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,14 +48,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_100346) do
     t.text "nationality"
     t.text "sex"
     t.text "passport_number"
-    t.text "school_name"
     t.text "subject"
-    t.text "school_headteacher_name"
     t.text "visa_type"
     t.date "date_of_entry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "school_postcode"
     t.string "application_route"
     t.string "address_line_1"
     t.string "address_line_2"
@@ -67,16 +64,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_100346) do
   end
 
   create_table "schools", force: :cascade do |t|
-    t.bigint "applicant_id", null: false
     t.string "postcode"
     t.string "name"
     t.string "headteacher_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["applicant_id"], name: "index_schools_on_applicant_id"
   end
 
   add_foreign_key "applicant_progresses", "applicants"
   add_foreign_key "applicants", "schools"
-  add_foreign_key "schools", "applicants"
 end

@@ -27,7 +27,9 @@ class Applicant < ApplicationRecord
   # the whole application.
 
   has_one :applicant_progress, dependent: :destroy
-  belongs_to :school, optional: true
+
+  belongs_to :school, dependent: :destroy
+  accepts_nested_attributes_for :school
 
   delegate \
     :initial_checks_completed_at,
