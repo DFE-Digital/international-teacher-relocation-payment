@@ -33,11 +33,11 @@ FactoryBot.define do
     nationality { Faker::Nation.nationality }
     passport_number { Faker::Number.number(digits: 9) }
     phone_number { Faker::PhoneNumber.cell_phone_in_e164 }
-    school_headteacher_name { Faker::Name.name }
-    school_name { Faker::Educator.secondary_school }
     sex { %w[female male other].sample }
     subject { %w[physics languages general_science].sample }
     visa_type { %w[visa_1 visa_2 visa_3].sample }
+
+    association :school, factory: :school
   end
 
   trait :salaried_trainee do
