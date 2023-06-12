@@ -90,6 +90,7 @@ en:
               invalid: Enter an email address in the correct format, like name@example.com
             phone_number:
               blank: Enter your phone number
+              invalid: Enter a telephone number, like 07700 900 982 or +34 626 587 210’
             date_of_birth:
               blank: Enter your date of birth
             sex:
