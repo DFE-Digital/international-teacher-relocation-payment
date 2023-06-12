@@ -27,6 +27,7 @@ class Applicant < ApplicationRecord
   # the whole application.
 
   has_one :applicant_progress, dependent: :destroy
+  belongs_to :school, optional: true
 
   delegate \
     :initial_checks_completed_at,
