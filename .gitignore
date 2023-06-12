@@ -38,3 +38,5 @@ coverage/
 terraform/vendor
 terraform.tfstate*
 bin/terrafile
+bin/konduit.sh
+bin/fetch_config.rb
