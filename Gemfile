@@ -23,6 +23,8 @@ gem "govuk-components", "4.0.0"
 gem "govuk_design_system_formbuilder"
 # UK postcode parsing and validation for Ruby
 gem "uk_postcode"
+# Phone number validations: https://design-system.service.gov.uk/patterns/telephone-numbers/
+gem "phonelib"
 ###############
 
 gem "config", "~> 4.1"
