@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_08_044515) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_100346) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "addressable_type", null: false
+    t.bigint "addressable_id", null: false
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.string "county"
+    t.string "postcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
+  end
 
   create_table "applicant_progresses", force: :cascade do |t|
     t.bigint "applicant_id", null: false
@@ -49,7 +62,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_044515) do
     t.string "city"
     t.string "county"
     t.string "postcode"
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_applicants_on_school_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.bigint "applicant_id", null: false
+    t.string "postcode"
+    t.string "name"
+    t.string "headteacher_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["applicant_id"], name: "index_schools_on_applicant_id"
   end
 
   add_foreign_key "applicant_progresses", "applicants"
+  add_foreign_key "applicants", "schools"
+  add_foreign_key "schools", "applicants"
 end
