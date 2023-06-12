@@ -28,8 +28,8 @@ FactoryBot.define do
     date_of_birth { rand(18..90).years.ago.to_date }
     date_of_entry { Time.zone.today }
     email_address { Faker::Internet.email }
-    family_name { Faker::Name.last_name  }
-    given_name { Faker::Name.first_name  }
+    family_name { Faker::Name.last_name }
+    given_name { Faker::Name.first_name }
     nationality { Faker::Nation.nationality }
     passport_number { Faker::Number.number(digits: 9) }
     phone_number { Faker::PhoneNumber.cell_phone_in_e164 }
@@ -37,7 +37,12 @@ FactoryBot.define do
     subject { %w[physics languages general_science].sample }
     visa_type { %w[visa_1 visa_2 visa_3].sample }
 
-    association :school, factory: :school
+    school do
+      association :school, strategy: :build,
+                           postcode: "SE2 0BA",
+                           headteacher_name: Faker::Name.name,
+                           name: Faker::Educator.secondary_school
+    end
   end
 
   trait :salaried_trainee do
