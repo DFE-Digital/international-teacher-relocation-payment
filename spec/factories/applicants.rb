@@ -37,12 +37,7 @@ FactoryBot.define do
     subject { %w[physics languages general_science].sample }
     visa_type { %w[visa_1 visa_2 visa_3].sample }
 
-    school do
-      association :school, strategy: :build,
-                           postcode: "SE2 0BA",
-                           headteacher_name: Faker::Name.name,
-                           name: Faker::Educator.secondary_school
-    end
+    association :school, factory: :school, strategy: :build
   end
 
   trait :salaried_trainee do
