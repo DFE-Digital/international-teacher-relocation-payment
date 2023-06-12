@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :school do
-    postcode { "MyString" }
-    name { "MyString" }
-    headteacher_name { "MyString" }
+    postcode { "SE2 0BA" }
+    headteacher_name { Faker::Name.name }
+    name { Faker::Educator.secondary_school }
   end
 end
