@@ -11,7 +11,10 @@
       <%= f.govuk_text_field :given_name, label: { text: "Enter your given name, as it appears on your passport", size: "s" } %>
       <%= f.govuk_text_field :family_name, label: { text: "Enter your family name, as it appears on your passport", size: "s" } %>
       <%= f.govuk_text_field :email_address, label: { text: "Enter your current email address", size: "s" }, hint: { text: "We will use this to contact you so please make sure you have entered it correctly." } %>
-      <%= f.govuk_text_field :phone_number, label: { text: "Enter your current phone number", size: "s" }, hint: { text: "We will use this to contact you so please make sure you have entered it correctly." } %>
+      <%= f.govuk_text_field :phone_number,
+        label: { text: "Enter your current phone number", size: "s" },
+        hint: { text: "For international numbers include the country code. We will use this to contact you so please make sure you have entered it correctly." }
+      %>
       <%= f.govuk_date_field :date_of_birth, date_of_birth: true, legend: { text: "Enter your date of birth, as it appears on your passport", size: "s" } %>
 
       <%= f.govuk_fieldset legend: { text: 'Enter your address', size: 's' } do %>
