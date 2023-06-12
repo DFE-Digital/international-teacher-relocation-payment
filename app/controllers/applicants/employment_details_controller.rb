@@ -30,7 +30,7 @@ module Applicants
     end
 
     def applicant_params
-      employment_detail_params.merge(
+      {
         application_route: session["application_route"],
         given_name: session["personal_detail"]["given_name"],
         family_name: session["personal_detail"]["family_name"],
@@ -43,7 +43,12 @@ module Applicants
         subject: session["subject"],
         visa_type: session["visa_type"],
         date_of_entry: session["entry_date"],
-      )
+        school_attributes: {
+          name: employment_detail_params["school_name"],
+          postcode: employment_detail_params["school_postcode"],
+          headteacher_name: employment_detail_params["school_headteacher_name"],
+        },
+      }
     end
   end
 end
