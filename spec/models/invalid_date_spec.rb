@@ -18,7 +18,7 @@ RSpec.describe InvalidDate do
       expect(date).to be_blank
     end
 
-    it "returns false when monht is blank" do
+    it "returns false when month is blank" do
       date.month = ""
 
       expect(date).to be_blank
