@@ -5,7 +5,7 @@ module Applicants
     include ActiveModel::Model
     attr_accessor :subject
 
-    SUBJECT_OPTIONS = %w[physics languages general_science other].freeze
+    SUBJECT_OPTIONS = %w[physics languages other].freeze
 
     validates :subject, presence: true, inclusion: { in: SUBJECT_OPTIONS }
 
