@@ -32,7 +32,8 @@ class Applicant < ApplicationRecord
   accepts_nested_attributes_for :school
 
   has_one :address, as: :addressable, dependent: :destroy
-  accepts_nested_attributes_for :address
+
+  belongs_to :school, dependent: :destroy, optional: true
 
   delegate \
     :initial_checks_completed_at,

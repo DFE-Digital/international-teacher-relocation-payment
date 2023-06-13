@@ -10,7 +10,10 @@ module Applicants
       @employment_detail = EmploymentDetail.new(employment_detail_params)
 
       if @employment_detail.valid?
-        Applicant.create!(applicant_params)
+        @applicant = Applicant.create!(applicant_params)
+        @applicant.create_school!(school_params)
+        @applicant.create_address!(address_params)
+
         # TODO: Clean up data we've added to the session
         # session.delete('')
         redirect_to(submitted_path)
@@ -43,18 +46,26 @@ module Applicants
         subject: session["subject"],
         visa_type: session["visa_type"],
         date_of_entry: session["entry_date"],
-        school_attributes: {
-          name: employment_detail_params["school_name"],
-          postcode: employment_detail_params["school_postcode"],
-          headteacher_name: employment_detail_params["school_headteacher_name"],
-        },
-        address_attributes: {
-          address_line_1: session["address_line_1"],
-          address_line_2: session["address_line_2"],
-          city: session["city"],
-          county: session["county"],
-          postcode: session["postcode"],
-        },
+      }
+    end
+
+    def school_params
+      {
+        name: employment_detail_params["school_name"],
+        postcode: employment_detail_params["school_postcode"],
+        headteacher_name: employment_detail_params["school_headteacher_name"],
+      }
+    end
+
+    def address_params
+      {
+        addressable_id: @applicant.id,
+        addressable_type: "Applicant",
+        address_line_1: session["personal_detail"]["address_line_1"],
+        address_line_2: session["personal_detail"]["address_line_2"],
+        city: session["personal_detail"]["city"],
+        county: session["personal_detail"]["county"],
+        postcode: session["personal_detail"]["postcode"],
       }
     end
   end
