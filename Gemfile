@@ -29,7 +29,6 @@ gem "config", "~> 4.1"
 gem "httparty", "~> 0.21"
 
 group :test do
-  gem "rails-controller-testing"
   gem "shoulda-matchers", "~> 5.0"
   gem "simplecov", require: false
 end
