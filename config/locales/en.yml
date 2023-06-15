@@ -36,7 +36,7 @@ en:
         teacher: I am employed as a teacher in a school in England
         salaried_trainee: I am enrolled on a salaried teacher training course in England.
       hint:
-        salaried_trainee: ‘Salaried’ means a course where you are paid a wage to work whilst you train.
+        salaried_trainee: ‘Salaried’ means a course where you are paid a wage to work while you train.
     entry_dates:
       title:
         teacher: Enter the date you moved to England to start your teaching job
