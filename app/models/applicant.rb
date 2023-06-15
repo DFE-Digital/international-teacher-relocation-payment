@@ -4,23 +4,31 @@
 #
 # Table name: applicants
 #
-#  id                      :bigint           not null, primary key
-#  application_route       :string
-#  date_of_birth           :date
-#  date_of_entry           :date
-#  email_address           :text
-#  family_name             :text
-#  given_name              :text
-#  nationality             :text
-#  passport_number         :text
-#  phone_number            :text
-#  school_headteacher_name :text
-#  school_name             :text
-#  sex                     :text
-#  subject                 :text
-#  visa_type               :text
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
+#  id                :bigint           not null, primary key
+#  address_line_1    :string
+#  address_line_2    :string
+#  application_route :string
+#  city              :string
+#  county            :string
+#  date_of_birth     :date
+#  date_of_entry     :date
+#  email_address     :text
+#  family_name       :text
+#  given_name        :text
+#  nationality       :text
+#  passport_number   :text
+#  phone_number      :text
+#  postcode          :string
+#  sex               :text
+#  subject           :text
+#  visa_type         :text
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  school_id         :bigint
+#
+# Foreign Keys
+#
+#  fk_rails_...  (school_id => schools.id)
 #
 class Applicant < ApplicationRecord
   # TODO: Add validations here so that a final check is made on the validity of
