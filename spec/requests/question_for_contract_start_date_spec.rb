@@ -1,7 +1,7 @@
 require "rails_helper"
 
 module Applicants
-  RSpec.describe ContractStartDatesController do
+  RSpec.describe "Question for Contract Start Date" do
     describe "POST create" do
       let(:valid_params) do
         {
@@ -60,19 +60,20 @@ module Applicants
           it "renders the new template" do
             post "/applicants/contract_start_dates", params: invalid
 
-            expect(response.body).to include('Enter the start date of your contract')
+            expect(response.body).to include("Enter the start date of your contract")
           end
         end
       end
 
+      # rubocop:disable RSpec/AnyInstance
       def set_user_type(route_type)
         # TODO: Remove this stub when we have a better way of storing the route type on the DB
         # The current implementation of the application route is to store it in the session,
         # this is not ideal and should be changed to be stored in the database. For now we are
         # stubbing the session to return the route type, but this is temporary.
-        allow_any_instance_of(described_class).to receive(:session).and_return({ "application_route" => route_type })
+        allow_any_instance_of(ContractStartDatesController).to receive(:session).and_return({ "application_route" => route_type })
       end
+      # rubocop:enable RSpec/AnyInstance
     end
-
   end
 end
