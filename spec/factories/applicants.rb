@@ -3,11 +3,7 @@
 # Table name: applicants
 #
 #  id                :bigint           not null, primary key
-#  address_line_1    :string
-#  address_line_2    :string
 #  application_route :string
-#  city              :string
-#  county            :string
 #  date_of_birth     :date
 #  date_of_entry     :date
 #  email_address     :text
@@ -16,7 +12,6 @@
 #  nationality       :text
 #  passport_number   :text
 #  phone_number      :text
-#  postcode          :string
 #  sex               :text
 #  subject           :text
 #  visa_type         :text
