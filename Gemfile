@@ -27,7 +27,7 @@ gem "uk_postcode"
 gem "phonelib"
 ###############
 
-gem "config", "~> 4.1"
+gem "config", "~> 4.2"
 gem "httparty", "~> 0.21"
 
 group :test do
