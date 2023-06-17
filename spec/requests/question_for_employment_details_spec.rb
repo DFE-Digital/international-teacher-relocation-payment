@@ -7,8 +7,12 @@ module Applicants
         {
           applicants_employment_detail: {
             "school_name" => "Alexander McLeod Primary School",
-            "school_postcode" => "E1 8QS",
             "school_headteacher_name" => "Mr. Headteacher",
+            "school_address_line_1" => "7 McLeud",
+            "school_address_line_2" => "second line",
+            "school_city" => "London",
+            "school_postcode" => "E1 8QS",
+            "school_county" => "County",
           },
         }
       end
@@ -34,15 +38,20 @@ module Applicants
             .to change(School, :count).by(1)
         end
 
-        it "creates an Address" do
+        it "creates an Applicant Address" do
           expect { post "/applicants/employment_details", params: valid_params }
-            .to change(Address, :count).by(1)
+            .to change(Address, :count).by(2)
         end
 
-        it "links the applicant with the school and the address" do
+        it "links the applicant with the school" do
           post "/applicants/employment_details", params: valid_params
 
           expect(Applicant.last.school).to eq(School.last)
+        end
+
+        it "links the applicant with the address" do
+          post "/applicants/employment_details", params: valid_params
+
           expect(Applicant.last.address).to eq(Address.last)
         end
       end
@@ -60,19 +69,18 @@ module Applicants
 
         it "renders the new template" do
           post "/applicants/employment_details", params: invalid
-          follow_redirect!
 
-          expect(response.body).to include("Thank you for completing")
+          expect(response.body).to include("Employment information")
         end
       end
     end
 
     # rubocop:disable RSpec/AnyInstance
     def set_applicant_details!
-      # TODO: Remove this stub when we have a better way of storing the route type on the DB
-      # The current implementation of the application route is to store it in the session,
-      # this is not ideal and should be changed to be stored in the database. For now we are
-      # stubbing the session to return the route type, but this is temporary.
+      # TODO: Remove this stub when we can use Factories via FactoryBot
+      # The current implementation users the user session to store attributes, which
+      # is not ideal and should be changed next. For now we are stubbing the session
+      # to return the applicant details.
       allow_any_instance_of(EmploymentDetailsController).to receive(:session).and_return({
         "application_route" => "teacher",
         "personal_detail" => {
@@ -87,6 +95,11 @@ module Applicants
           "subject" => "Maths",
           "visa_type" => "Tier 2",
           "entry_date" => "1-8-2023",
+          "address_line_1" => "123 Fake Street",
+          "address_line_2" => "Fake Town",
+          "city" => "London",
+          "county" => "London",
+          "postcode" => "E1 8QS",
         },
       })
     end

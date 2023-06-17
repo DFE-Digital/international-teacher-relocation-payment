@@ -27,8 +27,12 @@ module Applicants
     def employment_detail_params
       params.require(:applicants_employment_detail).permit(
         :school_name,
-        :school_postcode,
         :school_headteacher_name,
+        :school_address_line_1,
+        :school_address_line_2,
+        :school_city,
+        :school_county,
+        :school_postcode,
       )
     end
 
@@ -52,8 +56,14 @@ module Applicants
     def school_params
       {
         name: employment_detail_params["school_name"],
-        postcode: employment_detail_params["school_postcode"],
         headteacher_name: employment_detail_params["school_headteacher_name"],
+        address_attributes: {
+          address_line_1: employment_detail_params["school_address_line_1"],
+          address_line_2: employment_detail_params["school_address_line_2"],
+          city: employment_detail_params["school_city"],
+          county: employment_detail_params["school_county"],
+          postcode: employment_detail_params["school_postcode"],
+        },
       }
     end
 

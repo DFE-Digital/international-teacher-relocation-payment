@@ -12,6 +12,8 @@
 class School < ApplicationRecord
   # TODO: School has one applicant (and not many) as we don't have master data yet
   has_one :applicant, dependent: :nullify
+  has_one :address, as: :addressable, dependent: :destroy
+  accepts_nested_attributes_for :address
 
   validates :name, presence: true
   validates :headteacher_name, presence: true
