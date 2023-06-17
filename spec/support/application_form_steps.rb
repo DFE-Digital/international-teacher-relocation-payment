@@ -61,9 +61,13 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_enter_my_employment_details
+    fill_in("applicants_employment_detail[school_headteacher_name]", with: "Mr Headteacher")
     fill_in("applicants_employment_detail[school_name]", with: "School name")
-    fill_in("applicants_employment_detail[school_postcode]", with: "W1A 1AA")
-    fill_in("applicants_employment_detail[school_headteacher_name]", with: "Ms Headteacher")
+    fill_in("applicants_employment_detail[school_address_line_1]", with: "1, McSchool Street")
+    fill_in("applicants_employment_detail[school_address_line_2]", with: "Schoolville")
+    fill_in("applicants_employment_detail[school_city]", with: "Schooltown")
+    fill_in("applicants_employment_detail[school_county]", with: "Schoolshire")
+    fill_in("applicants_employment_detail[school_postcode]", with: "SC1 1AA")
 
     click_button("Submit application")
   end

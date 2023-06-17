@@ -8,9 +8,16 @@
         Employment information
       </h1>
 
-      <%= f.govuk_text_field :school_name, label: { text: "Enter the name of the school where you are employed as a trainee teacher", size: "s" } %>
-      <%= f.govuk_text_field :school_postcode, label: { text: "Enter the postcode of the school", size: "s" } %>
       <%= f.govuk_text_field :school_headteacher_name, label: { text: "Enter the name of the Head teacher or Principal of the school", size: "s" } %>
+
+      <%= f.govuk_text_field :school_name, label: { text: "Enter the name of the school where you are employed as a trainee teacher", size: "s" } %>
+      <%= f.govuk_fieldset legend: { text: 'Enter the school address', size: 's' } do %>
+        <%= f.govuk_text_field :school_address_line_1, label: { text: 'Address line 1', size: "s"} %>
+        <%= f.govuk_text_field :school_address_line_2, label: { text: 'Address line 2 (Optional)', size: "s"} %>
+        <%= f.govuk_text_field :school_city, label: { text: 'Town or city', size: "s"} %>
+        <%= f.govuk_text_field :school_county, label: { text: 'County (optional)', size: "s"} %>
+        <%= f.govuk_text_field :school_postcode, label: { size: "s"} %>
+      <% end %>
 
       <%= f.govuk_submit "Submit application" %>
     <% end %>
