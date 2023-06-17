@@ -75,6 +75,10 @@ en:
               blank: Enter your school's postcode
             school_headteacher_name:
               blank: Enter the headteacher's name
+            school_address_line_1:
+              blank: Enter your school's address
+            school_city:
+              blank: Enter your school's city
         applicants/entry_date:
           attributes:
             entry_date:
