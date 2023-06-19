@@ -17,12 +17,13 @@ module Applicants
       "Ukraine Family Scheme visa",
       "Ukraine Sponsorship Scheme",
       "Youth Mobility Scheme",
+      "Other",
     ].freeze
 
     validates :visa_type, presence: true, inclusion: { in: VISA_OPTIONS }
 
     def eligible?
-      visa_type != "other"
+      visa_type != "Other"
     end
   end
 end
