@@ -29,4 +29,32 @@ RSpec.describe Application do
       expect(application.urn.value).to match(/\AIRP [ABCDEFHJKLMNPRSTUV23456789]{6}\z/)
     end
   end
+
+  describe "#register_for_applicant!" do
+    subject(:klass) { described_class }
+
+    let(:applicant) { FactoryBot.create(:applicant) }
+
+    it "returns an application" do
+      expect(klass.register_for_applicant!(applicant)).to be_a(described_class)
+    end
+
+    it "sets the applicant" do
+      klass.register_for_applicant!(applicant)
+
+      expect(applicant.application).to be_present
+    end
+
+    it "sets the application date" do
+      application = klass.register_for_applicant!(applicant)
+
+      expect(application.application_date).to eq(Date.current)
+    end
+
+    it "sets the urn" do
+      application = klass.register_for_applicant!(applicant)
+
+      expect(application.urn).to be_present
+    end
+  end
 end
