@@ -15,7 +15,7 @@ module Applicants
         @employment_detail.applicant = @applicant
         @employment_detail.save!
 
-        @applicant.create_application!(application_date: Date.current)
+        Application.register_for_applicant!(@applicant)
 
         # TODO: Clean up data we've added to the session
         # session.delete('')
