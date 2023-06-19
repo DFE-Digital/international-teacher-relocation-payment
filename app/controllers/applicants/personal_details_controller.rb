@@ -16,21 +16,9 @@ module Applicants
       @personal_detail = PersonalDetail.new(personal_detail_params)
 
       if @personal_detail.valid?
-        session[:personal_detail] = {
-          "given_name" => @personal_detail.given_name,
-          "family_name" => @personal_detail.family_name,
-          "email_address" => @personal_detail.email_address,
-          "phone_number" => @personal_detail.phone_number,
-          "date_of_birth" => @personal_detail.date_of_birth,
-          "sex" => @personal_detail.sex,
-          "passport_number" => @personal_detail.passport_number,
-          "nationality" => @personal_detail.nationality,
-          "address_line_1" => @personal_detail.address_line_1,
-          "address_line_2" => @personal_detail.address_line_2,
-          "city" => @personal_detail.city,
-          "county" => @personal_detail.county,
-          "postcode" => @personal_detail.postcode,
-        }
+        applicant = @personal_detail.save!
+
+        session[:applicant_id] = applicant.id
 
         redirect_to(new_applicants_employment_detail_path)
       else

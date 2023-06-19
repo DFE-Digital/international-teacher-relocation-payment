@@ -32,8 +32,11 @@ class Applicant < ApplicationRecord
   has_one :applicant_progress, dependent: :destroy
 
   has_one :address, as: :addressable, dependent: :destroy
+  accepts_nested_attributes_for :address
 
   belongs_to :school, dependent: :destroy, optional: true
+
+  has_one :application, dependent: :destroy
 
   delegate \
     :initial_checks_completed_at,
