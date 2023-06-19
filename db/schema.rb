@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_132013) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_112449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_132013) do
     t.index ["school_id"], name: "index_applicants_on_school_id"
   end
 
+  create_table "applications", force: :cascade do |t|
+    t.string "application_date", null: false
+    t.string "urn", null: false
+    t.bigint "applicant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["applicant_id"], name: "index_applications_on_applicant_id"
+  end
+
   create_table "schools", force: :cascade do |t|
     t.string "postcode"
     t.string "name"
@@ -68,4 +77,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_132013) do
 
   add_foreign_key "applicant_progresses", "applicants"
   add_foreign_key "applicants", "schools"
+  add_foreign_key "applications", "applicants"
 end
