@@ -17,7 +17,7 @@ describe "trainee route: completing the form" do
       and_i_enter_my_personal_details
       and_i_enter_my_employment_details
 
-      expect(page).to have_text("Thank you for completing the international relocation payment application form")
+      expect(page).to have_text("Application complete")
     end
 
     def and_i_complete_the_trainee_employment_conditions

@@ -2,6 +2,8 @@
 
 module Applicants
   class SubmissionsController < ApplicationController
-    def show; end
+    def show
+      @applicant = Applicant.find(session[:applicant_id])
+    end
   end
 end
