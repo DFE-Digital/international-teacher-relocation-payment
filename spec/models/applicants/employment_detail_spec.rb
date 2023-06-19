@@ -29,7 +29,7 @@ module Applicants
       end
 
       before do
-        model.applicant = FactoryBot.create :applicant
+        model.applicant = create :applicant
       end
 
       it "creates a school" do
