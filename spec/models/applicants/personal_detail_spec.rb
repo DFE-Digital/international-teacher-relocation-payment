@@ -66,6 +66,10 @@ module Applicants
 
           expect(Applicant.last.address).to eq(Address.last)
         end
+
+        it "returns an applicant" do
+          expect(model.save!).to be_a(Applicant)
+        end
       end
 
       describe "date_of_birth" do
