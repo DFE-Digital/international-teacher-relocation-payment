@@ -26,7 +26,7 @@ RSpec.describe Application do
     end
 
     it "starts with IRP" do
-      expect(application.urn.value).to match(/\AIRP [ABCFHJKLMNPRSTUV23456789]{6}\z/)
+      expect(application.urn.value).to match(/\AIRP [ABCDEFHJKLMNPRSTUV23456789]{6}\z/)
     end
   end
 end
