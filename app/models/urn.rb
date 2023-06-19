@@ -27,23 +27,29 @@
 #   puts your_model.urn.value
 #
 #   Urn.dump(Urn.new) # => "IRPGA2B3C"
-#   Urn.load("IRPGA2B3C") # => "IRPGA2B3C"
+#   Urn.load("IRPGA2B3C") # => #<Urn:0x00000001154a9a78 @value="IRPGA2B3C">
 #
 #  Duplications
 #    Total number of combinations is: 26^6 = 308,915,776 ~ 310M
 class Urn
   attr_reader :value
 
-  def initialize
-    @value = Urn.generate_urn
+  def initialize(value:)
+    @value = value
   end
 
-  def self.dump(value)
-    value
+  def self.dump(urn)
+    urn.value
   end
 
   def self.load(value)
-    value || generate_urn
+    Urn.new(value: value || generate_urn)
+  end
+
+  def ==(other)
+    return false unless other.is_a?(Urn)
+
+    @value == other.value
   end
 
   CHARSET = %w[A B C D E F H J K L M N P R S T U V 2 3 4 5 6 7 8 9].freeze
@@ -52,7 +58,7 @@ class Urn
   private_constant :CHARSET, :PREFIX, :LENGTH
 
   def self.generate_urn
-    PREFIX + Array.new(LENGTH) { CHARSET.sample }.join
+    PREFIX + " " + Array.new(LENGTH) { CHARSET.sample }.join
   end
 
   private_methods :generate_urn
