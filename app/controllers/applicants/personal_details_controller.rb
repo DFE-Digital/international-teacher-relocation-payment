@@ -2,12 +2,6 @@
 
 module Applicants
   class PersonalDetailsController < ApplicationController
-    DOB_CONVERSION = {
-      "date_of_birth(3i)" => "day",
-      "date_of_birth(2i)" => "month",
-      "date_of_birth(1i)" => "year",
-    }.freeze
-
     def new
       @personal_detail = PersonalDetail.new
     end
@@ -47,5 +41,12 @@ module Applicants
         DOB_CONVERSION.key?(key) ? DOB_CONVERSION[key] : key
       end
     end
+
+    DOB_CONVERSION = {
+      "date_of_birth(3i)" => "day",
+      "date_of_birth(2i)" => "month",
+      "date_of_birth(1i)" => "year",
+    }.freeze
+    private_constant :DOB_CONVERSION
   end
 end
