@@ -21,7 +21,7 @@ module Applicants
       subject { described_class.new(params).eligible? }
 
       context "when visa is other" do
-        let(:params) { { visa_type: "other" } }
+        let(:params) { { visa_type: "Other" } }
 
         it { is_expected.to be_falsey }
       end
