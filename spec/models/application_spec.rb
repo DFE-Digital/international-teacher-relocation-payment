@@ -33,7 +33,7 @@ RSpec.describe Application do
   describe "#register_for_applicant!" do
     subject(:klass) { described_class }
 
-    let(:applicant) { FactoryBot.create(:applicant) }
+    let(:applicant) { create(:applicant) }
 
     it "returns an application" do
       expect(klass.register_for_applicant!(applicant)).to be_a(described_class)
