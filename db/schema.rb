@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_112449) do
   end
 
   create_table "applications", force: :cascade do |t|
-    t.string "application_date", null: false
+    t.date "application_date", null: false
     t.string "urn", null: false
     t.bigint "applicant_id", null: false
     t.datetime "created_at", null: false

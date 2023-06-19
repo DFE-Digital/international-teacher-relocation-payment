@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: schools
+#
+#  id               :bigint           not null, primary key
+#  headteacher_name :string
+#  name             :string
+#  postcode         :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
 require "rails_helper"
 
 describe School do

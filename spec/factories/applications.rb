@@ -3,7 +3,7 @@
 # Table name: applications
 #
 #  id               :bigint           not null, primary key
-#  application_date :string           not null
+#  application_date :date             not null
 #  urn              :string           not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
