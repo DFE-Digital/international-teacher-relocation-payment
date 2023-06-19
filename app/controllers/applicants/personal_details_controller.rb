@@ -11,7 +11,6 @@ module Applicants
 
       if @personal_detail.valid?
         applicant = @personal_detail.save!
-
         session[:applicant_id] = applicant.id
 
         redirect_to(new_applicants_employment_detail_path)

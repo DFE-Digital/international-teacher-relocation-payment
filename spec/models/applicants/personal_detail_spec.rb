@@ -30,6 +30,44 @@ module Applicants
       include_examples "a valid UK postcode", described_class
       include_examples "validates phone number with international prefix", described_class, :phone_number
 
+      describe "save!" do
+        let(:params) do
+          {
+            given_name: "John",
+            family_name: "Smith",
+            email_address: "john@email.com",
+            phone_number: "07777777777",
+            day: "01",
+            month: "01",
+            year: "2000",
+            sex: "Male",
+            passport_number: "123456789",
+            nationality: "British",
+            address_line_1: "1 High Street",
+            address_line_2: "Flat 1",
+            city: "London",
+            county: "London",
+            postcode: "SW1A 1AA",
+          }
+        end
+
+        subject(:model) { described_class.new(params) }
+
+        it "creates an applicant" do
+          expect { model.save! }.to change(Applicant, :count).by(1)
+        end
+
+        it "creates an address" do
+          expect { model.save! }.to change(Address, :count).by(1)
+        end
+
+        it "links the address and the applicant" do
+          model.save!
+
+          expect(Applicant.last.address).to eq(Address.last)
+        end
+      end
+
       describe "date_of_birth" do
         context "when date_of_birth is invalid" do
           let(:params) { { day: "31", month: "02", year: "2000" } }
