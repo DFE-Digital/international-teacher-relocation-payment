@@ -17,8 +17,6 @@ module Applicants
 
         Application.register_for_applicant!(@applicant)
 
-        # TODO: Clean up data we've added to the session
-        # session.delete('')
         redirect_to(applicants_submission_path)
       else
         render(:new)

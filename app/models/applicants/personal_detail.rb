@@ -51,7 +51,6 @@ module Applicants
           city:,
           county:,
           postcode:,
-
         },
       )
     end
