@@ -2,6 +2,8 @@
 
 module Applicants
   class EmploymentDetailsController < ApplicationController
+    before_action :set_applicant
+
     def new
       @employment_detail = EmploymentDetail.new
     end
@@ -10,7 +12,6 @@ module Applicants
       @employment_detail = EmploymentDetail.new(employment_detail_params)
 
       if @employment_detail.valid?
-        @applicant = Applicant.find(session[:applicant_id])
         @applicant.create_school!(school_params)
 
         @applicant.create_application!(
@@ -26,6 +27,10 @@ module Applicants
     end
 
   private
+
+    def set_applicant
+      @applicant = Applicant.find(session[:applicant_id])
+    end
 
     def employment_detail_params
       params.require(:applicants_employment_detail).permit(
