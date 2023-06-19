@@ -9,12 +9,27 @@ module Applicants
                   :school_address_line_2,
                   :school_city,
                   :school_county,
-                  :school_postcode
+                  :school_postcode,
+                  :applicant
 
     validates :school_name, presence: true
     validates :school_headteacher_name, presence: true
     validates :school_address_line_1, presence: true
     validates :school_city, presence: true
     validates :school_postcode, presence: true, postcode: true
+
+    def save!
+      applicant.create_school!(
+        name: school_name,
+        headteacher_name: school_headteacher_name,
+        address_attributes: {
+          address_line_1: school_address_line_1,
+          address_line_2: school_address_line_2,
+          city: school_city,
+          county: school_county,
+          postcode: school_postcode,
+        },
+      )
+    end
   end
 end

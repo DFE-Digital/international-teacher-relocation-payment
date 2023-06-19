@@ -12,11 +12,10 @@ module Applicants
       @employment_detail = EmploymentDetail.new(employment_detail_params)
 
       if @employment_detail.valid?
-        @applicant.create_school!(school_params)
+        @employment_detail.applicant = @applicant
+        @employment_detail.save!
 
-        @applicant.create_application!(
-          application_date: Date.current,
-        )
+        @applicant.create_application!(application_date: Date.current)
 
         # TODO: Clean up data we've added to the session
         # session.delete('')
@@ -42,20 +41,6 @@ module Applicants
         :school_county,
         :school_postcode,
       )
-    end
-
-    def school_params
-      {
-        name: employment_detail_params["school_name"],
-        headteacher_name: employment_detail_params["school_headteacher_name"],
-        address_attributes: {
-          address_line_1: employment_detail_params["school_address_line_1"],
-          address_line_2: employment_detail_params["school_address_line_2"],
-          city: employment_detail_params["school_city"],
-          county: employment_detail_params["school_county"],
-          postcode: employment_detail_params["school_postcode"],
-        },
-      }
     end
   end
 end
