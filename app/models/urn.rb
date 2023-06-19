@@ -58,7 +58,7 @@ class Urn
   private_constant :CHARSET, :PREFIX, :LENGTH
 
   def self.generate_urn
-    PREFIX + " " + Array.new(LENGTH) { CHARSET.sample }.join
+    "#{PREFIX} " + Array.new(LENGTH) { CHARSET.sample }.join
   end
 
   private_methods :generate_urn
