@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "pages#start"
 
-  get "/submitted", to: "pages#submitted"
   get "/ineligible", to: "pages#ineligible"
 
   namespace :applicants do
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
     resources :personal_details, only: %i[new create]
     resources :employment_details, only: %i[new create]
     resources :salaried_course_details, only: %i[new create]
+    resource :submission, only: %i[show]
   end
 
   # TODO: route constraint, only signed-in admins should be able to access

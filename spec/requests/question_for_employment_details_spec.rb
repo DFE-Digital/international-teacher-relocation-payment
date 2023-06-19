@@ -25,7 +25,7 @@ module Applicants
         it "redirects to the submitted path" do
           post "/applicants/employment_details", params: valid_params
 
-          expect(response).to redirect_to(submitted_path)
+          expect(response).to redirect_to(applicants_submission_path)
         end
 
         it "creates a School" do

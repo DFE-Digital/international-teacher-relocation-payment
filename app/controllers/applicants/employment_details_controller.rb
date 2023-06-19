@@ -19,7 +19,7 @@ module Applicants
 
         # TODO: Clean up data we've added to the session
         # session.delete('')
-        redirect_to(submitted_path)
+        redirect_to(applicants_submission_path)
       else
         render(:new)
       end
