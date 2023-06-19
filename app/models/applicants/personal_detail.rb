@@ -35,6 +35,27 @@ module Applicants
       InvalidDate.new(day:, month:, year:)
     end
 
+    def save!
+      Applicant.create!(
+        given_name: given_name,
+        family_name: family_name,
+        email_address: email_address,
+        phone_number: phone_number,
+        date_of_birth: date_of_birth,
+        sex: sex,
+        passport_number: passport_number,
+        nationality: nationality,
+        address_attributes: {
+          address_line_1:,
+          address_line_2:,
+          city:,
+          county:,
+          postcode:,
+
+        },
+      )
+    end
+
   private
 
     def date_of_birth_not_in_future
