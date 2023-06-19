@@ -16,6 +16,7 @@
 class Application < ApplicationRecord
   belongs_to :applicant
 
+  serialize :urn, Urn
+
   validates :application_date, presence: true
-  validates :urn, presence: true
 end
