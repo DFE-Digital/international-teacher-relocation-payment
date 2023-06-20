@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     session["application_route"]
   end
 
+  def current_applicant
+    Applicant.find(session[:applicant_id])
+  end
+  helper_method :current_applicant
+
   def check_teacher!
     return unless application_route != "teacher"
 
