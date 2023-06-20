@@ -16,7 +16,7 @@
 FactoryBot.define do
   factory :application do
     application_date { Faker::Date.in_date_period }
-    urn { "IRP #{Faker::Number.number(digits: 6)} LT" }
+    urn { Urn.new }
     applicant
   end
 end
