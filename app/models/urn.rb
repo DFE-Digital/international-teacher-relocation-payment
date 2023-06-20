@@ -34,8 +34,8 @@
 class Urn
   attr_reader :value
 
-  def initialize(value:)
-    @value = value
+  def initialize(value = nil)
+    @value = value || Urn.generate_urn
   end
 
   def self.dump(urn)
@@ -43,7 +43,7 @@ class Urn
   end
 
   def self.load(value)
-    Urn.new(value: value || generate_urn)
+    Urn.new(value)
   end
 
   def ==(other)
