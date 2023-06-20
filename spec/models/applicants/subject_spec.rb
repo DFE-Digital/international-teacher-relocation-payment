@@ -17,6 +17,28 @@ module Applicants
       }
     end
 
+    describe ".all" do
+      subject(:subjects) { described_class.all(application_route) }
+
+      context "when application_route is teacher" do
+        let(:application_route) { "teacher" }
+
+        it { is_expected.to eq(Applicants::Subject::TEACHER_SUBJECTS) }
+      end
+
+      context "when application_route is salaried_trainee" do
+        let(:application_route) { "salaried_trainee" }
+
+        it { is_expected.to eq(Applicants::Subject::TRAINEE_SUBJECTS) }
+      end
+
+      context "when application_route is other" do
+        let(:application_route) { "other" }
+
+        it { expect { subjects }.to raise_error("Invalid route") }
+      end
+    end
+
     describe "#eligible?" do
       subject { described_class.new(params).eligible? }
 
