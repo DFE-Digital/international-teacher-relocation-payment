@@ -18,10 +18,11 @@ module Applicants
           set_user_type("salaried_trainee")
         end
 
-        it "redirects to the start of the process" do
+        it "redirects to the new subject path if it is eligible" do
+          allow(Policies::ContractStartDate).to receive(:eligible?).and_return(true)
           post "/applicants/contract_start_dates", params: valid_params
 
-          expect(response).to redirect_to(new_applicants_application_route_path)
+          expect(response).to redirect_to(new_applicants_subject_path)
         end
       end
 

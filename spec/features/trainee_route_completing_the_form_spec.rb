@@ -10,6 +10,7 @@ describe "trainee route: completing the form" do
       when_i_start_the_form
       and_i_complete_application_route_question_with(option: "salaried_trainee")
       and_i_complete_the_trainee_employment_conditions
+      and_i_enter_my_contract_start_date
       and_i_select_my_subject
       and_i_select_my_visa_type
       and_i_enter_my_entry_date
