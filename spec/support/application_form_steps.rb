@@ -21,10 +21,6 @@ RSpec.shared_context "with common application form steps" do
     click_button("Continue")
   end
 
-  def and_i_confirm_my_subject_percentage
-    choose_yes
-  end
-
   def and_i_select_my_visa_type
     select("Family visa")
 

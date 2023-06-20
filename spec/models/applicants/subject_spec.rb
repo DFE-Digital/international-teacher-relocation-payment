@@ -13,7 +13,7 @@ module Applicants
 
       it {
         expect(model).to validate_inclusion_of(:subject)
-          .in_array(Applicants::Subject::SUBJECT_OPTIONS)
+          .in_array(Applicants::Subject::TEACHER_SUBJECTS)
       }
     end
 

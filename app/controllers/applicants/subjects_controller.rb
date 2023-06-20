@@ -13,7 +13,7 @@ module Applicants
         if @subject.eligible?
           session[:subject] = @subject.subject
 
-          redirect_to(new_applicants_teaching_detail_path)
+          redirect_to(new_applicants_visa_path)
         else
           redirect_to(ineligible_path)
         end
