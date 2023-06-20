@@ -2,8 +2,6 @@
 
 module Applicants
   class EmploymentDetailsController < ApplicationController
-    before_action :set_applicant
-
     def new
       @employment_detail = EmploymentDetail.new
     end
@@ -12,10 +10,10 @@ module Applicants
       @employment_detail = EmploymentDetail.new(employment_detail_params)
 
       if @employment_detail.valid?
-        @employment_detail.applicant = @applicant
+        @employment_detail.applicant = current_applicant
         @employment_detail.save!
 
-        Application.register_for_applicant!(@applicant)
+        Application.register_for_applicant!(current_applicant)
 
         redirect_to(applicants_submission_path)
       else
@@ -24,10 +22,6 @@ module Applicants
     end
 
   private
-
-    def set_applicant
-      @applicant = Applicant.find(session[:applicant_id])
-    end
 
     def employment_detail_params
       params.require(:applicants_employment_detail).permit(

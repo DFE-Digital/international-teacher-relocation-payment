@@ -3,9 +3,7 @@
 module Applicants
   class SubmissionsController < ApplicationController
     def show
-      applicant = Applicant.find(session[:applicant_id])
-
-      @application = applicant.application
+      @application = current_applicant.application
     end
   end
 end
