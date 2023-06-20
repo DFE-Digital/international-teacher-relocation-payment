@@ -7,7 +7,7 @@ module Applicants
 
     VISA_OPTIONS = [
       "Afghan Relocations and Assistance Policy",
-      "Afhgan citizens resettlement scheme",
+      "Afghan citizens resettlement scheme",
       "British National (Overseas) visa",
       "Family visa",
       "High Potential Individual visa",
