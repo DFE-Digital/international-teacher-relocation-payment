@@ -2,31 +2,25 @@
   <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Application complete
+          </h1>
+          <div class="govuk-panel__body">
+            Your reference number<br><strong>HDJ2123F</strong>
+          </div>
+        </div>
 
         <h2 class="govuk-heading-m">Thank you</h2>
         <p class="govuk-body">
-          You have successfully submitted your international relocation payment application form and will receive a
-          confirmation email from the Department for Education (Dfe).
+          You have successfully submitted your application form and will receive a confirmation email from the
+          Department for Education (DfE). This will also contain your International Relocation Payment reference number
+          quoted above. Please keep this safe as you will need it if your application is successful.
         </p>
 
         <p class="govuk-body">
-          We will now validate the information you have given us. We will email you if we have any questions.
-        </p>
-
-        <p class="govuk-body">
-          Your international relocation payment (IRP) application reference number is:
-        </p>
-
-        <p class="govuk-body">
-          <strong><%= @application.urn.value %></strong>
-        </p>
-
-        <p class="govuk-body">
-          Keep this safe, as you will need it if your application is successful.
-        </p>
-
-        <p class="govuk-body">
-          We’ll let you know the outcome of your application as soon as we’ve checked your eligibility. If you are
+          We will let you know the outcome of your application as soon as we have validated the information you have
+          given us and checked your eligibility. We will email you if we have any questions about this. If you’re
           eligible, you will be paid around the end of your first term of training or employment.
         </p>
 
@@ -34,9 +28,7 @@
           For help, you can contact us on
           <%= govuk_link_to("IRP.Mailbox@education.gov.uk", "mailto:IRP.Mailbox@education.gov.uk") %>.
         </p>
-
       </div>
-
     </div>
   </main>
 </div>
