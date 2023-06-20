@@ -38,13 +38,13 @@ RSpec.describe Urn do
 
   describe ".dump" do
     it "returns the given value" do
-      expect(described_class.dump(described_class.new("IRPG2345"))).to eq("IRPG2345")
+      expect(described_class.dump(described_class.new("IRP G2345"))).to eq("IRP G2345")
     end
   end
 
   describe ".load" do
     it "returns the given value when `value` is not `nil`" do
-      expect(described_class.load("IRPG2345")).to eq(described_class.new("IRPG2345"))
+      expect(described_class.load("IRP G2345")).to eq(described_class.new("IRP G2345"))
     end
   end
 end
