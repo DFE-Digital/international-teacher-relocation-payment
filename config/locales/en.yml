@@ -52,7 +52,11 @@ en:
         salaried_trainee: >
           Physics or languages can be combined with other subjects but must make up at least 50% of your course content. 
           This will be validated by DfE with your school.
-
+    employment_details:
+      school_name:
+        title:
+          teacher: Enter the name of the school where you are employed as a teacher
+          salaried_trainee: Enter the name of the school where you are employed as a trainee teacher
     teaching_details:
       title:
         teacher: Do you teach this subject for at least 50% of your teaching timetable?
