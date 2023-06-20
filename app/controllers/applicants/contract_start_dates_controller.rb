@@ -2,8 +2,6 @@
 
 module Applicants
   class ContractStartDatesController < ApplicationController
-    before_action :check_teacher!
-
     def new
       @contract_start_date = ContractStartDate.new
     end

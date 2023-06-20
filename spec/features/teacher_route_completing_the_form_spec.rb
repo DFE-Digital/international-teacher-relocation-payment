@@ -50,12 +50,4 @@ describe "teacher route: completing the form" do
   def and_i_complete_the_contract_details_question
     choose_yes
   end
-
-  def and_i_enter_my_contract_start_date
-    fill_in("Day", with: 12)
-    fill_in("Month", with: 7)
-    fill_in("Year", with: 2023)
-
-    click_button("Continue")
-  end
 end
