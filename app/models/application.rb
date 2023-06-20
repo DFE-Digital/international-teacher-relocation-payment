@@ -20,7 +20,7 @@ class Application < ApplicationRecord
 
   validates :application_date, presence: true
 
-  def self.register_for_applicant!(applicant)
+  def self.initialise_for_applicant!(applicant)
     create!(
       applicant: applicant,
       application_date: Date.current.to_s,

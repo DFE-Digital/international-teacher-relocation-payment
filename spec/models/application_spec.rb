@@ -30,29 +30,29 @@ RSpec.describe Application do
     end
   end
 
-  describe "#register_for_applicant!" do
+  describe "#initialise_for_applicant!" do
     subject(:klass) { described_class }
 
     let(:applicant) { create(:applicant) }
 
     it "returns an application" do
-      expect(klass.register_for_applicant!(applicant)).to be_a(described_class)
+      expect(klass.initialise_for_applicant!(applicant)).to be_a(described_class)
     end
 
     it "sets the applicant" do
-      klass.register_for_applicant!(applicant)
+      klass.initialise_for_applicant!(applicant)
 
       expect(applicant.application).to be_present
     end
 
     it "sets the application date" do
-      application = klass.register_for_applicant!(applicant)
+      application = klass.initialise_for_applicant!(applicant)
 
       expect(application.application_date).to eq(Date.current)
     end
 
     it "sets the urn" do
-      application = klass.register_for_applicant!(applicant)
+      application = klass.initialise_for_applicant!(applicant)
 
       expect(application.urn).to be_present
     end
