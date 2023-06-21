@@ -73,7 +73,6 @@ en:
       city: Town or city
       county: County (optional)
       postcode: Postcode
-
     personal_details:
       title: Personal information
       given_name: Enter your given name, as it appears on your passport
@@ -92,6 +91,9 @@ en:
       nationality: Nationality
       sex: Select your sex
       passport: Enter your passport number, as it appears on your passport
+    salaried_course:
+      title: Are you currently employed in a school as a trainee teacher, on a teacher training course in England which meets the following conditions?
+      hint: Check with your training provider if you're not sure. You will still be eligible for the international relocation payment if your course leads to PGCE + QTS or PGDE + QTS.
     teaching_details:
       title:
         teacher: Do you teach this subject for at least 50% of your teaching timetable?
