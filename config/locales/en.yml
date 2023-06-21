@@ -61,10 +61,19 @@ en:
           Physics or languages can be combined with other subjects but must make up at least 50% of your course content. 
           This will be validated by DfE with your school.
     employment_details:
+      title: Employment information
       school_name:
         title:
           teacher: Enter the name of the school where you are employed as a teacher
           salaried_trainee: Enter the name of the school where you are employed as a trainee teacher
+      headteacher: Enter the name of the Headteacher or Principal of the school
+      address: Enter the school address
+      address_line_1: Address line 1
+      address_line_2: Address line 2 (Optional)
+      city: Town or city
+      county: County (optional)
+      postcode: Postcode
+
     personal_details:
       title: Personal information
       given_name: Enter your given name, as it appears on your passport
