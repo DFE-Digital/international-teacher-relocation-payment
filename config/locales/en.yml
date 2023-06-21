@@ -41,6 +41,9 @@ en:
       title:
         teacher: Enter the date you moved to England to start your teaching job
         salaried_trainee: Enter the date you moved to England to start your teacher training course
+    school_details:
+      title: Are you employed by an English state secondary school?
+      hint: State schools receive funding from the UK government. Secondary schools teach children aged 11 to 16 or 18.
     subjects:
       title:
         teacher: What subject are you employed to teach at your school?
