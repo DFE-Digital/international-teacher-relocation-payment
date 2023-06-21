@@ -72,6 +72,8 @@ en:
       hint:
         teacher: Check with your school if you're not sure
         salaried_trainee: Check with your training provider if you're not sure.
+    visa:
+      title: Select the visa you used to move to England
   activemodel:
     errors:
       models:
