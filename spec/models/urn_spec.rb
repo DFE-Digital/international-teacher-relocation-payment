@@ -3,7 +3,7 @@ require "rails_helper"
 
 RSpec.describe Urn do
   context "When a value is given" do
-    subject(:urn) { described_class.new("IRP 123456") }
+    subject(:urn) { described_class.new("IRP123456") }
 
     it "has a value" do
       expect(urn.value).to be_present
@@ -14,11 +14,11 @@ RSpec.describe Urn do
     end
 
     it "generates a Urn with a length of 8" do
-      expect(urn.value.length).to eq(10)
+      expect(urn.value.length).to eq(9)
     end
 
     it "generates a Urn with a suffix of 6 characters" do
-      expect(urn.value[4..].length).to eq(6)
+      expect(urn.value[4..].length).to eq(5)
     end
 
     it "generates a Urn with a suffix of only characters in the CHARSET" do
@@ -38,13 +38,13 @@ RSpec.describe Urn do
 
   describe ".dump" do
     it "returns the given value" do
-      expect(described_class.dump(described_class.new("IRP G2345"))).to eq("IRP G2345")
+      expect(described_class.dump(described_class.new("IRPG2345"))).to eq("IRPG2345")
     end
   end
 
   describe ".load" do
     it "returns the given value when `value` is not `nil`" do
-      expect(described_class.load("IRP G2345")).to eq(described_class.new("IRP G2345"))
+      expect(described_class.load("IRPG2345")).to eq(described_class.new("IRPG2345"))
     end
   end
 end

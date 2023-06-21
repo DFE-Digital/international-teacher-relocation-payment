@@ -7,7 +7,7 @@
 #
 # Example:
 #
-#   Urn.new.value # => "IRP 1A2B3C"
+#   Urn.new.value # => "IRP1A2B3C"
 #
 # As it implements `.dump` and `.load`, it can be used with `serialize` as
 # an Active Model. It can be included as an attribute in your model
@@ -26,8 +26,8 @@
 #   your_model.reload
 #   puts your_model.urn.value
 #
-#   Urn.dump(Urn.new) # => "IRP GA2B3C"
-#   Urn.load("IRP GA2B3C") # => #<Urn:0x00000001154a9a78 @value="IRP GA2B3C">
+#   Urn.dump(Urn.new) # => "IRPGA2B3C"
+#   Urn.load("IRPGA2B3C") # => #<Urn:0x00000001154a9a78 @value="IRPGA2B3C">
 #
 #  Duplications
 #    Total number of combinations is: 26^6 = 308,915,776 ~ 310M
@@ -58,7 +58,7 @@ class Urn
   private_constant :CHARSET, :PREFIX, :LENGTH
 
   def self.generate_urn
-    "#{PREFIX} " + Array.new(LENGTH) { CHARSET.sample }.join
+    PREFIX + Array.new(LENGTH) { CHARSET.sample }.join
   end
 
   private_methods :generate_urn
