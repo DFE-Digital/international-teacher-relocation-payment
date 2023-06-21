@@ -14,7 +14,7 @@
 #
 module Policies
   class EntryDate
-    def eligible?(entry_date, start_date)
+    def self.eligible?(entry_date, start_date)
       entry_date >= start_date - 3.months
     end
   end
