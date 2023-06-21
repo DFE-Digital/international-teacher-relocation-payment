@@ -5,8 +5,8 @@
 
       <%= f.govuk_radio_buttons_fieldset(
         :state_funded_secondary_school,
-        legend: { text: "Are you employed by an English state secondary school?", tag: "h1", size: "l" },
-        hint: { text: "State schools receive funding from the UK government. Secondary schools teach children aged 11 to 16 or 18." }
+        legend: { text: t("applicants.school_details.title"), tag: "h1", size: "l" },
+        hint: { text: t("applicants.school_details.hint") }
         ) do %>
         <% Applicants::SchoolDetail::SCHOOL_OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :state_funded_secondary_school, value, label: { text: value.humanize }, link_errors: i.zero? %>
