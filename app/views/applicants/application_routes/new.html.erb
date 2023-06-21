@@ -4,8 +4,8 @@
       <%= f.govuk_error_summary %>
 
       <%= f.govuk_radio_buttons_fieldset(:application_route,
-        legend: { text: "What is your employment status?", tag: "h1", size: "l" },
-          hint: { text: "Select one of the following options" },
+        legend: { text: t("applicants.application_routes.title"), tag: "h1", size: "l" },
+          hint: { text: t("applicants.application_routes.hint") },
       ) do %>
         <%= f.govuk_radio_button(
           :application_route,
@@ -15,8 +15,8 @@
         <%= f.govuk_radio_button(
               :application_route,
               :salaried_trainee,
-              label: { text: t("applicants.application_routes.radio_button.salaried_trainee") },
-              hint: { text: t("applicants.application_routes.hint.salaried_trainee") },
+              label: { text: t("applicants.application_routes.radio_button.salaried_trainee.text") },
+              hint: { text: t("applicants.application_routes.radio_button.salaried_trainee.hint") },
               link_errors: true,
             )%>
         <%= f.govuk_radio_button(
