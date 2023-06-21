@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get "/ineligible", to: "pages#ineligible"
 
+  get :ping, controller: :heartbeat
+  get :healthcheck, controller: :heartbeat
+  get :sha, controller: :heartbeat
+
   namespace :applicants do
     resources :application_routes, only: %i[new create]
     resources :school_details, only: %i[new create]

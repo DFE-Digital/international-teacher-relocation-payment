@@ -27,7 +27,7 @@ variable "azure_maintenance_window" { default = null }
 variable "postgres_flexible_server_sku" { default = "B_Standard_B1ms" }
 variable "postgres_enable_high_availability" { default = false }
 variable "startup_command" {}
-variable "probe_path" { default = null }
+variable "probe_path" { default = "/ping" }
 variable "replicas" { default = 1 }
 variable "memory_max" { default = "1Gi" }
 variable "gov_uk_host_names" {
