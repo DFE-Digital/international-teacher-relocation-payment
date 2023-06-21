@@ -51,17 +51,6 @@ en:
     school_details:
       title: Are you employed by an English state secondary school?
       hint: State schools receive funding from the UK government. Secondary schools teach children aged 11 to 16 or 18.
-    subjects:
-      title:
-        teacher: What subject are you employed to teach at your school?
-        salaried_trainee: What subject are you training to teach?
-      hint:
-        teacher:
-          Physics, general or combined science including physics, and languages can be combined with other subjects but 
-          must make up at least 50% of your time in the classroom. This will be validated by DfE with your school.
-        salaried_trainee:
-          Physics or languages can be combined with other subjects but must make up at least 50% of your course content. 
-          This will be validated by DfE with your school.
     employment_details:
       title: Employment information
       school_name:
@@ -93,6 +82,17 @@ en:
       nationality: Nationality
       sex: Select your sex
       passport: Enter your passport number, as it appears on your passport
+    subjects:
+      title:
+        teacher: What subject are you employed to teach at your school?
+        salaried_trainee: What subject are you training to teach?
+      hint:
+        teacher:
+          Physics, general or combined science including physics, and languages can be combined with other subjects but 
+          must make up at least 50% of your time in the classroom. This will be validated by DfE with your school.
+        salaried_trainee:
+          Physics or languages can be combined with other subjects but must make up at least 50% of your course content. 
+          This will be validated by DfE with your school.
     salaried_course:
       title: Are you currently employed in a school as a trainee teacher, on a teacher training course in England which meets the following conditions?
       hint: Check with your training provider if you're not sure. You will still be eligible for the international relocation payment if your course leads to PGCE + QTS or PGDE + QTS.
