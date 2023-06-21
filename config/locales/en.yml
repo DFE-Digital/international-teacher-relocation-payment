@@ -32,11 +32,13 @@
 en:
   applicants:
     application_routes:
+      title: What is your employment status?
+      hint: Select one of the following options
       radio_button:
         teacher: I am employed as a teacher in a school in England
-        salaried_trainee: I am enrolled on a salaried teacher training course in England.
-      hint:
-        salaried_trainee: ‘Salaried’ means a course where you are paid a wage to work while you train.
+        salaried_trainee:
+          text: I am enrolled on a salaried teacher training course in England.
+          hint: ‘Salaried’ means a course where you are paid a wage to work while you train.
     contract_details:
       title: Are you employed on a contract lasting at least one year?
       hint: Your contract can also be ongoing or permanent.
