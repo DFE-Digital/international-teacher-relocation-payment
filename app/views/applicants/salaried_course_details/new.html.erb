@@ -6,8 +6,8 @@
 
       <%= f.govuk_radio_buttons_fieldset(
         :eligible_course,
-        hint: { text: "Check with your training provider if you're not sure. You will still be eligible for the international relocation payment if your course leads to PGCE + QTS or PGDE + QTS." },
-        legend: { text: "Are you currently employed in a school as a trainee teacher, on a teacher training course in England which meets the following conditions?", tag: "h1", size: "l" }
+        hint: { text: t("applicants.salaried_course.hint") },
+        legend: { text: t("applicants.salaried_course.title"), tag: "h1", size: "l" }
       ) do %>
 
         <p class="govuk-body">
