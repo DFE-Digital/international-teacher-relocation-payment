@@ -65,6 +65,24 @@ en:
         title:
           teacher: Enter the name of the school where you are employed as a teacher
           salaried_trainee: Enter the name of the school where you are employed as a trainee teacher
+    personal_details:
+      title: Personal information
+      given_name: Enter your given name, as it appears on your passport
+      family_name: Enter your family name, as it appears on your passport
+      email_address: Enter your current email address
+      phone_number:
+        title: Enter your current phone number
+        hint: For international numbers include the country code. We will use this to contact you so please make sure you have entered it correctly.
+      date_of_birth: Enter your date of birth, as it appears on your passport
+      address: Enter your address
+      address_line_1: Address line 1
+      address_line_2: Address line 2 (Optional)
+      city: Town or city
+      county: County (optional)
+      postcode: Postcode
+      nationality: Nationality
+      sex: Select your sex
+      passport: Enter your passport number, as it appears on your passport
     teaching_details:
       title:
         teacher: Do you teach this subject for at least 50% of your teaching timetable?
