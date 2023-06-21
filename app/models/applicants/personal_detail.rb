@@ -66,7 +66,7 @@ module Applicants
     def age_less_than_maximum
       return unless date_of_birth.present? && (Date.current.year - date_of_birth.year) >= MAX_AGE
 
-      errors.add(:date_of_birth, "age should be below #{MAX_AGE} years")
+      errors.add(:date_of_birth)
     end
   end
 

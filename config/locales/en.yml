@@ -150,6 +150,7 @@ en:
               invalid: Enter a telephone number, like 07700 900 982 or +34 626 587 210’
             date_of_birth:
               blank: Enter your date of birth
+              invalid: Age must be below 80
             sex:
               blank: Enter your sex
             passport_number:
