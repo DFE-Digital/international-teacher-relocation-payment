@@ -11,8 +11,6 @@ module Applicants
 
       if @entry_date.valid?
         if eligible?
-          session[:entry_date] = @entry_date.entry_date
-
           redirect_to(new_applicants_personal_detail_path)
         else
           redirect_to(ineligible_path)
