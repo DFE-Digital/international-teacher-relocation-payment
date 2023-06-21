@@ -54,10 +54,10 @@ en:
         teacher: What subject are you employed to teach at your school?
         salaried_trainee: What subject are you training to teach?
       hint:
-        teacher: >
+        teacher:
           Physics, general or combined science including physics, and languages can be combined with other subjects but 
           must make up at least 50% of your time in the classroom. This will be validated by DfE with your school.
-        salaried_trainee: >
+        salaried_trainee:
           Physics or languages can be combined with other subjects but must make up at least 50% of your course content. 
           This will be validated by DfE with your school.
     employment_details:
