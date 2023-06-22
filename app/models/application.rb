@@ -15,26 +15,18 @@
 #
 class Application < ApplicationRecord
   belongs_to :applicant
-  has_one :applicant_progress, dependent: :destroy
+  has_one :application_progress, dependent: :destroy
 
   validates :application_date, presence: true
 
   before_create :generate_urn
 
   def self.initialise_for_applicant!(applicant)
-    Application.create!(
+    create!(
       applicant: applicant,
       application_date: Date.current.to_s,
-      applicant_progress: ApplicantProgress.new,
+      application_progress: ApplicationProgress.new,
     )
-
-    # puts application.inspect
-    # application.save!
-    # create!(
-    #   applicant: applicant,
-    #   application_date: Date.current.to_s,
-    #   applicant_progress: ApplicantProgress.new
-    # )
   end
 
 private

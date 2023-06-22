@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_151859) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_163508) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,17 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_151859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
-  end
-
-  create_table "applicant_progresses", force: :cascade do |t|
-    t.date "initial_checks_completed_at"
-    t.boolean "visa_investigation_required"
-    t.date "home_office_checks_completed_at"
-    t.boolean "school_investigation_required"
-    t.date "school_checks_completed_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "application_id", null: false
   end
 
   create_table "applicants", force: :cascade do |t|
@@ -55,6 +44,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_151859) do
     t.string "application_route"
     t.bigint "school_id"
     t.index ["school_id"], name: "index_applicants_on_school_id"
+  end
+
+  create_table "application_progresses", force: :cascade do |t|
+    t.date "initial_checks_completed_at"
+    t.boolean "visa_investigation_required"
+    t.date "home_office_checks_completed_at"
+    t.boolean "school_investigation_required"
+    t.date "school_checks_completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "application_id", null: false
   end
 
   create_table "applications", force: :cascade do |t|
