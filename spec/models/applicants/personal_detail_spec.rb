@@ -9,6 +9,7 @@ module Applicants
     subject(:model) { described_class.new(params) }
 
     describe "validations" do
+      it { is_expected.to validate_presence_of(:application_route) }
       it { is_expected.to validate_presence_of(:given_name) }
       it { is_expected.to validate_presence_of(:family_name) }
       it { is_expected.to validate_presence_of(:email_address) }
@@ -33,6 +34,7 @@ module Applicants
       describe "save!" do
         let(:params) do
           {
+            application_route: "teacher",
             given_name: "John",
             family_name: "Smith",
             email_address: "john@email.com",
