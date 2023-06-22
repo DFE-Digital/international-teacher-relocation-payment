@@ -17,6 +17,7 @@ FactoryBot.define do
   factory :application do
     application_date { Faker::Date.in_date_period }
     applicant
+    applicant_progress { build(:applicant_progress) }
 
     factory :teacher_application do
       applicant { build(:teacher) }
