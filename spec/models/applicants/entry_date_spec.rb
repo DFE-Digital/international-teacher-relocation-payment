@@ -29,7 +29,7 @@ module Applicants
       end
 
       it "returns an InvalidDate object" do
-        expect(entry_date.entry_date).to be_a(Applicants::EntryDate::InvalidDate)
+        expect(entry_date.entry_date).to be_a(InvalidDate)
       end
     end
 

@@ -5,9 +5,20 @@ module Applicants
     include ActiveModel::Model
     attr_accessor :subject
 
-    SUBJECT_OPTIONS = %w[physics languages general_science other].freeze
+    TEACHER_SUBJECTS = ["physics", "General/combined science", "languages", "other"].freeze
+    TRAINEE_SUBJECTS = TEACHER_SUBJECTS - ["General/combined science"].freeze
 
-    validates :subject, presence: true, inclusion: { in: SUBJECT_OPTIONS }
+    validates :subject, presence: true, inclusion: { in: TEACHER_SUBJECTS }
+
+    def self.all(application_route)
+      raise("Invalid route") unless %w[salaried_trainee teacher].include?(application_route)
+
+      if application_route == "teacher"
+        TEACHER_SUBJECTS
+      else
+        TRAINEE_SUBJECTS
+      end
+    end
 
     def eligible?
       subject != "other"

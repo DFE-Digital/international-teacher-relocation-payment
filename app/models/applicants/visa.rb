@@ -7,7 +7,7 @@ module Applicants
 
     VISA_OPTIONS = [
       "Afghan Relocations and Assistance Policy",
-      "Afhgan citizens resettlement scheme",
+      "Afghan citizens resettlement scheme",
       "British National (Overseas) visa",
       "Family visa",
       "High Potential Individual visa",
@@ -17,12 +17,13 @@ module Applicants
       "Ukraine Family Scheme visa",
       "Ukraine Sponsorship Scheme",
       "Youth Mobility Scheme",
+      "Other",
     ].freeze
 
     validates :visa_type, presence: true, inclusion: { in: VISA_OPTIONS }
 
     def eligible?
-      visa_type != "other"
+      visa_type != "Other"
     end
   end
 end

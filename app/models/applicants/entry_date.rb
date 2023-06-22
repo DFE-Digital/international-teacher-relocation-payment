@@ -19,12 +19,6 @@ module Applicants
       InvalidDate.new(day:, month:, year:)
     end
 
-    InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
-      def blank?
-        members.any? { |date_field| public_send(date_field).blank? }
-      end
-    end
-
     # If the applicant is a teacher who entered the country more than three
     # months before their contract start date, they are not eligible.
     def eligible?(session)

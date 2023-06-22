@@ -13,13 +13,12 @@ describe "teacher route: completing the form" do
       and_i_complete_the_contract_details_question
       and_i_enter_my_contract_start_date
       and_i_select_my_subject
-      and_i_confirm_my_subject_percentage
       and_i_select_my_visa_type
       and_i_enter_my_entry_date
       and_i_enter_my_personal_details
       and_i_enter_my_employment_details
 
-      expect(page).to have_text("Thank you for completing the international relocation payment application form")
+      expect(page).to have_text("You have successfully submitted")
     end
   end
 
@@ -49,13 +48,5 @@ describe "teacher route: completing the form" do
 
   def and_i_complete_the_contract_details_question
     choose_yes
-  end
-
-  def and_i_enter_my_contract_start_date
-    fill_in("Day", with: 12)
-    fill_in("Month", with: 12)
-    fill_in("Year", with: 2020)
-
-    click_button("Continue")
   end
 end

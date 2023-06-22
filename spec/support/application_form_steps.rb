@@ -21,10 +21,6 @@ RSpec.shared_context "with common application form steps" do
     click_button("Continue")
   end
 
-  def and_i_confirm_my_subject_percentage
-    choose_yes
-  end
-
   def and_i_select_my_visa_type
     select("Family visa")
 
@@ -33,8 +29,8 @@ RSpec.shared_context "with common application form steps" do
 
   def and_i_enter_my_entry_date
     fill_in("Day", with: 12)
-    fill_in("Month", with: 9)
-    fill_in("Year", with: 2020)
+    fill_in("Month", with: 6)
+    fill_in("Year", with: 2023)
 
     click_button("Continue")
   end
@@ -61,15 +57,27 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_enter_my_employment_details
+    fill_in("applicants_employment_detail[school_headteacher_name]", with: "Mr Headteacher")
     fill_in("applicants_employment_detail[school_name]", with: "School name")
-    fill_in("applicants_employment_detail[school_postcode]", with: "W1A 1AA")
-    fill_in("applicants_employment_detail[school_headteacher_name]", with: "Ms Headteacher")
+    fill_in("applicants_employment_detail[school_address_line_1]", with: "1, McSchool Street")
+    fill_in("applicants_employment_detail[school_address_line_2]", with: "Schoolville")
+    fill_in("applicants_employment_detail[school_city]", with: "Schooltown")
+    fill_in("applicants_employment_detail[school_county]", with: "Schoolshire")
+    fill_in("applicants_employment_detail[school_postcode]", with: "SC1 1AA")
 
     click_button("Submit application")
   end
 
   def choose_yes
     choose("Yes")
+
+    click_button("Continue")
+  end
+
+  def and_i_enter_my_contract_start_date
+    fill_in("Day", with: 12)
+    fill_in("Month", with: 7)
+    fill_in("Year", with: 2023)
 
     click_button("Continue")
   end

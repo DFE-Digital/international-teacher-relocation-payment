@@ -10,10 +10,12 @@ module Applicants
       @employment_detail = EmploymentDetail.new(employment_detail_params)
 
       if @employment_detail.valid?
-        Applicant.create!(applicant_params)
-        # TODO: Clean up data we've added to the session
-        # session.delete('')
-        redirect_to(submitted_path)
+        @employment_detail.applicant = current_applicant
+        @employment_detail.save!
+
+        Application.initialise_for_applicant!(current_applicant)
+
+        redirect_to(applicants_submission_path)
       else
         render(:new)
       end
@@ -24,25 +26,12 @@ module Applicants
     def employment_detail_params
       params.require(:applicants_employment_detail).permit(
         :school_name,
-        :school_postcode,
         :school_headteacher_name,
-      )
-    end
-
-    def applicant_params
-      employment_detail_params.merge(
-        application_route: session["application_route"],
-        given_name: session["personal_detail"]["given_name"],
-        family_name: session["personal_detail"]["family_name"],
-        email_address: session["personal_detail"]["email_address"],
-        phone_number: session["personal_detail"]["phone_number"],
-        date_of_birth: session["personal_detail"]["date_of_birth"],
-        sex: session["personal_detail"]["sex"],
-        nationality: session["personal_detail"]["nationality"],
-        passport_number: session["personal_detail"]["passport_number"],
-        subject: session["subject"],
-        visa_type: session["visa_type"],
-        date_of_entry: session["entry_date"],
+        :school_address_line_1,
+        :school_address_line_2,
+        :school_city,
+        :school_county,
+        :school_postcode,
       )
     end
   end

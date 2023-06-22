@@ -36,7 +36,7 @@ en:
         teacher: I am employed as a teacher in a school in England
         salaried_trainee: I am enrolled on a salaried teacher training course in England.
       hint:
-        salaried_trainee: ‘Salaried’ means a course where you are paid a wage to work whilst you train.
+        salaried_trainee: ‘Salaried’ means a course where you are paid a wage to work while you train.
     entry_dates:
       title:
         teacher: Enter the date you moved to England to start your teaching job
@@ -45,6 +45,18 @@ en:
       title:
         teacher: What subject are you employed to teach at your school?
         salaried_trainee: What subject are you training to teach?
+      hint:
+        teacher: >
+          Physics, general or combined science including physics, and languages can be combined with other subjects but 
+          must make up at least 50% of your time in the classroom. This will be validated by DfE with your school.
+        salaried_trainee: >
+          Physics or languages can be combined with other subjects but must make up at least 50% of your course content. 
+          This will be validated by DfE with your school.
+    employment_details:
+      school_name:
+        title:
+          teacher: Enter the name of the school where you are employed as a teacher
+          salaried_trainee: Enter the name of the school where you are employed as a trainee teacher
     teaching_details:
       title:
         teacher: Do you teach this subject for at least 50% of your teaching timetable?
@@ -75,6 +87,10 @@ en:
               blank: Enter your school's postcode
             school_headteacher_name:
               blank: Enter the headteacher's name
+            school_address_line_1:
+              blank: Enter your school's address
+            school_city:
+              blank: Enter your school's city
         applicants/entry_date:
           attributes:
             entry_date:
@@ -90,6 +106,7 @@ en:
               invalid: Enter an email address in the correct format, like name@example.com
             phone_number:
               blank: Enter your phone number
+              invalid: Enter a telephone number, like 07700 900 982 or +34 626 587 210’
             date_of_birth:
               blank: Enter your date of birth
             sex:

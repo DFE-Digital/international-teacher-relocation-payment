@@ -14,10 +14,6 @@
 #  updated_at                      :datetime         not null
 #  applicant_id                    :bigint           not null
 #
-# Indexes
-#
-#  index_applicant_progresses_on_applicant_id  (applicant_id)
-#
 # Foreign Keys
 #
 #  fk_rails_...  (applicant_id => applicants.id)

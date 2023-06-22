@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_08_044515) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_112449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "addressable_type", null: false
+    t.bigint "addressable_id", null: false
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.string "county"
+    t.string "postcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
+  end
 
   create_table "applicant_progresses", force: :cascade do |t|
     t.bigint "applicant_id", null: false
@@ -35,21 +48,34 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_044515) do
     t.text "nationality"
     t.text "sex"
     t.text "passport_number"
-    t.text "school_name"
     t.text "subject"
-    t.text "school_headteacher_name"
     t.text "visa_type"
     t.date "date_of_entry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "school_postcode"
     t.string "application_route"
-    t.string "address_line_1"
-    t.string "address_line_2"
-    t.string "city"
-    t.string "county"
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_applicants_on_school_id"
+  end
+
+  create_table "applications", force: :cascade do |t|
+    t.date "application_date", null: false
+    t.string "urn", null: false
+    t.bigint "applicant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["applicant_id"], name: "index_applications_on_applicant_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
     t.string "postcode"
+    t.string "name"
+    t.string "headteacher_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "applicant_progresses", "applicants"
+  add_foreign_key "applicants", "schools"
+  add_foreign_key "applications", "applicants"
 end

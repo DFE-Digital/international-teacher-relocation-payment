@@ -5,8 +5,10 @@
 
       <%= f.govuk_radio_buttons_fieldset(
         :subject,
-        legend: { text: t("applicants.subjects.title.#{application_route}"), tag: "h1", size: "l" })do %>
-        <% Applicants::Subject::SUBJECT_OPTIONS.each_with_index do |value, i| %>
+        legend: { text: t("applicants.subjects.title.#{application_route}"), tag: "h1", size: "l" },
+        hint: { text: t("applicants.subjects.hint.#{application_route}"), tag: "h1", size: "l" }
+      )do %>
+        <% Applicants::Subject.all(application_route).each_with_index do |value, i| %>
           <%= f.govuk_radio_button :subject, value, label: { text: value.humanize }, link_errors: i.zero? %>
         <% end %>
       <% end %>

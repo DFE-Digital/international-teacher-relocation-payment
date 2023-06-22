@@ -3,18 +3,17 @@
 module Applicants
   class PersonalDetail
     include ActiveModel::Model
-    include DateHelpers
     attr_accessor :given_name, :family_name, :email_address, :phone_number,
                   :day, :month, :year, :sex, :passport_number, :nationality, :address_line_1,
                   :address_line_2, :city, :county, :postcode
 
-    # TODO: Check whether we should be allowing an option of "Prefer not to say"
-    SEX_OPTIONS = %w[female male other].freeze
+    SEX_OPTIONS = %w[female male].freeze
 
     validates :given_name, presence: true
     validates :family_name, presence: true
     validates :email_address, presence: true
     validates :phone_number, presence: true
+    validates :phone_number, phone: { possible: true, types: %i[voip mobile] }
     validates :date_of_birth, presence: true
     validate :date_of_birth_not_in_future
     validate :age_less_than_maximum
@@ -23,7 +22,7 @@ module Applicants
     validates :nationality, presence: true, inclusion: { in: NATIONALITIES }
     validates :address_line_1, presence: true
     validates :city, presence: true
-    validates :postcode, presence: true
+    validates :postcode, presence: true, postcode: true
 
     validate do |record|
       EmailFormatValidator.new(record).validate
@@ -34,6 +33,26 @@ module Applicants
       Date.new(year.to_i, month.to_i, day.to_i)
     rescue StandardError
       InvalidDate.new(day:, month:, year:)
+    end
+
+    def save!
+      Applicant.create!(
+        given_name: given_name,
+        family_name: family_name,
+        email_address: email_address,
+        phone_number: phone_number,
+        date_of_birth: date_of_birth,
+        sex: sex,
+        passport_number: passport_number,
+        nationality: nationality,
+        address_attributes: {
+          address_line_1:,
+          address_line_2:,
+          city:,
+          county:,
+          postcode:,
+        },
+      )
     end
 
   private
@@ -53,14 +72,4 @@ module Applicants
 
   MAX_AGE = 80
   private_constant :MAX_AGE
-
-  InvalidDate = Struct.new(:day, :month, :year, keyword_init: true) do
-    def blank?
-      members.all? { |date_field| public_send(date_field).blank? }
-    end
-
-    def present?
-      false
-    end
-  end
 end
