@@ -10,9 +10,7 @@ module Applicants
       @entry_date = EntryDate.new(entry_date_params)
 
       if @entry_date.valid?
-        if @entry_date.eligible?(session)
-          session[:entry_date] = @entry_date.entry_date
-
+        if eligible?
           redirect_to(new_applicants_personal_detail_path)
         else
           redirect_to(ineligible_path)
@@ -23,6 +21,13 @@ module Applicants
     end
 
   private
+
+    def eligible?
+      Policies::EntryDate.eligible?(
+        @entry_date.entry_date,
+        Date.parse(session[:contract_start_date]),
+      )
+    end
 
     def entry_date_params
       params.require(:applicants_entry_date).permit(
