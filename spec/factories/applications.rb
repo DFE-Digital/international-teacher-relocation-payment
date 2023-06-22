@@ -16,7 +16,14 @@
 FactoryBot.define do
   factory :application do
     application_date { Faker::Date.in_date_period }
-    urn { Urn.new }
     applicant
+
+    factory :teacher_application do
+      applicant { build(:teacher) }
+    end
+
+    factory :salaried_trainee_application do
+      applicant { build(:salaried_trainee) }
+    end
   end
 end
