@@ -55,10 +55,6 @@ FactoryBot.define do
     end
   end
 
-  trait :salaried_trainee do
-    application_route { "salaried_trainee" }
-  end
-
   trait :teacher do
     application_route { "teacher" }
   end
