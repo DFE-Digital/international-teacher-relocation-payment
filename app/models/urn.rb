@@ -38,4 +38,5 @@ class Urn
       raise(ArgumentError, "Invalid applicant type: #{applicant_type}")
     end
   end
+  private_methods :applicant_type_code
 end
