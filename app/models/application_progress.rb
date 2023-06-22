@@ -14,6 +14,6 @@
 #  updated_at                      :datetime         not null
 #  application_id                  :bigint           not null
 #
-class ApplicantProgress < ApplicationRecord
+class ApplicationProgress < ApplicationRecord
   belongs_to :application
 end

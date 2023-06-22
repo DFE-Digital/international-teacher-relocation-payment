@@ -13,7 +13,7 @@
 #  application_id                  :bigint           not null
 #
 FactoryBot.define do
-  factory :applicant_progress do
+  factory :application_progress do
     # nop
   end
 
