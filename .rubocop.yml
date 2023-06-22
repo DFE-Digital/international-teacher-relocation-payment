@@ -43,6 +43,9 @@ RSpec/LeakyConstantDeclaration:
   Exclude:
     - 'spec/**/*'
 
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'

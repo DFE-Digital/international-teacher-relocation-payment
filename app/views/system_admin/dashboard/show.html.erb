@@ -3,4 +3,15 @@
     <h3 class="title">Applications</h3>
     <p class="value"><%= @kpis.total_applications %></p>
   </div>
+  <div class="kpi-widget">
+    <h3 class="title">Route</h3>
+    <table class="kpi-table">
+      <% @kpi_stats.route_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k.capitalize.humanize %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
