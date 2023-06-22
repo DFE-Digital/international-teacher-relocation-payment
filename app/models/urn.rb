@@ -7,12 +7,9 @@
 #
 # Example:
 #
-#   Urn.generate('teacher')          # => "IRPTE1A2B3C"
-#   Urn.generate('teacher')          # => "IRPTE1A2B3C"
-#   Urn.generate('salaried_trainee') # => "IRPLT1A2B3C"
-#
-#  Duplications
-#    Total number of combinations is: 26^6 = 308,915,776 ~ 310M
+#   Urn.generate('teacher')          # => "IRPTE123456"
+#   Urn.generate('teacher')          # => "IRPTE123456"
+#   Urn.generate('salaried_trainee') # => "IRPLT123456"
 #
 class Urn
   attr_reader :value
@@ -23,7 +20,7 @@ class Urn
     PREFIX + code + Array.new(LENGTH) { CHARSET.sample }.join
   end
 
-  CHARSET = %w[A B C D E F H J K L M N P R S T U V 2 3 4 5 6 7 8 9].freeze
+  CHARSET = %w[0 1 2 3 4 5 6 7 8 9].freeze
   PREFIX = "IRP"
   LENGTH = 6
   private_constant :CHARSET, :PREFIX, :LENGTH
