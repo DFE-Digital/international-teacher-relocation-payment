@@ -3,12 +3,13 @@
 module Applicants
   class PersonalDetail
     include ActiveModel::Model
-    attr_accessor :given_name, :family_name, :email_address, :phone_number,
+    attr_accessor :application_route, :given_name, :family_name, :email_address, :phone_number,
                   :day, :month, :year, :sex, :passport_number, :nationality, :address_line_1,
                   :address_line_2, :city, :county, :postcode
 
     SEX_OPTIONS = %w[female male].freeze
 
+    validates :application_route, presence: true
     validates :given_name, presence: true
     validates :family_name, presence: true
     validates :email_address, presence: true
@@ -37,6 +38,7 @@ module Applicants
 
     def save!
       Applicant.create!(
+        application_route: application_route,
         given_name: given_name,
         family_name: family_name,
         email_address: email_address,
