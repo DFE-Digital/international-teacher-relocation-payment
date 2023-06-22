@@ -3,42 +3,36 @@
 require "rails_helper"
 
 RSpec.describe Urn do
+  subject(:urn) { described_class.generate(applicant_type) }
+
   describe ".generate" do
     context 'when applicant type is "teacher"' do
+      let(:applicant_type) { "teacher" }
+
       it "generates a URN with the correct prefix and suffix" do
-        expect(described_class.generate("teacher")).to match(/^IRPTE[A-Z0-9]{6}$/)
+        expect(urn).to match(/^IRPTE[A-Z0-9]{6}$/)
+      end
+
+      it "generates a Urn with a suffix of only characters in the CHARSET" do
+        charset = %w[A B C D E F H J K L M N P R S T U V 0 1 2 3 4 5 6 7 8 9]
+
+        expect(urn[4..].chars).to all(be_in(charset))
       end
     end
 
     context 'when applicant type is "salaried_trainee"' do
+      let(:applicant_type) { "salaried_trainee" }
+
       it "generates a URN with the correct prefix and suffix" do
-        expect(described_class.generate("salaried_trainee")).to match(/^IRPLT[A-Z0-9]{6}$/)
+        expect(urn).to match(/^IRPLT[A-Z0-9]{6}$/)
       end
     end
 
     context "when an invalid applicant type is provided" do
+      let(:applicant_type) { "invalid_type" }
+
       it "raises an ArgumentError" do
-        expect { described_class.generate("invalid_type") }.to raise_error(ArgumentError, "Invalid applicant type: invalid_type")
-      end
-    end
-  end
-
-  describe ".applicant_type_code" do
-    context 'when applicant type is "teacher"' do
-      it "returns the correct code" do
-        expect(described_class.applicant_type_code("teacher")).to eq("TE")
-      end
-    end
-
-    context 'when applicant type is "salaried_trainee"' do
-      it "returns the correct code" do
-        expect(described_class.applicant_type_code("salaried_trainee")).to eq("LT")
-      end
-    end
-
-    context "when an invalid applicant type is provided" do
-      it "raises an ArgumentError" do
-        expect { described_class.applicant_type_code("invalid_type") }.to raise_error(ArgumentError, "Invalid applicant type: invalid_type")
+        expect { urn }.to raise_error(ArgumentError, "Invalid applicant type: invalid_type")
       end
     end
   end
