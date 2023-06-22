@@ -54,8 +54,4 @@ FactoryBot.define do
       application_route { "salaried_trainee" }
     end
   end
-
-  trait :recently do
-    created_at { rand(30..90).days.ago.to_date }
-  end
 end
