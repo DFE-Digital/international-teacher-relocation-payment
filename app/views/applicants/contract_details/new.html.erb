@@ -5,13 +5,13 @@
 
       <%= f.govuk_radio_buttons_fieldset(
         :one_year,
-        legend: { text: "Are you employed on a contract lasting at least one year?", tag: "h1", size: "l" },
-        hint: {text: "Your contract can also be ongoing or permanent." }) do %>
+        legend: { text: t("applicants.contract_details.title"), tag: "h1", size: "l" },
+        hint: {text: t("applicants.contract_details.hint") }) do %>
         <% Applicants::ContractDetail::ONE_YEAR_OPTIONS.each_with_index do |value, i| %>
           <%= f.govuk_radio_button :one_year, value, label: { text: value.humanize }, link_errors: i.zero? %>
         <% end %>
       <% end %>
-      
+
       <%= f.govuk_submit %>
     <% end %>
   </div>

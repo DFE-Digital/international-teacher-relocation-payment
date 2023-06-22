@@ -32,31 +32,70 @@
 en:
   applicants:
     application_routes:
+      title: What is your employment status?
+      hint: Select one of the following options
       radio_button:
         teacher: I am employed as a teacher in a school in England
-        salaried_trainee: I am enrolled on a salaried teacher training course in England.
-      hint:
-        salaried_trainee: ‘Salaried’ means a course where you are paid a wage to work while you train.
+        salaried_trainee:
+          text: I am enrolled on a salaried teacher training course in England.
+          hint: ‘Salaried’ means a course where you are paid a wage to work while you train.
+    contract_details:
+      title: Are you employed on a contract lasting at least one year?
+      hint: Your contract can also be ongoing or permanent.
+    contract_start_dates:
+      title: Enter the start date of your contract
     entry_dates:
       title:
         teacher: Enter the date you moved to England to start your teaching job
         salaried_trainee: Enter the date you moved to England to start your teacher training course
+    school_details:
+      title: Are you employed by an English state secondary school?
+      hint: State schools receive funding from the UK government. Secondary schools teach children aged 11 to 16 or 18.
+    employment_details:
+      title: Employment information
+      school_name:
+        title:
+          teacher: Enter the name of the school where you are employed as a teacher
+          salaried_trainee: Enter the name of the school where you are employed as a trainee teacher
+      headteacher: Enter the name of the Headteacher or Principal of the school
+      address: Enter the school address
+      address_line_1: Address line 1
+      address_line_2: Address line 2 (Optional)
+      city: Town or city
+      county: County (optional)
+      postcode: Postcode
+    personal_details:
+      title: Personal information
+      given_name: Enter your given name, as it appears on your passport
+      family_name: Enter your family name, as it appears on your passport
+      email_address: Enter your current email address
+      phone_number:
+        title: Enter your current phone number
+        hint: For international numbers include the country code. We will use this to contact you so please make sure you have entered it correctly.
+      date_of_birth: Enter your date of birth, as it appears on your passport
+      address: Enter your address
+      address_line_1: Address line 1
+      address_line_2: Address line 2 (Optional)
+      city: Town or city
+      county: County (optional)
+      postcode: Postcode
+      nationality: Nationality
+      sex: Select your sex
+      passport: Enter your passport number, as it appears on your passport
     subjects:
       title:
         teacher: What subject are you employed to teach at your school?
         salaried_trainee: What subject are you training to teach?
       hint:
-        teacher: >
+        teacher:
           Physics, general or combined science including physics, and languages can be combined with other subjects but 
           must make up at least 50% of your time in the classroom. This will be validated by DfE with your school.
-        salaried_trainee: >
+        salaried_trainee:
           Physics or languages can be combined with other subjects but must make up at least 50% of your course content. 
           This will be validated by DfE with your school.
-    employment_details:
-      school_name:
-        title:
-          teacher: Enter the name of the school where you are employed as a teacher
-          salaried_trainee: Enter the name of the school where you are employed as a trainee teacher
+    salaried_course:
+      title: Are you currently employed in a school as a trainee teacher, on a teacher training course in England which meets the following conditions?
+      hint: Check with your training provider if you're not sure. You will still be eligible for the international relocation payment if your course leads to PGCE + QTS or PGDE + QTS.
     teaching_details:
       title:
         teacher: Do you teach this subject for at least 50% of your teaching timetable?
@@ -64,6 +103,8 @@ en:
       hint:
         teacher: Check with your school if you're not sure
         salaried_trainee: Check with your training provider if you're not sure.
+    visa:
+      title: Select the visa you used to move to England
   activemodel:
     errors:
       models:
@@ -109,6 +150,7 @@ en:
               invalid: Enter a telephone number, like 07700 900 982 or +34 626 587 210’
             date_of_birth:
               blank: Enter your date of birth
+              invalid: Age must be below 80
             sex:
               blank: Enter your sex
             passport_number:

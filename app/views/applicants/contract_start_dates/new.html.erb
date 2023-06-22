@@ -4,7 +4,7 @@
 
       <%= f.govuk_error_summary %>
       
-      <%= f.govuk_date_field :contract_start_date, legend: { text: "Enter the start date of your contract", tag: "h1", size: "l" } %>
+      <%= f.govuk_date_field :contract_start_date, legend: { text: t("applicants.contract_start_dates.title"), tag: "h1", size: "l" } %>
 
       <%= f.govuk_submit %>
     <% end %>
