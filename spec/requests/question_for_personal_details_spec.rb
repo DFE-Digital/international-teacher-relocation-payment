@@ -6,7 +6,6 @@ module Applicants
       let(:valid_params) do
         {
           applicants_personal_detail: {
-            "application_route" => "teacher",
             "given_name" => "John",
             "family_name" => "Doe",
             "email_address" => "john@email.com",
@@ -24,6 +23,10 @@ module Applicants
             "date_of_birth(1i)" => "1990",
           },
         }
+      end
+
+      before do
+        set_applicant_route!
       end
 
       context "with valid params" do
@@ -57,6 +60,18 @@ module Applicants
           expect(response.body).to include("Personal information")
         end
       end
+
+      # rubocop:disable RSpec/AnyInstance
+      def set_applicant_route!
+        # TODO: Remove this stub when we can use Factories via FactoryBot
+        # The current implementation users the user session to store attributes, which
+        # is not ideal and should be changed next. For now we are stubbing the session
+        # to return the applicant details.
+        allow_any_instance_of(PersonalDetailsController).to receive(:session).and_return({
+          "application_route" => "teacher",
+        })
+      end
+      # rubocop:enable RSpec/AnyInstance
     end
   end
 end
