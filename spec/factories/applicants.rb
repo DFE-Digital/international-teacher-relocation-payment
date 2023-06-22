@@ -55,10 +55,6 @@ FactoryBot.define do
     end
   end
 
-  trait :teacher do
-    application_route { "teacher" }
-  end
-
   trait :recently do
     created_at { rand(30..90).days.ago.to_date }
   end
