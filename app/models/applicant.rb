@@ -29,8 +29,6 @@ class Applicant < ApplicationRecord
   # TODO: Add validations here so that a final check is made on the validity of
   # the whole application.
 
-  has_one :applicant_progress, dependent: :destroy
-
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :address
 

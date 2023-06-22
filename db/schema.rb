@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_112449) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_151859) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,7 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_112449) do
   end
 
   create_table "applicant_progresses", force: :cascade do |t|
-    t.bigint "applicant_id", null: false
     t.date "initial_checks_completed_at"
     t.boolean "visa_investigation_required"
     t.date "home_office_checks_completed_at"
@@ -36,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_112449) do
     t.date "school_checks_completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["applicant_id"], name: "index_applicant_progresses_on_applicant_id"
+    t.bigint "application_id", null: false
   end
 
   create_table "applicants", force: :cascade do |t|
@@ -75,7 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_112449) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "applicant_progresses", "applicants"
   add_foreign_key "applicants", "schools"
   add_foreign_key "applications", "applicants"
 end

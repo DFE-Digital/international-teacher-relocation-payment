@@ -12,12 +12,8 @@
 #  visa_investigation_required     :boolean
 #  created_at                      :datetime         not null
 #  updated_at                      :datetime         not null
-#  applicant_id                    :bigint           not null
-#
-# Foreign Keys
-#
-#  fk_rails_...  (applicant_id => applicants.id)
+#  application_id                  :bigint           not null
 #
 class ApplicantProgress < ApplicationRecord
-  belongs_to :applicant
+  belongs_to :application
 end
