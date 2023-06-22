@@ -1,50 +1,45 @@
-# spec/models/urn_spec.rb
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe Urn do
-  context "When a value is given" do
-    subject(:urn) { described_class.new("IRP123456") }
-
-    it "has a value" do
-      expect(urn.value).to be_present
+  describe ".generate" do
+    context 'when applicant type is "teacher"' do
+      it "generates a URN with the correct prefix and suffix" do
+        expect(described_class.generate("teacher")).to match(/^IRPTE[A-Z0-9]{6}$/)
+      end
     end
 
-    it "generates a Urn with a prefix of 'IRP'" do
-      expect(urn.value).to start_with("IRP")
+    context 'when applicant type is "salaried_trainee"' do
+      it "generates a URN with the correct prefix and suffix" do
+        expect(described_class.generate("salaried_trainee")).to match(/^IRPLT[A-Z0-9]{6}$/)
+      end
     end
 
-    it "generates a Urn with a length of 8" do
-      expect(urn.value.length).to eq(9)
-    end
-
-    it "generates a Urn with a suffix of 6 characters" do
-      expect(urn.value[4..].length).to eq(5)
-    end
-
-    it "generates a Urn with a suffix of only characters in the CHARSET" do
-      charset = %w[A B C D E F H J K L M N P R S T U V 0 1 2 3 4 5 6 7 8 9]
-
-      expect(urn.value[4..].chars).to all(be_in(charset))
+    context "when an invalid applicant type is provided" do
+      it "raises an ArgumentError" do
+        expect { described_class.generate("invalid_type") }.to raise_error(ArgumentError, "Invalid applicant type: invalid_type")
+      end
     end
   end
 
-  context "When a value is not given" do
-    subject(:urn) { described_class.new }
-
-    it "has a value" do
-      expect(urn.value).to be_present
+  describe ".applicant_type_code" do
+    context 'when applicant type is "teacher"' do
+      it "returns the correct code" do
+        expect(described_class.applicant_type_code("teacher")).to eq("TE")
+      end
     end
-  end
 
-  describe ".dump" do
-    it "returns the given value" do
-      expect(described_class.dump(described_class.new("IRPG2345"))).to eq("IRPG2345")
+    context 'when applicant type is "salaried_trainee"' do
+      it "returns the correct code" do
+        expect(described_class.applicant_type_code("salaried_trainee")).to eq("LT")
+      end
     end
-  end
 
-  describe ".load" do
-    it "returns the given value when `value` is not `nil`" do
-      expect(described_class.load("IRPG2345")).to eq(described_class.new("IRPG2345"))
+    context "when an invalid applicant type is provided" do
+      it "raises an ArgumentError" do
+        expect { described_class.applicant_type_code("invalid_type") }.to raise_error(ArgumentError, "Invalid applicant type: invalid_type")
+      end
     end
   end
 end
