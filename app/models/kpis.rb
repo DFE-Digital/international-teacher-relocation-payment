@@ -1,7 +1,6 @@
-class KpiStats
+class Kpis
   def initialize
     @applications = Applicant.all
-    @progresses = @applications.map(&:applicant_progress)
   end
 
   def total_applications

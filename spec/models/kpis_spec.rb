@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe KpiStats do
+RSpec.describe Kpis do
   describe "#total_applications" do
     it "returns the total number of applications" do
       create_list(:applicant, 5)
