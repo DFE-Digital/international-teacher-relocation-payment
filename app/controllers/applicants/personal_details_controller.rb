@@ -7,11 +7,8 @@ module Applicants
     end
 
     def create
-      @personal_detail = PersonalDetail.new(
-        personal_detail_params.merge(
-          application_route:,
-        ),
-      )
+      @personal_detail = PersonalDetail.new(personal_detail_params)
+      @personal_detail.application_route = session["application_route"]
 
       if @personal_detail.valid?
         applicant = @personal_detail.save!
