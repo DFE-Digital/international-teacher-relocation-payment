@@ -6,6 +6,7 @@ module Applicants
       let(:valid_params) do
         {
           applicants_personal_detail: {
+            "application_route" => "teacher",
             "given_name" => "John",
             "family_name" => "Doe",
             "email_address" => "john@email.com",
