@@ -1,0 +1,27 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px; /* Adjust this for your desired gap between columns */
+}
+
+.kpi-widget {
+  background-color: #1d70b8;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+
+  .title {
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .value {
+    font-size: 70px;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+}
