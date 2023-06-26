@@ -43,9 +43,6 @@ RSpec/LeakyConstantDeclaration:
   Exclude:
     - 'spec/**/*'
 
-RSpec/MultipleExpectations:
-  Enabled: false
-
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'
@@ -66,9 +63,14 @@ RSpec/ContextWording:
   Enabled: false
 
 RSpec/ExampleLength:
+  Max: 10
   Exclude:
     - 'spec/features/*'
 
 RSpec/NoExpectationExample:
   Exclude:
     - 'spec/features/**/*'
+
+RSpec/LetSetup:
+  Exclude:
+    - 'spec/queries/*'

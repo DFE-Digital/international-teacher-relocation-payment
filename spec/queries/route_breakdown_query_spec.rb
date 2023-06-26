@@ -2,17 +2,29 @@ require "rails_helper"
 
 RSpec.describe RouteBreakdownQuery, type: :model do
   describe "#call" do
-    let(:applicant1) { create(:applicant, application_route: "Route 1") }
-    let(:applicant2) { create(:applicant, application_route: "Route 2") }
-    let(:applicant3) { create(:applicant, application_route: "Route 1") }
+    context "when there are a few applicants" do
+      before do
+        create(:applicant, :teacher)
+        create(:applicant, :salaried_trainee)
+        create(:applicant, :teacher)
+      end
 
-    it "returns the correct route breakdown" do
-      result = described_class.new.call
+      it "returns the correct route breakdown" do
+        result = described_class.new.call
 
-      expect(result).to eq({
-        "Route 1" => 2, # applicant1 and applicant3
-        "Route 2" => 1, # applicant2
-      })
+        expect(result).to eq({
+          "teacher" => 2,
+          "salaried_trainee" => 1,
+        })
+      end
+    end
+
+    context "when there are no applicants" do
+      it "returns the empty hash breakdown" do
+        result = described_class.new.call
+
+        expect(result).to eq({})
+      end
     end
   end
 end
