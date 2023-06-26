@@ -65,3 +65,7 @@ RSpec/ContextWording:
 RSpec/ExampleLength:
   Exclude:
     - 'spec/features/*'
+
+RSpec/NoExpectationExample:
+  Exclude:
+    - 'spec/features/**/*'
