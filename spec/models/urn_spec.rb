@@ -1,50 +1,39 @@
-# spec/models/urn_spec.rb
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe Urn do
-  context "When a value is given" do
-    subject(:urn) { described_class.new("IRP 123456") }
+  subject(:urn) { described_class.generate(applicant_type) }
 
-    it "has a value" do
-      expect(urn.value).to be_present
+  describe ".generate" do
+    context 'when applicant type is "teacher"' do
+      let(:applicant_type) { "teacher" }
+
+      it "generates a URN with the correct prefix and suffix" do
+        expect(urn).to match(/^IRPTE[0-9]{6}$/)
+      end
+
+      it "generates a Urn with a suffix of only characters in the CHARSET" do
+        charset = %w[0 1 2 3 4 5 6 7 8 9]
+
+        expect(urn[5..].chars).to all(be_in(charset))
+      end
     end
 
-    it "generates a Urn with a prefix of 'IRP'" do
-      expect(urn.value).to start_with("IRP")
+    context 'when applicant type is "salaried_trainee"' do
+      let(:applicant_type) { "salaried_trainee" }
+
+      it "generates a URN with the correct prefix and suffix" do
+        expect(urn).to match(/^IRPLT[0-9]{6}$/)
+      end
     end
 
-    it "generates a Urn with a length of 8" do
-      expect(urn.value.length).to eq(10)
-    end
+    context "when an invalid applicant type is provided" do
+      let(:applicant_type) { "invalid_type" }
 
-    it "generates a Urn with a suffix of 6 characters" do
-      expect(urn.value[4..].length).to eq(6)
-    end
-
-    it "generates a Urn with a suffix of only characters in the CHARSET" do
-      charset = %w[A B C D E F H J K L M N P R S T U V 0 1 2 3 4 5 6 7 8 9]
-
-      expect(urn.value[4..].chars).to all(be_in(charset))
-    end
-  end
-
-  context "When a value is not given" do
-    subject(:urn) { described_class.new }
-
-    it "has a value" do
-      expect(urn.value).to be_present
-    end
-  end
-
-  describe ".dump" do
-    it "returns the given value" do
-      expect(described_class.dump(described_class.new("IRP G2345"))).to eq("IRP G2345")
-    end
-  end
-
-  describe ".load" do
-    it "returns the given value when `value` is not `nil`" do
-      expect(described_class.load("IRP G2345")).to eq(described_class.new("IRP G2345"))
+      it "raises an ArgumentError" do
+        expect { urn }.to raise_error(ArgumentError, "Invalid applicant type: invalid_type")
+      end
     end
   end
 end

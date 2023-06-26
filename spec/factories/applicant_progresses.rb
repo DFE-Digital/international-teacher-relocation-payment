@@ -10,15 +10,11 @@
 #  visa_investigation_required     :boolean
 #  created_at                      :datetime         not null
 #  updated_at                      :datetime         not null
-#  applicant_id                    :bigint           not null
-#
-# Foreign Keys
-#
-#  fk_rails_...  (applicant_id => applicants.id)
+#  application_id                  :bigint           not null
 #
 FactoryBot.define do
-  factory :applicant_progress do
-    applicant
+  factory :application_progress do
+    # nop
   end
 
   trait :with_initial_checks_completed do
@@ -26,28 +22,26 @@ FactoryBot.define do
   end
 
   trait :with_visa_investigation_required do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
+    with_initial_checks_completed
+
     visa_investigation_required { true }
   end
 
   trait :with_home_office_checks_completed do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
-    visa_investigation_required { true }
+    with_visa_investigation_required
+
     home_office_checks_completed_at { rand(11..20).days.ago.to_date }
   end
 
   trait :with_school_investigation_required do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
-    visa_investigation_required { true }
-    home_office_checks_completed_at { rand(11..20).days.ago.to_date }
+    with_school_investigation_required
+
     school_investigation_required { true }
   end
 
   trait :with_school_checks_completed do
-    initial_checks_completed_at { rand(21..30).days.ago.to_date }
-    visa_investigation_required { true }
-    home_office_checks_completed_at { rand(11..20).days.ago.to_date }
-    school_investigation_required { true }
+    with_school_investigation_required
+
     school_checks_completed_at { rand(1..10).days.ago.to_date }
   end
 

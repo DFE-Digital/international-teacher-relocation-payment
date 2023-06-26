@@ -45,6 +45,14 @@ FactoryBot.define do
     after(:build) do |applicant|
       build(:address, addressable: applicant)
     end
+
+    factory :teacher do
+      application_route { "teacher" }
+    end
+
+    factory :salaried_trainee do
+      application_route { "salaried_trainee" }
+    end
   end
 
   trait :salaried_trainee do

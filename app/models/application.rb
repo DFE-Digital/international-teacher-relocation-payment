@@ -15,15 +15,25 @@
 #
 class Application < ApplicationRecord
   belongs_to :applicant
-
-  serialize :urn, Urn
+  has_one :application_progress, dependent: :destroy
 
   validates :application_date, presence: true
+
+  before_create :generate_urn
 
   def self.initialise_for_applicant!(applicant)
     create!(
       applicant: applicant,
       application_date: Date.current.to_s,
+      application_progress: ApplicationProgress.new,
     )
+  end
+
+private
+
+  def generate_urn
+    route_type = applicant.application_route
+
+    self.urn = Urn.generate(route_type)
   end
 end

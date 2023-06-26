@@ -29,8 +29,6 @@ class Applicant < ApplicationRecord
   # TODO: Add validations here so that a final check is made on the validity of
   # the whole application.
 
-  has_one :applicant_progress, dependent: :destroy
-
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :address
 
@@ -44,7 +42,7 @@ class Applicant < ApplicationRecord
     :home_office_checks_completed_at,
     :school_investigation_required,
     :school_checks_completed_at,
-    to: :applicant_progress
+    to: :application_progress
 
   def full_name
     "#{given_name} #{family_name}"
