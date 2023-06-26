@@ -6,7 +6,7 @@ describe "Dashboard" do
   include AdminHelpers
 
   it "shows the Total Applications widget" do
-    given_there_are_50_applications
+    given_there_are_5_applications
     given_i_am_signed_as_an_admin
     when_i_am_in_the_dashboard_page
     then_i_can_see_the_applications_widget
