@@ -12,7 +12,7 @@ describe "Dashboard" do
     then_i_can_see_the_applications_widget
   end
 
-  def given_there_are_50_applications
+  def given_there_are_5_applications
     create_list(:applicant, 5)
   end
 
