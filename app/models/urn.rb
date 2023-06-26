@@ -3,7 +3,6 @@
 # Urn represents a Uniform Resource Name (URN) generator.
 # It generates a URN with a fixed prefix and a random alphanumeric suffix.
 #
-# Uses DEC alphabet + 2..9 numbers to decrease ambiguity.
 #
 # Example:
 #
