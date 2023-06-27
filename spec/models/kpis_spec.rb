@@ -5,9 +5,9 @@ RSpec.describe Kpis do
     it "returns the total number of applications" do
       create_list(:applicant, 5)
 
-      stats = described_class.new
+      kpis = described_class.new
 
-      expect(stats.total_applications).to eq(5)
+      expect(kpis.total_applications).to eq(5)
     end
   end
 end
