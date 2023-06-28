@@ -14,4 +14,8 @@ class Kpis
   def subject_breakdown
     SubjectBreakdownQuery.new.call
   end
+
+  def nationality_breakdown
+    NationalityBreakdownQuery.new.call.first(5)
+  end
 end
