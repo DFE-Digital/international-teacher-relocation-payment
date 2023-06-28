@@ -16,8 +16,8 @@ RSpec.describe GovukNotify::Client do
         template_id: "template_id",
         email_address: "email_address",
         personalisation: {
-          application_number: "application_number"
-        }
+          application_number: "application_number",
+        },
       )
     end
   end
