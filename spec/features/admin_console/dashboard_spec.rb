@@ -26,14 +26,21 @@ describe "Dashboard" do
     then_i_can_see_the_subject_breakdown_widget
   end
 
+  it "shows the Gender Breakdown widget" do
+    given_there_are_few_applications
+    given_i_am_signed_as_an_admin
+    when_i_am_in_the_dashboard_page
+    then_i_can_see_the_gender_breakdown_widget
+  end
+
   def given_there_are_5_applications
     create_list(:applicant, 5)
   end
 
   def given_there_are_few_applications
-    create(:applicant, :teacher, subject: :physics)
-    create(:applicant, :teacher, subject: :languages)
-    create(:applicant, :salaried_trainee, subject: :general_science)
+    create(:applicant, :teacher, subject: :physics, sex: :male)
+    create(:applicant, :teacher, subject: :languages, sex: :female)
+    create(:applicant, :salaried_trainee, subject: :general_science, sex: :other)
   end
 
   def when_i_am_in_the_dashboard_page
@@ -64,6 +71,15 @@ describe "Dashboard" do
       expect(page).to have_content("Languages")
       expect(page).to have_content("Physics")
       expect(page).to have_content("1")
+    end
+  end
+
+  def then_i_can_see_the_gender_breakdown_widget
+    within ".kpi-widget.genders" do
+      expect(page).to have_content("Genders")
+      expect(page).to have_content("Male")
+      expect(page).to have_content("Female")
+      expect(page).to have_content("Other")
     end
   end
 end
