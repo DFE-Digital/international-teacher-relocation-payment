@@ -43,44 +43,4 @@ RSpec.describe Application do
       expect(application.urn).to match(/^IRP[A-Z0-9]{5}LT$/)
     end
   end
-
-  describe "#initialise_for_applicant!" do
-    subject(:klass) { described_class }
-
-    let(:applicant) { create(:applicant) }
-
-    it "returns an application" do
-      expect(klass.initialise_for_applicant!(applicant)).to be_a(described_class)
-    end
-
-    it "sets the applicant" do
-      klass.initialise_for_applicant!(applicant)
-
-      expect(applicant.application).to be_present
-    end
-
-    it "sets the application date" do
-      application = klass.initialise_for_applicant!(applicant)
-
-      expect(application.application_date).to eq(Date.current)
-    end
-
-    it "sets the urn" do
-      application = klass.initialise_for_applicant!(applicant)
-
-      expect(application.urn).to be_present
-    end
-
-    it "send an email" do
-      allow(GovukNotify::Client).to receive(:send_email)
-
-      klass.initialise_for_applicant!(applicant)
-
-      expect(GovukNotify::Client).to have_received(:send_email).with(
-        "661cdff0-08f0-4ccc-b23c-7d9d442517f6",
-        applicant.email_address,
-        applicant.application.urn,
-      )
-    end
-  end
 end
