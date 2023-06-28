@@ -1,16 +1,17 @@
 # == Schema Information
 #
-# Table name: applicant_progresses
+# Table name: application_progresses
 #
 #  id                              :bigint           not null, primary key
 #  home_office_checks_completed_at :date
 #  initial_checks_completed_at     :date
+#  payment_completed_at            :date
 #  school_checks_completed_at      :date
 #  school_investigation_required   :boolean
 #  visa_investigation_required     :boolean
 #  created_at                      :datetime         not null
 #  updated_at                      :datetime         not null
-#  application_id                  :bigint           not null
+#  application_id                  :bigint
 #
 FactoryBot.define do
   factory :application_progress do
@@ -19,6 +20,10 @@ FactoryBot.define do
 
   trait :with_initial_checks_completed do
     initial_checks_completed_at { rand(21..30).days.ago.to_date }
+  end
+
+  trait :with_payment_completed do
+    payment_completed_at { rand(1..2).days.ago.to_date }
   end
 
   trait :with_visa_investigation_required do
