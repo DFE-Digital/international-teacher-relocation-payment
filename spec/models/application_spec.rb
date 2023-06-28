@@ -72,13 +72,12 @@ RSpec.describe Application do
     end
 
     it "send an email" do
-      stub_const("ENV", "GOVUK_NOTIFY_APPLICATION_SUBMITTED_TEMPLATE_ID" => "template_id")
       allow(GovukNotify::Client).to receive(:send_email)
 
       klass.initialise_for_applicant!(applicant)
 
       expect(GovukNotify::Client).to have_received(:send_email).with(
-        "template_id",
+        "661cdff0-08f0-4ccc-b23c-7d9d442517f6",
         applicant.email_address,
         applicant.application.urn,
       )
