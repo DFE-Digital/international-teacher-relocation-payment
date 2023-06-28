@@ -14,4 +14,8 @@ class Kpis
   def subject_breakdown
     SubjectBreakdownQuery.new.call
   end
+
+  def visa_breakdown
+    VisaBreakdownQuery.new.call
+  end
 end
