@@ -7,6 +7,10 @@ class Kpis
     @applications.count
   end
 
+  def average_age
+    AverageAgeQuery.new.call
+  end
+
   def route_breakdown
     RouteBreakdownQuery.new.call
   end
