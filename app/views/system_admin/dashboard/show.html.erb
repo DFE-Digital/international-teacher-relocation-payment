@@ -14,4 +14,15 @@
       <% end %>
     </table>
   </div>
+  <div class="kpi-widget subjects">
+    <h3 class="title">Subjects</h3>
+    <table class="kpi-table">
+      <% @kpis.subject_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k.titleize %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

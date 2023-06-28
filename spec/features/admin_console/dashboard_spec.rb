@@ -19,13 +19,21 @@ describe "Dashboard" do
     then_i_can_see_the_route_breakdown_widget
   end
 
+  it "shows the Subject Breakdown widget" do
+    given_there_are_few_applications
+    given_i_am_signed_as_an_admin
+    when_i_am_in_the_dashboard_page
+    then_i_can_see_the_subject_breakdown_widget
+  end
+
   def given_there_are_5_applications
     create_list(:applicant, 5)
   end
 
   def given_there_are_few_applications
-    create_list(:applicant, 2, :teacher)
-    create_list(:applicant, 1, :salaried_trainee)
+    create(:applicant, :teacher, subject: :physics)
+    create(:applicant, :teacher, subject: :languages)
+    create(:applicant, :salaried_trainee, subject: :general_science)
   end
 
   def when_i_am_in_the_dashboard_page
@@ -45,6 +53,16 @@ describe "Dashboard" do
       expect(page).to have_content("Teacher")
       expect(page).to have_content("2")
       expect(page).to have_content("Salaried Trainee")
+      expect(page).to have_content("1")
+    end
+  end
+
+  def then_i_can_see_the_subject_breakdown_widget
+    within ".kpi-widget.subjects" do
+      expect(page).to have_content("Subjects")
+      expect(page).to have_content("General Science")
+      expect(page).to have_content("Languages")
+      expect(page).to have_content("Physics")
       expect(page).to have_content("1")
     end
   end

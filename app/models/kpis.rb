@@ -10,4 +10,8 @@ class Kpis
   def route_breakdown
     RouteBreakdownQuery.new.call
   end
+
+  def subject_breakdown
+    SubjectBreakdownQuery.new.call
+  end
 end
