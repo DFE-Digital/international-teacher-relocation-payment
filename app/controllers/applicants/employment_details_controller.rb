@@ -13,7 +13,7 @@ module Applicants
         @employment_detail.applicant = current_applicant
         @employment_detail.save!
 
-        Application.initialise_for_applicant!(current_applicant)
+        SubmitApplication.new(current_applicant).run
 
         redirect_to(applicants_submission_path)
       else
