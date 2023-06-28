@@ -37,6 +37,8 @@ class Application < ApplicationRecord
       email_address,
       application_id,
     )
+
+    application
   end
 
 private
