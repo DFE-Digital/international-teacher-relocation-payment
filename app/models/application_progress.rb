@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: applicant_progresses
+# Table name: application_progresses
 #
 #  id                              :bigint           not null, primary key
 #  home_office_checks_completed_at :date
@@ -13,7 +13,7 @@
 #  visa_investigation_required     :boolean
 #  created_at                      :datetime         not null
 #  updated_at                      :datetime         not null
-#  application_id                  :bigint           not null
+#  application_id                  :bigint
 #
 class ApplicationProgress < ApplicationRecord
   belongs_to :application

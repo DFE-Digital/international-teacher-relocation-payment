@@ -7,6 +7,10 @@ class Kpis
     @applications.count
   end
 
+  def total_paid
+    ApplicationProgress.where.not(payment_completed_at: nil).count
+  end
+
   def route_breakdown
     RouteBreakdownQuery.new.call
   end
