@@ -7,6 +7,10 @@ class Kpis
     @applications.count
   end
 
+  def total_rejections
+    ApplicationProgress.where.not(rejection_completed_at: nil).count
+  end
+
   def route_breakdown
     RouteBreakdownQuery.new.call
   end
