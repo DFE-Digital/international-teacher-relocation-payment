@@ -5,7 +5,7 @@ module GovukNotify
     end
 
     def initialize
-      @client = Notifications::Client.new(ENV.fetch("GOVUK_NOTIFY_API_KEY", nil))
+      @client = Notifications::Client.new(ENV.fetch("GOVUK_NOTIFY_API_KEY"))
     end
 
     def send_email(template_id, email_address, application_id)
