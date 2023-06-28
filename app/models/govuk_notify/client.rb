@@ -1,6 +1,5 @@
 require "notifications/client"
 
-
 module GovukNotify
   class Client
     def self.send_email(template_id, email_address, application_id)
@@ -15,7 +14,7 @@ module GovukNotify
       @client.send_email(
         template_id: template_id,
         email_address: email_address,
-        personalisation: { application_number: application_number },
+        personalisation: { application_number: },
       )
     end
   end
