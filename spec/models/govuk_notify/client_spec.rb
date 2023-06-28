@@ -1,5 +1,4 @@
 require "rails_helper"
-require "notifications/client"
 
 RSpec.describe GovukNotify::Client do
   subject(:client) { described_class.new }
