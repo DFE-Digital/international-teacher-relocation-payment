@@ -8,6 +8,7 @@
 #  home_office_checks_completed_at :date
 #  initial_checks_completed_at     :date
 #  payment_completed_at            :date
+#  rejection_completed_at          :date
 #  school_checks_completed_at      :date
 #  school_investigation_required   :boolean
 #  visa_investigation_required     :boolean

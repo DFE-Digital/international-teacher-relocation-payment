@@ -12,6 +12,13 @@ describe "Dashboard" do
     then_i_can_see_the_applications_widget
   end
 
+  it "shows the Total Rejections widget" do
+    given_there_are_rejected_applications
+    given_i_am_signed_as_an_admin
+    when_i_am_in_the_dashboard_page
+    then_i_can_see_the_total_rejections_widget
+  end
+  
   it "shows the Average Age widget" do
     given_there_are_3_applicants_with_ages
     given_i_am_signed_as_an_admin
@@ -90,6 +97,11 @@ describe "Dashboard" do
     create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[2])
   end
 
+  def given_there_are_rejected_applications
+    application = create(:application)
+    create_list(:application_progress, 2, :with_rejection_completed, application:)
+  end
+  
   def given_there_are_3_applicants_with_ages
     create(:applicant, date_of_birth: 35.years.ago)
     create(:applicant, date_of_birth: 45.years.ago)
@@ -107,6 +119,13 @@ describe "Dashboard" do
     end
   end
 
+  def then_i_can_see_the_total_rejections_widget
+    within ".kpi-widget.rejections" do
+      expect(page).to have_content("Total Rejections")
+      expect(page).to have_content("2")
+    end
+  end
+  
   def then_i_can_see_the_average_age_widget
     within ".kpi-widget.age" do
       expect(page).to have_content("Average Age")

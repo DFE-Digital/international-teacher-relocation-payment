@@ -54,8 +54,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_135130) do
     t.date "school_checks_completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "application_id", null: false
-    t.date("payment_completed_at")
+    t.bigint "application_id"
+    t.date "rejection_completed_at"
+    t.date "payment_completed_at"
   end
 
   create_table "applications", force: :cascade do |t|

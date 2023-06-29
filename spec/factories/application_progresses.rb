@@ -5,6 +5,7 @@
 #  id                              :bigint           not null, primary key
 #  home_office_checks_completed_at :date
 #  initial_checks_completed_at     :date
+#  rejection_completed_at          :date
 #  payment_completed_at            :date
 #  school_checks_completed_at      :date
 #  school_investigation_required   :boolean
@@ -20,6 +21,10 @@ FactoryBot.define do
 
   trait :with_initial_checks_completed do
     initial_checks_completed_at { rand(21..30).days.ago.to_date }
+  end
+
+  trait :with_rejection_completed do
+    rejection_completed_at { rand(1..2).days.ago.to_date }
   end
 
   trait :with_payment_completed do
