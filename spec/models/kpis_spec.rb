@@ -10,4 +10,15 @@ RSpec.describe Kpis do
       expect(kpis.total_applications).to eq(5)
     end
   end
+
+  describe "#total_paid" do
+    it "returns the total number of applications paid" do
+      application = create(:application)
+      create_list(:application_progress, 5, :with_payment_completed, application:)
+
+      stats = described_class.new
+
+      expect(stats.total_paid).to eq(5)
+    end
+  end
 end
