@@ -29,6 +29,19 @@
       <% end %>
     </table>
   </div>
+  
+  <div class="kpi-widget visas">
+    <h3 class="title">Visa</h3>
+    <table class="kpi-table">
+      <% @kpis.visa_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  
   <div class="kpi-widget nationalities">
     <h3 class="title">Nationalities</h3>
     <table class="kpi-table">

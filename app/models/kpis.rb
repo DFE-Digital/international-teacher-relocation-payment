@@ -19,6 +19,10 @@ class Kpis
     SubjectBreakdownQuery.new.call
   end
 
+  def visa_breakdown
+    VisaBreakdownQuery.new.call
+  end
+
   def nationality_breakdown
     NationalityBreakdownQuery.new.call.first(5)
   end
