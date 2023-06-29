@@ -19,6 +19,10 @@ class Kpis
     SubjectBreakdownQuery.new.call
   end
 
+  def nationality_breakdown
+    NationalityBreakdownQuery.new.call.first(5)
+  end
+
   def gender_breakdown
     GenderBreakdownQuery.new.call
   end
