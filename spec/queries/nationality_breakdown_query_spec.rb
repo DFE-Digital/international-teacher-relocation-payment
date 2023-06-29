@@ -5,22 +5,30 @@ RSpec.describe NationalityBreakdownQuery, type: :model do
     context "when there are a few applicants" do
       before do
         create(:applicant, nationality: "Nationality 1")
-        create(:applicant, nationality: "Nationality 2")
+        create_list(:applicant, 2, nationality: "Nationality 2")
         create(:applicant, nationality: "Nationality 3")
         create(:applicant, nationality: "Nationality 4")
-        create(:applicant, nationality: "Nationality 5")
+        create_list(:applicant, 3, nationality: "Nationality 5")
       end
 
-      it "returns the correct route breakdown" do
+      it "returns the correct route breakdown numbers" do
         result = described_class.new.call
 
         expect(result).to eq({
+          "Nationality 5" => 3,
+          "Nationality 2" => 2,
           "Nationality 1" => 1,
-          "Nationality 2" => 1,
           "Nationality 3" => 1,
           "Nationality 4" => 1,
-          "Nationality 5" => 1,
         })
+      end
+
+      it "returns the breakdown in the right order" do
+        result = described_class.new.call
+
+        expected_keys = ["Nationality 5", "Nationality 2", "Nationality 4", "Nationality 1", "Nationality 3"]
+
+        expect(result.keys).to eq(expected_keys)
       end
     end
 

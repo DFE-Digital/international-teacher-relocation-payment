@@ -119,7 +119,7 @@ describe "Dashboard" do
       expect(page).to have_content("1")
     end
   end
-  
+
   def then_i_can_see_the_gender_breakdown_widget
     within ".kpi-widget.genders" do
       expect(page).to have_content("Genders")
