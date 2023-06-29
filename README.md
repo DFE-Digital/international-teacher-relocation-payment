@@ -18,6 +18,7 @@ Once installed, run:
 asdf plugin add ruby
 asdf plugin add nodejs
 asdf plugin add yarn
+asdf plugin add bundler
 asdf install
 ```
 
