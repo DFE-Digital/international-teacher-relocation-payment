@@ -5,3 +5,8 @@ review:
   <<: *default
   RAILS_ENV: review
   RACK_ENV: review
+
+qa:
+  <<: *default
+  RAILS_ENV: qa
+  RACK_ENV: qa

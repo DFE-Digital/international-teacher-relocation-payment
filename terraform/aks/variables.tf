@@ -34,6 +34,7 @@ variable "gov_uk_host_names" {
   default = []
   type    = list(any)
 }
+variable "azure_enable_backup_storage" { default = true }
 
 locals {
   service_name = "teacher-relocation-payment"
