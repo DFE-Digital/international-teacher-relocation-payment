@@ -74,6 +74,12 @@ RSpec.shared_context "with common application form steps" do
     click_button("Continue")
   end
 
+  def choose_no
+    choose("No")
+
+    click_button("Continue")
+  end
+
   def and_i_enter_my_contract_start_date
     fill_in("Day", with: 12)
     fill_in("Month", with: 7)
