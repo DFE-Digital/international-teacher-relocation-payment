@@ -6,9 +6,9 @@
 #
 # Example:
 #
-#   Urn.generate('teacher')          # => "IRP12345TE"
-#   Urn.generate('teacher')          # => "IRP12345TE"
-#   Urn.generate('salaried_trainee') # => "IRPLT12345"
+#   Urn.generate('teacher')          # => "IRPTE12345"
+#   Urn.generate('teacher')          # => "IRPTE12345"
+#   Urn.generate('salaried_trainee') # => "IRPST12345"
 #
 class Urn
   attr_reader :value
@@ -16,7 +16,7 @@ class Urn
 
   def self.generate(applicant_type)
     code = applicant_type_code(applicant_type)
-    PREFIX + Array.new(LENGTH) { CHARSET.sample }.join + code
+    PREFIX + code + Array.new(LENGTH) { CHARSET.sample }.join
   end
 
   CHARSET = %w[0 1 2 3 4 5 6 7 8 9].freeze
@@ -29,7 +29,7 @@ class Urn
     when "teacher"
       "TE"
     when "salaried_trainee"
-      "LT"
+      "ST"
     else
       raise(ArgumentError, "Invalid applicant type: #{applicant_type}")
     end

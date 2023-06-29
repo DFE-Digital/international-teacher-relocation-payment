@@ -34,13 +34,13 @@ RSpec.describe Application do
     it "matches the required format for a teacher" do
       application = create(:teacher_application)
 
-      expect(application.urn).to match(/^IRP[A-Z0-9]{5}TE$/)
+      expect(application.urn).to match(/^IRPTE[A-Z0-9]{5}$/)
     end
 
     it "matches the required format for a trainee" do
       application = create(:salaried_trainee_application)
 
-      expect(application.urn).to match(/^IRP[A-Z0-9]{5}LT$/)
+      expect(application.urn).to match(/^IRPST[A-Z0-9]{5}$/)
     end
   end
 

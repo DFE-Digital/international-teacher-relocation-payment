@@ -18,7 +18,7 @@ describe "Dashboard" do
     when_i_am_in_the_dashboard_page
     then_i_can_see_the_total_rejections_widget
   end
-  
+
   it "shows the Average Age widget" do
     given_there_are_3_applicants_with_ages
     given_i_am_signed_as_an_admin
@@ -101,7 +101,7 @@ describe "Dashboard" do
     application = create(:application)
     create_list(:application_progress, 2, :with_rejection_completed, application:)
   end
-  
+
   def given_there_are_3_applicants_with_ages
     create(:applicant, date_of_birth: 35.years.ago)
     create(:applicant, date_of_birth: 45.years.ago)
@@ -125,7 +125,7 @@ describe "Dashboard" do
       expect(page).to have_content("2")
     end
   end
-  
+
   def then_i_can_see_the_average_age_widget
     within ".kpi-widget.age" do
       expect(page).to have_content("Average Age")
