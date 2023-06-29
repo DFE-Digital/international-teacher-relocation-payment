@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-Rails.logger.debug("Deleting all applicants and applicant progresses...")
-Applicant.destroy_all if Rails.env.development?
+# In order to reload the data, please run:
+#
+# $ bundle exec rails db:seeds:replant
+#
 
 %i[
   teacher_application
