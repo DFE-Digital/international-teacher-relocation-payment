@@ -36,9 +36,9 @@ FactoryBot.define do
     nationality { Faker::Nation.nationality }
     passport_number { Faker::Number.number(digits: 9) }
     phone_number { Faker::PhoneNumber.cell_phone_in_e164 }
-    subject { %w[physics languages general_science].sample }
     visa_type { %w[visa_1 visa_2 visa_3].sample }
     sex { %w[female male].sample }
+    subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
 
     association :school, factory: :school, strategy: :build
 
