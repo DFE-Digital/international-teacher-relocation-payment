@@ -12,6 +12,13 @@ describe "Dashboard" do
     then_i_can_see_the_applications_widget
   end
 
+  it "shows the Average Age widget" do
+    given_there_are_3_applicants_with_ages
+    given_i_am_signed_as_an_admin
+    when_i_am_in_the_dashboard_page
+    then_i_can_see_the_average_age_widget
+  end
+
   it "shows the Total Paid widget" do
     given_there_are_paid_applications
     given_i_am_signed_as_an_admin
@@ -83,6 +90,12 @@ describe "Dashboard" do
     create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[2])
   end
 
+  def given_there_are_3_applicants_with_ages
+    create(:applicant, date_of_birth: 35.years.ago)
+    create(:applicant, date_of_birth: 45.years.ago)
+    create(:applicant, date_of_birth: 52.years.ago)
+  end
+
   def when_i_am_in_the_dashboard_page
     visit(dashboard_path)
   end
@@ -91,6 +104,13 @@ describe "Dashboard" do
     within ".kpi-widget.applications" do
       expect(page).to have_content("Applications")
       expect(page).to have_content("5")
+    end
+  end
+
+  def then_i_can_see_the_average_age_widget
+    within ".kpi-widget.age" do
+      expect(page).to have_content("Average Age")
+      expect(page).to have_content("44 years")
     end
   end
 

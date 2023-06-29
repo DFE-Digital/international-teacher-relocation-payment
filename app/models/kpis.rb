@@ -7,6 +7,10 @@ class Kpis
     @applications.count
   end
 
+  def average_age
+    AverageAgeQuery.new.call
+  end
+
   def total_paid
     ApplicationProgress.where.not(payment_completed_at: nil).count
   end
