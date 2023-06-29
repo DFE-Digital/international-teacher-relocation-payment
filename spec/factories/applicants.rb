@@ -47,10 +47,12 @@ FactoryBot.define do
     end
 
     factory :teacher do
+      subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
       application_route { "teacher" }
     end
 
     factory :salaried_trainee do
+      subject { Applicants::Subject::TRAINEE_SUBJECTS.sample }
       application_route { "salaried_trainee" }
     end
   end
