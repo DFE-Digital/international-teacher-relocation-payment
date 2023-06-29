@@ -40,7 +40,7 @@ describe "Dashboard" do
   def given_there_are_few_applications
     create(:applicant, :teacher, subject: :physics, sex: :male)
     create(:applicant, :teacher, subject: :languages, sex: :female)
-    create(:applicant, :salaried_trainee, subject: :general_science, sex: :other)
+    create(:applicant, :salaried_trainee, subject: :general_science, sex: :male)
   end
 
   def when_i_am_in_the_dashboard_page
@@ -79,7 +79,6 @@ describe "Dashboard" do
       expect(page).to have_content("Genders")
       expect(page).to have_content("Male")
       expect(page).to have_content("Female")
-      expect(page).to have_content("Other")
     end
   end
 end

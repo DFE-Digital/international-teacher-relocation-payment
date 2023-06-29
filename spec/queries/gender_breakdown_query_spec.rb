@@ -6,7 +6,6 @@ RSpec.describe GenderBreakdownQuery, type: :model do
       before do
         create(:applicant, sex: :male)
         create(:applicant, sex: :female)
-        create(:applicant, sex: :other)
       end
 
       it "returns the correct route breakdown" do
@@ -15,7 +14,6 @@ RSpec.describe GenderBreakdownQuery, type: :model do
         expect(result).to eq({
           "male" => 1,
           "female" => 1,
-          "other" => 1,
         })
       end
     end
