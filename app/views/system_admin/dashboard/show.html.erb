@@ -29,4 +29,15 @@
       <% end %>
     </table>
   </div>
+  <div class="kpi-widget genders">
+    <h3 class="title">Genders</h3>
+    <table class="kpi-table">
+      <% @kpis.gender_breakdown.each do |k,v|%>
+        <tr>
+          <td><%= k.titleize %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

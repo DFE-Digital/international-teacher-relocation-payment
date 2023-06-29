@@ -18,4 +18,8 @@ class Kpis
   def subject_breakdown
     SubjectBreakdownQuery.new.call
   end
+
+  def gender_breakdown
+    GenderBreakdownQuery.new.call
+  end
 end
