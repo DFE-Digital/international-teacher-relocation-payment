@@ -17,7 +17,7 @@ module Applicants
 
           redirect_to(new_applicants_contract_start_date_path)
         else
-          redirect_to(ineligible_path)
+          redirect_to(ineligible_salaried_course_path)
         end
       else
         render(:new)
