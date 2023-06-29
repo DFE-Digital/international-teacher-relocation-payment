@@ -10,7 +10,7 @@ class Kpis
   def total_rejections
     ApplicationProgress.where.not(rejection_completed_at: nil).count
   end
-  
+
   def average_age
     AverageAgeQuery.new.call
   end
