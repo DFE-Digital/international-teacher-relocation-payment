@@ -5,18 +5,26 @@ RSpec.describe VisaBreakdownQuery, type: :model do
     context "when there are a few applicants" do
       before do
         create(:applicant, visa_type: "visa_1")
-        create(:applicant, visa_type: "visa_2")
-        create(:applicant, visa_type: "visa_3")
+        create_list(:applicant, 2, visa_type: "visa_2")
+        create_list(:applicant, 4, visa_type: "visa_3")
       end
 
       it "returns the correct visa breakdown" do
         result = described_class.new.call
 
         expect(result).to eq({
+          "visa_3" => 4,
+          "visa_2" => 2,
           "visa_1" => 1,
-          "visa_2" => 1,
-          "visa_3" => 1,
         })
+      end
+
+      it "returns the breakdown in the right order" do
+        result = described_class.new.call
+
+        expected_keys = %w[visa_3 visa_2 visa_1]
+
+        expect(result.keys).to eq(expected_keys)
       end
     end
 
