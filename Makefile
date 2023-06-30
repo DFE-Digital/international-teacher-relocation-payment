@@ -27,6 +27,10 @@ qa:
 	$(eval include global_config/qa.sh)
 	$(eval DEPLOY_ENV=qa)
 
+staging:
+	$(eval include global_config/staging.sh)
+	$(eval DEPLOY_ENV=staging)
+
 ci:	## Run in automation environment
 	$(eval export AUTO_APPROVE=-auto-approve)
 
