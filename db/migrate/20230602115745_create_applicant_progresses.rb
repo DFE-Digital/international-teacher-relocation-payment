@@ -1,3 +1,4 @@
+# rubocop:disable Rails/ThreeStateBooleanColumn
 class CreateApplicantProgresses < ActiveRecord::Migration[7.0]
   def change
     create_table :applicant_progresses do |t|
@@ -12,3 +13,4 @@ class CreateApplicantProgresses < ActiveRecord::Migration[7.0]
     end
   end
 end
+# rubocop:enable Rails/ThreeStateBooleanColumn
