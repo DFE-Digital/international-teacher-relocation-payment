@@ -143,3 +143,27 @@ jobs:
         status: ${{ job.status }}
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
         env_url: ${{ steps.deploy_review.outputs.deploy-url }}
+
+  deploy-before-production:
+    name: Parallel deployment before production
+    environment:
+      name: ${{ matrix.environment }}
+      url: ${{ steps.deploy_app_before_production.outputs.deploy-url }}
+    if: ${{ success() && github.ref == 'refs/heads/main' }}
+    needs: [build]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: [qa]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Deploy app to ${{ matrix.environment }}
+      id: deploy_app_before_production
+      uses: ./.github/actions/deploy/
+      with:
+        azure-credentials: ${{ secrets[format('AZURE_CREDENTIALS_{0}', matrix.environment)] }}
+        environment: ${{ matrix.environment }}
+        sha: ${{ github.sha }}

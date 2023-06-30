@@ -23,6 +23,10 @@ review:
 	$(eval export TF_VAR_app_name=$(APP_NAME))
 	echo https://teacher-relocation-payment-$(APP_NAME).test.teacherservices.cloud will be created in aks
 
+qa:
+	$(eval include global_config/qa.sh)
+	$(eval DEPLOY_ENV=qa)
+
 ci:	## Run in automation environment
 	$(eval export AUTO_APPROVE=-auto-approve)
 
@@ -136,13 +140,13 @@ domains-init: set-azure-account
 	$(if $(PR_NUMBER), $(eval DEPLOY_ENV=${PR_NUMBER}))
 	terraform -chdir=terraform/custom_domains/environment_domains init -upgrade -reconfigure -backend-config=config/${DOMAINS_ID}_${DEPLOY_ENV}_backend.tfvars
 
-domains-plan: domains-init  # make dns qa domains-plan
+domains-plan: domains-init  # make qa dns domains-plan
 	terraform -chdir=terraform/custom_domains/environment_domains plan -var-file config/${DOMAINS_ID}_${DEPLOY_ENV}.tfvars.json
 
-domains-apply: domains-init # make dns qa domains-apply
+domains-apply: domains-init # make qa dns domains-apply
 	terraform -chdir=terraform/custom_domains/environment_domains apply -var-file config/${DOMAINS_ID}_${DEPLOY_ENV}.tfvars.json ${AUTO_APPROVE}
 
-domains-destroy: domains-init # make dns qa domains-destroy
+domains-destroy: domains-init # make qa dns domains-destroy
 	terraform -chdir=terraform/custom_domains/environment_domains destroy -var-file config/${DOMAINS_ID}_${DEPLOY_ENV}.tfvars.json
 
 domain-azure-resources: set-azure-account
