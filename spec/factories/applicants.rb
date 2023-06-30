@@ -40,7 +40,7 @@ FactoryBot.define do
     subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
     visa_type { Applicants::Visa::VISA_OPTIONS.sample }
 
-    association :school, factory: :school, strategy: :build
+    school factory: %i[school], strategy: :build
 
     after(:build) do |applicant|
       build(:address, addressable: applicant)
