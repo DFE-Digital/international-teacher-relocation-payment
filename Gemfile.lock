@@ -211,6 +211,7 @@ GEM
       racc (~> 1.4)
     notifications-ruby-client (5.4.0)
       jwt (>= 1.5, < 3)
+    okcomputer (1.18.4)
     pagy (6.0.4)
     parallel (1.23.0)
     parser (3.2.2.3)
@@ -385,6 +386,7 @@ DEPENDENCIES
   jbuilder
   launchy
   notifications-ruby-client
+  okcomputer
   pg (~> 1.1)
   phonelib
   pry-byebug

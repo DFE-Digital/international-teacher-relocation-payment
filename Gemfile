@@ -8,6 +8,7 @@ ruby "3.1.3"
 gem "bootsnap", require: false
 gem "foreman"
 gem "jbuilder"
+gem "okcomputer"
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.3"
 gem "rails", "~> 7.0.6"
