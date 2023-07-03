@@ -16,6 +16,8 @@ gem "sprockets-rails"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "webpacker"
 
+gem "pagy"
+
 ###############
 # GOVUK GEMS ##
 ###############

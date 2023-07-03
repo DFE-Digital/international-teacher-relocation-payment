@@ -387,6 +387,7 @@ DEPENDENCIES
   launchy
   notifications-ruby-client
   okcomputer
+  pagy
   pg (~> 1.1)
   phonelib
   pry-byebug
