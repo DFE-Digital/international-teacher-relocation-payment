@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_050750) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_051545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_050750) do
     t.string "subject"
     t.string "visa_type"
     t.date "date_of_entry"
+    t.date "start_date"
     t.index ["applicant_id"], name: "index_applications_on_applicant_id"
   end
 

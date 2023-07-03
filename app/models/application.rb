@@ -5,6 +5,7 @@
 #  id               :bigint           not null, primary key
 #  application_date :date             not null
 #  date_of_entry    :date
+#  start_date       :date
 #  subject          :string
 #  urn              :string           not null
 #  visa_type        :string
