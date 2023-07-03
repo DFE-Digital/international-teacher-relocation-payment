@@ -44,7 +44,6 @@ module Applicants
         email_address: email_address,
         phone_number: phone_number,
         date_of_birth: date_of_birth,
-        sex: sex,
         passport_number: passport_number,
         nationality: nationality,
         address_attributes: {
