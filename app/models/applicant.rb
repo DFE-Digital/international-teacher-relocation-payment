@@ -7,7 +7,6 @@
 #  id                :bigint           not null, primary key
 #  application_route :string
 #  date_of_birth     :date
-#  date_of_entry     :date
 #  email_address     :text
 #  family_name       :text
 #  given_name        :text
@@ -15,8 +14,6 @@
 #  passport_number   :text
 #  phone_number      :text
 #  sex               :text
-#  subject           :text
-#  visa_type         :text
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  school_id         :bigint
