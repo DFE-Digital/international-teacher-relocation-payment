@@ -19,6 +19,7 @@
 #
 FactoryBot.define do
   factory :application do
+    application_route { %w[salaried_trainee teacher].sample }
     application_date { Faker::Date.in_date_period }
     applicant
     application_progress strategy: :build, factory: :application_progress
