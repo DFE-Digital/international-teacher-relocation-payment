@@ -36,9 +36,9 @@ group :test do
   gem "shoulda-matchers", "~> 5.0"
   gem "simplecov", require: false
 end
+gem "factory_bot_rails"
 
 group :development, :test do
-  gem "factory_bot_rails"
   gem "rubocop-govuk", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails"

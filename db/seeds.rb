@@ -2,8 +2,10 @@
 
 # In order to reload the data, please run:
 #
-# $ bundle exec rails db:seeds:replant
+# $ bundle exec rails db:seed:replant
 #
+
+require "factory_bot_rails"
 
 %i[
   teacher_application
