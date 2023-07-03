@@ -1,5 +1,5 @@
 class SubjectBreakdownQuery
-  def initialize(relation = Applicant.all)
+  def initialize(relation = Application.all)
     @relation = relation
   end
 
