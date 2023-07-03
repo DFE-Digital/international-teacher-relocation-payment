@@ -21,6 +21,7 @@ FactoryBot.define do
     applicant
     application_progress strategy: :build, factory: :application_progress
     subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
+    sex { %w[female male].sample }
 
     factory :teacher_application do
       subject { Applicants::Subject::TEACHER_SUBJECTS.sample }

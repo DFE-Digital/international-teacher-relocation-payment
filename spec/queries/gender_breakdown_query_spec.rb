@@ -4,8 +4,8 @@ RSpec.describe GenderBreakdownQuery, type: :model do
   describe "#call" do
     context "when there are a few applicants" do
       before do
-        create(:applicant, sex: :male)
-        create(:applicant, sex: :female)
+        create(:teacher_application, sex: :male)
+        create(:teacher_application, sex: :female)
       end
 
       it "returns the correct route breakdown" do
