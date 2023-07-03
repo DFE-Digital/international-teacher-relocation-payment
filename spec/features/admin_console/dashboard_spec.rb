@@ -92,9 +92,10 @@ describe "Dashboard" do
   end
 
   def given_there_are_few_applications_with_visas
-    create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[0])
-    create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[1])
-    create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[2])
+    create_list(:applicant, 4, visa_type: Applicants::Visa::VISA_OPTIONS[0])
+    create_list(:applicant, 3, visa_type: Applicants::Visa::VISA_OPTIONS[1])
+    create_list(:applicant, 2, visa_type: Applicants::Visa::VISA_OPTIONS[2])
+    create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[3])
   end
 
   def given_there_are_rejected_applications
@@ -166,7 +167,10 @@ describe "Dashboard" do
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[0])
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[1])
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[2])
-      expect(page).to have_content("1")
+      expect(page).not_to have_content(Applicants::Visa::VISA_OPTIONS[3])
+      expect(page).to have_content("4")
+      expect(page).to have_content("3")
+      expect(page).to have_content("2")
     end
   end
 
