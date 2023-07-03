@@ -135,7 +135,7 @@ describe "Dashboard" do
 
   def then_i_can_see_the_total_paid_widget
     within ".kpi-widget.paid" do
-      expect(page).to have_content("Total Paid")
+      expect(page).to have_content("Payment Confirmations")
       expect(page).to have_content("2")
     end
   end

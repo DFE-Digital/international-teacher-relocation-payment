@@ -28,7 +28,7 @@ class Kpis
   end
 
   def visa_breakdown
-    VisaBreakdownQuery.new.call
+    VisaBreakdownQuery.new.call.first(3)
   end
 
   def nationality_breakdown
