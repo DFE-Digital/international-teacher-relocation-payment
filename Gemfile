@@ -36,15 +36,15 @@ group :test do
   gem "shoulda-matchers", "~> 5.0"
   gem "simplecov", require: false
 end
+
 gem "factory_bot_rails"
+gem "faker"
 
 group :development, :test do
   gem "rubocop-govuk", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails"
   gem "rubocop-rspec"
-
-  gem "faker"
 
   # Debugging
   gem "debug", platforms: %i[mri mingw x64_mingw]
