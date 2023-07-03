@@ -92,9 +92,9 @@ describe "Dashboard" do
   end
 
   def given_there_are_few_applications_with_visas
-    create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[0])
-    create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[1])
-    create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[2])
+    create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[0])
+    create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[1])
+    create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[2])
   end
 
   def given_there_are_rejected_applications

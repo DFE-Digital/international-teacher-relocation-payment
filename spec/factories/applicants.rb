@@ -36,7 +36,6 @@ FactoryBot.define do
     nationality { Faker::Nation.nationality }
     passport_number { Faker::Number.number(digits: 9) }
     phone_number { Faker::PhoneNumber.cell_phone_in_e164 }
-    visa_type { Applicants::Visa::VISA_OPTIONS.sample }
 
     school factory: %i[school], strategy: :build
 

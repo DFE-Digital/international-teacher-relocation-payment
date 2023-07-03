@@ -7,6 +7,7 @@
 #  sex              :string
 #  subject          :string
 #  urn              :string           not null
+#  visa_type        :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  applicant_id     :bigint           not null
@@ -22,6 +23,7 @@ FactoryBot.define do
     application_progress strategy: :build, factory: :application_progress
     subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
     sex { %w[female male].sample }
+    visa_type { Applicants::Visa::VISA_OPTIONS.sample }
 
     factory :teacher_application do
       subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
