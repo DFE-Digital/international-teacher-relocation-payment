@@ -80,9 +80,9 @@ describe "Dashboard" do
   end
 
   def given_there_are_few_applications
-    create(:applicant, :teacher, subject: :physics, sex: :male)
-    create(:applicant, :teacher, subject: :languages, sex: :female)
-    create(:applicant, :salaried_trainee, subject: :general_science, sex: :male)
+    create(:teacher_application, subject: :physics)
+    create(:teacher_application, subject: :languages)
+    create(:salaried_trainee_application, subject: :general_science)
   end
 
   def given_there_are_paid_applications

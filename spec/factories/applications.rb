@@ -4,6 +4,7 @@
 #
 #  id               :bigint           not null, primary key
 #  application_date :date             not null
+#  subject          :string
 #  urn              :string           not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -18,12 +19,15 @@ FactoryBot.define do
     application_date { Faker::Date.in_date_period }
     applicant
     application_progress strategy: :build, factory: :application_progress
+    subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
 
     factory :teacher_application do
+      subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
       applicant strategy: :build, factory: :teacher
     end
 
     factory :salaried_trainee_application do
+      subject { Applicants::Subject::TRAINEE_SUBJECTS.sample }
       applicant strategy: :build, factory: :salaried_trainee
     end
 
