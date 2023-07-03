@@ -12,7 +12,7 @@ RSpec.describe TimeToInitialChecksQuery, type: :model do
     end
 
     it "returns average time in days" do
-      result = TimeToInitialChecksQuery.new.call
+      result = described_class.new.call
       expect(result).to eq 10.days
     end
   end

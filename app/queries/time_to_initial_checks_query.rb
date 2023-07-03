@@ -4,7 +4,7 @@ class TimeToInitialChecksQuery
   end
 
   def call
-    applications_list = @relation.where.not(created_at: nil, initial_checks_completed_at: nil)
+    applications_list = @relation.where.not(created_at: nil).where.not(initial_checks_completed_at: nil)
 
     average_time = applications_list.average("created_at::date - initial_checks_completed_at::date")
 
