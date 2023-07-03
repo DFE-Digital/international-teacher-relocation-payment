@@ -4,6 +4,7 @@
 #
 #  id               :bigint           not null, primary key
 #  application_date :date             not null
+#  date_of_entry    :date
 #  subject          :string
 #  urn              :string           not null
 #  visa_type        :string
@@ -22,6 +23,7 @@ FactoryBot.define do
     application_progress strategy: :build, factory: :application_progress
     subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
     visa_type { Applicants::Visa::VISA_OPTIONS.sample }
+    date_of_entry { Time.zone.today }
 
     factory :teacher_application do
       subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
