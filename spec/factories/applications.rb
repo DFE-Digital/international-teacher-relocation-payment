@@ -6,6 +6,7 @@
 #  application_date :date             not null
 #  date_of_entry    :date
 #  sex              :string
+#  start_date       :date
 #  subject          :string
 #  urn              :string           not null
 #  visa_type        :string
@@ -26,6 +27,7 @@ FactoryBot.define do
     sex { %w[female male].sample }
     visa_type { Applicants::Visa::VISA_OPTIONS.sample }
     date_of_entry { Time.zone.today }
+    start_date { 1.month.from_now.to_date }
 
     factory :teacher_application do
       subject { Applicants::Subject::TEACHER_SUBJECTS.sample }

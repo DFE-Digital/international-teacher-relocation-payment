@@ -6,6 +6,7 @@
 #  application_date :date             not null
 #  date_of_entry    :date
 #  sex              :string
+#  start_date       :date
 #  subject          :string
 #  urn              :string           not null
 #  visa_type        :string
