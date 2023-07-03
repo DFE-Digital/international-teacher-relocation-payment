@@ -44,6 +44,8 @@ module SystemAdmin
 
     def find_applicant
       @applicant = Applicant.find(params[:id])
+      @application = @applicant.application
+      @progress = @application.application_progress
     end
   end
 end
