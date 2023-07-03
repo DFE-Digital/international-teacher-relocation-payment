@@ -5,6 +5,7 @@
 #  id               :bigint           not null, primary key
 #  application_date :date             not null
 #  date_of_entry    :date
+#  start_date       :date
 #  subject          :string
 #  urn              :string           not null
 #  visa_type        :string
@@ -24,6 +25,7 @@ FactoryBot.define do
     subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
     visa_type { Applicants::Visa::VISA_OPTIONS.sample }
     date_of_entry { Time.zone.today }
+    start_date { 1.month.from_now.to_date }
 
     factory :teacher_application do
       subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
