@@ -4,9 +4,9 @@ RSpec.describe VisaBreakdownQuery, type: :model do
   describe "#call" do
     context "when there are a few applicants" do
       before do
-        create(:applicant, visa_type: "visa_1")
-        create_list(:applicant, 2, visa_type: "visa_2")
-        create_list(:applicant, 4, visa_type: "visa_3")
+        create(:application, visa_type: "visa_1")
+        create_list(:application, 2, visa_type: "visa_2")
+        create_list(:application, 4, visa_type: "visa_3")
       end
 
       it "returns the correct visa breakdown" do
