@@ -4,6 +4,7 @@
 #
 #  id               :bigint           not null, primary key
 #  application_date :date             not null
+#  date_of_entry    :date
 #  sex              :string
 #  subject          :string
 #  urn              :string           not null
