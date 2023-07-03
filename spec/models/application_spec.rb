@@ -12,7 +12,7 @@
 #  visa_type         :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  applicant_id      :bigint           not null
+#  applicant_id      :bigint
 #
 # Foreign Keys
 #

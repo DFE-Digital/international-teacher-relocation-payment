@@ -12,7 +12,7 @@
 #  visa_type         :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
-#  applicant_id      :bigint           not null
+#  applicant_id      :bigint
 #
 # Foreign Keys
 #
@@ -27,8 +27,6 @@ class Application < ApplicationRecord
 private
 
   def generate_urn
-    route_type = applicant.application_route
-
-    self.urn = Urn.generate(route_type)
+    self.urn = Urn.generate(self.application_route)
   end
 end
