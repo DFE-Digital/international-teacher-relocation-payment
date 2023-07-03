@@ -72,7 +72,8 @@ module Applicants
         # The current implementation of the application route is to store it in the session,
         # this is not ideal and should be changed to be stored in the database. For now we are
         # stubbing the session to return the route type, but this is temporary.
-        allow_any_instance_of(ContractStartDatesController).to receive(:session).and_return({ "application_route" => route_type })
+        application = create :application, application_route: route_type
+        allow_any_instance_of(ContractStartDatesController).to receive(:session).and_return({ "application_id" => application.id })
       end
       # rubocop:enable RSpec/AnyInstance
     end
