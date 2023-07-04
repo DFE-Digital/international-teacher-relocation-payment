@@ -5,8 +5,8 @@ module Applicants
     include ActiveModel::Model
     attr_accessor :subject
 
-    TEACHER_SUBJECTS = ["physics", "General/combined science", "languages", "other"].freeze
-    TRAINEE_SUBJECTS = TEACHER_SUBJECTS - ["General/combined science"].freeze
+    TEACHER_SUBJECTS = ["physics", "General/combined science, including physics", "languages", "other"].freeze
+    TRAINEE_SUBJECTS = TEACHER_SUBJECTS - ["General/combined science, including physics"].freeze
 
     validates :subject, presence: true, inclusion: { in: TEACHER_SUBJECTS }
 
