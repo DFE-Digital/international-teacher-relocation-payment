@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.shared_context "with common application form steps" do
+  def then_the_application_is_submitted_successfully
+    expect(page).to have_text("You have successfully submitted")
+  end
+
   def when_i_start_the_form
     visit(root_path)
 
