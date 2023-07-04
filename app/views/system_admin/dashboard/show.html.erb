@@ -12,7 +12,7 @@
     <p class="value"><%= @kpis.average_age %> years</p>
   </div>
   <div class="kpi-widget paid">
-    <h3 class="title">Total Paid</h3>
+    <h3 class="title">Payment Confirmations</h3>
     <p class="value"><%= @kpis.total_paid %></p>
   </div>
   <div class="kpi-widget routes">
@@ -39,7 +39,7 @@
   </div>
 
   <div class="kpi-widget visas">
-    <h3 class="title">Visa</h3>
+    <h3 class="title">Top 3 Visa</h3>
     <table class="kpi-table">
       <% @kpis.visa_breakdown.each do |k,v|%>
         <tr>
@@ -51,7 +51,7 @@
   </div>
 
   <div class="kpi-widget nationalities">
-    <h3 class="title">Nationalities</h3>
+    <h3 class="title">Top 5 Nationalities</h3>
     <table class="kpi-table">
       <% @kpis.nationality_breakdown.each do |k,v|%>
         <tr>
