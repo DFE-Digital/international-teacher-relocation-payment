@@ -3,6 +3,11 @@
 RSpec.shared_context "with common application form steps" do
   def then_the_application_is_submitted_successfully
     expect(page).to have_text("You have successfully submitted")
+    expect(Application.count).to eq(1)
+    expect(Applicant.count).to eq(1)
+    expect(Address.count).to eq(2)
+    expect(ApplicationProgress.count).to eq(1)
+    expect(School.count).to eq(1)
   end
 
   def when_i_start_the_form
