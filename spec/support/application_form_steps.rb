@@ -8,6 +8,7 @@ RSpec.shared_context "with common application form steps" do
     expect(Address.count).to eq(2)
     expect(ApplicationProgress.count).to eq(1)
     expect(School.count).to eq(1)
+    expect(Application.last).to be_valid
   end
 
   def when_i_start_the_form

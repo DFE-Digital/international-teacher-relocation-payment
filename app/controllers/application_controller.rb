@@ -3,11 +3,10 @@
 class ApplicationController < ActionController::Base
   default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
 
-  helper_method :application_route
-
   def application_route
-    session["application_route"]
+    current_application.application_route
   end
+  helper_method :application_route
 
   def current_application
     Application.find(session["application_id"])
