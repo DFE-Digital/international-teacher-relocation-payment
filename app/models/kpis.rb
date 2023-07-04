@@ -38,4 +38,8 @@ class Kpis
   def gender_breakdown
     GenderBreakdownQuery.new.call
   end
+
+  def time_to_initial_checks
+    TimeToInitialChecksQuery.new.call
+  end
 end
