@@ -41,6 +41,10 @@ FactoryBot.define do
       applicant strategy: :build, factory: :salaried_trainee
     end
 
+    trait :submitted do
+      urn { Urn.generate(application_route) }
+    end
+
     trait :with_initial_checks_completed do
       application_progress strategy: :build, factory: %i[application_progress initial_checks_completed]
     end

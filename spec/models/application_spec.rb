@@ -21,6 +21,26 @@
 require "rails_helper"
 
 RSpec.describe Application do
+  describe "validations" do
+    context "when the application has been submitted" do
+      subject(:application) { build(:teacher_application, :submitted) }
+
+      it { expect(application).to validate_presence_of(:application_date) }
+      it { expect(application).to validate_presence_of(:application_route) }
+      it { expect(application).to validate_presence_of(:date_of_entry) }
+      it { expect(application).to validate_presence_of(:start_date) }
+      it { expect(application).to validate_presence_of(:subject) }
+      it { expect(application).to validate_presence_of(:visa_type) }
+      it { expect(application).to validate_presence_of(:applicant) }
+    end
+
+    context "when the application has not been submitted" do
+      it "is valid" do
+        expect(described_class.new).to be_valid
+      end
+    end
+  end
+
   describe "#urn" do
     it "is blank before creation" do
       application = build(:teacher_application)
