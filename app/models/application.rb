@@ -22,7 +22,22 @@ class Application < ApplicationRecord
   belongs_to :applicant, optional: true
   has_one :application_progress, dependent: :destroy
 
+  with_options if: :submitted? do
+    validates(:application_date, presence: true)
+    validates(:application_route, presence: true)
+    validates(:date_of_entry, presence: true)
+    validates(:start_date, presence: true)
+    validates(:subject, presence: true)
+    validates(:visa_type, presence: true)
+    validates(:urn, presence: true)
+    validates(:applicant, presence: true)
+  end
+
   def assign_urn!
     update!(urn: Urn.generate(application_route))
+  end
+
+  def submitted?
+    urn.present?
   end
 end
