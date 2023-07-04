@@ -14,7 +14,6 @@ module Applicants
           session["application_id"] = Application.create!(
             application_route: @application_route.application_route,
           ).id
-          session["application_route"] = @application_route.application_route
 
           case @application_route.application_route
           when "teacher"
