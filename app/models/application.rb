@@ -8,7 +8,7 @@
 #  date_of_entry     :date
 #  start_date        :date
 #  subject           :string
-#  urn               :string           not null
+#  urn               :string
 #  visa_type         :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
@@ -22,11 +22,7 @@ class Application < ApplicationRecord
   belongs_to :applicant, optional: true
   has_one :application_progress, dependent: :destroy
 
-  before_create :generate_urn
-
-private
-
-  def generate_urn
-    self.urn = Urn.generate(application_route)
+  def assign_urn!
+    update!(urn: Urn.generate(application_route))
   end
 end
