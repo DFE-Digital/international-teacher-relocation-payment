@@ -7,6 +7,7 @@
 <div class="govuk-grid-row">
   <div class ="govuk-grid-column-full">
 
+<<<<<<< HEAD
     <p class="govuk-body">
       <%= govuk_link_to("Export applications", applicants_path(format: :csv), { class: "govuk-button" })%>
     </p>
@@ -32,7 +33,7 @@
 
             <td class="govuk-table__cell">
               <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-                <%= applicant.application_route&.humanize || "-" %>
+                <%= applicant.application.application_route&.humanize || "-" %>
               </span>
             </td>
 
