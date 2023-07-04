@@ -51,7 +51,7 @@ describe "Dashboard" do
     given_there_are_few_applications_with_visas
     given_i_am_signed_as_an_admin
     when_i_am_in_the_dashboard_page
-    then_i_can_see_the_visa_type_breakdown_widget
+    then_i_can_see_the_visa_breakdown_widget
   end
 
   it "shows the Nationalities Breakdown widget" do
@@ -91,18 +91,21 @@ describe "Dashboard" do
   end
 
   def given_there_are_few_applications_with_nationalities
-    create(:applicant, nationality: "Chadians")
-    create(:applicant, nationality: "Libians")
-    create(:applicant, nationality: "Uzbeks")
-    create(:applicant, nationality: "Mongolians")
-    create(:applicant, nationality: "Spaniards")
+    create(:applicant, nationality: "Chadians", application: create(:application))
+    create(:applicant, nationality: "Libians", application: create(:application))
+    create(:applicant, nationality: "Uzbeks", application: create(:application))
+    create(:applicant, nationality: "Mongolians", application: create(:application))
+    create(:applicant, nationality: "Spaniards", application: create(:application))
   end
 
   def given_there_are_few_applications_with_visas
-    create_list(:applicant, 4, visa_type: Applicants::Visa::VISA_OPTIONS[0])
-    create_list(:applicant, 3, visa_type: Applicants::Visa::VISA_OPTIONS[1])
-    create_list(:applicant, 2, visa_type: Applicants::Visa::VISA_OPTIONS[2])
-    create(:applicant, visa_type: Applicants::Visa::VISA_OPTIONS[3])
+    create(:applicant, application: create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[0]))
+    create(:applicant, application: create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[1]))
+    create(:applicant, application: create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[1]))
+    create(:applicant, application: create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[1]))
+    create(:applicant, application: create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[2]))
+    create(:applicant, application: create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[2]))
+    create(:applicant, application: create(:application, visa_type: Applicants::Visa::VISA_OPTIONS[3]))
   end
 
   def given_there_are_rejected_applications
@@ -111,9 +114,9 @@ describe "Dashboard" do
   end
 
   def given_there_are_3_applicants_with_ages
-    create(:applicant, date_of_birth: 35.years.ago)
-    create(:applicant, date_of_birth: 45.years.ago)
-    create(:applicant, date_of_birth: 52.years.ago)
+    create(:applicant, date_of_birth: 35.years.ago, application: create(:application))
+    create(:applicant, date_of_birth: 45.years.ago, application: create(:application))
+    create(:applicant, date_of_birth: 52.years.ago, application: create(:application))
   end
 
   def given_there_are_applications_with_initial_checks
@@ -177,16 +180,16 @@ describe "Dashboard" do
     end
   end
 
-  def then_i_can_see_the_visa_type_breakdown_widget
+  def then_i_can_see_the_visa_breakdown_widget
     within ".kpi-widget.visas" do
       expect(page).to have_content("Visa")
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[0])
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[1])
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[2])
       expect(page).not_to have_content(Applicants::Visa::VISA_OPTIONS[3])
-      expect(page).to have_content("4")
       expect(page).to have_content("3")
       expect(page).to have_content("2")
+      expect(page).to have_content("1")
     end
   end
 
