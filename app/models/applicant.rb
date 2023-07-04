@@ -4,19 +4,18 @@
 #
 # Table name: applicants
 #
-#  id                :bigint           not null, primary key
-#  application_route :string
-#  date_of_birth     :date
-#  email_address     :text
-#  family_name       :text
-#  given_name        :text
-#  nationality       :text
-#  passport_number   :text
-#  phone_number      :text
-#  sex               :text
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  school_id         :bigint
+#  id              :bigint           not null, primary key
+#  date_of_birth   :date
+#  email_address   :text
+#  family_name     :text
+#  given_name      :text
+#  nationality     :text
+#  passport_number :text
+#  phone_number    :text
+#  sex             :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  school_id       :bigint
 #
 # Foreign Keys
 #
