@@ -37,21 +37,5 @@ FactoryBot.define do
     after(:build) do |applicant|
       build(:address, addressable: applicant)
     end
-
-    factory :teacher do
-    end
-
-    factory :salaried_trainee do
-    end
-  end
-
-  trait :salaried_trainee do
-  end
-
-  trait :teacher do
-  end
-
-  trait :recently do
-    created_at { rand(30..90).days.ago.to_date }
   end
 end
