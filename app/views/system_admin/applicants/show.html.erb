@@ -25,7 +25,7 @@
           Application received
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.created_at.to_fs(:govuk_date_and_time) %>
+          <%= @application.created_at.to_fs(:govuk_date_and_time) %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -33,7 +33,7 @@
           Initial checks completed
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.initial_checks_completed_at&.to_fs(:govuk) %>
+          <%= @progress.initial_checks_completed_at&.to_fs(:govuk) %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -41,7 +41,7 @@
           Visa investigation required
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.visa_investigation_required %>
+          <%= @progress.visa_investigation_required %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -49,7 +49,7 @@
           Home office checks completed
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.home_office_checks_completed_at&.to_fs(:govuk) %>
+          <%= @progress.home_office_checks_completed_at&.to_fs(:govuk) %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -57,7 +57,7 @@
           School investigation required
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.school_investigation_required %>
+          <%= @progress.school_investigation_required %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -65,7 +65,7 @@
           School checks completed
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.school_checks_completed_at&.to_fs(:govuk) %>
+          <%= @progress.school_checks_completed_at&.to_fs(:govuk) %>
         </dd>
       </div>
     </dl>
@@ -144,7 +144,7 @@
           School name
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.school_name %>
+          <%= @applicant.school.name %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -152,7 +152,7 @@
           School postcode
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.school_postcode %>
+          <%= @applicant.school.postcode %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -168,7 +168,7 @@
           School headteacher name
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.school_headteacher_name %>
+          <%= @applicant.school.headteacher_name %>
         </dd>
       </div>
     </dl>

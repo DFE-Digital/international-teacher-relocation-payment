@@ -2,8 +2,8 @@
 
 # TODO: Policy to allow only signed in admins to access anything in this module.
 module SystemAdmin
-  class ApplicantsController < ApplicationController
-    http_basic_authenticate_with name: ENV.fetch("ADMIN_USERNAME"), password: ENV.fetch("ADMIN_PASSWORD")
+  class ApplicantsController < AdminController
+    default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
 
     before_action :find_applicant, only: %i[show edit update]
 
@@ -46,6 +46,8 @@ module SystemAdmin
 
     def find_applicant
       @applicant = Applicant.find(params[:id])
+      @application = @applicant.application
+      @progress = @application.application_progress
     end
   end
 end

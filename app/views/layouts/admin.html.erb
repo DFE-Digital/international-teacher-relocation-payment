@@ -23,8 +23,6 @@
     <%= stylesheet_pack_tag 'govuk', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <meta property="og:image" content="<%= asset_pack_url('media/images/govuk-opengraph-image.png') %>">
   </head>
 
   <body class="govuk-template__body app-body-class">
@@ -33,10 +31,15 @@
     </script>
 
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
-    <%= govuk_header(service_name: "Get an International Relocation Payment") %>
+    <%= govuk_header(service_name: "System Admin") do |header| %>
+      <%= header.with_navigation_item(text: "Dashboard", href: dashboard_path, active: false) %>
+      <%= header.with_navigation_item(text: "Applicants", href: applicants_path, active: false) %>
+      <%= header.with_navigation_item(text: "Download CSV 1", href: "#", active: false) %>
+      <%= header.with_navigation_item(text: "Download CSV 2", href: "#", active: false) %>
+      <%= header.with_navigation_item(text: "Download CSV 3", href: "#", active: false) %>
+    <% end %>
 
     <div class="govuk-width-container app-width-container--wide">
-      <%= govuk_phase_banner(tag: { text: "Alpha" }, text: "This is a new service – your feedback will help us to improve it. ") %>
       <div class="govuk-width-container">
         <%= yield :breadcrumbs %>
       </div>
