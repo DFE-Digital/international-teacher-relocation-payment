@@ -30,13 +30,13 @@ FactoryBot.define do
     start_date { 1.month.from_now.to_date }
 
     factory :teacher_application do
-      application_route { 'teacher' }
+      application_route { "teacher" }
       subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
       applicant strategy: :build, factory: :teacher
     end
 
     factory :salaried_trainee_application do
-      application_route { 'salaried_trainee' }
+      application_route { "salaried_trainee" }
       subject { Applicants::Subject::TRAINEE_SUBJECTS.sample }
       applicant strategy: :build, factory: :salaried_trainee
     end

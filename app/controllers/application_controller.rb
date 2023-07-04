@@ -9,8 +9,13 @@ class ApplicationController < ActionController::Base
     session["application_route"]
   end
 
+  def current_application
+    Application.find(session["application_id"])
+  end
+  helper_method :current_application
+
   def current_applicant
-    Applicant.find(session[:applicant_id])
+    current_application.applicant
   end
   helper_method :current_applicant
 

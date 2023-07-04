@@ -1,10 +1,10 @@
 class SubmitApplication
-  def initialize(applicant)
-    @applicant = applicant
+  def initialize(application)
+    @application = application
   end
 
   def run
-    @application = create_application
+    create_application
     send_email_to_applicant
 
     @application
@@ -13,8 +13,7 @@ class SubmitApplication
 private
 
   def create_application
-    Application.create!(
-      applicant: @applicant,
+    @application.update!(
       application_date: Date.current.to_s,
       application_progress: ApplicationProgress.new,
     )
@@ -22,7 +21,7 @@ private
 
   def send_email_to_applicant
     template_id = ENV.fetch("GOVUK_NOTIFY_APPLICATION_SUBMITTED_TEMPLATE_ID")
-    email_address = @applicant.email_address
+    email_address = @application.applicant.email_address
     application_id = @application.urn
 
     GovukNotify::Client.send_email(

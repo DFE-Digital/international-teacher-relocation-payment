@@ -13,7 +13,6 @@ module Applicants
 
       if @school_detail.valid?
         if @school_detail.eligible?
-          session[:state_funded_secondary_school] = @school_detail.state_funded_secondary_school
 
           redirect_to(new_applicants_contract_detail_path)
         else

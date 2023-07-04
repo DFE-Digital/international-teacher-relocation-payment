@@ -13,7 +13,6 @@ module Applicants
 
       if @salaried_course_detail.valid?
         if @salaried_course_detail.eligible?
-          session[:eligible_salaried_course] = @salaried_course_detail.eligible_course
 
           redirect_to(new_applicants_contract_start_date_path)
         else

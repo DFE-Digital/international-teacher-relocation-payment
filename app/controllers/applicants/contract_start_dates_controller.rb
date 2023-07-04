@@ -11,7 +11,7 @@ module Applicants
 
       if @contract_start_date.valid?
         if Policies::ContractStartDate.eligible?(@contract_start_date.contract_start_date)
-          session[:contract_start_date] = @contract_start_date.contract_start_date
+          current_application.update!(start_date: @contract_start_date.contract_start_date)
 
           redirect_to(new_applicants_subject_path)
         else

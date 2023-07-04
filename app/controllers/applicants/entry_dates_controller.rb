@@ -11,6 +11,8 @@ module Applicants
 
       if @entry_date.valid?
         if eligible?
+          current_application.update!(date_of_entry: @entry_date.entry_date)
+
           redirect_to(new_applicants_personal_detail_path)
         else
           redirect_to(ineligible_path)
@@ -25,7 +27,7 @@ module Applicants
     def eligible?
       Policies::EntryDate.eligible?(
         @entry_date.entry_date,
-        Date.parse(session[:contract_start_date]),
+        current_application.start_date,
       )
     end
 

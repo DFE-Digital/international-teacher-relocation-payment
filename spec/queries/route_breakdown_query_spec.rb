@@ -4,9 +4,9 @@ RSpec.describe RouteBreakdownQuery, type: :model do
   describe "#call" do
     context "when there are a few applicants" do
       before do
-        create(:applicant, :teacher)
-        create(:applicant, :salaried_trainee)
-        create(:applicant, :teacher)
+        create(:teacher_application)
+        create(:salaried_trainee_application)
+        create(:teacher_application)
       end
 
       it "returns the correct route breakdown" do
