@@ -41,9 +41,26 @@ RSpec.describe Application do
     end
   end
 
+  describe "scopes" do
+    describe ".submitted" do
+      it "returns applications with a URN" do
+        create_list(:application, 2, :submitted)
+        create(:application, :not_submitted)
+
+        expect(described_class.submitted.count).to eq 2
+      end
+
+      it "does not return applications without a URN" do
+        create(:application, :not_submitted)
+
+        expect(described_class.submitted.count).to eq 0
+      end
+    end
+  end
+
   describe "#urn" do
     it "is blank before creation" do
-      application = build(:teacher_application)
+      application = described_class.new
 
       expect(application.urn).to be_blank
     end

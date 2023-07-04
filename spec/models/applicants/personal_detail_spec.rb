@@ -5,7 +5,7 @@ require "rails_helper"
 module Applicants
   describe PersonalDetail do
     let(:params) { {} }
-    let(:application) { create(:application, applicant: nil) }
+    let(:application) { create(:application, :not_submitted, applicant: nil) }
 
     subject(:model) { described_class.new(params) }
 

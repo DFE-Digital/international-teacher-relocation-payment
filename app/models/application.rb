@@ -22,6 +22,8 @@ class Application < ApplicationRecord
   belongs_to :applicant, optional: true
   has_one :application_progress, dependent: :destroy
 
+  scope :submitted, -> { where.not(urn: nil) }
+
   with_options if: :submitted? do
     validates(:application_date, presence: true)
     validates(:application_route, presence: true)
