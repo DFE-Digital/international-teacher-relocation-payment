@@ -8,7 +8,7 @@
 #  date_of_entry     :date
 #  start_date        :date
 #  subject           :string
-#  urn               :string           not null
+#  urn               :string
 #  visa_type         :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null

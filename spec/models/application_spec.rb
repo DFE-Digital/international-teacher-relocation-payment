@@ -8,7 +8,7 @@
 #  date_of_entry     :date
 #  start_date        :date
 #  subject           :string
-#  urn               :string           not null
+#  urn               :string
 #  visa_type         :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
@@ -27,23 +27,21 @@ RSpec.describe Application do
 
       expect(application.urn).to be_blank
     end
+  end
 
-    it "is present after creation" do
-      application = create(:teacher_application)
-
-      expect(application.urn).to be_present
-    end
-
+  describe "#assign_urn!" do
     it "matches the required format for a teacher" do
       application = create(:teacher_application)
+      application.assign_urn!
 
-      expect(application.urn).to match(/^IRPTE[A-Z0-9]{5}$/)
+      expect(application.reload.urn).to match(/^IRPTE[A-Z0-9]{5}$/)
     end
 
     it "matches the required format for a trainee" do
       application = create(:salaried_trainee_application)
+      application.assign_urn!
 
-      expect(application.urn).to match(/^IRPST[A-Z0-9]{5}$/)
+      expect(application.reload.urn).to match(/^IRPST[A-Z0-9]{5}$/)
     end
   end
 end

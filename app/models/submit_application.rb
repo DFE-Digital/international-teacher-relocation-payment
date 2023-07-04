@@ -17,6 +17,7 @@ private
       application_date: Date.current.to_s,
       application_progress: ApplicationProgress.new,
     )
+    @application.assign_urn!
   end
 
   def send_email_to_applicant
