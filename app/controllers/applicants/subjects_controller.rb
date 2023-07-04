@@ -12,6 +12,7 @@ module Applicants
       if @subject.valid?
         if @subject.eligible?
           session[:subject] = @subject.subject
+          current_application.update!(subject: @subject.subject)
 
           redirect_to(new_applicants_visa_path)
         else

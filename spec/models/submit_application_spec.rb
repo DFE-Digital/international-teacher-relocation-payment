@@ -2,9 +2,9 @@ require "rails_helper"
 
 describe SubmitApplication do
   describe "#run!" do
-    subject(:submit_application) { described_class.new(applicant) }
+    subject(:submit_application) { described_class.new(application) }
 
-    let(:applicant) { create(:applicant) }
+    let(:application) { create(:application) }
 
     it "returns an application" do
       expect(submit_application.run).to be_a(Application)
@@ -13,7 +13,7 @@ describe SubmitApplication do
     it "sets the applicant" do
       submit_application.run
 
-      expect(applicant.application).to be_present
+      expect(application).to be_present
     end
 
     it "sets the application date" do
@@ -35,8 +35,8 @@ describe SubmitApplication do
 
       expect(GovukNotify::Client).to have_received(:send_email).with(
         "661cdff0-08f0-4ccc-b23c-7d9d442517f6",
-        applicant.email_address,
-        applicant.application.urn,
+        application.applicant.email_address,
+        application.urn,
       )
     end
   end

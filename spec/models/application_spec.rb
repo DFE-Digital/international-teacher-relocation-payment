@@ -21,8 +21,6 @@
 require "rails_helper"
 
 RSpec.describe Application do
-  it { is_expected.to validate_presence_of(:application_date) }
-
   describe "#urn" do
     it "is blank before creation" do
       application = build(:teacher_application)

@@ -5,11 +5,11 @@ require "rails_helper"
 module Applicants
   describe PersonalDetail do
     let(:params) { {} }
+    let(:application) { create(:application, applicant: nil) }
 
     subject(:model) { described_class.new(params) }
 
     describe "validations" do
-      it { is_expected.to validate_presence_of(:application_route) }
       it { is_expected.to validate_presence_of(:given_name) }
       it { is_expected.to validate_presence_of(:family_name) }
       it { is_expected.to validate_presence_of(:email_address) }
@@ -34,7 +34,6 @@ module Applicants
       describe "save!" do
         let(:params) do
           {
-            application_route: "teacher",
             given_name: "John",
             family_name: "Smith",
             email_address: "john@email.com",
@@ -56,21 +55,21 @@ module Applicants
         subject(:model) { described_class.new(params) }
 
         it "creates an applicant" do
-          expect { model.save! }.to change(Applicant, :count).by(1)
+          expect { model.save!(application:) }.to change(Applicant, :count).by(1)
         end
 
         it "creates an address" do
-          expect { model.save! }.to change(Address, :count).by(1)
+          expect { model.save!(application:) }.to change(Address, :count).by(1)
         end
 
         it "links the address and the applicant" do
-          model.save!
+          model.save!(application:)
 
           expect(Applicant.last.address).to eq(Address.last)
         end
 
         it "returns an applicant" do
-          expect(model.save!).to be_a(Applicant)
+          expect(model.save!(application:)).to be_a(Applicant)
         end
       end
 

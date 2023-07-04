@@ -70,9 +70,9 @@ module Applicants
       # The current implementation users the user session to store attributes, which
       # is not ideal and should be changed next. For now we are stubbing the session
       # to return the applicant details.
-      applicant = create(:applicant)
+      application = create(:application)
       allow_any_instance_of(EmploymentDetailsController).to receive(:session).and_return({
-        applicant_id: applicant.id,
+        "application_id" => application.id,
       })
     end
     # rubocop:enable RSpec/AnyInstance

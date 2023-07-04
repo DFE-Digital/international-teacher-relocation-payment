@@ -8,11 +8,9 @@ module Applicants
 
     def create
       @personal_detail = PersonalDetail.new(personal_detail_params)
-      @personal_detail.application_route = session["application_route"]
 
       if @personal_detail.valid?
-        applicant = @personal_detail.save!
-        session[:applicant_id] = applicant.id
+        @personal_detail.save!(application: current_application)
 
         redirect_to(new_applicants_employment_detail_path)
       else

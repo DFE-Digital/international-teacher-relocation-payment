@@ -27,6 +27,6 @@ class Application < ApplicationRecord
 private
 
   def generate_urn
-    self.urn = Urn.generate(self.application_route)
+    self.urn = Urn.generate(application_route)
   end
 end
