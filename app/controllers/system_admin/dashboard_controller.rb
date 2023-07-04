@@ -1,5 +1,5 @@
 module SystemAdmin
-  class DashboardController < ApplicationController
+  class DashboardController < AdminController
     def show
       @kpis = Kpis.new
     end
