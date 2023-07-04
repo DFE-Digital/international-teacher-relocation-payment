@@ -13,7 +13,6 @@ module Applicants
 
       if @contract_detail.valid?
         if @contract_detail.eligible?
-          session[:one_year_contract] = @contract_detail.one_year
 
           redirect_to(new_applicants_contract_start_date_path)
         else
