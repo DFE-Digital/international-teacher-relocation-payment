@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: "pages#start"
 
   get "/ineligible", to: "pages#ineligible"
+  get "/ineligible-salaried-course", to: "pages#ineligible_salaried_course"
 
   namespace :applicants do
     resources :application_routes, only: %i[new create]

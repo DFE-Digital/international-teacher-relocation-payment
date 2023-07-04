@@ -10,13 +10,13 @@ RSpec.describe Urn do
       let(:applicant_type) { "teacher" }
 
       it "generates a URN with the correct prefix and suffix" do
-        expect(urn).to match(/^IRP[0-9]{5}TE$/)
+        expect(urn).to match(/^IRPTE[0-9]{5}$/)
       end
 
       it "generates a Urn with a suffix of only characters in the CHARSET" do
         charset = %w[0 1 2 3 4 5 6 7 8 9]
 
-        expect(urn[3..7].chars).to all(be_in(charset))
+        expect(urn[5..9].chars).to all(be_in(charset))
       end
     end
 
@@ -24,7 +24,7 @@ RSpec.describe Urn do
       let(:applicant_type) { "salaried_trainee" }
 
       it "generates a URN with the correct prefix and suffix" do
-        expect(urn).to match(/^IRP[0-9]{5}LT$/)
+        expect(urn).to match(/^IRPST[0-9]{5}$/)
       end
     end
 

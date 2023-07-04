@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_135130) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_30_083744) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,15 +48,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_135130) do
 
   create_table "application_progresses", force: :cascade do |t|
     t.date "initial_checks_completed_at"
-    t.boolean "visa_investigation_required"
+    t.boolean "visa_investigation_required", default: false, null: false
     t.date "home_office_checks_completed_at"
-    t.boolean "school_investigation_required"
+    t.boolean "school_investigation_required", default: false, null: false
     t.date "school_checks_completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "application_id"
-    t.date "rejection_completed_at"
     t.date "payment_completed_at"
+    t.date "rejection_completed_at"
   end
 
   create_table "applications", force: :cascade do |t|

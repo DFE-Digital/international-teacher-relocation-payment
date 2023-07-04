@@ -87,7 +87,7 @@ describe "Dashboard" do
 
   def given_there_are_paid_applications
     application = create(:application)
-    create_list(:application_progress, 2, :with_payment_completed, application:)
+    create_list(:application_progress, 2, :payment_completed, application:)
   end
 
   def given_there_are_few_applications_with_nationalities
@@ -106,7 +106,7 @@ describe "Dashboard" do
 
   def given_there_are_rejected_applications
     application = create(:application)
-    create_list(:application_progress, 2, :with_rejection_completed, application:)
+    create_list(:application_progress, 2, :rejection_completed, application:)
   end
 
   def given_there_are_3_applicants_with_ages
@@ -116,12 +116,12 @@ describe "Dashboard" do
   end
 
   def given_there_are_applications_with_initial_checks
-    create(:application_progress, :with_initial_checks_completed, application: build(:application),
-                                                                  created_at: 10.days.ago, initial_checks_completed_at: 5.days.ago)
-    create(:application_progress, :with_initial_checks_completed, application: build(:application),
-                                                                  created_at: 20.days.ago, initial_checks_completed_at: 10.days.ago)
-    create(:application_progress, :with_initial_checks_completed, application: build(:application),
-                                                                  created_at: 30.days.ago, initial_checks_completed_at: 15.days.ago)
+    create(:application_progress, :initial_checks_completed, application: build(:application),
+                                                             created_at: 10.days.ago, initial_checks_completed_at: 5.days.ago)
+    create(:application_progress, :initial_checks_completed, application: build(:application),
+                                                             created_at: 20.days.ago, initial_checks_completed_at: 10.days.ago)
+    create(:application_progress, :initial_checks_completed, application: build(:application),
+                                                             created_at: 30.days.ago, initial_checks_completed_at: 15.days.ago)
   end
 
   def when_i_am_in_the_dashboard_page

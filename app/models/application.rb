@@ -21,14 +21,6 @@ class Application < ApplicationRecord
 
   before_create :generate_urn
 
-  def self.initialise_for_applicant!(applicant)
-    create!(
-      applicant: applicant,
-      application_date: Date.current.to_s,
-      application_progress: ApplicationProgress.new,
-    )
-  end
-
 private
 
   def generate_urn

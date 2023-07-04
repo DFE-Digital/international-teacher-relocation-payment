@@ -14,7 +14,7 @@ RSpec.describe Kpis do
   describe "#total_rejections" do
     it "returns the total number of applications rejected" do
       application = create(:application)
-      create_list(:application_progress, 5, :with_rejection_completed, application:)
+      create_list(:application_progress, 5, :rejection_completed, application:)
 
       stats = described_class.new
 
@@ -25,7 +25,7 @@ RSpec.describe Kpis do
   describe "#total_paid" do
     it "returns the total number of applications paid" do
       application = create(:application)
-      create_list(:application_progress, 5, :with_payment_completed, application:)
+      create_list(:application_progress, 5, :payment_completed, application:)
 
       stats = described_class.new
 

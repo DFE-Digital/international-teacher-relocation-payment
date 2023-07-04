@@ -27,13 +27,14 @@ variable "azure_maintenance_window" { default = null }
 variable "postgres_flexible_server_sku" { default = "B_Standard_B1ms" }
 variable "postgres_enable_high_availability" { default = false }
 variable "startup_command" {}
-variable "probe_path" { default = null }
+variable "probe_path" { default = "/healthcheck" }
 variable "replicas" { default = 1 }
 variable "memory_max" { default = "1Gi" }
 variable "gov_uk_host_names" {
   default = []
   type    = list(any)
 }
+variable "azure_enable_backup_storage" { default = true }
 
 locals {
   service_name = "teacher-relocation-payment"

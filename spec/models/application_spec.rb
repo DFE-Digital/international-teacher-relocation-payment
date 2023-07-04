@@ -34,41 +34,13 @@ RSpec.describe Application do
     it "matches the required format for a teacher" do
       application = create(:teacher_application)
 
-      expect(application.urn).to match(/^IRP[A-Z0-9]{5}TE$/)
+      expect(application.urn).to match(/^IRPTE[A-Z0-9]{5}$/)
     end
 
     it "matches the required format for a trainee" do
       application = create(:salaried_trainee_application)
 
-      expect(application.urn).to match(/^IRP[A-Z0-9]{5}LT$/)
-    end
-  end
-
-  describe "#initialise_for_applicant!" do
-    subject(:klass) { described_class }
-
-    let(:applicant) { create(:applicant) }
-
-    it "returns an application" do
-      expect(klass.initialise_for_applicant!(applicant)).to be_a(described_class)
-    end
-
-    it "sets the applicant" do
-      klass.initialise_for_applicant!(applicant)
-
-      expect(applicant.application).to be_present
-    end
-
-    it "sets the application date" do
-      application = klass.initialise_for_applicant!(applicant)
-
-      expect(application.application_date).to eq(Date.current)
-    end
-
-    it "sets the urn" do
-      application = klass.initialise_for_applicant!(applicant)
-
-      expect(application.urn).to be_present
+      expect(application.urn).to match(/^IRPST[A-Z0-9]{5}$/)
     end
   end
 end

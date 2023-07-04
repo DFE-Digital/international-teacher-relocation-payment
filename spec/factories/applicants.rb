@@ -36,21 +36,23 @@ FactoryBot.define do
     nationality { Faker::Nation.nationality }
     passport_number { Faker::Number.number(digits: 9) }
     phone_number { Faker::PhoneNumber.cell_phone_in_e164 }
-    sex { %w[female male other].sample }
-    subject { %w[physics languages general_science].sample }
-    visa_type { %w[visa_1 visa_2 visa_3].sample }
+    sex { %w[female male].sample }
+    subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
+    visa_type { Applicants::Visa::VISA_OPTIONS.sample }
 
-    association :school, factory: :school, strategy: :build
+    school factory: %i[school], strategy: :build
 
     after(:build) do |applicant|
       build(:address, addressable: applicant)
     end
 
     factory :teacher do
+      subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
       application_route { "teacher" }
     end
 
     factory :salaried_trainee do
+      subject { Applicants::Subject::TRAINEE_SUBJECTS.sample }
       application_route { "salaried_trainee" }
     end
   end

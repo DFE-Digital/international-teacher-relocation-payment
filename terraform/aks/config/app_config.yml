@@ -5,3 +5,13 @@ review:
   <<: *default
   RAILS_ENV: review
   RACK_ENV: review
+
+qa:
+  <<: *default
+  RAILS_ENV: qa
+  RACK_ENV: qa
+
+staging:
+  <<: *default
+  RAILS_ENV: staging
+  RACK_ENV: staging

@@ -36,14 +36,6 @@ class Applicant < ApplicationRecord
 
   has_one :application, dependent: :destroy
 
-  delegate \
-    :initial_checks_completed_at,
-    :visa_investigation_required,
-    :home_office_checks_completed_at,
-    :school_investigation_required,
-    :school_checks_completed_at,
-    to: :application_progress
-
   def full_name
     "#{given_name} #{family_name}"
   end
