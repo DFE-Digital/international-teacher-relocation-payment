@@ -3,9 +3,7 @@
 class ApplicationController < ActionController::Base
   default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
 
-  def application_route
-    current_application.application_route
-  end
+  delegate :application_route, to: :current_application
   helper_method :application_route
 
   def current_application
