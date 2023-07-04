@@ -2,19 +2,18 @@
 #
 # Table name: applicants
 #
-#  id                :bigint           not null, primary key
-#  application_route :string
-#  date_of_birth     :date
-#  email_address     :text
-#  family_name       :text
-#  given_name        :text
-#  nationality       :text
-#  passport_number   :text
-#  phone_number      :text
-#  sex               :text
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  school_id         :bigint
+#  id              :bigint           not null, primary key
+#  date_of_birth   :date
+#  email_address   :text
+#  family_name     :text
+#  given_name      :text
+#  nationality     :text
+#  passport_number :text
+#  phone_number    :text
+#  sex             :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  school_id       :bigint
 #
 # Foreign Keys
 #
@@ -24,7 +23,6 @@ Faker::Config.locale = "en-GB"
 
 FactoryBot.define do
   factory :applicant do
-    application_route { %w[salaried_trainee teacher].sample }
     date_of_birth { rand(18..90).years.ago.to_date }
     email_address { Faker::Internet.email }
     family_name { Faker::Name.last_name }
@@ -41,20 +39,16 @@ FactoryBot.define do
     end
 
     factory :teacher do
-      application_route { "teacher" }
     end
 
     factory :salaried_trainee do
-      application_route { "salaried_trainee" }
     end
   end
 
   trait :salaried_trainee do
-    application_route { "salaried_trainee" }
   end
 
   trait :teacher do
-    application_route { "teacher" }
   end
 
   trait :recently do
