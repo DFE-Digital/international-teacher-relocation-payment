@@ -6,8 +6,12 @@ class TimeToInitialChecksQuery
   def call
     applications_list = @relation.where.not(created_at: nil).where.not(initial_checks_completed_at: nil)
 
-    average_time = applications_list.average("initial_checks_completed_at::date - created_at::date")
+    durations = applications_list.map { |app| (app.initial_checks_completed_at.to_date - app.created_at.to_date).to_i }
 
-    average_time&.to_i&.round&.days
+    min_days = "#{durations.min.abs} days" if durations.min
+    max_days = "#{durations.max.abs} days" if durations.max
+    average_days = (durations.sum / durations.size.to_f)&.round&.days if durations.size.positive?
+
+    { min: min_days, max: max_days, average: average_days }
   end
 end
