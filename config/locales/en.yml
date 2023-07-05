@@ -73,13 +73,13 @@ en:
         title: Enter your current phone number
         hint: For international numbers include the country code. We will use this to contact you so please make sure you have entered it correctly.
       date_of_birth: Enter your date of birth, as it appears on your passport
-      address: Enter your address
+      address: Please, give us your address in England
       address_line_1: Address line 1
       address_line_2: Address line 2 (Optional)
       city: Town or city
       county: County (optional)
       postcode: Postcode
-      nationality: Nationality
+      nationality: Select your Nationality
       sex: Select your sex
       passport: Enter your passport number, as it appears on your passport
     subjects:
