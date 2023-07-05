@@ -73,5 +73,9 @@ FactoryBot.define do
     trait :with_payment_completed do
       application_progress strategy: :build, factory: %i[application_progress payment_completed]
     end
+
+    trait :with_rejection_completed do
+      application_progress strategy: :build, factory: %i[application_progress rejection_completed]
+    end
   end
 end

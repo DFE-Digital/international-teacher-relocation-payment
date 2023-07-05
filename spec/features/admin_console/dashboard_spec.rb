@@ -89,6 +89,13 @@ describe "Dashboard" do
     then_i_can_see_the_school_checks_time_widget
   end
 
+  it "shows the Banking Approval time widget" do
+    given_there_are_applications_with_payment_completed
+    given_i_am_signed_as_an_admin
+    when_i_am_in_the_dashboard_page
+    then_i_can_see_the_payment_completed_time_widget
+  end
+
   def given_there_are_5_applications
     create_list(:application, 5)
   end
@@ -158,6 +165,15 @@ describe "Dashboard" do
                                                             home_office_checks_completed_at: 20.days.ago, school_checks_completed_at: 10.days.ago)
     create(:application_progress, :school_checks_completed, application: build(:application),
                                                             home_office_checks_completed_at: 30.days.ago, school_checks_completed_at: 15.days.ago)
+  end
+
+  def given_there_are_applications_with_payment_completed
+    create(:application_progress, :payment_completed, application: build(:application),
+                                                      school_checks_completed_at: 10.days.ago, payment_completed_at: 5.days.ago)
+    create(:application_progress, :payment_completed, application: build(:application),
+                                                      school_checks_completed_at: 20.days.ago, payment_completed_at: 10.days.ago)
+    create(:application_progress, :payment_completed, application: build(:application),
+                                                      school_checks_completed_at: 30.days.ago, payment_completed_at: 15.days.ago)
   end
 
   def when_i_am_in_the_dashboard_page
@@ -265,6 +281,15 @@ describe "Dashboard" do
   def then_i_can_see_the_school_checks_time_widget
     within ".kpi-widget.school-checks-average" do
       expect(page).to have_content("Time to School Checks")
+      expect(page).to have_content("10 days")
+      expect(page).to have_content("Min/Max")
+      expect(page).to have_content("5 days/15 days")
+    end
+  end
+
+  def then_i_can_see_the_payment_completed_time_widget
+    within ".kpi-widget.banking-approval-average" do
+      expect(page).to have_content("Time to Banking Approval")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
       expect(page).to have_content("5 days/15 days")
