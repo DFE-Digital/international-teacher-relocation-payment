@@ -82,6 +82,13 @@ describe "Dashboard" do
     then_i_can_see_the_home_office_checks_time_widget
   end
 
+  it "shows the School Checks Approval time widget" do
+    given_there_are_applications_with_school_checks
+    given_i_am_signed_as_an_admin
+    when_i_am_in_the_dashboard_page
+    then_i_can_see_the_school_checks_time_widget
+  end
+
   def given_there_are_5_applications
     create_list(:application, 5)
   end
@@ -144,6 +151,15 @@ describe "Dashboard" do
                                                                  initial_checks_completed_at: 30.days.ago, home_office_checks_completed_at: 15.days.ago)
   end
 
+  def given_there_are_applications_with_school_checks
+    create(:application_progress, :school_checks_completed, application: build(:application),
+                                                            home_office_checks_completed_at: 10.days.ago, school_checks_completed_at: 5.days.ago)
+    create(:application_progress, :school_checks_completed, application: build(:application),
+                                                            home_office_checks_completed_at: 20.days.ago, school_checks_completed_at: 10.days.ago)
+    create(:application_progress, :school_checks_completed, application: build(:application),
+                                                            home_office_checks_completed_at: 30.days.ago, school_checks_completed_at: 15.days.ago)
+  end
+
   def when_i_am_in_the_dashboard_page
     visit(dashboard_path)
   end
@@ -198,7 +214,7 @@ describe "Dashboard" do
 
   def then_i_can_see_the_visa_breakdown_widget
     within ".kpi-widget.visas" do
-      expect(page).to have_content("Visa")
+      expect(page).to have_content("Top 3 Visa Types")
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[0])
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[1])
       expect(page).to have_content(Applicants::Visa::VISA_OPTIONS[2])
@@ -211,7 +227,7 @@ describe "Dashboard" do
 
   def then_i_can_see_the_nationalities_breakdown_widget
     within ".kpi-widget.nationalities" do
-      expect(page).to have_content("Nationalities")
+      expect(page).to have_content("Top 5 Nationalities")
       expect(page).to have_content("Chadians")
       expect(page).to have_content("Libians")
       expect(page).to have_content("Uzbeks")
@@ -240,6 +256,15 @@ describe "Dashboard" do
   def then_i_can_see_the_home_office_checks_time_widget
     within ".kpi-widget.home-office-checks-average" do
       expect(page).to have_content("Time to HO Checks")
+      expect(page).to have_content("10 days")
+      expect(page).to have_content("Min/Max")
+      expect(page).to have_content("5 days/15 days")
+    end
+  end
+
+  def then_i_can_see_the_school_checks_time_widget
+    within ".kpi-widget.school-checks-average" do
+      expect(page).to have_content("Time to School Checks")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
       expect(page).to have_content("5 days/15 days")

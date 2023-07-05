@@ -46,4 +46,8 @@ class Kpis
   def time_to_home_office_checks
     TimeToHomeOfficeChecksQuery.new.call
   end
+
+  def time_to_school_checks
+    TimeToSchoolChecksQuery.new.call
+  end
 end
