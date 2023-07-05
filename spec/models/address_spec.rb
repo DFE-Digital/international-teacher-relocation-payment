@@ -9,7 +9,6 @@
 #  address_line_2   :string
 #  addressable_type :string           not null
 #  city             :string
-#  county           :string
 #  postcode         :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

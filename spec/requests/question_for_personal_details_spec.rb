@@ -16,7 +16,6 @@ module Applicants
             "address_line_1" => "7 McLeud",
             "address_line_2" => "second line",
             "city" => "London",
-            "county" => "County",
             "postcode" => "E1 8QS",
             "date_of_birth(3i)" => "1",
             "date_of_birth(2i)" => "1",

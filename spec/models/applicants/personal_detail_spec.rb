@@ -20,7 +20,6 @@ module Applicants
       it { is_expected.to validate_presence_of(:address_line_1) }
       it { is_expected.not_to validate_presence_of(:address_line_2) }
       it { is_expected.to validate_presence_of(:city) }
-      it { is_expected.not_to validate_presence_of(:county) }
       it { is_expected.to validate_presence_of(:postcode) }
 
       it {
@@ -47,7 +46,6 @@ module Applicants
             address_line_1: "1 High Street",
             address_line_2: "Flat 1",
             city: "London",
-            county: "London",
             postcode: "SW1A 1AA",
           }
         end

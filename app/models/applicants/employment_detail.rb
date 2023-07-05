@@ -8,7 +8,6 @@ module Applicants
                   :school_address_line_1,
                   :school_address_line_2,
                   :school_city,
-                  :school_county,
                   :school_postcode,
                   :applicant
 
@@ -26,7 +25,6 @@ module Applicants
           address_line_1: school_address_line_1,
           address_line_2: school_address_line_2,
           city: school_city,
-          county: school_county,
           postcode: school_postcode,
         },
       )

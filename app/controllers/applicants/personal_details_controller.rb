@@ -32,7 +32,6 @@ module Applicants
         :address_line_1,
         :address_line_2,
         :city,
-        :county,
         :postcode,
         *DOB_CONVERSION.keys,
       ).transform_keys do |key|

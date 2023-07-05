@@ -12,7 +12,6 @@ module Applicants
             "school_address_line_2" => "second line",
             "school_city" => "London",
             "school_postcode" => "E1 8QS",
-            "school_county" => "County",
           },
         }
       end
