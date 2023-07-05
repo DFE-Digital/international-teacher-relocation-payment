@@ -83,4 +83,13 @@
     <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>
   </div>
 
+  <div class="kpi-widget home-office-checks-average">
+    <% checks =  @kpis.time_to_home_office_checks %>
+    <h3 class="title">Time to HO Checks</h3>
+    <p class="value"><%= duration_in_words(checks[:average]) %></p>
+    <hr>
+    <h5 class="title">Min/Max</h5>
+    <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>
+  </div>
+
 </div>

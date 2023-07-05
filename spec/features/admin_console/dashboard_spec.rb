@@ -68,11 +68,18 @@ describe "Dashboard" do
     then_i_can_see_the_gender_breakdown_widget
   end
 
-  it "shows the Initial Checks Approval average time widget" do
+  it "shows the Initial Checks Approval time widget" do
     given_there_are_applications_with_initial_checks
     given_i_am_signed_as_an_admin
     when_i_am_in_the_dashboard_page
     then_i_can_see_the_initial_checks_approval_average_time_widget
+  end
+
+  it "shows the Home Office Checks Approval time widget" do
+    given_there_are_applications_with_home_office_checks
+    given_i_am_signed_as_an_admin
+    when_i_am_in_the_dashboard_page
+    then_i_can_see_the_home_office_checks_time_widget
   end
 
   def given_there_are_5_applications
@@ -126,6 +133,15 @@ describe "Dashboard" do
                                                              created_at: 20.days.ago, initial_checks_completed_at: 10.days.ago)
     create(:application_progress, :initial_checks_completed, application: build(:application),
                                                              created_at: 30.days.ago, initial_checks_completed_at: 15.days.ago)
+  end
+
+  def given_there_are_applications_with_home_office_checks
+    create(:application_progress, :home_office_checks_completed, application: build(:application),
+                                                                 initial_checks_completed_at: 10.days.ago, home_office_checks_completed_at: 5.days.ago)
+    create(:application_progress, :home_office_checks_completed, application: build(:application),
+                                                                 initial_checks_completed_at: 20.days.ago, home_office_checks_completed_at: 10.days.ago)
+    create(:application_progress, :home_office_checks_completed, application: build(:application),
+                                                                 initial_checks_completed_at: 30.days.ago, home_office_checks_completed_at: 15.days.ago)
   end
 
   def when_i_am_in_the_dashboard_page
@@ -215,6 +231,15 @@ describe "Dashboard" do
   def then_i_can_see_the_initial_checks_approval_average_time_widget
     within ".kpi-widget.initial-checks-average" do
       expect(page).to have_content("Time to Initial Checks")
+      expect(page).to have_content("10 days")
+      expect(page).to have_content("Min/Max")
+      expect(page).to have_content("5 days/15 days")
+    end
+  end
+
+  def then_i_can_see_the_home_office_checks_time_widget
+    within ".kpi-widget.home-office-checks-average" do
+      expect(page).to have_content("Time to HO Checks")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
       expect(page).to have_content("5 days/15 days")
