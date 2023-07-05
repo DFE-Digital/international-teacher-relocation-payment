@@ -79,7 +79,7 @@ en:
       city: Town or city
       county: County (optional)
       postcode: Postcode
-      nationality: Select your Nationality
+      nationality: Select your nationality
       sex: Select your sex
       passport: Enter your passport number, as it appears on your passport
     subjects:
