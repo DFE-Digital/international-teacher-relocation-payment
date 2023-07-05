@@ -85,7 +85,10 @@ jobs:
           type=registry,ref=${{env.DOCKER_IMAGE}}:main
           type=registry,ref=${{env.DOCKER_IMAGE}}:${{env.IMAGE_TAG}}
           type=registry,ref=${{env.DOCKER_IMAGE}}:${{env.BRANCH_TAG}}
-        build-args: COMMIT_SHA=${{ env.IMAGE_TAG }}
+        build-args: |
+          COMMIT_SHA=${{ env.IMAGE_TAG }}
+          GOVUK_NOTIFY_API_KEY=${{ secrets.GOVUK_NOTIFY_API_KEY }}
+          GOVUK_NOTIFY_APPLICATION_SUBMITTED_TEMPLATE_ID=${{ secrets.GOVUK_NOTIFY_APPLICATION_SUBMITTED_TEMPLATE_ID }}
 
     - name: Push ${{ env.DOCKER_IMAGE }} images for review
       if: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy') }}
