@@ -11,9 +11,12 @@ RSpec.describe TimeToInitialChecksQuery, type: :model do
                                                                created_at: 30.days.ago, initial_checks_completed_at: 15.days.ago)
     end
 
-    it "returns average time in days" do
+    it "returns min, max and average time in days" do
       result = described_class.new.call
-      expect(result).to eq 10.days
+
+      expect(result[:min]).to eq "5 days"
+      expect(result[:max]).to eq "15 days"
+      expect(result[:average]).to eq 10.days
     end
   end
 end

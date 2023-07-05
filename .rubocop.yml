@@ -70,3 +70,7 @@ RSpec/ExampleLength:
 RSpec/NoExpectationExample:
   Exclude:
     - 'spec/features/**/*'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/queries/**/*'

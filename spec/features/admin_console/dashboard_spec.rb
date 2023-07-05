@@ -214,6 +214,8 @@ describe "Dashboard" do
     within ".kpi-widget.initial-checks-average" do
       expect(page).to have_content("Time to Initial Checks")
       expect(page).to have_content("10 days")
+      expect(page).to have_content("Min/Max")
+      expect(page).to have_content("5 days/15 days")
     end
   end
 end
