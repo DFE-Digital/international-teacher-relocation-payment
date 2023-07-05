@@ -23,7 +23,6 @@ module Applicants
           school_address_line_1: "Test Address Line 1",
           school_address_line_2: "Test Address Line 2",
           school_city: "Test City",
-          school_county: "Test County",
           school_postcode: "SE2 0BA",
         }
       end

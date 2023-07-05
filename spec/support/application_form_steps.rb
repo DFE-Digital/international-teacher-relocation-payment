@@ -57,7 +57,6 @@ RSpec.shared_context "with common application form steps" do
     fill_in("applicants_personal_detail[address_line_1]", with: "12 Park Gardens")
     fill_in("applicants_personal_detail[address_line_2]", with: "Office 20")
     fill_in("applicants_personal_detail[city]", with: "London")
-    fill_in("applicants_personal_detail[county]", with: "A county")
     fill_in("applicants_personal_detail[postcode]", with: "AS1 1AA")
     select("English")
     choose("Male")
@@ -72,7 +71,6 @@ RSpec.shared_context "with common application form steps" do
     fill_in("applicants_employment_detail[school_address_line_1]", with: "1, McSchool Street")
     fill_in("applicants_employment_detail[school_address_line_2]", with: "Schoolville")
     fill_in("applicants_employment_detail[school_city]", with: "Schooltown")
-    fill_in("applicants_employment_detail[school_county]", with: "Schoolshire")
     fill_in("applicants_employment_detail[school_postcode]", with: "SC1 1AA")
 
     click_button("Submit application")

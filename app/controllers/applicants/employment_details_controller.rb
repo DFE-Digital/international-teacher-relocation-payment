@@ -30,7 +30,6 @@ module Applicants
         :school_address_line_1,
         :school_address_line_2,
         :school_city,
-        :school_county,
         :school_postcode,
       )
     end

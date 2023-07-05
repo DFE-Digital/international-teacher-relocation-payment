@@ -5,7 +5,7 @@ module Applicants
     include ActiveModel::Model
     attr_accessor :given_name, :family_name, :email_address, :phone_number,
                   :day, :month, :year, :sex, :passport_number, :nationality, :address_line_1,
-                  :address_line_2, :city, :county, :postcode
+                  :address_line_2, :city, :postcode
 
     SEX_OPTIONS = %w[female male].freeze
 
@@ -50,7 +50,6 @@ module Applicants
           address_line_1:,
           address_line_2:,
           city:,
-          county:,
           postcode:,
         },
       )
