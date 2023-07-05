@@ -57,7 +57,7 @@ en:
         title:
           teacher: Enter the name of the school where you are employed as a teacher
           salaried_trainee: Enter the name of the school where you are employed as a trainee teacher
-      headteacher: Enter the name of the Headteacher or Principal of the school
+      headteacher: Enter the name of the headteacher or principal of the school
       address: Enter the school address
       address_line_1: Address line 1
       address_line_2: Address line 2 (Optional)
