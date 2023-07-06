@@ -65,6 +65,13 @@
 .applicants-table {
   font-size: 15px;
 
+  .govuk-table__head {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 0.3px 0 #b1b4b6;
+  }
+
   th {
     vertical-align: middle;
     text-align: center;
