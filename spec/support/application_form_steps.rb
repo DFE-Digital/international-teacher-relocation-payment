@@ -26,21 +26,24 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_select_my_subject(route)
-    expect(page).to have_text(I18n.t("applicants.subjects.title.#{route}"))
+    assert_i_am_in_the_subject_question(route)
+
     choose("Physics")
 
     click_button("Continue")
   end
 
   def and_i_select_my_visa_type
-    expect(page).to have_text(I18n.t("applicants.visa.title"))
+    assert_i_am_in_the_visa_type_question
+
     select("Family visa")
 
     click_button("Continue")
   end
 
   def and_i_enter_my_entry_date(route)
-    expect(page).to have_text(I18n.t("applicants.entry_dates.title.#{route}"))
+    assert_i_am_in_the_entry_date_question(route)
+
     fill_in("Day", with: 12)
     fill_in("Month", with: 6)
     fill_in("Year", with: 2023)
@@ -49,7 +52,7 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_enter_my_personal_details
-    expect(page).to have_text(I18n.t("applicants.personal_details.title"))
+    assert_i_am_in_the_personal_details_question
 
     fill_in("applicants_personal_detail[given_name]", with: "Bob")
     fill_in("applicants_personal_detail[family_name]", with: "Robertson")
@@ -71,7 +74,7 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_enter_my_employment_details
-    expect(page).to have_text(I18n.t("applicants.employment_details.title"))
+    assert_i_am_in_the_employment_details_question
 
     fill_in("applicants_employment_detail[school_headteacher_name]", with: "Mr Headteacher")
     fill_in("applicants_employment_detail[school_name]", with: "School name")
@@ -96,12 +99,36 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_enter_my_contract_start_date
-    expect(page).to have_text(I18n.t("applicants.contract_start_dates.title"))
+    assert_i_am_in_the_contract_start_date_question
 
     fill_in("Day", with: 12)
     fill_in("Month", with: 7)
     fill_in("Year", with: 2023)
 
     click_button("Continue")
+  end
+
+  def assert_i_am_in_the_subject_question(route)
+    expect(page).to have_text(I18n.t("applicants.subjects.title.#{route}"))
+  end
+
+  def assert_i_am_in_the_contract_start_date_question
+    expect(page).to have_text(I18n.t("applicants.contract_start_dates.title"))
+  end
+
+  def assert_i_am_in_the_employment_details_question
+    expect(page).to have_text(I18n.t("applicants.employment_details.title"))
+  end
+
+  def assert_i_am_in_the_personal_details_question
+    expect(page).to have_text(I18n.t("applicants.personal_details.title"))
+  end
+
+  def assert_i_am_in_the_entry_date_question(route)
+    expect(page).to have_text(I18n.t("applicants.entry_dates.title.#{route}"))
+  end
+
+  def assert_i_am_in_the_visa_type_question
+    expect(page).to have_text(I18n.t("applicants.visa.title"))
   end
 end
