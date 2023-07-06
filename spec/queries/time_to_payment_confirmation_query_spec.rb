@@ -14,8 +14,8 @@ RSpec.describe TimeToPaymentConfirmationQuery, type: :model do
     it "returns min, max and average time in days" do
       result = described_class.new.call
 
-      expect(result[:min]).to eq "15 days"
-      expect(result[:max]).to eq "5 days"
+      expect(result[:min]).to eq "5 days"
+      expect(result[:max]).to eq "15 days"
       expect(result[:average]).to eq "10 days"
     end
   end

@@ -21,6 +21,7 @@ FactoryBot.define do
     # association :application, factory: :application, strategy: :build
 
     trait :initial_checks_completed do
+      created_at { rand(41..45).days.ago.to_date }
       initial_checks_completed_at { rand(31..40).days.ago.to_date }
     end
 
