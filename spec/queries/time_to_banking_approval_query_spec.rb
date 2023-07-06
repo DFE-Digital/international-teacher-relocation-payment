@@ -3,12 +3,12 @@ require "rails_helper"
 RSpec.describe TimeToBankingApprovalQuery, type: :model do
   describe "#call" do
     before do
-      create(:application_progress, :payment_completed, application: build(:application),
-                                                        school_checks_completed_at: 10.days.ago, payment_completed_at: 5.days.ago)
-      create(:application_progress, :payment_completed, application: build(:application),
-                                                        school_checks_completed_at: 20.days.ago, payment_completed_at: 10.days.ago)
-      create(:application_progress, :payment_completed, application: build(:application),
-                                                        school_checks_completed_at: 30.days.ago, payment_completed_at: 15.days.ago)
+      create(:application_progress, :banking_approval_completed, application: build(:application),
+                                                                 school_checks_completed_at: 10.days.ago, banking_approval_completed_at: 5.days.ago)
+      create(:application_progress, :banking_approval_completed, application: build(:application),
+                                                                 school_checks_completed_at: 20.days.ago, banking_approval_completed_at: 10.days.ago)
+      create(:application_progress, :banking_approval_completed, application: build(:application),
+                                                                 school_checks_completed_at: 30.days.ago, banking_approval_completed_at: 15.days.ago)
     end
 
     it "returns min, max and average time in days" do
@@ -16,7 +16,7 @@ RSpec.describe TimeToBankingApprovalQuery, type: :model do
 
       expect(result[:min]).to eq "5 days"
       expect(result[:max]).to eq "15 days"
-      expect(result[:average]).to eq 10.days
+      expect(result[:average]).to eq "10 days"
     end
   end
 end

@@ -16,7 +16,7 @@ RSpec.describe TimeToInitialChecksQuery, type: :model do
 
       expect(result[:min]).to eq "5 days"
       expect(result[:max]).to eq "15 days"
-      expect(result[:average]).to eq 10.days
+      expect(result[:average]).to eq "10 days"
     end
   end
 end

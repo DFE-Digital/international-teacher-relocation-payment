@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_163541) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_06_134855) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,8 +50,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_163541) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "application_id"
-    t.date "payment_completed_at"
+    t.date "payment_confirmation_completed_at"
     t.date "rejection_completed_at"
+    t.date "banking_approval_completed_at"
   end
 
   create_table "applications", force: :cascade do |t|

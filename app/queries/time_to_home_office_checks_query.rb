@@ -10,7 +10,7 @@ class TimeToHomeOfficeChecksQuery
 
     min_days = "#{durations.min.abs} days" if durations.min
     max_days = "#{durations.max.abs} days" if durations.max
-    average_days = (durations.sum / durations.size.to_f)&.round&.days if durations.size.positive?
+    average_days = durations.size.positive? ? "#{(durations.sum / durations.size.to_f).round.abs} days" : "0 days"
 
     { min: min_days, max: max_days, average: average_days }
   end
