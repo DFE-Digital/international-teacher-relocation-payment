@@ -35,32 +35,4 @@ describe "teacher route: completing the form" do
       end
     end
   end
-
-  def and_i_enter_an_invalid_date
-    fill_in("Day", with: 31)
-    fill_in("Month", with: 2)
-    fill_in("Year", with: 2019)
-
-    click_button("Continue")
-  end
-
-  def and_i_complete_the_state_school_question
-    assert_i_am_in_the_state_school_question
-
-    choose_yes
-  end
-
-  def and_i_complete_the_contract_details_question
-    assert_i_am_on_the_contract_details_question
-
-    choose_yes
-  end
-
-  def assert_i_am_in_the_state_school_question
-    expect(page).to have_text(I18n.t("applicants.school_details.title"))
-  end
-
-  def assert_i_am_on_the_contract_details_question
-    expect(page).to have_text(I18n.t("applicants.contract_details.title"))
-  end
 end
