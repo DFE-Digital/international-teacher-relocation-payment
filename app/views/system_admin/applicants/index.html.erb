@@ -1,24 +1,15 @@
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-    <!-- <p class="govuk-body">
-      <%= govuk_link_to("Export applications", applicants_path(format: :csv), { class: "govuk-button" }) %>
-    </p> -->
-
-    <%= govuk_table do |table|
+<%= govuk_table(html_attributes: {style: 'font-size: 18px'}) do |table|
       table.with_caption(size: 'm', text: 'List of Applications')
       table.with_head do |head|
         head.with_row do |row|
-          row.with_cell(text: 'URN')
-          row.with_cell(text: 'Name')
-          row.with_cell(text: 'Email')
-          row.with_cell(text: 'Passport')
-          row.with_cell(text: 'Submitted')
-          row.with_cell(text: 'Initial Checks')
-          row.with_cell(text: 'HO Checks')
-          row.with_cell(text: 'School Checks')
-          row.with_cell(text: 'Banking Approved')
-          row.with_cell(text: 'Rejected')
+          row.with_cell(text: 'URN', html_attributes: {style: 'vertical-align: middle;'})
+          row.with_cell(text: 'Name', html_attributes: {style: 'vertical-align: middle;'})
+          row.with_cell(text: 'Submitted', html_attributes: {style: 'width: 100px; vertical-align: middle;'})
+          row.with_cell(text: 'Initial Checks', html_attributes: {style: 'width: 100px; vertical-align: middle;'})
+          row.with_cell(text: 'Home Office Checks', html_attributes: {style: 'width: 100px; vertical-align: middle;'})
+          row.with_cell(text: 'School Checks', html_attributes: {style: 'width: 100px; vertical-align: middle;'})
+          row.with_cell(text: 'Banking Approved', html_attributes: {style: 'width: 100px; vertical-align: middle;'})
+          row.with_cell(text: 'Rejected', html_attributes: {style: 'width: 100px; vertical-align: middle;'})
         end
       end 
 
@@ -39,5 +30,4 @@
         end 
       end
  end %>
-
-    <%= govuk_pagination(pagy: @pagy) %>
+<%= govuk_pagination(pagy: @pagy) %>

@@ -20,9 +20,7 @@ describe "Applications List" do
   end
 
   def given_there_are_few_applications
-    create(:teacher_application, subject: :physics)
-    create(:teacher_application, subject: :languages)
-    create(:salaried_trainee_application, subject: :general_science)
+    create_list(:application, 21) # pagy default pagination is 20
   end
 
   def when_i_am_in_the_applications_list_page
@@ -33,11 +31,9 @@ describe "Applications List" do
     within ".govuk-table thead" do
       expect(page).to have_content("URN")
       expect(page).to have_content("Name")
-      expect(page).to have_content("Email")
-      expect(page).to have_content("Passport")
       expect(page).to have_content("Submitted")
       expect(page).to have_content("Initial Checks")
-      expect(page).to have_content("HO Checks")
+      expect(page).to have_content("Home Office Checks")
       expect(page).to have_content("School Checks")
       expect(page).to have_content("Banking Approved")
       expect(page).to have_content("Rejected")
