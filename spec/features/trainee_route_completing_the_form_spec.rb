@@ -33,12 +33,4 @@ describe "trainee route: completing the form" do
       end
     end
   end
-
-  def and_i_complete_the_trainee_employment_conditions(choose: "Yes")
-    choose == "Yes" ? choose_yes : choose_no
-  end
-
-  def and_i_complete_the_trainee_contract_details_question
-    choose_yes
-  end
 end
