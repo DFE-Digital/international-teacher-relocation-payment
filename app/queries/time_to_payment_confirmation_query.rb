@@ -6,7 +6,7 @@ class TimeToPaymentConfirmationQuery
   def call
     applications_list = @relation.where.not(payment_confirmation_completed_at: nil).where.not(banking_approval_completed_at: nil)
 
-    durations = applications_list.map { |app| (app.banking_approval_completed_at.to_date - app.payment_confirmation_completed_at.to_date).to_i }
+    durations = applications_list.map { |app| (app.payment_confirmation_completed_at.to_date - app.banking_approval_completed_at.to_date).to_i }
 
     min_days = "#{durations.min.abs} days" if durations.min
     max_days = "#{durations.max.abs} days" if durations.max
