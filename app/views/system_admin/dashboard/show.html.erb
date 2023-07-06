@@ -4,7 +4,7 @@
     <p class="value"><%= @kpis.total_applications %></p>
   </div>
   <div class="kpi-widget rejections">
-    <h3 class="title">Total Rejections</h3>
+    <h3 class="title">Rejections</h3>
     <p class="value"><%= @kpis.total_rejections %></p>
   </div>
   <div class="kpi-widget paid">
@@ -31,7 +31,7 @@
     <table class="kpi-table">
       <% @kpis.subject_breakdown.each do |k,v|%>
         <tr>
-          <td><%= k.titleize %></td>
+          <td><%= k.capitalize %></td>
           <td><%= v %></td>
         </tr>
       <% end %>
@@ -76,8 +76,9 @@
 
   <div class="kpi-widget initial-checks-average">
     <% checks =  @kpis.time_to_initial_checks %>
-    <h3 class="title">Time to Initial Checks</h3>
-    <p class="value"><%= duration_in_words(checks[:average]) %></p>
+    <h3 class="title">Initial Checks</h3>
+    <h6 class="subtitle">Average Completion Time</h6>
+    <p class="value"><%= checks[:average] %></p>
     <hr>
     <h5 class="title">Min/Max</h5>
     <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>
@@ -85,8 +86,9 @@
 
   <div class="kpi-widget home-office-checks-average">
     <% checks =  @kpis.time_to_home_office_checks %>
-    <h3 class="title">Time to HO Checks</h3>
-    <p class="value"><%= duration_in_words(checks[:average]) %></p>
+    <h3 class="title">Home Office Checks</h3>
+    <h6 class="subtitle">Average Completion Time</h6>
+    <p class="value"><%= checks[:average] %></p>
     <hr>
     <h5 class="title">Min/Max</h5>
     <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>
@@ -94,8 +96,9 @@
 
   <div class="kpi-widget school-checks-average">
     <% checks =  @kpis.time_to_school_checks %>
-    <h3 class="title">Time to School Checks</h3>
-    <p class="value"><%= duration_in_words(checks[:average]) %></p>
+    <h3 class="title">School Checks</h3>
+    <h6 class="subtitle">Average Completion Time</h6>
+    <p class="value"><%= checks[:average] %></p>
     <hr>
     <h5 class="title">Min/Max</h5>
     <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>
@@ -103,8 +106,19 @@
 
   <div class="kpi-widget banking-approval-average">
     <% checks =  @kpis.time_to_banking_approval %>
-    <h3 class="title">Time to Banking Approval</h3>
-    <p class="value"><%= duration_in_words(checks[:average]) %></p>
+    <h3 class="title">Banking Approval</h3>
+    <h6 class="subtitle">Average Completion Time</h6>
+    <p class="value"><%= checks[:average] %></p>
+    <hr>
+    <h5 class="title">Min/Max</h5>
+    <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>
+  </div>
+
+  <div class="kpi-widget payment-confirmation-average">
+    <% checks =  @kpis.time_to_payment_confirmation %>
+    <h3 class="title">Payment Confirmation</h3>
+    <h6 class="subtitle">Average Completion Time</h6>
+    <p class="value"><%= checks[:average] %></p>
     <hr>
     <h5 class="title">Min/Max</h5>
     <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>

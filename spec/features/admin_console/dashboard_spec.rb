@@ -90,10 +90,17 @@ describe "Dashboard" do
   end
 
   it "shows the Banking Approval time widget" do
-    given_there_are_applications_with_payment_completed
+    given_there_are_applications_with_banking_approval
     given_i_am_signed_as_an_admin
     when_i_am_in_the_dashboard_page
-    then_i_can_see_the_payment_completed_time_widget
+    then_i_can_see_the_banking_approval_completed_time_widget
+  end
+
+  it "shows the Payment Confirmation time widget" do
+    given_there_are_applications_with_payment_confirmation
+    given_i_am_signed_as_an_admin
+    when_i_am_in_the_dashboard_page
+    then_i_can_see_the_payment_confirmation_time_widget
   end
 
   def given_there_are_5_applications
@@ -101,14 +108,14 @@ describe "Dashboard" do
   end
 
   def given_there_are_few_applications
-    create(:teacher_application, subject: :physics)
-    create(:teacher_application, subject: :languages)
-    create(:salaried_trainee_application, subject: :general_science)
+    create(:teacher_application, subject: Applicants::Subject::TEACHER_SUBJECTS[2])
+    create(:teacher_application, subject: Applicants::Subject::TEACHER_SUBJECTS[1])
+    create(:salaried_trainee_application, subject: Applicants::Subject::TEACHER_SUBJECTS[0])
   end
 
   def given_there_are_paid_applications
     application = create(:application)
-    create_list(:application_progress, 2, :payment_completed, application:)
+    create_list(:application_progress, 2, :payment_confirmation_completed, application:)
   end
 
   def given_there_are_few_applications_with_nationalities
@@ -167,13 +174,22 @@ describe "Dashboard" do
                                                             home_office_checks_completed_at: 30.days.ago, school_checks_completed_at: 15.days.ago)
   end
 
-  def given_there_are_applications_with_payment_completed
-    create(:application_progress, :payment_completed, application: build(:application),
-                                                      school_checks_completed_at: 10.days.ago, payment_completed_at: 5.days.ago)
-    create(:application_progress, :payment_completed, application: build(:application),
-                                                      school_checks_completed_at: 20.days.ago, payment_completed_at: 10.days.ago)
-    create(:application_progress, :payment_completed, application: build(:application),
-                                                      school_checks_completed_at: 30.days.ago, payment_completed_at: 15.days.ago)
+  def given_there_are_applications_with_banking_approval
+    create(:application_progress, :payment_confirmation_completed, application: build(:application),
+                                                                   school_checks_completed_at: 10.days.ago, banking_approval_completed_at: 5.days.ago)
+    create(:application_progress, :payment_confirmation_completed, application: build(:application),
+                                                                   school_checks_completed_at: 20.days.ago, banking_approval_completed_at: 10.days.ago)
+    create(:application_progress, :payment_confirmation_completed, application: build(:application),
+                                                                   school_checks_completed_at: 30.days.ago, banking_approval_completed_at: 15.days.ago)
+  end
+
+  def given_there_are_applications_with_payment_confirmation
+    create(:application_progress, :payment_confirmation_completed, application: build(:application),
+                                                                   banking_approval_completed_at: 10.days.ago, payment_confirmation_completed_at: 5.days.ago)
+    create(:application_progress, :payment_confirmation_completed, application: build(:application),
+                                                                   banking_approval_completed_at: 20.days.ago, payment_confirmation_completed_at: 10.days.ago)
+    create(:application_progress, :payment_confirmation_completed, application: build(:application),
+                                                                   banking_approval_completed_at: 30.days.ago, payment_confirmation_completed_at: 15.days.ago)
   end
 
   def when_i_am_in_the_dashboard_page
@@ -189,7 +205,7 @@ describe "Dashboard" do
 
   def then_i_can_see_the_total_rejections_widget
     within ".kpi-widget.rejections" do
-      expect(page).to have_content("Total Rejections")
+      expect(page).to have_content("Rejections")
       expect(page).to have_content("2")
     end
   end
@@ -221,7 +237,7 @@ describe "Dashboard" do
   def then_i_can_see_the_subject_breakdown_widget
     within ".kpi-widget.subjects" do
       expect(page).to have_content("Subjects")
-      expect(page).to have_content("General Science")
+      expect(page).to have_content("General/combined science, including physics")
       expect(page).to have_content("Languages")
       expect(page).to have_content("Physics")
       expect(page).to have_content("1")
@@ -262,7 +278,8 @@ describe "Dashboard" do
 
   def then_i_can_see_the_initial_checks_approval_average_time_widget
     within ".kpi-widget.initial-checks-average" do
-      expect(page).to have_content("Time to Initial Checks")
+      expect(page).to have_content("Initial Checks")
+      expect(page).to have_content("Average Completion Time")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
       expect(page).to have_content("5 days/15 days")
@@ -271,7 +288,8 @@ describe "Dashboard" do
 
   def then_i_can_see_the_home_office_checks_time_widget
     within ".kpi-widget.home-office-checks-average" do
-      expect(page).to have_content("Time to HO Checks")
+      expect(page).to have_content("Home Office Checks")
+      expect(page).to have_content("Average Completion Time")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
       expect(page).to have_content("5 days/15 days")
@@ -280,19 +298,31 @@ describe "Dashboard" do
 
   def then_i_can_see_the_school_checks_time_widget
     within ".kpi-widget.school-checks-average" do
-      expect(page).to have_content("Time to School Checks")
+      expect(page).to have_content("School Checks")
+      expect(page).to have_content("Average Completion Time")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
       expect(page).to have_content("5 days/15 days")
     end
   end
 
-  def then_i_can_see_the_payment_completed_time_widget
+  def then_i_can_see_the_banking_approval_completed_time_widget
     within ".kpi-widget.banking-approval-average" do
-      expect(page).to have_content("Time to Banking Approval")
+      expect(page).to have_content("Banking Approval")
+      expect(page).to have_content("Average Completion Time")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
       expect(page).to have_content("5 days/15 days")
+    end
+  end
+
+  def then_i_can_see_the_payment_confirmation_time_widget
+    within ".kpi-widget.payment-confirmation-average" do
+      expect(page).to have_content("Payment Confirmation")
+      expect(page).to have_content("Average Completion Time")
+      expect(page).to have_content("10 days")
+      expect(page).to have_content("Min/Max")
+      expect(page).to have_content("15 days/5 days")
     end
   end
 end

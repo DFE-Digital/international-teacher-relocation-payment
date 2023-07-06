@@ -11,11 +11,12 @@ require "factory_bot_rails"
   teacher_application
   salaried_trainee_application
 ].each do |factory|
-  FactoryBot.create_list(factory, 5, :with_initial_checks_completed)
-  FactoryBot.create_list(factory, 5, :with_visa_investigation_required)
-  FactoryBot.create_list(factory, 5, :with_home_office_checks_completed)
-  FactoryBot.create_list(factory, 5, :with_school_investigation_required)
-  FactoryBot.create_list(factory, 5, :with_school_checks_completed)
-  FactoryBot.create_list(factory, 5, :with_payment_completed)
   FactoryBot.create_list(factory, 5, :with_rejection_completed)
+  FactoryBot.create_list(factory, 5, :with_payment_confirmation_completed)
+  FactoryBot.create_list(factory, 5, :with_banking_approval_completed)
+  FactoryBot.create_list(factory, 5, :with_school_checks_completed)
+  FactoryBot.create_list(factory, 5, :with_school_investigation_required)
+  FactoryBot.create_list(factory, 5, :with_home_office_checks_completed)
+  FactoryBot.create_list(factory, 5, :with_visa_investigation_required)
+  FactoryBot.create_list(factory, 5, :with_initial_checks_completed)
 end

@@ -16,7 +16,7 @@ class Kpis
   end
 
   def total_paid
-    ApplicationProgress.where.not(payment_completed_at: nil).count
+    ApplicationProgress.where.not(banking_approval_completed_at: nil).count
   end
 
   def route_breakdown
@@ -53,5 +53,9 @@ class Kpis
 
   def time_to_banking_approval
     TimeToBankingApprovalQuery.new.call
+  end
+
+  def time_to_payment_confirmation
+    TimeToPaymentConfirmationQuery.new.call
   end
 end
