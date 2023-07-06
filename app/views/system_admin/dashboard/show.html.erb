@@ -101,4 +101,12 @@
     <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>
   </div>
 
+  <div class="kpi-widget banking-approval-average">
+    <% checks =  @kpis.time_to_banking_approval %>
+    <h3 class="title">Time to Banking Approval</h3>
+    <p class="value"><%= duration_in_words(checks[:average]) %></p>
+    <hr>
+    <h5 class="title">Min/Max</h5>
+    <p class="value-small"><%= checks[:min] %>/<%= checks[:max] %></p>
+  </div>
 </div>

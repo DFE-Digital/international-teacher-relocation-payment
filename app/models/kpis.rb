@@ -50,4 +50,8 @@ class Kpis
   def time_to_school_checks
     TimeToSchoolChecksQuery.new.call
   end
+
+  def time_to_banking_approval
+    TimeToBankingApprovalQuery.new.call
+  end
 end

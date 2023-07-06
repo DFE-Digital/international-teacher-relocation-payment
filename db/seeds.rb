@@ -16,4 +16,6 @@ require "factory_bot_rails"
   FactoryBot.create_list(factory, 5, :with_home_office_checks_completed)
   FactoryBot.create_list(factory, 5, :with_school_investigation_required)
   FactoryBot.create_list(factory, 5, :with_school_checks_completed)
+  FactoryBot.create_list(factory, 5, :with_payment_completed)
+  FactoryBot.create_list(factory, 5, :with_rejection_completed)
 end
