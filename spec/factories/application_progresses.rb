@@ -8,6 +8,7 @@
 #  initial_checks_completed_at       :date
 #  payment_confirmation_completed_at :date
 #  rejection_completed_at            :date
+#  rejection_reason                  :text
 #  school_checks_completed_at        :date
 #  school_investigation_required     :boolean          default(FALSE), not null
 #  visa_investigation_required       :boolean          default(FALSE), not null
