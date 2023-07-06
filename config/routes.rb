@@ -11,16 +11,16 @@ Rails.application.routes.draw do
 
   namespace :applicants do
     resources :application_routes, only: %i[new create]
-    resources :school_details, only: %i[new create]
-    resources :contract_details, only: %i[new create]
-    resources :contract_start_dates, only: %i[new create]
-    resources :subjects, only: %i[new create]
-    resources :teaching_details, only: %i[new create]
-    resources :visas, only: %i[new create]
-    resources :entry_dates, only: %i[new create]
-    resources :personal_details, only: %i[new create]
-    resources :employment_details, only: %i[new create]
-    resources :salaried_course_details, only: %i[new create]
+    resources :school_details, only: %i[new create edit]
+    resources :contract_details, only: %i[new create edit]
+    resources :contract_start_dates, only: %i[new create edit]
+    resources :subjects, only: %i[new create edit]
+    resources :teaching_details, only: %i[new create edit]
+    resources :visas, only: %i[new create edit]
+    resources :entry_dates, only: %i[new create edit]
+    resources :personal_details, only: %i[new create edit]
+    resources :employment_details, only: %i[new create edit]
+    resources :salaried_course_details, only: %i[new create edit]
     resource :submission, only: %i[show]
   end
 
