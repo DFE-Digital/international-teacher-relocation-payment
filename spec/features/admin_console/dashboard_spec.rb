@@ -322,7 +322,7 @@ describe "Dashboard" do
       expect(page).to have_content("Average Completion Time")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
-      expect(page).to have_content("15 days/5 days")
+      expect(page).to have_content("5 days/15 days")
     end
   end
 end
