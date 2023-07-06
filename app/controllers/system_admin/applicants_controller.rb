@@ -10,12 +10,12 @@ module SystemAdmin
     include Pagy::Backend
 
     def index
-      @pagy, @applicants = pagy(Applicant.order(created_at: :desc))
+      @pagy, @applications = pagy(Application.order(created_at: :desc))
 
       respond_to do |format|
         format.html
         format.csv do
-          send_data(@applicants.to_csv, filename: "#{Time.zone.today}_GaIRP_applications.csv")
+          send_data(@applications.to_csv, filename: "#{Time.zone.today}_GaIRP_applications.csv")
         end
       end
     end
