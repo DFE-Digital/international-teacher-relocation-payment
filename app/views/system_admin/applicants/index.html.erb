@@ -1,57 +1,43 @@
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds-from-desktop">
-    <h1 class="govuk-heading-l">Applications</h1>
-  </div>
-</div>
-
-<div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <p class="govuk-body">
+    <!-- <p class="govuk-body">
       <%= govuk_link_to("Export applications", applicants_path(format: :csv), { class: "govuk-button" }) %>
-    </p>
+    </p> -->
 
-    <table class="govuk-table" summary="Application list">
-      <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Application received</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Application type</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Name</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-fifth no-wrap">Email</th>
-      </tr>
-      </thead>
+    <%= govuk_table do |table|
+      table.with_caption(size: 'm', text: 'List of Applications')
+      table.with_head do |head|
+        head.with_row do |row|
+          row.with_cell(text: 'URN')
+          row.with_cell(text: 'Name')
+          row.with_cell(text: 'Email')
+          row.with_cell(text: 'Passport')
+          row.with_cell(text: 'Submitted')
+          row.with_cell(text: 'Initial Checks')
+          row.with_cell(text: 'HO Checks')
+          row.with_cell(text: 'School Checks')
+          row.with_cell(text: 'Banking Approved')
+          row.with_cell(text: 'Rejected')
+        end
+      end 
 
-      <tbody class="govuk-table__body">
-      <% @applicants&.each do |applicant| %>
-        <tr class="govuk-table__row user-row">
-          <td class="govuk-table__cell">
-              <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-                <%= applicant.created_at.to_fs(:govuk_date_and_time) %>
-              </span>
-          </td>
-
-          <td class="govuk-table__cell">
-              <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-                <%= applicant.application.application_route&.humanize || "-" %>
-              </span>
-          </td>
-
-          <td class="govuk-table__cell">
-              <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-                <%= govuk_link_to(applicant.full_name, applicant_path(applicant)) %>
-              </span>
-          </td>
-
-          <td class="govuk-table__cell">
-              <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-                <%= applicant.email_address %>
-              </span>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+      table.with_body do |body|
+        @applications.each do |application|
+          body.with_row do |row|
+            row.with_cell(text: govuk_link_to(application.urn, applicant_path(application.applicant)))
+            row.with_cell(text: application.applicant.full_name)
+            row.with_cell(text: application.applicant.email_address)
+            row.with_cell(text: application.applicant.passport_number)
+            row.with_cell(text: application.application_progress.created_at&.to_date&.to_fs(:govuk_date_and_time))
+            row.with_cell(text: application.application_progress.initial_checks_completed_at&.to_fs(:govuk_date_and_time))
+            row.with_cell(text: application.application_progress.home_office_checks_completed_at&.to_fs(:govuk_date_and_time))
+            row.with_cell(text: application.application_progress.school_checks_completed_at&.to_fs(:govuk_date_and_time))
+            row.with_cell(text: application.application_progress.payment_completed_at&.to_fs(:govuk_date_and_time))
+            row.with_cell(text: application.application_progress.rejection_completed_at&.to_fs(:govuk_date_and_time))
+          end 
+        end 
+      end
+ end %>
 
     <%= govuk_pagination(pagy: @pagy) %>
-  </div>
-</div>

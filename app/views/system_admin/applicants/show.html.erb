@@ -7,7 +7,7 @@
 
 <div class="govuk-grid-row">
   <div class ="govuk-grid-column-two-thirds-from-desktop">
-    <span class="govuk-caption-l"><%= @applicant.application_route&.humanize %></span>
+    <span class="govuk-caption-l"><%= @applicant.application.application_route&.humanize %></span>
     <h1 class="govuk-heading-l">
       <%= @applicant.full_name %>
     </h1>
@@ -160,7 +160,7 @@
           Subject
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.subject %>
+          <%= @applicant.application.subject %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -181,7 +181,7 @@
           Visa type
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.visa_type %>
+          <%= @applicant.application.visa_type %>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -189,7 +189,7 @@
           Date of entry
         </dt>
         <dd class="govuk-summary-list__value">
-          <%= @applicant.date_of_entry.to_fs(:govuk) %>
+          <%= @applicant.application.date_of_entry.to_fs(:govuk) %>
         </dd>
       </div>
     </dl>
