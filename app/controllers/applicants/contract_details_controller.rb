@@ -5,7 +5,7 @@ module Applicants
     before_action :check_teacher!
 
     def new
-      @contract_detail = ContractDetail.new
+      @contract_detail = ContractDetail.new(one_year: params[:one_year])
     end
 
     def create
