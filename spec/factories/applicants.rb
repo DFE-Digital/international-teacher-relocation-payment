@@ -32,10 +32,10 @@ FactoryBot.define do
     phone_number { Faker::PhoneNumber.cell_phone_in_e164 }
     sex { %w[female male].sample }
 
-    school factory: %i[school], strategy: :build
+    school factory: %i[school], strategy: :create
 
-    after(:build) do |applicant|
-      build(:address, addressable: applicant)
+    after(:create) do |applicant|
+      create(:address, addressable: applicant)
     end
   end
 end

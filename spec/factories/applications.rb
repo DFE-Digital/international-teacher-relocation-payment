@@ -33,13 +33,13 @@ FactoryBot.define do
     factory :teacher_application do
       application_route { "teacher" }
       subject { Applicants::Subject::TEACHER_SUBJECTS.sample }
-      applicant strategy: :build, factory: :applicant
+      applicant strategy: :create, factory: :applicant
     end
 
     factory :salaried_trainee_application do
       application_route { "salaried_trainee" }
       subject { Applicants::Subject::TRAINEE_SUBJECTS.sample }
-      applicant strategy: :build, factory: :applicant
+      applicant strategy: :create, factory: :applicant
     end
 
     trait :submitted do

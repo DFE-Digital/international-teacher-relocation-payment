@@ -95,6 +95,25 @@ end %>
           row.with_value(text: @applicant.passport_number)
         end 
     end %>
+    <h4 class="govuk-heading-m">Applicant Address</h4>
+    <%= govuk_summary_list(actions: false) do |summary_list|
+        summary_list.with_row do |row|
+          row.with_key(text: 'Address line 1')
+          row.with_value(text: @applicant.address&.address_line_1)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Address line 2')
+          row.with_value(text: @applicant.address&.address_line_2)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'City')
+          row.with_value(text: @applicant.address&.city)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Postcode')
+          row.with_value(text: @applicant.address&.postcode)
+        end 
+    end %>
 
     <h2 class="govuk-heading-m">School details</h2>
     <%= govuk_summary_list(actions: false) do |summary_list|
@@ -103,16 +122,31 @@ end %>
           row.with_value(text: @applicant.school.name)
         end 
         summary_list.with_row do |row|
-          row.with_key(text: 'School postcode')
-          row.with_value(text: @applicant.school.postcode)
-        end 
-        summary_list.with_row do |row|
           row.with_key(text: 'Subject')
           row.with_value(text: @applicant.application.subject.capitalize)
         end 
         summary_list.with_row do |row|
           row.with_key(text: 'School headteacher name')
           row.with_value(text: @applicant.school.headteacher_name)
+        end 
+    end %>
+    <h4 class="govuk-heading-m">School Address</h4>
+    <%= govuk_summary_list(actions: false) do |summary_list|
+        summary_list.with_row do |row|
+          row.with_key(text: 'Address line 1')
+          row.with_value(text: @applicant.school.address&.address_line_1)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Address line 2')
+          row.with_value(text: @applicant.school.address&.address_line_2)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'City')
+          row.with_value(text: @applicant.school.address&.city)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Postcode')
+          row.with_value(text: @applicant.school.address&.postcode)
         end 
     end %>
 

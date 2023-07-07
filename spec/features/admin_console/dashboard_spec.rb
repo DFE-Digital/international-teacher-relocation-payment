@@ -226,7 +226,7 @@ describe "Dashboard" do
 
   def then_i_can_see_the_route_breakdown_widget
     within ".kpi-widget.routes" do
-      expect(page).to have_content("Routes")
+      expect(page).to have_content("Route")
       expect(page).to have_content("Teacher")
       expect(page).to have_content("2")
       expect(page).to have_content("Salaried Trainee")
@@ -236,7 +236,7 @@ describe "Dashboard" do
 
   def then_i_can_see_the_subject_breakdown_widget
     within ".kpi-widget.subjects" do
-      expect(page).to have_content("Subjects")
+      expect(page).to have_content("Subject")
       expect(page).to have_content("General/combined science, including physics")
       expect(page).to have_content("Languages")
       expect(page).to have_content("Physics")
@@ -271,7 +271,7 @@ describe "Dashboard" do
 
   def then_i_can_see_the_gender_breakdown_widget
     within ".kpi-widget.genders" do
-      expect(page).to have_content("Genders")
+      expect(page).to have_content("Gender")
       expect(page).to have_content("Male").or have_content("Female")
     end
   end
@@ -308,7 +308,7 @@ describe "Dashboard" do
 
   def then_i_can_see_the_banking_approval_completed_time_widget
     within ".kpi-widget.banking-approval-average" do
-      expect(page).to have_content("Banking Approval")
+      expect(page).to have_content("Bank details approved")
       expect(page).to have_content("Average Completion Time")
       expect(page).to have_content("10 days")
       expect(page).to have_content("Min/Max")
