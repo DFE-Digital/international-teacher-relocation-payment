@@ -3,7 +3,7 @@
 module Applicants
   class ApplicationRoutesController < ApplicationController
     def new
-      @application_route = ApplicationRoute.new
+      @application_route = ApplicationRoute.new(application_route: params[:application_route])
     end
 
     def create
