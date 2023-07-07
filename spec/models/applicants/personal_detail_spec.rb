@@ -30,7 +30,7 @@ module Applicants
       include_examples "a valid UK postcode", described_class
       include_examples "validates phone number with international prefix", described_class, :phone_number
 
-      describe ".load" do
+      describe "#applicant=" do
         let(:applicant) do
           create(:applicant,
                  given_name: "John",
@@ -48,7 +48,7 @@ module Applicants
                                 postcode: "SW1A 1AA"))
         end
 
-        subject(:model) { described_class.load(applicant) }
+        subject(:model) { described_class.new(applicant:) }
 
         it "loads the applicant's personal details" do
           expect(model).to have_attributes(
