@@ -3,7 +3,7 @@
 module Applicants
   class PersonalDetailsController < ApplicationController
     def new
-      @personal_detail = PersonalDetail.new
+      @personal_detail = PersonalDetail.new(applicant: current_application.applicant)
     end
 
     def create
