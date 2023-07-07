@@ -48,6 +48,8 @@ describe "teacher route: completing the form" do
       and_i_enter_my_entry_date("teacher")
       and_i_enter_my_personal_details
 
+      # We're now on the employment details page
+      # We start going backwards
       when_i_click_the_back_link
       assert_i_am_in_the_personal_details_question
 

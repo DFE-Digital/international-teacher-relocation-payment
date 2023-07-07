@@ -28,7 +28,7 @@
         <%= f.govuk_text_field :postcode, label: { text: t("applicants.personal_details.postcode"), size: "s"} %>
       <% end %>
 
-      <%= f.govuk_select(:nationality, NATIONALITIES, label: { text: t("applicants.personal_details.nationality") , size: "s" }) %>
+      <%= f.govuk_select(:nationality, NATIONALITIES.dup.unshift(nil), label: { text: t("applicants.personal_details.nationality") , size: "s" }) %>
 
       <%= f.govuk_radio_buttons_fieldset(:sex, legend: { text: t("applicants.personal_details.sex"), size: "s" }) do %>
         <% Applicants::PersonalDetail::SEX_OPTIONS.each_with_index do |value, i| %>
