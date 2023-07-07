@@ -35,7 +35,7 @@ describe "Applications List" do
       expect(page).to have_content("Initial Checks")
       expect(page).to have_content("Home Office Checks")
       expect(page).to have_content("School Checks")
-      expect(page).to have_content("Banking Approved")
+      expect(page).to have_content("Bank Details Approved")
       expect(page).to have_content("Rejected")
     end
   end
