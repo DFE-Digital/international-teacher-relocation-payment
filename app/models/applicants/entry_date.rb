@@ -11,6 +11,12 @@ module Applicants
       DayMonthYearDateValidator.new.validate(record)
     end
 
+    def entry_date=(entry_date)
+      @day = entry_date&.day
+      @month = entry_date&.month
+      @year = entry_date&.year
+    end
+
     def entry_date
       return InvalidDate.new(day:, month:, year:) if year.blank?
 
