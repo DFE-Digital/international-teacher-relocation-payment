@@ -9,7 +9,7 @@
 
       <%= f.govuk_select(
             :visa_type,
-            Applicants::Visa::VISA_OPTIONS,
+            Applicants::Visa::VISA_OPTIONS.dup.unshift(nil),
             label: { text: t("applicants.visa.title"), tag: "h1", size: "l" },
             include_blank: true
           ) %>
