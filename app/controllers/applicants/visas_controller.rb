@@ -3,7 +3,7 @@
 module Applicants
   class VisasController < ApplicationController
     def new
-      @visa = Visa.new
+      @visa = Visa.new(visa_type: current_application.visa_type)
     end
 
     def create
