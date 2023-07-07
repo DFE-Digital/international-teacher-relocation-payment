@@ -24,6 +24,21 @@ class Application < ApplicationRecord
 
   scope :submitted, -> { where.not(urn: nil) }
 
+  scope :search, lambda { |term|
+                   return if term.blank?
+
+                   term = "%#{term.downcase}%"
+                   joins(:applicant).where(
+                     "LOWER(applications.urn) LIKE :term OR
+       LOWER(applicants.email_address) LIKE :term OR
+       LOWER(applicants.passport_number) LIKE :term OR
+       LOWER(CONCAT(applicants.given_name, ' ', applicants.family_name)) LIKE :term OR
+       LOWER(applicants.given_name) LIKE :term OR
+       LOWER(applicants.family_name) LIKE :term",
+                     term:,
+                   )
+                 }
+
   with_options if: :submitted? do
     validates(:application_date, presence: true)
     validates(:application_route, presence: true)
