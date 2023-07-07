@@ -3,7 +3,7 @@
 module Applicants
   class SubjectsController < ApplicationController
     def new
-      @subject = Subject.new
+      @subject = Subject.new(subject: current_application.subject)
     end
 
     def create
