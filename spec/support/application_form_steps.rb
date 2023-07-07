@@ -140,6 +140,10 @@ RSpec.shared_context "with common application form steps" do
     expect(page).to have_text(I18n.t("applicants.application_routes.title"))
   end
 
+  def assert_i_am_in_the_trainee_employment_conditions_question
+    expect(page).to have_text(I18n.t("applicants.salaried_course.title"))
+  end
+
   def and_i_complete_the_trainee_employment_conditions(choose: "Yes")
     choose == "Yes" ? choose_yes : choose_no
   end
