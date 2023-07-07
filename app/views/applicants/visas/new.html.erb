@@ -8,11 +8,11 @@
       <%= f.govuk_error_summary %>
 
       <%= f.govuk_select(
-        :visa_type,
-        visa_options,
-        label: { text: t("applicants.visa.title"), tag: "h1", size: "l" },
-        include_blank: true
-        )%>
+            :visa_type,
+            Applicants::Visa::VISA_OPTIONS,
+            label: { text: t("applicants.visa.title"), tag: "h1", size: "l" },
+            include_blank: true
+          ) %>
 
       <%= f.govuk_submit %>
     <% end %>
