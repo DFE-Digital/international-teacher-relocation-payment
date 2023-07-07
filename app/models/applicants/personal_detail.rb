@@ -35,6 +35,25 @@ module Applicants
       InvalidDate.new(day:, month:, year:)
     end
 
+    def applicant=(applicant)
+      return unless applicant
+
+      self.given_name = applicant.given_name
+      self.family_name = applicant.family_name
+      self.email_address = applicant.email_address
+      self.phone_number = applicant.phone_number
+      self.day = applicant.date_of_birth.day
+      self.month = applicant.date_of_birth.month
+      self.year = applicant.date_of_birth.year
+      self.sex = applicant.sex
+      self.passport_number = applicant.passport_number
+      self.nationality = applicant.nationality
+      self.address_line_1 = applicant.address.address_line_1
+      self.address_line_2 = applicant.address.address_line_2
+      self.city = applicant.address.city
+      self.postcode = applicant.address.postcode
+    end
+
     def save!(application:)
       Applicant.create!(
         application: application,

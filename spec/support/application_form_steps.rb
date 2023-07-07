@@ -17,6 +17,14 @@ RSpec.shared_context "with common application form steps" do
     click_link("Start")
   end
 
+  def when_i_click_the_back_link
+    click_link("Back")
+  end
+
+  def when_i_click_the_continue_button
+    click_button("Continue")
+  end
+
   def and_i_complete_application_route_question_with(option:)
     raise "Unexpected option: #{option}" unless %w[salaried_trainee teacher].include?(option)
 
@@ -25,19 +33,25 @@ RSpec.shared_context "with common application form steps" do
     click_button("Continue")
   end
 
-  def and_i_select_my_subject
+  def and_i_select_my_subject(route)
+    assert_i_am_in_the_subject_question(route)
+
     choose("Physics")
 
     click_button("Continue")
   end
 
   def and_i_select_my_visa_type
+    assert_i_am_in_the_visa_type_question
+
     select("Family visa")
 
     click_button("Continue")
   end
 
-  def and_i_enter_my_entry_date
+  def and_i_enter_my_entry_date(route)
+    assert_i_am_in_the_entry_date_question(route)
+
     fill_in("Day", with: 12)
     fill_in("Month", with: 6)
     fill_in("Year", with: 2023)
@@ -46,6 +60,8 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_enter_my_personal_details
+    assert_i_am_in_the_personal_details_question
+
     fill_in("applicants_personal_detail[given_name]", with: "Bob")
     fill_in("applicants_personal_detail[family_name]", with: "Robertson")
     fill_in("applicants_personal_detail[email_address]", with: "test@example.com")
@@ -66,6 +82,8 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_enter_my_employment_details
+    assert_i_am_in_the_employment_details_question
+
     fill_in("applicants_employment_detail[school_headteacher_name]", with: "Mr Headteacher")
     fill_in("applicants_employment_detail[school_name]", with: "School name")
     fill_in("applicants_employment_detail[school_address_line_1]", with: "1, McSchool Street")
@@ -89,9 +107,29 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_enter_my_contract_start_date
+    assert_i_am_in_the_contract_start_date_question
+
     fill_in("Day", with: 12)
     fill_in("Month", with: 7)
     fill_in("Year", with: 2023)
+
+    click_button("Continue")
+  end
+
+  def and_i_complete_the_trainee_employment_conditions(choose: "Yes")
+    assert_i_am_in_the_trainee_employment_conditions_question
+
+    choose == "Yes" ? choose_yes : choose_no
+  end
+
+  def and_i_complete_the_trainee_contract_details_question
+    choose_yes
+  end
+
+  def and_i_enter_an_invalid_date
+    fill_in("Day", with: 31)
+    fill_in("Month", with: 2)
+    fill_in("Year", with: 2019)
 
     click_button("Continue")
   end

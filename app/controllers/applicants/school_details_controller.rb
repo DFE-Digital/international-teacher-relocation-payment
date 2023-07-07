@@ -2,10 +2,12 @@
 
 module Applicants
   class SchoolDetailsController < ApplicationController
+    before_action :check_application!
+
     before_action :check_teacher!
 
     def new
-      @school_detail = SchoolDetail.new
+      @school_detail = SchoolDetail.new(state_funded_secondary_school: params[:state_funded_secondary_school])
     end
 
     def create

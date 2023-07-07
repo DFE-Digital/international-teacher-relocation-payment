@@ -8,7 +8,7 @@
           row.with_cell(text: 'Initial Checks')
           row.with_cell(text: 'Home Office Checks')
           row.with_cell(text: 'School Checks')
-          row.with_cell(text: 'Banking Approved')
+          row.with_cell(text: 'Bank Details Approved')
           row.with_cell(text: 'Payment Confirmation')
           row.with_cell(text: 'Rejected')
         end
@@ -19,13 +19,13 @@
           body.with_row do |row|
             row.with_cell(text: govuk_link_to(application.urn, applicant_path(application.applicant)))
             row.with_cell(text: application.applicant.full_name)
-            row.with_cell(text: application.application_progress.created_at&.to_date&.to_fs(:govuk_date_and_time))
-            row.with_cell(text: application.application_progress.initial_checks_completed_at&.to_fs(:govuk_date_and_time))
-            row.with_cell(text: application.application_progress.home_office_checks_completed_at&.to_fs(:govuk_date_and_time))
-            row.with_cell(text: application.application_progress.school_checks_completed_at&.to_fs(:govuk_date_and_time))
-            row.with_cell(text: application.application_progress.banking_approval_completed_at&.to_fs(:govuk_date_and_time))
-            row.with_cell(text: application.application_progress.payment_confirmation_completed_at&.to_fs(:govuk_date_and_time))
-            row.with_cell(text: application.application_progress.rejection_completed_at&.to_fs(:govuk_date_and_time))
+            row.with_cell(text: application.application_progress.created_at&.to_date&.to_fs(:govuk_date))
+            row.with_cell(text: application.application_progress.initial_checks_completed_at&.to_fs(:govuk_date))
+            row.with_cell(text: application.application_progress.home_office_checks_completed_at&.to_fs(:govuk_date))
+            row.with_cell(text: application.application_progress.school_checks_completed_at&.to_fs(:govuk_date))
+            row.with_cell(text: application.application_progress.banking_approval_completed_at&.to_fs(:govuk_date))
+            row.with_cell(text: application.application_progress.payment_confirmation_completed_at&.to_fs(:govuk_date))
+            row.with_cell(text: application.application_progress.rejection_completed_at&.to_fs(:govuk_date))
           end 
         end 
       end

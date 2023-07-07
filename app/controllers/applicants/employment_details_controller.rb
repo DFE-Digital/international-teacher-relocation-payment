@@ -2,6 +2,7 @@
 
 module Applicants
   class EmploymentDetailsController < ApplicationController
+    before_action :check_application!
     def new
       @employment_detail = EmploymentDetail.new
     end

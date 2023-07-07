@@ -14,184 +14,152 @@
   </div>
 </div>
 
-<div class="govuk-grid-row">
-  <div class ="govuk-grid-column-full">
-    <p class="govuk-body">
-      <%= govuk_link_to "Update progress", edit_applicant_path(@applicant), class: "govuk-link" %>
-    </p>
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Application received
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @application.created_at.to_fs(:govuk_date_and_time) %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Initial checks completed
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @progress.initial_checks_completed_at&.to_fs(:govuk) %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Visa investigation required
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @progress.visa_investigation_required %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Home office checks completed
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @progress.home_office_checks_completed_at&.to_fs(:govuk) %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          School investigation required
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @progress.school_investigation_required %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          School checks completed
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @progress.school_checks_completed_at&.to_fs(:govuk) %>
-        </dd>
-      </div>
-    </dl>
-  </div>
-</div>
+<%= govuk_summary_card(title: "Application Progress") do |card|
+  card.with_action { govuk_link_to("Update Progress", edit_applicant_path(@applicant)) }
+  card.with_summary_list do |summary_list|
+    summary_list.with_row do |row|
+      row.with_key(text: 'Application Received')
+      row.with_value(text: @application.created_at&.to_fs(:govuk_date_and_time) ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'Initial Checks Completed')
+      row.with_value(text: @progress.initial_checks_completed_at&.to_fs(:govuk) ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'Home Office Checks Completed')
+      row.with_value(text: @progress.home_office_checks_completed_at&.to_fs(:govuk) ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'Home Office Investigation Required')
+      row.with_value(text: @progress.visa_investigation_required ? 'True' : 'False' ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'School Checks Completed')
+      row.with_value(text: @progress.school_checks_completed_at&.to_fs(:govuk) ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'School Investigation Required')
+      row.with_value(text: @progress.school_investigation_required ? 'True' : 'False' ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'Banking Details Approved')
+      row.with_value(text: @progress.banking_approval_completed_at&.to_fs(:govuk) ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'Payment Confirmation')
+      row.with_value(text: @progress.payment_confirmation_completed_at&.to_fs(:govuk) ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'Rejection Date')
+      row.with_value(text: @progress.rejection_completed_at&.to_fs(:govuk) ) 
+    end
+    summary_list.with_row do |row|
+      row.with_key(text: 'Rejection Reason')
+      row.with_value(text: @progress.rejection_reason ) 
+    end
+  end
+end %>
 
 <div class="govuk-grid-row">
   <div class ="govuk-grid-column-full">
 
     <h2 class="govuk-heading-m">Personal details</h2>
 
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Given name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.given_name %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Family name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.family_name %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Email address
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.email_address %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Phone number
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.phone_number %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Date of birth
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.date_of_birth.to_fs(:govuk) %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Nationality
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.nationality %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Passport number
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.passport_number %>
-        </dd>
-      </div>
-    </dl>
+    <%= govuk_summary_list(actions: false) do |summary_list|
+        summary_list.with_row do |row|
+          row.with_key(text: 'Given name')
+          row.with_value(text: @applicant.given_name)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Family name')
+          row.with_value(text: @applicant.family_name)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Email address')
+          row.with_value(text: @applicant.email_address)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Phone number')
+          row.with_value(text: @applicant.phone_number)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Date of birth')
+          row.with_value(text: @applicant.date_of_birth.to_fs(:govuk))
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Nationality')
+          row.with_value(text: @applicant.nationality)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Passport number')
+          row.with_value(text: @applicant.passport_number)
+        end 
+    end %>
+    <h4 class="govuk-heading-m">Applicant Address</h4>
+    <%= govuk_summary_list(actions: false) do |summary_list|
+        summary_list.with_row do |row|
+          row.with_key(text: 'Address line 1')
+          row.with_value(text: @applicant.address&.address_line_1)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Address line 2')
+          row.with_value(text: @applicant.address&.address_line_2)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'City')
+          row.with_value(text: @applicant.address&.city)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Postcode')
+          row.with_value(text: @applicant.address&.postcode)
+        end 
+    end %>
 
     <h2 class="govuk-heading-m">School details</h2>
-
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          School name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.school.name %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          School postcode
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.school.postcode %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Subject
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.application.subject %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          School headteacher name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.school.headteacher_name %>
-        </dd>
-      </div>
-    </dl>
+    <%= govuk_summary_list(actions: false) do |summary_list|
+        summary_list.with_row do |row|
+          row.with_key(text: 'School name')
+          row.with_value(text: @applicant.school.name)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Subject')
+          row.with_value(text: @applicant.application.subject.capitalize)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'School headteacher name')
+          row.with_value(text: @applicant.school.headteacher_name)
+        end 
+    end %>
+    <h4 class="govuk-heading-m">School Address</h4>
+    <%= govuk_summary_list(actions: false) do |summary_list|
+        summary_list.with_row do |row|
+          row.with_key(text: 'Address line 1')
+          row.with_value(text: @applicant.school.address&.address_line_1)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Address line 2')
+          row.with_value(text: @applicant.school.address&.address_line_2)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'City')
+          row.with_value(text: @applicant.school.address&.city)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Postcode')
+          row.with_value(text: @applicant.school.address&.postcode)
+        end 
+    end %>
 
     <h2 class="govuk-heading-m">Visa details</h2>
-
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Visa type
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.application.visa_type %>
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Date of entry
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <%= @applicant.application.date_of_entry.to_fs(:govuk) %>
-        </dd>
-      </div>
-    </dl>
+    <%= govuk_summary_list(actions: false) do |summary_list|
+        summary_list.with_row do |row|
+          row.with_key(text: 'Visa type')
+          row.with_value(text: @applicant.application.visa_type)
+        end 
+        summary_list.with_row do |row|
+          row.with_key(text: 'Date of entry')
+          row.with_value(text: @applicant.application.date_of_entry.to_fs(:govuk))
+        end 
+    end %>
   </div>
 </div>

@@ -2,8 +2,10 @@
 
 module Applicants
   class PersonalDetailsController < ApplicationController
+    before_action :check_application!
+
     def new
-      @personal_detail = PersonalDetail.new
+      @personal_detail = PersonalDetail.new(applicant: current_application.applicant)
     end
 
     def create

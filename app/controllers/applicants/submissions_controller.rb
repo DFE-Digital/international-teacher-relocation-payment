@@ -2,8 +2,12 @@
 
 module Applicants
   class SubmissionsController < ApplicationController
+    before_action :check_application!
+
     def show
-      @application = current_applicant.application
+      @application = current_application
+
+      session[:application_id] = nil
     end
   end
 end

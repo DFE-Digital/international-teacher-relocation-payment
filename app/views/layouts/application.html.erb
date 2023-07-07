@@ -40,6 +40,9 @@
       <div class="govuk-width-container">
         <%= yield :breadcrumbs %>
       </div>
+      <% if content_for?(:back_link) %>
+        <%= yield :back_link %>
+      <% end %>
 
       <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
         <%= yield %>

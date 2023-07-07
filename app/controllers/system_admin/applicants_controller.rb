@@ -25,7 +25,7 @@ module SystemAdmin
     def edit; end
 
     def update
-      if @applicant.update(applicant_params)
+      if @progress.update(applicant_params)
         redirect_to(applicant_path(@applicant))
       else
         render(:edit)
@@ -35,12 +35,16 @@ module SystemAdmin
   private
 
     def applicant_params
-      params.require(:applicant).permit(
+      params.require(:application_progress).permit(
         :initial_checks_completed_at,
         :visa_investigation_required,
         :home_office_checks_completed_at,
         :school_investigation_required,
         :school_checks_completed_at,
+        :banking_approval_completed_at,
+        :payment_confirmation_completed_at,
+        :rejection_completed_at,
+        :rejection_reason,
       )
     end
 
