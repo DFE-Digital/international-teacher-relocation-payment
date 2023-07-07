@@ -3,7 +3,7 @@
 module Applicants
   class EntryDatesController < ApplicationController
     def new
-      @entry_date = EntryDate.new
+      @entry_date = EntryDate.new(entry_date: current_application.date_of_entry)
     end
 
     def create
