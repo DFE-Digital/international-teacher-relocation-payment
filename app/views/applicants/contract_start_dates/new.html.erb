@@ -1,9 +1,13 @@
+<% content_for :back_link do %>
+  <%= link_to 'Back', new_applicants_contract_detail_path, class: 'govuk-back-link' %>
+<% end %>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
     <%= form_with(model: @contract_start_date, local: true) do |f| %>
 
       <%= f.govuk_error_summary %>
-      
+
       <%= f.govuk_date_field :contract_start_date, legend: { text: t("applicants.contract_start_dates.title"), tag: "h1", size: "l" } %>
 
       <%= f.govuk_submit %>
