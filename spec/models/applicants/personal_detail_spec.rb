@@ -30,6 +30,56 @@ module Applicants
       include_examples "a valid UK postcode", described_class
       include_examples "validates phone number with international prefix", described_class, :phone_number
 
+      describe ".load" do
+        let(:applicant) do
+          create(:applicant,
+                 given_name: "John",
+                 family_name: "Smith",
+                 email_address: "john.gmail.com",
+                 phone_number: "07777777777",
+                 date_of_birth: Date.new(2020, 3, 30),
+                 sex: "male",
+                 passport_number: "123456789",
+                 nationality: "Spanish",
+                 address: build(:address,
+                                address_line_1: "1 High Street",
+                                address_line_2: "Flat 1",
+                                city: "London",
+                                postcode: "SW1A 1AA"))
+        end
+
+        subject(:model) { described_class.load(applicant) }
+
+        it "loads the applicant's personal details" do
+          expect(model).to have_attributes(
+            given_name: "John",
+            family_name: "Smith",
+            email_address: "john.gmail.com",
+            phone_number: "07777777777",
+            sex: "male",
+            passport_number: "123456789",
+            nationality: "Spanish",
+          )
+        end
+
+        it "loads the applicant's date of birth" do
+          expect(model).to have_attributes(
+            day: 30,
+            month: 3,
+            year: 2020,
+          )
+        end
+
+        it "loads the applicant's address" do
+          expect(model).to have_attributes(
+            address_line_1: "1 High Street",
+            address_line_2: "Flat 1",
+            city: "London",
+            postcode: "SW1A 1AA",
+          )
+        end
+      end
+
       describe "save!" do
         let(:params) do
           {

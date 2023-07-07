@@ -35,6 +35,25 @@ module Applicants
       InvalidDate.new(day:, month:, year:)
     end
 
+    def self.load(applicant)
+      new.tap do |model|
+        model.given_name = applicant.given_name
+        model.family_name = applicant.family_name
+        model.email_address = applicant.email_address
+        model.phone_number = applicant.phone_number
+        model.day = applicant.date_of_birth.day
+        model.month = applicant.date_of_birth.month
+        model.year = applicant.date_of_birth.year
+        model.sex = applicant.sex
+        model.passport_number = applicant.passport_number
+        model.nationality = applicant.nationality
+        model.address_line_1 = applicant.address.address_line_1
+        model.address_line_2 = applicant.address.address_line_2
+        model.city = applicant.address.city
+        model.postcode = applicant.address.postcode
+      end
+    end
+
     def save!(application:)
       Applicant.create!(
         application: application,
