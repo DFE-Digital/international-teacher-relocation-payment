@@ -21,6 +21,10 @@ RSpec.shared_context "with common application form steps" do
     click_link("Back")
   end
 
+  def when_i_click_the_continue_button
+    click_button("Continue")
+  end
+
   def and_i_complete_application_route_question_with(option:)
     raise "Unexpected option: #{option}" unless %w[salaried_trainee teacher].include?(option)
 
@@ -113,6 +117,8 @@ RSpec.shared_context "with common application form steps" do
   end
 
   def and_i_complete_the_trainee_employment_conditions(choose: "Yes")
+    assert_i_am_in_the_trainee_employment_conditions_question
+
     choose == "Yes" ? choose_yes : choose_no
   end
 

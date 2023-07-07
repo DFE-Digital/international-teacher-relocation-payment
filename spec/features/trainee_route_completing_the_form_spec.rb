@@ -70,4 +70,39 @@ describe "trainee route: completing the form" do
       assert_i_am_in_the_application_route_question
     end
   end
+
+  describe "navigating backwards, then forward" do
+    it "allows the user to navigate back & forth" do
+      when_i_start_the_form
+      and_i_complete_application_route_question_with(option: "salaried_trainee")
+      and_i_complete_the_trainee_employment_conditions
+      and_i_enter_my_contract_start_date
+      and_i_select_my_subject("salaried_trainee")
+      and_i_select_my_visa_type
+      and_i_enter_my_entry_date("salaried_trainee")
+      and_i_enter_my_personal_details
+
+      # We're now on the employment details page
+      when_i_click_the_back_link
+      when_i_click_the_back_link
+      when_i_click_the_back_link
+      when_i_click_the_back_link
+      when_i_click_the_back_link
+      when_i_click_the_back_link
+      assert_i_am_in_the_trainee_employment_conditions_question
+
+
+      # We start going forward again from the first question
+      when_i_click_the_continue_button
+      assert_i_am_in_the_contract_start_date_question
+
+      when_i_click_the_continue_button
+      when_i_click_the_continue_button
+      when_i_click_the_continue_button
+      when_i_click_the_continue_button
+      when_i_click_the_continue_button
+
+      assert_i_am_in_the_employment_details_question
+    end
+  end
 end
