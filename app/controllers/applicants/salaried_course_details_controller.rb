@@ -5,7 +5,7 @@ module Applicants
     before_action :check_trainee!
 
     def new
-      @salaried_course_detail = SalariedCourseDetail.new
+      @salaried_course_detail = SalariedCourseDetail.new(eligible_course: params[:eligible_course])
     end
 
     def create
