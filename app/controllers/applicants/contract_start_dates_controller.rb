@@ -3,7 +3,7 @@
 module Applicants
   class ContractStartDatesController < ApplicationController
     def new
-      @contract_start_date = ContractStartDate.new
+      @contract_start_date = ContractStartDate.new(contract_start_date: current_application.start_date)
     end
 
     def create
