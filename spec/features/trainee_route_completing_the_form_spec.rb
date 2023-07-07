@@ -91,7 +91,6 @@ describe "trainee route: completing the form" do
       when_i_click_the_back_link
       assert_i_am_in_the_trainee_employment_conditions_question
 
-
       # We start going forward again from the first question
       when_i_click_the_continue_button
       assert_i_am_in_the_contract_start_date_question
