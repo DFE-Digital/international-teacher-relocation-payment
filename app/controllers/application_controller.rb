@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   delegate :application_route, to: :current_application
   helper_method :application_route
 
+  def check_application!
+    return if session["application_id"]
+
+    redirect_to(root_path)
+  end
+
   def current_application
     Application.find(session["application_id"])
   end

@@ -2,6 +2,7 @@
 
 module Applicants
   class ContractDetailsController < ApplicationController
+    before_action :check_application!
     before_action :check_teacher!
 
     def new
