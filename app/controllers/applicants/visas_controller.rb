@@ -2,6 +2,7 @@
 
 module Applicants
   class VisasController < ApplicationController
+    before_action :check_application!
     def new
       @visa = Visa.new(visa_type: current_application.visa_type)
     end

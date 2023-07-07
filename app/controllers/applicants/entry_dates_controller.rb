@@ -2,6 +2,8 @@
 
 module Applicants
   class EntryDatesController < ApplicationController
+    before_action :check_application!
+
     def new
       @entry_date = EntryDate.new(entry_date: current_application.date_of_entry)
     end

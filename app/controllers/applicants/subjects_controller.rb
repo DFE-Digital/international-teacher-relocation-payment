@@ -2,6 +2,7 @@
 
 module Applicants
   class SubjectsController < ApplicationController
+    before_action :check_application!
     def new
       @subject = Subject.new(subject: current_application.subject)
     end

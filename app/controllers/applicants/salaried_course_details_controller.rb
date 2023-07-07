@@ -2,6 +2,8 @@
 
 module Applicants
   class SalariedCourseDetailsController < ApplicationController
+    before_action :check_application!
+
     before_action :check_trainee!
 
     def new

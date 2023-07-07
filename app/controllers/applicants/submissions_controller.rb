@@ -2,6 +2,8 @@
 
 module Applicants
   class SubmissionsController < ApplicationController
+    before_action :check_application!
+
     def show
       @application = current_application
 
