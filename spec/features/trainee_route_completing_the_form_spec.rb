@@ -4,6 +4,7 @@ require "rails_helper"
 
 describe "trainee route: completing the form" do
   include_context "with common application form steps"
+  include_context "with common application form assertions"
 
   describe "navigating forward" do
     context "eligible users" do
