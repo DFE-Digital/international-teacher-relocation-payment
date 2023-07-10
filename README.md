@@ -54,7 +54,3 @@ To create a new ADR, run:
 ```bash
 adr new "Title of ADR"
 ```
-
-### Hosting
-
-TODO
