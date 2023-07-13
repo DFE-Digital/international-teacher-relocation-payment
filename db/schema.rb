@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_07_122123) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_073505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_07_122123) do
     t.date "rejection_completed_at"
     t.date "banking_approval_completed_at"
     t.text "rejection_reason"
+    t.integer "status", default: 0
   end
 
   create_table "applications", force: :cascade do |t|
