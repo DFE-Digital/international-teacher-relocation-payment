@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Settings" do
   include AdminHelpers
 
-  it "shows the settings page" do
+  it "shows the app_settings page" do
     given_i_am_signed_as_an_admin
     when_i_visit_the_settings_page
     then_i_should_see_the_settings_page
@@ -14,7 +14,7 @@ describe "Settings" do
 private
 
   def when_i_visit_the_settings_page
-    visit edit_settings_path
+    visit edit_app_settings_path
   end
 
   def then_i_should_see_the_settings_page
